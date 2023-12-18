@@ -38,6 +38,7 @@ h6 {
 .gameheadingmore {
   position: absolute;
   top: 2rem;
+  left: -0.1rem;
   display: flex;
 }
 
@@ -83,5 +84,50 @@ h6 {
   font-weight: normal;
   line-height: 20px;
   letter-spacing: 0.2px;
-  margin: 0.45rem;
+  margin: 0.6rem;
+}
+
+.overviewnav {
+  position: absolute;
+  top: 6rem;
+  left: -1rem;
+}
+
+.overviewnavlist {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  align-items: center;
+  display: flex;
+  overflow-x: auto;
+}
+.litem {
+  padding-left: 1rem;
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+a.lilink {
+  display: block;
+  color: rgba(245, 245, 245, 0.6);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+a.lilink:hover {
+  text-decoration: underline;
+  color: rgba(245, 245, 245, 0.6);
+}
+
+.active {
+  text-decoration: underline;
+  color: white;
+}
+
+.overview {
+  position: absolute;
+  top: 10rem;
 }
