@@ -3,3 +3,10 @@
   --color-main-page: rgb(18, 18, 18);
   --color-accent: #007aff;
 }
+
+/* how to use the variable:- 
+
+body {
+  background-color: var(--color-background-default);
+  color: var(--color-accent:);
+} */
