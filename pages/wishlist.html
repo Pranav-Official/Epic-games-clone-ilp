@@ -44,17 +44,40 @@
         </label>
       </div>
     </div>
-    <div class="sortoptn">
-      <span id="sort">Sort by:</span>
-      <select name="selectsort" id="sortingtype">
-        <option value="On Sale">On Sale</option>
-       <option value="Recently Added">Recently Added</option>
-       <option value="Alphabetical">Alphabetical</option>
-       <option value="Price:Low to High">Price:Low to High</option>
-       <option value="Price:High to Low">Price:High to Low</option>
-      </select>
+    <div class="sortnfilter">
+      <div class="sortoptn">
+        <span id="sort">Sort by:</span>
+        <select name="selectsort" id="sortingtype">
+          <option value="On Sale">On Sale</option>
+          <option value="Recently Added">Recently Added</option>
+          <option value="Alphabetical">Alphabetical</option>
+          <option value="Price:Low to High">Price:Low to High</option>
+          <option value="Price:High to Low">Price:High to Low</option>
+        </select>
       </div>
+      <div class="filteroptn"><p>Filters</p></div>
     </div>
-    <div class="wishlist"></div>
+    </div>
+    <div class="row">
+    <div class="wishlist">
+       <div class="wishimg"><img src="../assets/wishlist_images/wishlist1.PNG" alt="wishlist1"></div>
+       <img id="windows-icon" src="../assets/wishlist_images/windows-icon.svg" alt="windows-icon">
+       <div class="wishdetails"><p><button id="basegm">BASE GAME</button></p>
+        <button id="percentbtn">-15%</button><p id="strike">₹2,599</p><p id="price">₹2,209.15</p>
+        <p id="sales">Sale ends 1/10/2024 at 9:30 PM</p>
+         <h5>Ghostrunner 2</h5>
+         <img id="earn-icon" src="../assets/wishlist_images/earn-icon.svg" alt="earn icon">
+        <p id="des">Earn a boosted 10% back in Epic Rewards,offer ends in Jan 10.</p></div>
+        <a id="remove" href="#">Remove</a>
+        <button id="add2cart">ADD TO CART</button>
+    </div>
+    <div class="filtertypes">
+        <hr>
+        <div>EVENTS</div><hr>
+        <div>GENRE</div><hr>
+        <div>FEATURES</div><hr>
+        <div>PLATFORM</div><hr>
+    </div>
+    </div>
   </body>
 </html>
