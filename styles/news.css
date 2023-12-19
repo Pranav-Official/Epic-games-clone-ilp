@@ -75,3 +75,45 @@ p {
   font-size: 9px;
   color: rgba(245, 245, 245, 0.6);
 }
+a {
+  text-decoration-line: underline;
+  color: white;
+}
+.pagination {
+  margin-left: 40%;
+}
+.pagination a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+.pagination a.active {
+  background-color: grey;
+  color: white;
+  text-align: center;
+}
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  text-align: center;
+}
+hr {
+  height: 1px;
+  border-width: 0;
+  color: white;
+  background-color: gray;
+  margin-left: 14%;
+  margin-right: 14%;
+}
+.row {
+  display: flex;
+}
+.row-left {
+  flex: 1;
+  margin-left: 15%;
+}
+.row-right {
+  flex: 4;
+}
