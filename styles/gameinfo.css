@@ -131,3 +131,152 @@ a.lilink:hover {
   position: absolute;
   top: 10rem;
 }
+
+.round-button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 100%;
+  text-decoration: none;
+  background-color: #282c29;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect */
+.round-button:hover {
+  background-color: #333634;
+}
+
+.overviewbarflex {
+  display: flex;
+}
+
+.overviewimgbarthumb {
+  padding: 0.5rem;
+}
+.overviewimgbarcont {
+  margin: 0rem 5rem 0rem 5rem;
+  display: flex;
+}
+
+.gametext {
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+  width: 71%;
+  margin-top: 3rem;
+}
+
+.verticalline {
+  border-left: 1px solid rgba(245, 245, 245, 0.1); /* Adjust thickness and color as needed */
+  height: 8vh; /* Adjust height as needed */
+  padding-right: 1.5rem;
+}
+
+.genreheading {
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 14px;
+}
+
+.genreinquestionlist {
+  list-style-type: none;
+  display: flex;
+  margin-top: -0.14rem;
+  padding: 0;
+}
+
+a.genlink {
+  text-align: center;
+  text-decoration: underline;
+  display: block;
+  color: white;
+}
+
+.gnlitem {
+  padding-right: 0.5rem;
+}
+
+.genrefeatures {
+  display: flex;
+  margin-top: 3rem;
+  padding-right: 3rem;
+}
+
+.genrewhole {
+  display: flex;
+}
+
+.offerfaqtext {
+  width: 70%;
+  color: rgb(245, 245, 245);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.offerfaqbutton {
+  background-color: rgb(32, 32, 32);
+  border-radius: 4px;
+  margin-top: 0.8rem;
+  margin-left: 4rem;
+  width: 50%;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.offerfaq {
+  display: flex;
+  background-color: rgb(32, 32, 32);
+  width: 64%;
+  padding: 18px;
+  border-radius: 4px;
+  margin-top: 3rem;
+}
+.offerfaqbuttonbt {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.offerfaqbuttonenclose {
+  width: 28%;
+}
+
+.gamebigdescription {
+  margin-top: 3rem;
+}
+
+.gamebigparts {
+  width: 70%;
+  margin-bottom: 1rem;
+  color: rgba(245, 245, 245, 0.6);
+}
+
+.showmorebutton {
+  background-color: rgba(245, 245, 245, 0.3);
+  width: 41rem;
+  height: 3rem;
+  border-radius: 4px;
+  margin-top: 3rem;
+}
+
+a.showmorelinkpart {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 15px;
+}
+
+.svgcss-arow {
+  transform: rotate(90deg);
+  margin-top: 3rem;
+  margin-left: 10rem;
+}
