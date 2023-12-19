@@ -130,6 +130,7 @@ a.lilink:hover {
 .overview {
   position: absolute;
   top: 10rem;
+  display: flex;
 }
 
 .round-button {
@@ -167,7 +168,7 @@ a.lilink:hover {
   font-size: 18px;
   line-height: 25px;
   letter-spacing: -0.2px;
-  width: 71%;
+  width: 68%;
   margin-top: 3rem;
 }
 
@@ -233,7 +234,7 @@ a.genlink {
 .offerfaq {
   display: flex;
   background-color: rgb(32, 32, 32);
-  width: 64%;
+  width: 62%;
   padding: 18px;
   border-radius: 4px;
   margin-top: 3rem;
@@ -254,7 +255,7 @@ a.genlink {
 }
 
 .gamebigparts {
-  width: 70%;
+  width: 67%;
   margin-bottom: 1rem;
   color: rgba(245, 245, 245, 0.6);
 }
@@ -280,3 +281,214 @@ a.showmorelinkpart {
   margin-top: 3rem;
   margin-left: 10rem;
 }
+
+.overviewrighttitleimg {
+  position: absolute;
+
+  top: 2rem;
+  right: 8rem;
+}
+
+.overviewright {
+  position: relative;
+}
+
+.basegameelement {
+  font-size: 9px;
+  font-weight: bold;
+  position: absolute;
+  top: 12rem;
+  right: 15rem;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  display: inline;
+  text-align: center;
+  width: 4rem;
+  height: 1rem;
+  border-radius: 4px;
+}
+
+.priceanddiscount {
+  position: absolute;
+  top: 14rem;
+  right: 9.6rem;
+  display: flex;
+}
+.discount {
+  margin-right: 0.7rem;
+  font-size: 9px;
+  font-weight: bold;
+  align-items: center;
+  background-color: rgb(0, 116, 228);
+  color: rgb(245, 245, 245);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.slashedprice {
+  margin-right: 0.7rem;
+}
+
+.saleendinfo {
+  position: absolute;
+  width: 10rem;
+  font-size: 9px;
+  top: 16rem;
+  right: 9.3rem;
+  font-weight: 500;
+}
+
+.buynowbutton {
+  position: absolute;
+  top: 18rem;
+  right: 3.6rem;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(0, 116, 228);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2.4rem;
+  padding: 1px 6px;
+}
+
+a.buybuttonlink {
+  padding-top: 0.6rem;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: rgb(255, 255, 255);
+}
+
+.addtocartbutton {
+  position: absolute;
+  top: 21.3rem;
+  right: 3.6rem;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2.4rem;
+  padding: 1px 6px;
+}
+
+a.addtocartbuttonlink {
+  padding-top: 0.6rem;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: rgb(255, 255, 255);
+}
+
+.addtowishbutton {
+  position: absolute;
+  top: 24.5rem;
+  right: 3.6rem;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2rem;
+  padding: 1px 6px;
+}
+
+a.addtowishbuttonlink {
+  padding-bottom: 3%;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.epicrewardswithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 28.5rem;
+}
+.epicrewardspartwhole {
+  display: flex;
+}
+.epicrewardspart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 7rem;
+}
+.epicrewardspers {
+  width: 7.5rem;
+}
+
+.hrline {
+  width: 15.8rem;
+  color: rgb(48, 42, 42);
+  border: 0.1px solid;
+  margin: -125px 0px;
+}
+
+.refundwithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 31rem;
+}
+
+.refundpartwhole {
+  display: flex;
+}
+.refundpart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 7rem;
+}
+.refundtype {
+  width: 7.5rem;
+}
+
+.hrline1 {
+  width: 15.8rem;
+  color: rgb(48, 42, 42);
+  border: 0.1px solid;
+  margin: 4px 0px;
+}
+
+.devwithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 33.6rem;
+}
+
+.devpartwhole {
+  display: flex;
+}
+.devpart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 6.5rem;
+}
+.devwho {
+  width: 11rem;
+}
+
+.publisherwithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 35.8rem;
+}
+
+.publisherpartwhole {
+  display: flex;
+}
+.pubpart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 6.5rem;
+}
+.pubwho {
+  width: 11rem;
+}
+
+
