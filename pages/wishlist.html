@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishlist</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../styles/wishlist.css" />
+  </head>
+  <body>
+    <div class="wcontainer">
+      <div class="whead"><h1>Wishlist</h1></div>
+      <div class="wreward">
+        Epic Rewards<i class="bi bi-box-arrow-up-right"></i>
+        <span class="price">₹0.00</span>
+      </div>
+    </div>
+    <div class="preferences">
+      <div class="prefimg">
+        <img src="../assets/news_images/manage-pref-icon.PNG" alt="pref-icon" />
+      </div>
+      <div class="preferences-left">
+        <div class="pl1">
+          <p>You are subscribed to wishlist email notifications.</p>
+        </div>
+        <div class="pl2">
+          <a href="#">Manage preferences</a>
+          <i class="bi bi-box-arrow-up-right"></i>
+        </div>
+      </div>
+      <div class="preferences-right">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+    <div class="sortoptn">
+      <span id="sort">Sort by:</span>
+      <select name="selectsort" id="sortingtype">
+        <option value="On Sale">On Sale</option>
+       <option value="Recently Added">Recently Added</option>
+       <option value="Alphabetical">Alphabetical</option>
+       <option value="Price:Low to High">Price:Low to High</option>
+       <option value="Price:High to Low">Price:High to Low</option>
+      </select>
+      </div>
+    </div>
+    <div class="wishlist"></div>
+  </body>
+</html>
