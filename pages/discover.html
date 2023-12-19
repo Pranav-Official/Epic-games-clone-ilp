@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/discover.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-left-side">
+        <div class="store-options">
+          <div class="epic-logo">
+            <img class="epic-logo-image" src="../assets/epic-logo.png" />
+            <span aria-hidden="true" class="icon"
+              ><!--?lit$758340424$--><svg
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.53 7.47a.75.75 0 0 0-1.06 0L10 11.94 5.53 7.47a.75.75 0 0 0-1.06 1.06L10 14.06l5.53-5.53a.75.75 0 0 0 0-1.06Z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </span>
+          </div>
+          <div class="h-ruler"></div>
+          <div class="store-logo">
+            <img class="store-logo-image" src="../assets/store-logo.png" />
+          </div>
+        </div>
+        <div class="epic-pages">
+          <a class="epic-pages-link">Distribution</a>
+          <a class="epic-pages-link">Support</a>
+          <a class="epic-pages-link">Unreal Engine</a>
+        </div>
+      </div>
+      <div class="header-right-side">
+        <div class="profile">
+          <img src="../assets/profile.png" alt="" />
+        </div>
+        <button class="download-button">Download</button>
+      </div>
+    </header>
+    <div class="body-container">
+      <div class="head-navbar">
+        <div class="left-nav">
+          <div class="search-box">
+            <div class="search-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="search-icon"
+                viewBox="0 0 21 20"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <g
+                  transform="scale(1 -1) rotate(-45 -11.93502884 -2)"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <circle cx="7.70710678" cy="7.70710678" r="7"></circle>
+                  <path
+                    d="M15.2071068 8.62132034h5.6923881"
+                    stroke-linecap="square"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <input id="search-field" type="text" placeholder="Search" />
+          </div>
+          <div class="nav-links">
+            <a class="nav-link">Discover</a>
+            <a class="nav-link">Browse</a>
+            <a class="nav-link">News</a>
+          </div>
+        </div>
+        <div class="right-nav">
+          <div class="list-button">
+            <p class="list-test">Wish List</p>
+            <span class="list-count" id="wish-list-count"></span>
+          </div>
+          <div class="list-button">
+            <p class="list-text">Cart</p>
+            <span class="list-count" id="cart-count"></span>
+          </div>
+        </div>
+      </div>
+      <div class="sale-event-container">
+        <div class="sale-event">
+          <img
+            src="../assets/discover-page/holiday-sale.webp"
+            width="340"
+            alt=""
+          />
+        </div>
+        <div class="sale-event">
+          <img
+            src="../assets/discover-page/epic-coupon.webp"
+            width="340"
+            alt=""
+          />
+        </div>
+        <div class="sale-event">
+          <img
+            src="../assets/discover-page/giveaways.webp"
+            width="340"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="feature-games-carousal-container">
+        <div class="feature-games-carousal">
+          <img
+            src="../assets/discover-page/carousal-page-front-alanwake.jpg"
+            alt=""
+          />
+        </div>
+        <div class="carousal-icons-container">
+          <div class="carousal-icon-card">
+            <div class="carousal-icon-image">
+              <img src="../assets/discover-page/carousal-icons1.png" />
+            </div>
+            <div class="carousal-icon-text">EA SPORTS FC 2024</div>
+          </div>
+          <div class="carousal-icon-card">
+            <div class="carousal-icon-image">
+              <img src="../assets/discover-page/carousal-icons1.png" />
+            </div>
+            <div class="carousal-icon-text">EA SPORTS FC 2024</div>
+          </div>
+          <div class="carousal-icon-card">
+            <div class="carousal-icon-image">
+              <img src="../assets/discover-page/carousal-icons1.png" />
+            </div>
+            <div class="carousal-icon-text">EA SPORTS FC 2024</div>
+          </div>
+          <div class="carousal-icon-card">
+            <div class="carousal-icon-image">
+              <img src="../assets/discover-page/carousal-icons1.png" />
+            </div>
+            <div class="carousal-icon-text">EA SPORTS FC 2024</div>
+          </div>
+          <div class="carousal-icon-card">
+            <div class="carousal-icon-image">
+              <img src="../assets/discover-page/carousal-icons1.png" />
+            </div>
+            <div class="carousal-icon-text">EA SPORTS FC 2024</div>
+          </div>
+          <div class="carousal-icon-card">
+            <div class="carousal-icon-image">
+              <img src="../assets/discover-page/carousal-icons1.png" />
+            </div>
+            <div class="carousal-icon-text">EA SPORTS FC 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="sale-highlights">
+        <div class="sale-title">
+          <h1>Holiday Sale Spotlights</h1>
+          <div class="hightlight-change-buttons"></div>
+        </div>
+        <div class="game-cards-container" id="sale-highlights-game-cards">
+          <!-- sale-highlights-game-cards -->
+          <div class="game-card">
+            <div class="game-card-image">
+              <img
+                src="../assets/discover-page/sale-images/witchfire.webp"
+                alt=""
+              />
+            </div>
+            <p class="base-game">BASE GAME</p>
+            <h3 class="game-card-title">Witchfire</h3>
+            <div class="game-card-footer">
+              <p class="game-card-discount">-5%</p>
+              <h4 class="game-card-previous-price">₹1,429</h4>
+              <h4 class="game-card-current-price">₹1,286</h4>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-card-image">
+              <img
+                src="../assets/discover-page/sale-images/MortalKombat1.webp"
+                alt=""
+              />
+            </div>
+            <p class="base-game">BASE GAME</p>
+            <h3 class="game-card-title">Mortal Kombat 1</h3>
+            <div class="game-card-footer">
+              <p class="game-card-discount">-5%</p>
+              <h4 class="game-card-previous-price">₹1,429</h4>
+              <h4 class="game-card-current-price">₹1,286</h4>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-card-image">
+              <img
+                src="../assets/discover-page/sale-images/ghostrunner2.webp"
+                alt=""
+              />
+            </div>
+            <p class="base-game">BASE GAME</p>
+            <h3 class="game-card-title">GhostRunner 2</h3>
+            <div class="game-card-footer">
+              <p class="game-card-discount">-5%</p>
+              <h4 class="game-card-previous-price">₹1,429</h4>
+              <h4 class="game-card-current-price">₹1,286</h4>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-card-image">
+              <img
+                src="../assets/discover-page/sale-images/Hogwards.webp"
+                alt=""
+              />
+            </div>
+            <p class="base-game">BASE GAME</p>
+            <h3 class="game-card-title">Hogwards Legacy</h3>
+            <div class="game-card-footer">
+              <p class="game-card-discount">-5%</p>
+              <h4 class="game-card-previous-price">,₹1,429</h4>
+              <h4 class="game-card-current-price">₹1,286</h4>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-card-image">
+              <img
+                src="../assets/discover-page/sale-images/LordsOfThe.webp"
+                alt=""
+              />
+            </div>
+            <p class="base-game">BASE GAME</p>
+            <h3 class="game-card-title">Lords Of the Fallen</h3>
+            <div class="game-card-footer">
+              <p class="game-card-discount">-5%</p>
+              <h4 class="game-card-previous-price">₹1,429</h4>
+              <h4 class="game-card-current-price">₹1,286</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
