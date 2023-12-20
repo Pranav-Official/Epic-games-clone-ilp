@@ -201,7 +201,7 @@ option {
 .filteroptn p {
   color: rgb(245, 245, 245);
   text-align: left;
-  margin-left: 40%;
+  margin-left: 36%;
 }
 .row {
   display: flex;
@@ -338,4 +338,25 @@ option {
   font-size: 11px;
   letter-spacing: 0.5px;
   line-height: 1.625;
+}
+hr {
+  color: #ffffff1a;
+  border: 1px solid;
+}
+.ftypes {
+  font-size: 11px;
+  background-color: var(--color-background-default);
+  border-style: none;
+  color: #ccc;
+}
+#ftypes {
+  font-size: 11px;
+  background-color: var(--color-main-page);
+  border-style: none;
+  color: #ccc;
+}
+.pl1 p i {
+  margin-left: 3px;
+  margin-bottom: 3px;
+  fill: #ccc;
 }

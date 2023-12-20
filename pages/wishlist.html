@@ -30,11 +30,11 @@
       </div>
       <div class="preferences-left">
         <div class="pl1">
-          <p>You are subscribed to wishlist email notifications.</p>
+          <p>Receive email notifications about my wishlist.<i class="bi bi-question-circle"></i></p>
         </div>
         <div class="pl2">
-          <a href="#">Manage preferences</a>
-          <i class="bi bi-box-arrow-up-right"></i>
+          <!-- <a href="#">Manage preferences</a> -->
+          <!-- <i class="bi bi-box-arrow-up-right"></i> -->
         </div>
       </div>
       <div class="preferences-right">
@@ -73,10 +73,31 @@
     </div>
     <div class="filtertypes">
         <hr>
-        <div>EVENTS</div><hr>
-        <div>GENRE</div><hr>
-        <div>FEATURES</div><hr>
-        <div>PLATFORM</div><hr>
+        <div>
+             <select name="filtertyp" id="ftypes">
+               <option value="events">EVENTS</option>
+               <option value="volvo">Holiday Sale</option>
+               </select>
+        </div><hr>
+        <div>
+          <select name="filtertyp" id="ftypes">
+               <option value="genre">GENRE</option>
+               <option value="action">Action</option>
+               <option value="adventure">Adventure</option>
+          </select>
+        </div><hr>
+        <div> 
+           <select name="filtertyp" id="ftypes">
+               <option value="features">FEATURES</option>
+               <option value="player">Single Player</option>
+               </select>
+        </div><hr>
+        <div>
+            <select name="filtertyp" id="ftypes">
+               <option value="platform">PLATFORM</option>
+               <option value="windows">Windows</option>
+               </select>
+        </div><hr>
     </div>
     </div>
   </body>
