@@ -29,15 +29,26 @@ h6 {
 
 .game-heading {
   position: absolute;
+  top: 1rem;
+}
+
+.wholpage {
+  position: relative;
+}
+.headnavsizer {
+  position: absolute;
+  top: 9rem;
+  left: 7.9rem;
 }
 
 .game-page {
   position: relative;
-  margin: 7rem 8rem 0rem 8rem;
+  margin: 10rem 8rem 0rem 8rem;
+  padding-top: 4rem;
 }
 .game-heading-more {
   position: absolute;
-  top: 2rem;
+  top: 3rem;
   left: -0.1rem;
   display: flex;
 }
