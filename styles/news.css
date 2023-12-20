@@ -1,0 +1,131 @@
+:root {
+  --color-background-default: #18181c;
+  --color-main-page: rgb(18, 18, 18);
+  --color-accent: #007aff;
+}
+
+/* how to use the variable:- 
+
+body {
+  background-color: var(--color-background-default);
+  color: var(--color-accent:);
+} */
+body {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-main-page);
+  color: white;
+}
+.container {
+  font-size: 18px;
+  line-height: 1.4;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+h1 span {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #fff;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+.out-container {
+  padding-top: 0;
+}
+.news-top {
+  display: flex;
+}
+.card-one {
+  flex: 1;
+  height: auto;
+  width: auto;
+  margin-left: 15%;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+.card-two {
+  flex: 1;
+  height: auto;
+  width: auto;
+  margin-right: 20%;
+  border-radius: 10px;
+}
+.card-title {
+  color: rgb(245, 245, 245);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+.card-text {
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+p {
+  font-size: 9px;
+  color: rgba(245, 245, 245, 0.6);
+}
+a {
+  text-decoration-line: underline;
+  color: white;
+}
+.pagination {
+  margin-left: 40%;
+}
+.pagination a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+.pagination a.active {
+  background-color: grey;
+  color: white;
+  text-align: center;
+}
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  text-align: center;
+}
+hr {
+  height: 1px;
+  border-width: 0;
+  color: white;
+  background-color: gray;
+  margin-left: 14%;
+  margin-right: 14%;
+}
+.row {
+  display: flex;
+}
+.row-left {
+  flex: 1;
+  margin-left: 15%;
+}
+.row-right {
+  flex: 4;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishlist</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../styles/wishlist.css" />
+  </head>
+  <body>
+    <div class="wcontainer">
+      <div class="whead"><h1>Wishlist</h1></div>
+      <div class="wreward">
+        Epic Rewards<i class="bi bi-box-arrow-up-right"></i>
+        <span class="price">₹0.00</span>
+      </div>
+    </div>
+    <div class="preferences">
+      <div class="prefimg">
+        <img src="../assets/news_images/manage-pref-icon.PNG" alt="pref-icon" />
+      </div>
+      <div class="preferences-left">
+        <div class="pl1">
+          <p>Receive email notifications about my wishlist.<i class="bi bi-question-circle"></i></p>
+        </div>
+        <div class="pl2">
+          <!-- <a href="#">Manage preferences</a> -->
+          <!-- <i class="bi bi-box-arrow-up-right"></i> -->
+        </div>
+      </div>
+      <div class="preferences-right">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+    <div class="sortnfilter">
+      <div class="sortoptn">
+        <span id="sort">Sort by:</span>
+        <select name="selectsort" id="sortingtype">
+          <option value="On Sale">On Sale</option>
+          <option value="Recently Added">Recently Added</option>
+          <option value="Alphabetical">Alphabetical</option>
+          <option value="Price:Low to High">Price:Low to High</option>
+          <option value="Price:High to Low">Price:High to Low</option>
+        </select>
+      </div>
+      <div class="filteroptn"><p>Filters</p></div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="wishlist">
+       <div class="wishimg"><img src="../assets/wishlist_images/wishlist1.PNG" alt="wishlist1"></div>
+       <img id="windows-icon" src="../assets/wishlist_images/windows-icon.svg" alt="windows-icon">
+       <div class="wishdetails"><p><button id="basegm">BASE GAME</button></p>
+        <button id="percentbtn">-15%</button><p id="strike">₹2,599</p><p id="price">₹2,209.15</p>
+        <p id="sales">Sale ends 1/10/2024 at 9:30 PM</p>
+         <h5>Ghostrunner 2</h5>
+         <img id="earn-icon" src="../assets/wishlist_images/earn-icon.svg" alt="earn icon">
+        <p id="des">Earn a boosted 10% back in Epic Rewards,offer ends in Jan 10.</p></div>
+        <a id="remove" href="#">Remove</a>
+        <button id="add2cart">ADD TO CART</button>
+    </div>
+    <div class="filtertypes">
+        <hr>
+        <div>
+             <select name="filtertyp" id="ftypes">
+               <option value="events">EVENTS</option>
+               <option value="volvo">Holiday Sale</option>
+               </select>
+        </div><hr>
+        <div>
+          <select name="filtertyp" id="ftypes">
+               <option value="genre">GENRE</option>
+               <option value="action">Action</option>
+               <option value="adventure">Adventure</option>
+          </select>
+        </div><hr>
+        <div> 
+           <select name="filtertyp" id="ftypes">
+               <option value="features">FEATURES</option>
+               <option value="player">Single Player</option>
+               </select>
+        </div><hr>
+        <div>
+            <select name="filtertyp" id="ftypes">
+               <option value="platform">PLATFORM</option>
+               <option value="windows">Windows</option>
+               </select>
+        </div><hr>
+    </div>
+    </div>
+  </body>
+</html>

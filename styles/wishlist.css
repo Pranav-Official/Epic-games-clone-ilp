@@ -1,0 +1,366 @@
+:root {
+  --color-background-default: #18181c;
+  --color-main-page: rgb(18, 18, 18);
+  --color-accent: #007aff;
+}
+
+/* how to use the variable:- 
+
+body {
+  background-color: var(--color-background-default);
+  color: var(--color-accent:);
+} */
+body {
+  background-color: var(--color-main-page);
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+.wcontainer {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  margin-top: 2%;
+}
+.wcontainer h1 {
+  color: rgb(245, 245, 245);
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: -0.3px;
+  padding-top: 25px;
+}
+.whead {
+  flex: 1;
+}
+.wreward {
+  flex: 1;
+  color: rgba(245, 245, 245, 0.6);
+  text-align: right;
+  line-height: 35px;
+  padding-top: 25px;
+  font-size: 15px;
+}
+.bi-box-arrow-up-right {
+  color: rgba(245, 245, 245, 0.6);
+}
+.wreward i {
+  margin-left: 5px;
+}
+
+.preferences {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 1%;
+  background-color: #ffffff1a;
+  width: 80%;
+  height: 70px;
+  border-radius: 4px;
+  padding: 25px;
+  position: relative;
+}
+.preferences-left {
+  flex: 4;
+  color: rgb(245, 245, 245, 0.6);
+  display: flex;
+  flex-wrap: wrap;
+}
+.prefimg {
+  flex: 0.5;
+  position: absolute;
+  top: 20%;
+}
+.preferences-right {
+  flex: 3;
+  position: absolute;
+  right: 20px;
+}
+.preferences-left i {
+  margin-left: 0px;
+}
+.preferences-left a {
+  color: rgb(245, 245, 245, 0.6);
+  text-decoration: underline;
+}
+.pl1 {
+  flex: 1.5;
+  text-align: left;
+  margin-left: 8%;
+}
+.pl2 {
+  flex: 2.5;
+  text-align: left;
+  margin: left 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 2px;
+  right: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: rgb(17, 207, 89);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(17, 207, 89);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.wreward .price {
+  width: 50px;
+  height: 30px;
+  align-items: center;
+  border-radius: 40px;
+  padding: 5px 15px;
+  border: 1px solid rgba(245, 245, 245, 0.6);
+  background-color: rgb(32, 32, 32);
+  color: rgb(245, 245, 245);
+}
+#sort {
+  color: #f5f5f599;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  font-family: Inter, sans-serif;
+}
+#sortingtype {
+  background-color: var(--color-main-page);
+  color: rgb(245, 245, 245);
+  border-style: none;
+}
+option {
+  background-color: var(--color-main-page);
+  color: rgb(245, 245, 245);
+  border-style: none;
+}
+.sortnfilter {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 4%;
+}
+.sortoptn {
+  flex: 1;
+}
+.filteroptn {
+  flex: 1;
+}
+.filteroptn p {
+  color: rgb(245, 245, 245);
+  text-align: left;
+  margin-left: 36%;
+}
+.row {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 1px;
+}
+.wishlist {
+  flex: 2;
+  background-color: rgb(32, 32, 32);
+  width: 100%;
+  display: flex;
+}
+.filtertypes {
+  flex: 1;
+}
+.wishimg {
+  flex: 0.5;
+  padding: 20px;
+  padding-right: 10px;
+  border-radius: 10px;
+  padding-bottom: 70px;
+}
+.wishdetails {
+  flex: 2;
+  position: relative;
+}
+#basegm {
+  background-color: #ffffff1a;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: #ccc;
+  border-style: none;
+  font-size: 9px;
+  /* text-align: left;
+  margin-top: 30px;
+  margin-left: 10px; */
+  position: absolute;
+  left: 0;
+  top: 10%;
+}
+.wishdetails h5 {
+  color: #ccc;
+  position: absolute;
+  top: 25%;
+}
+#des {
+  color: #ccc;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+}
+#percentbtn {
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgb(0, 116, 228);
+  color: rgb(245, 245, 245);
+  border-radius: 4px;
+  padding-top: 2px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  border-style: none;
+  position: absolute;
+  right: 30%;
+  width: 40px;
+  height: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+#strike {
+  color: #f5f5f599;
+  text-decoration: line-through;
+  position: absolute;
+  right: 20%;
+}
+#price {
+  color: #ccc;
+  position: absolute;
+  right: 6%;
+}
+#sales {
+  color: #ccc;
+  font-size: 12px;
+  position: absolute;
+  right: 6%;
+  top: 18%;
+}
+#earn-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  color: #ccc;
+}
+#windows-icon {
+  position: absolute;
+  bottom: 26%;
+  left: 12%;
+  width: 20px;
+  height: 15px;
+}
+#remove {
+  color: #f5f5f599;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 25%;
+  right: 52%;
+}
+#add2cart {
+  color: rgb(245, 245, 245);
+  background-color: rgb(32, 32, 32);
+  border: 1px solid rgba(245, 245, 245, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 23%;
+  right: 40%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  line-height: 15px;
+  padding: 0px 20px;
+  height: 50px;
+}
+#add2cart:hover {
+  background-color: #ffffff1a;
+}
+.filtertypes {
+  margin-left: 35px;
+  color: #ccc;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  line-height: 1.625;
+}
+hr {
+  color: #ffffff1a;
+  border: 1px solid;
+}
+.ftypes {
+  font-size: 11px;
+  background-color: var(--color-background-default);
+  border-style: none;
+  color: #ccc;
+}
+#ftypes {
+  font-size: 11px;
+  background-color: var(--color-main-page);
+  border-style: none;
+  color: #ccc;
+  width: 200px;
+}
+.pl1 p i {
+  margin-left: 3px;
+  margin-bottom: 3px;
+  fill: #ccc;
+}
