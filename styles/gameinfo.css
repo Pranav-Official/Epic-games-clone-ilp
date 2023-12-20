@@ -615,3 +615,88 @@ a.addtowishbuttonlink {
 .achievementgriditem {
   padding-right: 6.5rem;
 }
+
+.seeallachievements {
+  margin-top: 2rem;
+  background-color: rgba(245, 245, 245, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  width: 61rem;
+  height: 3rem;
+}
+
+.seeallachievementslink {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 11px;
+  font-weight: 500;
+  width: 60rem;
+}
+
+.seeallachievementsinner {
+  padding: 0.8rem;
+  width: 60rem;
+}
+
+.gameeditions {
+  position: absolute;
+  top: 110rem;
+}
+
+.tag {
+  background-color: rgba(245, 245, 245, 0.2);
+  width: 3.9rem;
+  height: 1.2rem;
+  border-radius: 4px;
+  padding: 1px;
+  font-size: 9px;
+  font-weight: bold;
+  text-align: center;
+  margin-right: 1rem;
+}
+
+.editionsheading {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+  margin-bottom: 1rem;
+}
+
+.cardtitle {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.tagandtitle {
+  display: flex;
+}
+
+.cardtextpart {
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+  width: 30rem;
+}
+
+.cardtoppart {
+  display: flex;
+}
+
+.cardcontent {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.editioncard {
+  background-color: rgb(32, 32, 32);
+  width: 61rem;
+}
+
+.lineseparator {
+  background-color: rgba(245, 245, 245, 0.2);
+  height: 1px;
+}
