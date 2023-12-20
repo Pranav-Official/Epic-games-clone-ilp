@@ -491,4 +491,127 @@ a.addtowishbuttonlink {
   width: 11rem;
 }
 
+.releasewithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 37.8rem;
+}
 
+.releasepartwhole {
+  display: flex;
+}
+.relpart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 12.4rem;
+}
+.relwho {
+  width: 11rem;
+}
+
+.platformwithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 39.8rem;
+}
+
+.platformpartwhole {
+  display: flex;
+}
+.plapart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 14.5rem;
+}
+.winicon {
+  width: 11rem;
+}
+
+.editions {
+  position: absolute;
+  left: -19rem;
+  top: 42rem;
+  width: 20rem;
+}
+
+.editionslink {
+  text-decoration: underline;
+  color: rgb(255, 255, 255);
+}
+
+.sharereportbtn {
+  position: absolute;
+  width: 10rem;
+  top: 44rem;
+  left: -19rem;
+  display: flex;
+}
+
+.share {
+  align-content: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 8rem;
+  height: 1.5rem;
+  display: flex;
+  margin-right: 1.5rem;
+  padding: 1px 25px;
+}
+.sharelink {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-align: center;
+}
+
+.report {
+  align-content: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 5rem;
+  height: 1.5rem;
+  padding: 1px 25px;
+  display: flex;
+}
+.reportlink {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-align: center;
+}
+
+.achievements {
+  position: absolute;
+  top: 90rem;
+}
+
+.achievementheading {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.achievementgriditemtropiepart {
+  display: flex;
+}
+
+.exppart {
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 12px;
+}
+
+.trophie {
+  padding-right: 0.4rem;
+}
+
+.achievementsgridpanel {
+  padding-top: 1.5rem;
+  display: flex;
+}
+
+.achievementgriditem {
+  padding-right: 6.5rem;
+}
