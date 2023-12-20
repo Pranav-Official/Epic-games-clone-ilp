@@ -300,3 +300,111 @@ header {
   text-decoration: line-through;
   color: var(--color-text-secondary);
 }
+
+.free-games-spotlight {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  background-color: var(--color-grey-fade);
+  padding: 2%;
+  border-radius: 0.5rem;
+}
+
+.free-games-game-cards {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.free-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.free-item h4,
+.free-item h5 {
+  margin-top: 0.3rem;
+}
+
+.free-item-image {
+  height: 18vw;
+  border-radius: 0.5rem;
+  margin-bottom: 0.3rem;
+  overflow: hidden;
+}
+
+.free-item-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.tripple-list-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.tripple-list {
+  flex: 1;
+  margin-top: 3rem;
+}
+
+.tripple-list-items {
+  margin-top: 2rem;
+}
+
+.tripple-list-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  h3 {
+    margin: 0;
+    margin-left: 1.5rem;
+  }
+  button {
+    margin-right: 1.5rem;
+    padding: 2%;
+    background-color: var(--color-background-default);
+    border-radius: 0.3rem;
+    border: 1px solid var(--color-text-default);
+    color: var(--color-text-secondary);
+  }
+}
+
+.tripple-item {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tripple-item-text h4 {
+  margin-top: 0rem;
+}
+
+.tripple-item-image {
+  border-radius: 0.3rem;
+  overflow: hidden;
+  height: 5vw;
+  width: 4vw;
+}
+.tripple-item-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.middle-tripple-list {
+  border: 1px solid var(--color-grey-fade);
+  border-style: none solid;
+}
+
+.footer {
+  height: 30rem;
+  width: 100%;
+  background-color: var(--color-navbar);
+  margin-top: 7rem;
+}
