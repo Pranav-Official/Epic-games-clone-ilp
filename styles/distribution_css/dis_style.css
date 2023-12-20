@@ -4,17 +4,14 @@
   --color-main-page: rgb(18, 18, 18);
   --color-accent: #007aff;
 }
-
-#distribution {
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
-  height: 100vh;
-  max-width: 1600px;
-  justify-content: center;
-  align-items: center;
+body {
   font-family: "Inter", sans-serif;
   background-color: rgb(18, 18, 18);
+}
+
+.distribution-page-body {
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 #distribution-section-one {
@@ -31,9 +28,7 @@
 }
 #distribution-section-one-bg-content {
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: stretch;
   align-items: stretch;
   border-radius: 16px;
   border: 1px solid transparent;
@@ -44,7 +39,6 @@
 #animation-section-one {
   width: 50%;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
 }
 .image-width {
@@ -54,9 +48,7 @@
 #text-section-one {
   display: flex;
   flex-direction: column;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
   margin: 40px;
   flex: 1 1 0%;
@@ -101,9 +93,7 @@
   border-radius: 4px;
   text-transform: uppercase;
   text-align: center;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   line-height: 15px;
   padding: 0px 20px;
@@ -164,7 +154,6 @@ a {
 .sec-2-1-1-1 {
   display: flex;
   flex-direction: column;
-  -webkit-box-align: center;
   align-items: center;
   padding: 40px;
   gap: 20px;
@@ -235,7 +224,6 @@ a {
   display: flex;
   position: relative;
   padding: 40px;
-  -webkit-box-align: center;
   align-items: center;
   gap: 15px;
 }
@@ -254,9 +242,7 @@ a {
 .inner-section-4-right {
   display: flex;
   flex-direction: column;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
   flex: 1 1 0%;
   height: 100%;
@@ -265,9 +251,7 @@ a {
   display: flex;
   flex-direction: column;
   text-align: center;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
@@ -317,7 +301,6 @@ a {
   display: flex;
   position: relative;
   padding: 40px;
-  -webkit-box-align: center;
   align-items: center;
   gap: 15px;
 }
@@ -325,7 +308,6 @@ a {
   display: flex;
   position: relative;
   padding: 40px;
-  -webkit-box-align: center;
   align-items: center;
   gap: 15px;
 }
@@ -344,9 +326,7 @@ a {
 .section-5-content {
   display: flex;
   flex-direction: column;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
   flex: 1 1 0%;
   height: 100%;
@@ -355,10 +335,8 @@ a {
   display: flex;
   flex-direction: column;
   text-align: center;
-  -webkit-box-align: center;
   align-items: center;
   height: 100%;
-  -webkit-box-pack: center;
   justify-content: center;
 }
 
@@ -420,7 +398,6 @@ a {
   background-color: inherit;
   position: relative;
   display: flex;
-  -webkit-box-align: baseline;
   align-items: baseline;
   width: 100%;
 }
@@ -475,4 +452,13 @@ a {
 .faq-collapse-btm {
   margin-bottom: 20px;
   color: rgba(255, 255, 255, 0.6);
+}
+
+.svg-icon-pack.plus-icon path {
+  fill: currentColor;
+}
+.svg-icon-pack.minus-icon path {
+  fill: currentColor;
+  /* Add styles for the minus icon, e.g., rotate 45 degrees */
+  transform: rotate(45deg);
 }
