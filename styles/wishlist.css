@@ -211,7 +211,7 @@ option {
 }
 .wishlist {
   flex: 2;
-  background-color: #ffffff1a;
+  background-color: rgb(32, 32, 32);
   width: 100%;
   display: flex;
 }
@@ -312,9 +312,9 @@ option {
   right: 52%;
 }
 #add2cart {
-  color: #ccc;
-  background-color: #ffffff1a;
-  border: 1px solid;
+  color: rgb(245, 245, 245);
+  background-color: rgb(32, 32, 32);
+  border: 1px solid rgba(245, 245, 245, 0.6);
   font-size: 12px;
   letter-spacing: 0.5px;
   font-weight: 500;
@@ -332,8 +332,11 @@ option {
   padding: 0px 20px;
   height: 50px;
 }
+#add2cart:hover {
+  background-color: #ffffff1a;
+}
 .filtertypes {
-  margin-left: 40px;
+  margin-left: 35px;
   color: #ccc;
   font-size: 11px;
   letter-spacing: 0.5px;
@@ -354,6 +357,7 @@ hr {
   background-color: var(--color-main-page);
   border-style: none;
   color: #ccc;
+  width: 200px;
 }
 .pl1 p i {
   margin-left: 3px;
