@@ -1,0 +1,702 @@
+:root {
+  --color-background-default: #18181c;
+  --color-main-page: rgb(18, 18, 18);
+  --color-accent: #007aff;
+}
+
+body {
+  color: rgb(245, 245, 245);
+  background: var(--color-main-page);
+  position: relative;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+.gameheading {
+  position: absolute;
+}
+
+.gamepage {
+  position: relative;
+  margin: 7rem 8rem 0rem 8rem;
+}
+.gameheadingmore {
+  position: absolute;
+  top: 2rem;
+  left: -0.1rem;
+  display: flex;
+}
+
+\\star .star-rating {
+  display: inline-block;
+  font-size: 0;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  display: inline-block;
+  width: 10px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #ccc;
+}
+
+.star-rating label:before {
+  content: "★";
+}
+
+.star-rating input:checked ~ label {
+  color: #fcfcfc;
+}
+
+.rating {
+  margin: 0.45rem 1rem;
+}
+
+.globeimg {
+  margin: 0.4rem;
+}
+
+.gameheadingtext {
+  color: rgb(245, 245, 245);
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  margin: 0.6rem;
+}
+
+.overviewnav {
+  position: absolute;
+  top: 6rem;
+  left: -1rem;
+}
+
+.overviewnavlist {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  align-items: center;
+  display: flex;
+  overflow-x: auto;
+}
+.litem {
+  padding-left: 1rem;
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+a.lilink {
+  display: block;
+  color: rgba(245, 245, 245, 0.6);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+a.lilink:hover {
+  text-decoration: underline;
+  color: rgba(245, 245, 245, 0.6);
+}
+
+.active {
+  text-decoration: underline;
+  color: white;
+}
+
+.overview {
+  position: absolute;
+  top: 10rem;
+  display: flex;
+}
+
+.round-button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 100%;
+  text-decoration: none;
+  background-color: #282c29;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect */
+.round-button:hover {
+  background-color: #333634;
+}
+
+.overviewbarflex {
+  display: flex;
+}
+
+.overviewimgbarthumb {
+  padding: 0.5rem;
+}
+.overviewimgbarcont {
+  margin: 0rem 5rem 0rem 5rem;
+  display: flex;
+}
+
+.gametext {
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+  width: 68%;
+  margin-top: 3rem;
+}
+
+.verticalline {
+  border-left: 1px solid rgba(245, 245, 245, 0.1); /* Adjust thickness and color as needed */
+  height: 8vh; /* Adjust height as needed */
+  padding-right: 1.5rem;
+}
+
+.genreheading {
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 14px;
+}
+
+.genreinquestionlist {
+  list-style-type: none;
+  display: flex;
+  margin-top: -0.14rem;
+  padding: 0;
+}
+
+a.genlink {
+  text-align: center;
+  text-decoration: underline;
+  display: block;
+  color: white;
+}
+
+.gnlitem {
+  padding-right: 0.5rem;
+}
+
+.genrefeatures {
+  display: flex;
+  margin-top: 3rem;
+  padding-right: 3rem;
+}
+
+.genrewhole {
+  display: flex;
+}
+
+.offerfaqtext {
+  width: 70%;
+  color: rgb(245, 245, 245);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.offerfaqbutton {
+  background-color: rgb(32, 32, 32);
+  border-radius: 4px;
+  margin-top: 0.8rem;
+  margin-left: 4rem;
+  width: 50%;
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.offerfaq {
+  display: flex;
+  background-color: rgb(32, 32, 32);
+  width: 62%;
+  padding: 18px;
+  border-radius: 4px;
+  margin-top: 3rem;
+}
+.offerfaqbuttonbt {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.offerfaqbuttonenclose {
+  width: 28%;
+}
+
+.gamebigdescription {
+  margin-top: 3rem;
+}
+
+.gamebigparts {
+  width: 67%;
+  margin-bottom: 1rem;
+  color: rgba(245, 245, 245, 0.6);
+}
+
+.showmorebutton {
+  background-color: rgba(245, 245, 245, 0.3);
+  width: 41rem;
+  height: 3rem;
+  border-radius: 4px;
+  margin-top: 3rem;
+}
+
+a.showmorelinkpart {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 15px;
+}
+
+.svgcss-arow {
+  transform: rotate(90deg);
+  margin-top: 3rem;
+  margin-left: 10rem;
+}
+
+.overviewrighttitleimg {
+  position: absolute;
+
+  top: 2rem;
+  right: 8rem;
+}
+
+.overviewright {
+  position: relative;
+}
+
+.basegameelement {
+  font-size: 9px;
+  font-weight: bold;
+  position: absolute;
+  top: 12rem;
+  right: 15rem;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  display: inline;
+  text-align: center;
+  width: 4rem;
+  height: 1rem;
+  border-radius: 4px;
+}
+
+.priceanddiscount {
+  position: absolute;
+  top: 14rem;
+  right: 9.6rem;
+  display: flex;
+}
+.discount {
+  margin-right: 0.7rem;
+  font-size: 9px;
+  font-weight: bold;
+  align-items: center;
+  background-color: rgb(0, 116, 228);
+  color: rgb(245, 245, 245);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.slashedprice {
+  margin-right: 0.7rem;
+}
+
+.saleendinfo {
+  position: absolute;
+  width: 10rem;
+  font-size: 9px;
+  top: 16rem;
+  right: 9.3rem;
+  font-weight: 500;
+}
+
+.buynowbutton {
+  position: absolute;
+  top: 18rem;
+  right: 3.6rem;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(0, 116, 228);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2.4rem;
+  padding: 1px 6px;
+}
+
+a.buybuttonlink {
+  padding-top: 0.6rem;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: rgb(255, 255, 255);
+}
+
+.addtocartbutton {
+  position: absolute;
+  top: 21.3rem;
+  right: 3.6rem;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2.4rem;
+  padding: 1px 6px;
+}
+
+a.addtocartbuttonlink {
+  padding-top: 0.6rem;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: rgb(255, 255, 255);
+}
+
+.addtowishbutton {
+  position: absolute;
+  top: 24.5rem;
+  right: 3.6rem;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2rem;
+  padding: 1px 6px;
+}
+
+a.addtowishbuttonlink {
+  padding-bottom: 3%;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.epicrewardswithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 28.5rem;
+}
+.epicrewardspartwhole {
+  display: flex;
+}
+.epicrewardspart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 7rem;
+}
+.epicrewardspers {
+  width: 7.5rem;
+}
+
+.hrline {
+  width: 15.8rem;
+  color: rgb(48, 42, 42);
+  border: 0.1px solid;
+  margin: -125px 0px;
+}
+
+.refundwithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 31rem;
+}
+
+.refundpartwhole {
+  display: flex;
+}
+.refundpart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 7rem;
+}
+.refundtype {
+  width: 7.5rem;
+}
+
+.hrline1 {
+  width: 15.8rem;
+  color: rgb(48, 42, 42);
+  border: 0.1px solid;
+  margin: 4px 0px;
+}
+
+.devwithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 33.6rem;
+}
+
+.devpartwhole {
+  display: flex;
+}
+.devpart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 6.5rem;
+}
+.devwho {
+  width: 11rem;
+}
+
+.publisherwithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 35.8rem;
+}
+
+.publisherpartwhole {
+  display: flex;
+}
+.pubpart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 6.5rem;
+}
+.pubwho {
+  width: 11rem;
+}
+
+.releasewithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 37.8rem;
+}
+
+.releasepartwhole {
+  display: flex;
+}
+.relpart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 12.4rem;
+}
+.relwho {
+  width: 11rem;
+}
+
+.platformwithbr {
+  position: absolute;
+  left: -19.2rem;
+  top: 39.8rem;
+}
+
+.platformpartwhole {
+  display: flex;
+}
+.plapart {
+  color: rgba(245, 245, 245, 0.6);
+  width: 14.5rem;
+}
+.winicon {
+  width: 11rem;
+}
+
+.editions {
+  position: absolute;
+  left: -19rem;
+  top: 42rem;
+  width: 20rem;
+}
+
+.editionslink {
+  text-decoration: underline;
+  color: rgb(255, 255, 255);
+}
+
+.sharereportbtn {
+  position: absolute;
+  width: 10rem;
+  top: 44rem;
+  left: -19rem;
+  display: flex;
+}
+
+.share {
+  align-content: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 8rem;
+  height: 1.5rem;
+  display: flex;
+  margin-right: 1.5rem;
+  padding: 1px 25px;
+}
+.sharelink {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-align: center;
+}
+
+.report {
+  align-content: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 5rem;
+  height: 1.5rem;
+  padding: 1px 25px;
+  display: flex;
+}
+.reportlink {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-align: center;
+}
+
+.achievements {
+  position: absolute;
+  top: 90rem;
+}
+
+.achievementheading {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.achievementgriditemtropiepart {
+  display: flex;
+}
+
+.exppart {
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 12px;
+}
+
+.trophie {
+  padding-right: 0.4rem;
+}
+
+.achievementsgridpanel {
+  padding-top: 1.5rem;
+  display: flex;
+}
+
+.achievementgriditem {
+  padding-right: 6.5rem;
+}
+
+.seeallachievements {
+  margin-top: 2rem;
+  background-color: rgba(245, 245, 245, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  width: 61rem;
+  height: 3rem;
+}
+
+.seeallachievementslink {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 11px;
+  font-weight: 500;
+  width: 60rem;
+}
+
+.seeallachievementsinner {
+  padding: 0.8rem;
+  width: 60rem;
+}
+
+.gameeditions {
+  position: absolute;
+  top: 110rem;
+}
+
+.tag {
+  background-color: rgba(245, 245, 245, 0.2);
+  width: 3.9rem;
+  height: 1.2rem;
+  border-radius: 4px;
+  padding: 1px;
+  font-size: 9px;
+  font-weight: bold;
+  text-align: center;
+  margin-right: 1rem;
+}
+
+.editionsheading {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+  margin-bottom: 1rem;
+}
+
+.cardtitle {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.tagandtitle {
+  display: flex;
+}
+
+.cardtextpart {
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+  width: 30rem;
+}
+
+.cardtoppart {
+  display: flex;
+}
+
+.cardcontent {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.editioncard {
+  background-color: rgb(32, 32, 32);
+  width: 61rem;
+}
+
+.lineseparator {
+  background-color: rgba(245, 245, 245, 0.2);
+  height: 1px;
+}
