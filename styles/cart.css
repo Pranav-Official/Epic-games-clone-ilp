@@ -3,10 +3,17 @@ body {
   background-color: black;
 }
 
-.my-cart {
+a.epic-pages-link {
+  text-decoration: none;
+}
+
+.cart-body-page {
+  display: flex;
+  flex-direction: column;
   padding-left: 10%;
   padding-right: 8%;
 }
+
 .cart {
   display: flex;
   justify-content: space-between;

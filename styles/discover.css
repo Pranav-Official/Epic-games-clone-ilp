@@ -126,7 +126,7 @@ header {
 }
 .search-box {
   display: flex;
-  background-color: var(--color-grey-fade);
+  background-color: rgb(128, 128, 128, 0.2);
   border-radius: 0.8rem;
   flex-direction: row;
   overflow: hidden;
@@ -142,7 +142,7 @@ header {
 }
 
 #search-field {
-  background-color: var(--color-grey-fade);
+  background-color: rgb(128, 128, 128, 0);
   border: 0;
   height: 1.5rem;
   width: 9rem;
