@@ -5,613 +5,687 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/styles/gameinfo.css" />
+    <link rel="stylesheet" href="../styles/discover.css" />
   </head>
   <body>
+    <div>
+      <header class="header">
+        <div class="header-left-side">
+          <div class="store-options">
+            <div class="epic-logo">
+              <img class="epic-logo-image" src="../assets/epic-logo.png" />
+              <span aria-hidden="true" class="icon"
+                ><!--?lit$758340424$--><svg
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M15.53 7.47a.75.75 0 0 0-1.06 0L10 11.94 5.53 7.47a.75.75 0 0 0-1.06 1.06L10 14.06l5.53-5.53a.75.75 0 0 0 0-1.06Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+            <div class="h-ruler"></div>
+            <div class="store-logo">
+              <img class="store-logo-image" src="../assets/store-logo.png" />
+            </div>
+          </div>
+          <div class="epic-pages">
+            <a class="epic-pages-link" href="./distribution_page/"
+              >Distribution</a
+            >
+            <a
+              class="epic-pages-link"
+              href="../pages/support_page/epic-games-support.html"
+              >Support</a
+            >
+            <a class="epic-pages-link">Unreal Engine</a>
+          </div>
+        </div>
+
+        <div class="header-right-side">
+          <div class="profile">
+            <img src="../assets/profile.png" alt="" />
+          </div>
+          <button class="download-button">Download</button>
+        </div>
+      </header>
+    </div>
+
     <div class="wholepage">
-      <div>
-        <div class="gamepage">
-          <div class="gameheading">
-            <h1>Alan Wake 2</h1>
+      <div class="headnavsizer">
+        <div class="head-navbar">
+          <div class="left-nav">
+            <div class="search-box">
+              <div class="search-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="search-icon"
+                  viewBox="0 0 21 20"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <g
+                    transform="scale(1 -1) rotate(-45 -11.93502884 -2)"
+                    stroke="currentColor"
+                    stroke-width="1.65"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <circle cx="7.70710678" cy="7.70710678" r="7"></circle>
+                    <path
+                      d="M15.2071068 8.62132034h5.6923881"
+                      stroke-linecap="square"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <input id="search-field" type="text" placeholder="Search" />
+            </div>
+            <div class="nav-links">
+              <a class="nav-link" href="./discover.html">Discover</a>
+            </div>
           </div>
-          <div class="gameheadingmore">
-            <div class="stars">
-              <div class="star-rating">
-                <input type="radio" id="star5" name="rating" value="5" /><label
-                  for="star5"
-                ></label>
-                <input type="radio" id="star4" name="rating" value="4" /><label
-                  for="star4"
-                ></label>
-                <input type="radio" id="star3" name="rating" value="3" /><label
-                  for="star3"
-                ></label>
-                <input type="radio" id="star2" name="rating" value="2" /><label
-                  for="star2"
-                ></label>
-                <input type="radio" id="star1" name="rating" value="1" /><label
-                  for="star1"
-                ></label>
+        </div>
+      </div>
+      <div class="game-page">
+        <div class="game-heading">
+          <h1>Alan Wake 2</h1>
+        </div>
+        <div class="game-heading-more">
+          <div class="stars">
+            <div class="star-rating">
+              <input type="radio" id="star5" name="rating" value="5" /><label
+                for="star5"
+              ></label>
+              <input type="radio" id="star4" name="rating" value="4" /><label
+                for="star4"
+              ></label>
+              <input type="radio" id="star3" name="rating" value="3" /><label
+                for="star3"
+              ></label>
+              <input type="radio" id="star2" name="rating" value="2" /><label
+                for="star2"
+              ></label>
+              <input type="radio" id="star1" name="rating" value="1" /><label
+                for="star1"
+              ></label>
+            </div>
+          </div>
+          <div class="rating">
+            <span> 4.8 </span>
+          </div>
+          <div class="globeimg">
+            <img
+              src="/assets/gameinfo/globe.svg"
+              height="20"
+              width="20"
+              alt=""
+            />
+          </div>
+          <div class="game-heading-text">
+            <span>Diverse Characters</span>
+          </div>
+          <div class="globeimg">
+            <img
+              src="/assets/gameinfo/mouse.svg"
+              height="20"
+              width="20"
+              alt=""
+            />
+          </div>
+          <div class="game-heading-text">
+            <span>Quickly Understand the Controls</span>
+          </div>
+        </div>
+
+        <div class="overview-nav">
+          <ul class="overview-nav-list">
+            <li class="litem">
+              <a class="active" href="#">Overview</a>
+            </li>
+            <li class="litem"><a class="lilink" href="#"> Add-Ons</a></li>
+            <li class="litem"><a class="lilink" href="#">FAQ</a></li>
+            <li class="litem"><a class="lilink" href="#">Achievements</a></li>
+          </ul>
+        </div>
+
+        <div class="overview">
+          <div class="overview-left">
+            <div class="overview-img">
+              <img
+                height="330"
+                width="650"
+                src="/assets/gameinfo/alanwake2.jpg"
+                alt=""
+              />
+            </div>
+            <div class="overview-bar-flex">
+              <div class="overview-imgbar">
+                <a class="round-button" href="#"><</a>
+              </div>
+              <div class="overview-imgbar-cont">
+                <div class="overview-imgbar-thumb">
+                  <img
+                    height="50"
+                    width="89"
+                    src="/assets/gameinfo/alanwakethumb.webp"
+                    alt=""
+                  />
+                </div>
+                <div class="overview-imgbar-thumb">
+                  <img
+                    height="50"
+                    width="89"
+                    src="/assets/gameinfo/alanwakethumb.webp"
+                    alt=""
+                  />
+                </div>
+                <div class="overview-imgbar-thumb">
+                  <img
+                    height="50"
+                    width="89"
+                    src="/assets/gameinfo/alanwakethumb.webp"
+                    alt=""
+                  />
+                </div>
+                <div class="overview-imgbar-thumb">
+                  <img
+                    height="50"
+                    width="89"
+                    src="/assets/gameinfo/alanwakethumb.webp"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="overview-imgbar">
+                <a class="round-button" href="#">></a>
               </div>
             </div>
-            <div class="rating">
-              <span> 4.8 </span>
+            <div class="gametext">
+              Saga Anderson arrives to investigate ritualistic murders in a
+              small town. Alan Wake pens a dark story to shape the reality
+              around him. These two heroes are somehow connected. Can they
+              become the heroes they need to be?
             </div>
-            <div class="globeimg">
-              <img
-                src="/assets/gameinfo/globe.svg"
-                height="20"
-                width="20"
-                alt=""
-              />
-            </div>
-            <div class="gameheadingtext">
-              <span>Diverse Characters</span>
-            </div>
-            <div class="globeimg">
-              <img
-                src="/assets/gameinfo/mouse.svg"
-                height="20"
-                width="20"
-                alt=""
-              />
-            </div>
-            <div class="gameheadingtext">
-              <span>Quickly Understand the Controls</span>
-            </div>
-          </div>
-          <div class="overviewnav">
-            <ul class="overviewnavlist">
-              <li class="litem">
-                <a class="active" href="#">Overview</a>
-              </li>
-              <li class="litem"><a class="lilink" href="#"> Add-Ons</a></li>
-              <li class="litem"><a class="lilink" href="#">FAQ</a></li>
-              <li class="litem"><a class="lilink" href="#">Achievements</a></li>
-            </ul>
-          </div>
+            <div class="genre-whole">
+              <div class="genre-features">
+                <div class="vertical-line"></div>
+                <div class="genres">
+                  <div class="genre-heading">Genres</div>
+                  <div class="genre-in-question">
+                    <ul class="genre-in-questionlist">
+                      <li class="gnlitem">
+                        <a class="genlink" href="#">Action-Adventure,</a>
+                      </li>
+                      <li class="gnlitem">
+                        <a class="genlink" href="#">Horror,</a>
+                      </li>
+                      <li class="gnlitem">
+                        <a class="genlink" href="#">Shooter</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-          <div class="overview">
-            <div class="overviewleft">
-              <div class="overviewimg">
-                <img
-                  height="330"
-                  width="650"
-                  src="/assets/gameinfo/alanwake2.jpg"
-                  alt=""
+              <div class="genre-features">
+                <div class="vertical-line"></div>
+                <div class="genres">
+                  <div class="genre-heading">Features</div>
+                  <div class="genre-in-question">
+                    <ul class="genre-in-questionlist">
+                      <li class="gnlitem">
+                        <a class="genlink" href="#">Achievements,</a>
+                      </li>
+                      <li class="gnlitem">
+                        <a class="genlink" href="#">Cloud Saves,</a>
+                      </li>
+                      <li class="gnlitem">
+                        <a class="genlink" href="#">Single Player</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="offer-faq">
+              <div class="offer-faq-text">
+                Buy Alan Wake 2 during our Holiday Sale and we’ll email a
+                digital voucher code for one copy of Alan Wake Remastered on PC.
+                Offer ends January 10, 2024 at 11am EST, see faq for details.
+              </div>
+              <div class="offer-faq-button-enclose">
+                <center>
+                  <div class="offer-faq-button">
+                    <a class="offer-faq-buttonbt" href="">VIEW FAQ</a>
+                  </div>
+                </center>
+              </div>
+            </div>
+
+            <div class="game-big-description">
+              <div class="game-bigparts">
+                A string of ritualistic murders threatens Bright Falls, a
+                small-town community surrounded by Pacific Northwest wilderness.
+                Saga Anderson, an accomplished FBI agent with a reputation for
+                solving impossible cases arrives to investigate the murders.
+                Anderson’s case spirals into a nightmare when she discovers
+                pages of a horror story that starts to come true around her.
+              </div>
+
+              <div class="game-bigparts">
+                Alan Wake, a lost writer trapped in a nightmare beyond our
+                world, writes a dark story in an attempt to shape the reality
+                around him and escape his prison. With a dark horror hunting
+                him, Wake is trying to retain his sanity and beat the devil at
+                his own game.
+              </div>
+              <div class="game-bigparts">
+                Anderson and Wake are two heroes on two desperate journeys in
+                two separate realities, connected at heart in ways neither of
+                them can understand: reflecting each other, echoing each other,
+                and affecting the worlds around them.
+              </div>
+              <div class="game-bigparts">
+                Fueled by the horror story, supernatural darkness invades Bright
+                Falls, corrupting the locals and threatening the loved ones of
+                both Anderson and Wake. Light is their weapon—and their safe
+                haven — against the darkness they face.
+              </div>
+            </div>
+            <div class="show-more-button">
+              <div class="show-more-link-partdiv">
+                <a class="show-more-linkpart" href="#">SHOW MORE </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="svgcss-arow"
+                  viewBox="1"
+                >
+                  <path
+                    stroke="currentColor"
+                    d="M1 1l3 3.5L1 8"
+                    fill="none"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="overview-right">
+            <div class="overview-right-titleimg">
+              <img
+                width="130"
+                height="130"
+                src="/assets/gameinfo/alanwaketitle.webp"
+                alt=""
+              />
+            </div>
+            <div class="base-game-element">
+              <div>BASE GAME</div>
+            </div>
+            <div class="price-and-discount">
+              <div class="discount">
+                <div class="discount-percent">-20%</div>
+              </div>
+              <div class="slashed-price"><s>2748₹</s></div>
+              <div class="price-now">2198.40₹</div>
+            </div>
+            <div class="sale-end-info">
+              <div>Sale ends 1/10/2024 at 9:30 PM</div>
+            </div>
+            <div class="buy-now-button">
+              <a class="buy-button-link" href="#">BUY NOW</a>
+            </div>
+            <div class="add-to-cartbutton">
+              <a class="add-to-cartbutton-link" href="#">ADD TO CART</a>
+            </div>
+            <div class="add-to-wishbutton">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="22"
+                fill="currentColor"
+                id="plusbtn"
+                class="bi bi-plus-circle"
+                viewBox="0 -5 18 21"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
                 />
-              </div>
-              <div class="overviewbarflex">
-                <div class="overviewimgbar">
-                  <a class="round-button" href="#"><</a>
-                </div>
-                <div class="overviewimgbarcont">
-                  <div class="overviewimgbarthumb">
-                    <img
-                      height="50"
-                      width="89"
-                      src="/assets/gameinfo/alanwakethumb.webp"
-                      alt=""
-                    />
-                  </div>
-                  <div class="overviewimgbarthumb">
-                    <img
-                      height="50"
-                      width="89"
-                      src="/assets/gameinfo/alanwakethumb.webp"
-                      alt=""
-                    />
-                  </div>
-                  <div class="overviewimgbarthumb">
-                    <img
-                      height="50"
-                      width="89"
-                      src="/assets/gameinfo/alanwakethumb.webp"
-                      alt=""
-                    />
-                  </div>
-                  <div class="overviewimgbarthumb">
-                    <img
-                      height="50"
-                      width="89"
-                      src="/assets/gameinfo/alanwakethumb.webp"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div class="overviewimgbar">
-                  <a class="round-button" href="#">></a>
-                </div>
-              </div>
-              <div class="gametext">
-                Saga Anderson arrives to investigate ritualistic murders in a
-                small town. Alan Wake pens a dark story to shape the reality
-                around him. These two heroes are somehow connected. Can they
-                become the heroes they need to be?
-              </div>
-              <div class="genrewhole">
-                <div class="genrefeatures">
-                  <div class="verticalline"></div>
-                  <div class="genres">
-                    <div class="genreheading">Genres</div>
-                    <div class="genreinquestion">
-                      <ul class="genreinquestionlist">
-                        <li class="gnlitem">
-                          <a class="genlink" href="#">Action-Adventure,</a>
-                        </li>
-                        <li class="gnlitem">
-                          <a class="genlink" href="#">Horror,</a>
-                        </li>
-                        <li class="gnlitem">
-                          <a class="genlink" href="#">Shooter</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                />
+              </svg>
 
-                <div class="genrefeatures">
-                  <div class="verticalline"></div>
-                  <div class="genres">
-                    <div class="genreheading">Features</div>
-                    <div class="genreinquestion">
-                      <ul class="genreinquestionlist">
-                        <li class="gnlitem">
-                          <a class="genlink" href="#">Achievements,</a>
-                        </li>
-                        <li class="gnlitem">
-                          <a class="genlink" href="#">Cloud Saves,</a>
-                        </li>
-                        <li class="gnlitem">
-                          <a class="genlink" href="#">Single Player</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="offerfaq">
-                <div class="offerfaqtext">
-                  Buy Alan Wake 2 during our Holiday Sale and we’ll email a
-                  digital voucher code for one copy of Alan Wake Remastered on
-                  PC. Offer ends January 10, 2024 at 11am EST, see faq for
-                  details.
-                </div>
-                <div class="offerfaqbuttonenclose">
-                  <center>
-                    <div class="offerfaqbutton">
-                      <a class="offerfaqbuttonbt" href="">VIEW FAQ</a>
-                    </div>
-                  </center>
-                </div>
-              </div>
-
-              <div class="gamebigdescription">
-                <div class="gamebigparts">
-                  A string of ritualistic murders threatens Bright Falls, a
-                  small-town community surrounded by Pacific Northwest
-                  wilderness. Saga Anderson, an accomplished FBI agent with a
-                  reputation for solving impossible cases arrives to investigate
-                  the murders. Anderson’s case spirals into a nightmare when she
-                  discovers pages of a horror story that starts to come true
-                  around her.
-                </div>
-
-                <div class="gamebigparts">
-                  Alan Wake, a lost writer trapped in a nightmare beyond our
-                  world, writes a dark story in an attempt to shape the reality
-                  around him and escape his prison. With a dark horror hunting
-                  him, Wake is trying to retain his sanity and beat the devil at
-                  his own game.
-                </div>
-                <div class="gamebigparts">
-                  Anderson and Wake are two heroes on two desperate journeys in
-                  two separate realities, connected at heart in ways neither of
-                  them can understand: reflecting each other, echoing each
-                  other, and affecting the worlds around them.
-                </div>
-                <div class="gamebigparts">
-                  Fueled by the horror story, supernatural darkness invades
-                  Bright Falls, corrupting the locals and threatening the loved
-                  ones of both Anderson and Wake. Light is their weapon—and
-                  their safe haven — against the darkness they face.
-                </div>
-              </div>
-              <div class="showmorebutton">
-                <div class="showmorelinkpartdiv">
-                  <a class="showmorelinkpart" href="#">SHOW MORE </a>
+              <a class="add-to-wishbutton-link" href="#"> ADD TO WISHLIST</a>
+            </div>
+            <div class="epicrewards-withbr">
+              <div class="epicrewards-partwhole">
+                <div class="epicrewards-part">Epic Rewards</div>
+                <div class="epicrewards-pers">Earn 10% Back</div>
+                <div class="epicrewards-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="svgcss-arow"
+                    class="svg css-uwwqev"
                     viewBox="1"
+                    style="color: rgb(0, 116, 228)"
                   >
                     <path
-                      stroke="currentColor"
-                      d="M1 1l3 3.5L1 8"
-                      fill="none"
                       fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z"
+                      fill="currentColor"
                     ></path>
                   </svg>
                 </div>
               </div>
+              <hr class="hrline" />
             </div>
-            <div class="overviewright">
-              <div class="overviewrighttitleimg">
+
+            <div class="refund-withbr">
+              <div class="refund-partwhole">
+                <div class="refund-part">Refund Type</div>
+                <div class="refund-type">Self-Refundable</div>
+                <div class="questionicon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19"
+                    height="19"
+                    fill="currentColor"
+                    class="bi bi-question-circle"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                    />
+                    <path
+                      d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="dev-withbr">
+              <div class="dev-partwhole">
+                <div class="dev-part">Developer</div>
+                <div class="dev-who">Remedy Entertainment</div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="publisher-withbr">
+              <div class="publisher-partwhole">
+                <div class="pub-part">Publisher</div>
+                <div class="pub-who">Epic Games Publishing</div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="release-withbr">
+              <div class="release-partwhole">
+                <div class="rel-part">Release Date</div>
+                <div class="rel-who">10/27/23</div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="platform-withbr">
+              <div class="platform-partwhole">
+                <div class="pla-part">Platform</div>
+                <div class="winicon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    class="bi bi-windows"
+                    viewBox="1"
+                  >
+                    <path
+                      d="M6.555 1.375 0 2.237v5.45h6.555zM0 13.795l6.555.933V8.313H0v5.482zm7.278-5.4.026 6.378L16 16V8.395H7.278zM16 0 7.33 1.244v6.414H16z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="editions">
+              <a class="editions-link" href="#"
+                >See All Editions and Add-Owns</a
+              >
+            </div>
+
+            <div class="share-report-btn">
+              <div class="share">
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="11"
+                    fill="currentColor"
+                    class="bi bi-share-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"
+                    />
+                  </svg>
+                </div>
+                <div><a class="sharelink" href="">SHARE</a></div>
+              </div>
+              <div class="report">
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="11"
+                    fill="currentColor"
+                    class="bi bi-flag-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"
+                    />
+                  </svg>
+                </div>
+                <div><a class="report-link" href="">REPORT</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="achievements">
+          <div class="achievement-heading">Available Achievements</div>
+          <div class="achievements-grid-panel">
+            <div class="achievement-grid-item">
+              <div class="achievement-grid-item-image">
                 <img
-                  width="130"
-                  height="130"
-                  src="/assets/gameinfo/alanwaketitle.webp"
+                  width="100"
+                  height="100"
+                  src="/assets/gameinfo/achievement_eg.png"
                   alt=""
                 />
               </div>
-              <div class="basegameelement">
-                <div>BASE GAME</div>
-              </div>
-              <div class="priceanddiscount">
-                <div class="discount">
-                  <div class="discountpercent">-20%</div>
+              <div class="achievement-grid-item-name">Escape its Gravity</div>
+              <div class="achievement-grid-item-tropiepart">
+                <div class="trophie">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    style="color: rgb(202, 81, 43)"
+                    fill="currentColor"
+                    class="bi bi-trophy-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+                    />
+                  </svg>
                 </div>
-                <div class="slashedprice"><s>2748₹</s></div>
-                <div class="pricenow">2198.40₹</div>
+                <div class="exppart">10XP</div>
               </div>
-              <div class="saleendinfo">
-                <div>Sale ends 1/10/2024 at 9:30 PM</div>
-              </div>
-              <div class="buynowbutton">
-                <a class="buybuttonlink" href="#">BUY NOW</a>
-              </div>
-              <div class="addtocartbutton">
-                <a class="addtocartbuttonlink" href="#">ADD TO CART</a>
-              </div>
-              <div class="addtowishbutton">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="19"
-                  height="22"
-                  fill="currentColor"
-                  id="plusbtn"
-                  class="bi bi-plus-circle"
-                  viewBox="0 -5 18 21"
-                >
-                  <path
-                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                  />
-                  <path
-                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
-                  />
-                </svg>
+            </div>
 
-                <a class="addtowishbuttonlink" href="#"> ADD TO WISHLIST</a>
+            <div class="achievement-grid-item">
+              <div class="achievement-grid-item-image">
+                <img
+                  width="100"
+                  height="100"
+                  src="/assets/gameinfo/achievement_eg.png"
+                  alt=""
+                />
               </div>
-              <div class="epicrewardswithbr">
-                <div class="epicrewardspartwhole">
-                  <div class="epicrewardspart">Epic Rewards</div>
-                  <div class="epicrewardspers">Earn 10% Back</div>
-                  <div class="epicrewardsicon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="svg css-uwwqev"
-                      viewBox="1"
-                      style="color: rgb(0, 116, 228)"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </div>
+              <div class="achievement-grid-item-name">Escape its Gravity</div>
+              <div class="achievement-grid-item-tropiepart">
+                <div class="trophie">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    style="color: rgb(202, 81, 43)"
+                    fill="currentColor"
+                    class="bi bi-trophy-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+                    />
+                  </svg>
                 </div>
-                <hr class="hrline" />
+                <div class="exppart">10XP</div>
               </div>
+            </div>
 
-              <div class="refundwithbr">
-                <div class="refundpartwhole">
-                  <div class="refundpart">Refund Type</div>
-                  <div class="refundtype">Self-Refundable</div>
-                  <div class="questionicon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="19"
-                      height="19"
-                      fill="currentColor"
-                      class="bi bi-question-circle"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                      />
-                      <path
-                        d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <hr class="hrline1" />
+            <div class="achievement-grid-item">
+              <div class="achievement-grid-item-image">
+                <img
+                  width="100"
+                  height="100"
+                  src="/assets/gameinfo/achievement_eg.png"
+                  alt=""
+                />
               </div>
-
-              <div class="devwithbr">
-                <div class="devpartwhole">
-                  <div class="devpart">Developer</div>
-                  <div class="devwho">Remedy Entertainment</div>
+              <div class="achievement-grid-item-name">Escape its Gravity</div>
+              <div class="achievement-grid-item-tropiepart">
+                <div class="trophie">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    style="color: rgb(202, 81, 43)"
+                    fill="currentColor"
+                    class="bi bi-trophy-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+                    />
+                  </svg>
                 </div>
-                <hr class="hrline1" />
+                <div class="exppart">10XP</div>
               </div>
+            </div>
 
-              <div class="publisherwithbr">
-                <div class="publisherpartwhole">
-                  <div class="pubpart">Publisher</div>
-                  <div class="pubwho">Epic Games Publishing</div>
-                </div>
-                <hr class="hrline1" />
+            <div class="achievement-grid-item">
+              <div class="achievement-grid-item-image">
+                <img
+                  width="100"
+                  height="100"
+                  src="/assets/gameinfo/achievement_eg.png"
+                  alt=""
+                />
               </div>
-
-              <div class="releasewithbr">
-                <div class="releasepartwhole">
-                  <div class="relpart">Release Date</div>
-                  <div class="rekwho">10/27/23</div>
+              <div class="achievement-grid-item-name">Escape its Gravity</div>
+              <div class="achievement-grid-item-tropiepart">
+                <div class="trophie">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    style="color: rgb(202, 81, 43)"
+                    fill="currentColor"
+                    class="bi bi-trophy-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+                    />
+                  </svg>
                 </div>
-                <hr class="hrline1" />
+                <div class="exppart">10XP</div>
               </div>
-
-              <div class="platformwithbr">
-                <div class="platformpartwhole">
-                  <div class="plapart">Platform</div>
-                  <div class="winicon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      fill="currentColor"
-                      class="bi bi-windows"
-                      viewBox="1"
-                    >
-                      <path
-                        d="M6.555 1.375 0 2.237v5.45h6.555zM0 13.795l6.555.933V8.313H0v5.482zm7.278-5.4.026 6.378L16 16V8.395H7.278zM16 0 7.33 1.244v6.414H16z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <hr class="hrline1" />
+            </div>
+            <div class="achievement-grid-item">
+              <div class="achievement-grid-item-image">
+                <img
+                  width="100"
+                  height="100"
+                  src="/assets/gameinfo/achievement_eg.png"
+                  alt=""
+                />
               </div>
-
-              <div class="editions">
-                <a class="editionslink" href="#"
-                  >See All Editions and Add-Owns</a
-                >
-              </div>
-
-              <div class="sharereportbtn">
-                <div class="share">
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="11"
-                      height="11"
-                      fill="currentColor"
-                      class="bi bi-share-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"
-                      />
-                    </svg>
-                  </div>
-                  <div><a class="sharelink" href="">SHARE</a></div>
+              <div class="achievement-grid-item-name">Escape its Gravity</div>
+              <div class="achievement-grid-item-tropiepart">
+                <div class="trophie">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    style="color: rgb(202, 81, 43)"
+                    fill="currentColor"
+                    class="bi bi-trophy-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+                    />
+                  </svg>
                 </div>
-                <div class="report">
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="11"
-                      height="11"
-                      fill="currentColor"
-                      class="bi bi-flag-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"
-                      />
-                    </svg>
-                  </div>
-                  <div><a class="reportlink" href="">REPORT</a></div>
-                </div>
+                <div class="exppart">10XP</div>
               </div>
             </div>
           </div>
-          <div class="achievements">
-            <div class="achievementheading">Available Achievements</div>
-            <div class="achievementsgridpanel">
-              <div class="achievementgriditem">
-                <div class="achievementgriditemimage">
-                  <img
-                    width="100"
-                    height="100"
-                    src="/assets/gameinfo/achievement_eg.png"
-                    alt=""
-                  />
-                </div>
-                <div class="achievementgriditemname">Escape its Gravity</div>
-                <div class="achievementgriditemtropiepart">
-                  <div class="trophie">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      style="color: rgb(202, 81, 43)"
-                      fill="currentColor"
-                      class="bi bi-trophy-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                      />
-                    </svg>
-                  </div>
-                  <div class="exppart">10XP</div>
-                </div>
-              </div>
-
-              <div class="achievementgriditem">
-                <div class="achievementgriditemimage">
-                  <img
-                    width="100"
-                    height="100"
-                    src="/assets/gameinfo/achievement_eg.png"
-                    alt=""
-                  />
-                </div>
-                <div class="achievementgriditemname">Escape its Gravity</div>
-                <div class="achievementgriditemtropiepart">
-                  <div class="trophie">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      style="color: rgb(202, 81, 43)"
-                      fill="currentColor"
-                      class="bi bi-trophy-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                      />
-                    </svg>
-                  </div>
-                  <div class="exppart">10XP</div>
-                </div>
-              </div>
-
-              <div class="achievementgriditem">
-                <div class="achievementgriditemimage">
-                  <img
-                    width="100"
-                    height="100"
-                    src="/assets/gameinfo/achievement_eg.png"
-                    alt=""
-                  />
-                </div>
-                <div class="achievementgriditemname">Escape its Gravity</div>
-                <div class="achievementgriditemtropiepart">
-                  <div class="trophie">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      style="color: rgb(202, 81, 43)"
-                      fill="currentColor"
-                      class="bi bi-trophy-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                      />
-                    </svg>
-                  </div>
-                  <div class="exppart">10XP</div>
-                </div>
-              </div>
-
-              <div class="achievementgriditem">
-                <div class="achievementgriditemimage">
-                  <img
-                    width="100"
-                    height="100"
-                    src="/assets/gameinfo/achievement_eg.png"
-                    alt=""
-                  />
-                </div>
-                <div class="achievementgriditemname">Escape its Gravity</div>
-                <div class="achievementgriditemtropiepart">
-                  <div class="trophie">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      style="color: rgb(202, 81, 43)"
-                      fill="currentColor"
-                      class="bi bi-trophy-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                      />
-                    </svg>
-                  </div>
-                  <div class="exppart">10XP</div>
-                </div>
-              </div>
-              <div class="achievementgriditem">
-                <div class="achievementgriditemimage">
-                  <img
-                    width="100"
-                    height="100"
-                    src="/assets/gameinfo/achievement_eg.png"
-                    alt=""
-                  />
-                </div>
-                <div class="achievementgriditemname">Escape its Gravity</div>
-                <div class="achievementgriditemtropiepart">
-                  <div class="trophie">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      style="color: rgb(202, 81, 43)"
-                      fill="currentColor"
-                      class="bi bi-trophy-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                      />
-                    </svg>
-                  </div>
-                  <div class="exppart">10XP</div>
-                </div>
-              </div>
-            </div>
-            <div class="seeallachievements">
-              <div class="seeallachievementsinner">
-                <a class="seeallachievementslink" href="#"
-                  >SEE ALL 66 ACHIEVEMENTS</a
-                >
-              </div>
+          <div class="see-all-achievements">
+            <div class="see-all-achievements-inner">
+              <a class="see-all-achievements-link" href="#"
+                >SEE ALL 66 ACHIEVEMENTS</a
+              >
             </div>
           </div>
+        </div>
 
-          <div class="gameeditions">
-            <div class="editionsheading">Alan Wake 2 Editions</div>
-            <div class="editioncard">
-              <div class="cardtoppart">
-                <div class="cardimg">
-                  <img
-                    width="360"
-                    height="200"
-                    src="/assets/gameinfo/alanwakeedition1.jpg"
-                    alt=""
-                  />
+        <div class="game-editions">
+          <div class="editions-heading">Alan Wake 2 Editions</div>
+          <div class="edition-card">
+            <div class="card-toppart">
+              <div class="cardimg">
+                <img
+                  width="360"
+                  height="200"
+                  src="/assets/gameinfo/alanwakeedition1.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="card-content">
+                <div class="tag-and-title">
+                  <div class="tag">BASE GAME</div>
+                  <div class="card-title">Alan Wake 2</div>
                 </div>
-                <div class="cardcontent">
-                  <div class="tagandtitle">
-                    <div class="tag">BASE GAME</div>
-                    <div class="cardtitle">Alan Wake 2</div>
-                  </div>
-                  <div class="cardtextpart">
-                    Saga Anderson arrives to investigate ritualistic murders in
-                    a small town. Alan Wake pens a dark story to shape the
-                    reality around him. These two heroes are somehow connected.
-                    Can they become the heroes they need
-                  </div>
+                <div class="card-text-part">
+                  Saga Anderson arrives to investigate ritualistic murders in a
+                  small town. Alan Wake pens a dark story to shape the reality
+                  around him. These two heroes are somehow connected. Can they
+                  become the heroes they need
                 </div>
               </div>
-              <div class="lineseparator">
-                <div></div>
-                <div></div>
-              </div>
-              <div class="cardbuttonandpricepart"></div>
             </div>
+            <div class="line-separator"></div>
           </div>
         </div>
       </div>

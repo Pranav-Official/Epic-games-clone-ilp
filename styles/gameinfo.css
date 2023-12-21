@@ -27,17 +27,28 @@ h6 {
   margin: 0;
 }
 
-.gameheading {
+.game-heading {
   position: absolute;
+  top: 1rem;
 }
 
-.gamepage {
+.wholpage {
   position: relative;
-  margin: 7rem 8rem 0rem 8rem;
 }
-.gameheadingmore {
+.headnavsizer {
   position: absolute;
-  top: 2rem;
+  top: 9rem;
+  left: 7.9rem;
+}
+
+.game-page {
+  position: relative;
+  margin: 10rem 8rem 0rem 8rem;
+  padding-top: 4rem;
+}
+.game-heading-more {
+  position: absolute;
+  top: 3rem;
   left: -0.1rem;
   display: flex;
 }
@@ -78,7 +89,7 @@ h6 {
   margin: 0.4rem;
 }
 
-.gameheadingtext {
+.game-heading-text {
   color: rgb(245, 245, 245);
   font-size: 16px;
   font-weight: normal;
@@ -87,13 +98,13 @@ h6 {
   margin: 0.6rem;
 }
 
-.overviewnav {
+.overview-nav {
   position: absolute;
   top: 6rem;
   left: -1rem;
 }
 
-.overviewnavlist {
+.overview-nav-list {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -152,14 +163,14 @@ a.lilink:hover {
   background-color: #333634;
 }
 
-.overviewbarflex {
+.overview-bar-flex {
   display: flex;
 }
 
-.overviewimgbarthumb {
+.overview-imgbar-thumb {
   padding: 0.5rem;
 }
-.overviewimgbarcont {
+.overview-imgbar-cont {
   margin: 0rem 5rem 0rem 5rem;
   display: flex;
 }
@@ -172,18 +183,18 @@ a.lilink:hover {
   margin-top: 3rem;
 }
 
-.verticalline {
+.vertical-line {
   border-left: 1px solid rgba(245, 245, 245, 0.1); /* Adjust thickness and color as needed */
   height: 8vh; /* Adjust height as needed */
   padding-right: 1.5rem;
 }
 
-.genreheading {
+.genre-heading {
   color: rgba(245, 245, 245, 0.6);
   font-size: 14px;
 }
 
-.genreinquestionlist {
+.genre-in-questionlist {
   list-style-type: none;
   display: flex;
   margin-top: -0.14rem;
@@ -201,17 +212,17 @@ a.genlink {
   padding-right: 0.5rem;
 }
 
-.genrefeatures {
+.genre-features {
   display: flex;
   margin-top: 3rem;
   padding-right: 3rem;
 }
 
-.genrewhole {
+.genre-whole {
   display: flex;
 }
 
-.offerfaqtext {
+.offer-faq-text {
   width: 70%;
   color: rgb(245, 245, 245);
   font-size: 14px;
@@ -220,7 +231,7 @@ a.genlink {
   letter-spacing: 0.2px;
 }
 
-.offerfaqbutton {
+.offer-faq-button {
   background-color: rgb(32, 32, 32);
   border-radius: 4px;
   margin-top: 0.8rem;
@@ -231,7 +242,7 @@ a.genlink {
   border-width: 1px;
 }
 
-.offerfaq {
+.offer-faq {
   display: flex;
   background-color: rgb(32, 32, 32);
   width: 62%;
@@ -239,28 +250,28 @@ a.genlink {
   border-radius: 4px;
   margin-top: 3rem;
 }
-.offerfaqbuttonbt {
+.offer-faq-buttonbt {
   color: white;
   font-size: 14px;
   text-align: center;
   text-decoration: none;
 }
 
-.offerfaqbuttonenclose {
+.offer-faq-button-enclose {
   width: 28%;
 }
 
-.gamebigdescription {
+.game-big-description {
   margin-top: 3rem;
 }
 
-.gamebigparts {
+.game-bigparts {
   width: 67%;
   margin-bottom: 1rem;
   color: rgba(245, 245, 245, 0.6);
 }
 
-.showmorebutton {
+.show-more-button {
   background-color: rgba(245, 245, 245, 0.3);
   width: 41rem;
   height: 3rem;
@@ -268,7 +279,7 @@ a.genlink {
   margin-top: 3rem;
 }
 
-a.showmorelinkpart {
+a.show-more-linkpart {
   text-align: center;
   text-decoration: none;
   display: block;
@@ -282,18 +293,18 @@ a.showmorelinkpart {
   margin-left: 10rem;
 }
 
-.overviewrighttitleimg {
+.overview-right-titleimg {
   position: absolute;
 
   top: 2rem;
   right: 8rem;
 }
 
-.overviewright {
+.overview-right {
   position: relative;
 }
 
-.basegameelement {
+.base-game-element {
   font-size: 9px;
   font-weight: bold;
   position: absolute;
@@ -309,7 +320,7 @@ a.showmorelinkpart {
   border-radius: 4px;
 }
 
-.priceanddiscount {
+.price-and-discount {
   position: absolute;
   top: 14rem;
   right: 9.6rem;
@@ -326,11 +337,11 @@ a.showmorelinkpart {
   padding: 1px 6px;
 }
 
-.slashedprice {
+.slashed-price {
   margin-right: 0.7rem;
 }
 
-.saleendinfo {
+.sale-end-info {
   position: absolute;
   width: 10rem;
   font-size: 9px;
@@ -339,7 +350,7 @@ a.showmorelinkpart {
   font-weight: 500;
 }
 
-.buynowbutton {
+.buy-now-button {
   position: absolute;
   top: 18rem;
   right: 3.6rem;
@@ -353,7 +364,7 @@ a.showmorelinkpart {
   padding: 1px 6px;
 }
 
-a.buybuttonlink {
+a.buy-button-link {
   padding-top: 0.6rem;
   text-align: center;
   text-decoration: none;
@@ -361,7 +372,7 @@ a.buybuttonlink {
   color: rgb(255, 255, 255);
 }
 
-.addtocartbutton {
+.add-to-cartbutton {
   position: absolute;
   top: 21.3rem;
   right: 3.6rem;
@@ -378,7 +389,7 @@ a.buybuttonlink {
   padding: 1px 6px;
 }
 
-a.addtocartbuttonlink {
+a.add-to-cartbutton-link {
   padding-top: 0.6rem;
   text-align: center;
   text-decoration: none;
@@ -386,7 +397,7 @@ a.addtocartbuttonlink {
   color: rgb(255, 255, 255);
 }
 
-.addtowishbutton {
+.add-to-wishbutton {
   position: absolute;
   top: 24.5rem;
   right: 3.6rem;
@@ -403,26 +414,26 @@ a.addtocartbuttonlink {
   padding: 1px 6px;
 }
 
-a.addtowishbuttonlink {
+a.add-to-wishbutton-link {
   padding-bottom: 3%;
   text-align: center;
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
 
-.epicrewardswithbr {
+.epicrewards-withbr {
   position: absolute;
   left: -19.2rem;
   top: 28.5rem;
 }
-.epicrewardspartwhole {
+.epicrewards-partwhole {
   display: flex;
 }
-.epicrewardspart {
+.epicrewards-part {
   color: rgba(245, 245, 245, 0.6);
   width: 7rem;
 }
-.epicrewardspers {
+.epicrewards-pers {
   width: 7.5rem;
 }
 
@@ -433,20 +444,20 @@ a.addtowishbuttonlink {
   margin: -125px 0px;
 }
 
-.refundwithbr {
+.refund-withbr {
   position: absolute;
   left: -19.2rem;
   top: 31rem;
 }
 
-.refundpartwhole {
+.refund-partwhole {
   display: flex;
 }
-.refundpart {
+.refund-part {
   color: rgba(245, 245, 245, 0.6);
   width: 7rem;
 }
-.refundtype {
+.refund-type {
   width: 7.5rem;
 }
 
@@ -457,67 +468,64 @@ a.addtowishbuttonlink {
   margin: 4px 0px;
 }
 
-.devwithbr {
+.dev-withbr {
   position: absolute;
   left: -19.2rem;
   top: 33.6rem;
 }
 
-.devpartwhole {
+.dev-partwhole {
   display: flex;
 }
-.devpart {
+.dev-part {
   color: rgba(245, 245, 245, 0.6);
   width: 6.5rem;
 }
-.devwho {
+.dev-who {
   width: 11rem;
 }
 
-.publisherwithbr {
+.publisher-withbr {
   position: absolute;
   left: -19.2rem;
   top: 35.8rem;
 }
 
-.publisherpartwhole {
+.publisher-partwhole {
   display: flex;
 }
-.pubpart {
+.pub-part {
   color: rgba(245, 245, 245, 0.6);
   width: 6.5rem;
 }
-.pubwho {
+.pub-who {
   width: 11rem;
 }
 
-.releasewithbr {
+.release-withbr {
   position: absolute;
   left: -19.2rem;
   top: 37.8rem;
 }
 
-.releasepartwhole {
+.release-partwhole {
   display: flex;
 }
-.relpart {
+.rel-part {
   color: rgba(245, 245, 245, 0.6);
   width: 12.4rem;
 }
-.relwho {
-  width: 11rem;
-}
 
-.platformwithbr {
+.platform-withbr {
   position: absolute;
   left: -19.2rem;
   top: 39.8rem;
 }
 
-.platformpartwhole {
+.platform-partwhole {
   display: flex;
 }
-.plapart {
+.pla-part {
   color: rgba(245, 245, 245, 0.6);
   width: 14.5rem;
 }
@@ -532,12 +540,12 @@ a.addtowishbuttonlink {
   width: 20rem;
 }
 
-.editionslink {
+.editions-link {
   text-decoration: underline;
   color: rgb(255, 255, 255);
 }
 
-.sharereportbtn {
+.share-report-btn {
   position: absolute;
   width: 10rem;
   top: 44rem;
@@ -576,7 +584,7 @@ a.addtowishbuttonlink {
   padding: 1px 25px;
   display: flex;
 }
-.reportlink {
+.report-link {
   color: rgb(255, 255, 255);
   text-decoration: none;
   text-align: center;
@@ -587,14 +595,17 @@ a.addtowishbuttonlink {
   top: 90rem;
 }
 
-.achievementheading {
+.achievement-heading {
   color: rgb(245, 245, 245);
   font-size: 18px;
   line-height: 25px;
   letter-spacing: -0.2px;
 }
 
-.achievementgriditemtropiepart {
+.achievement-grid-item-name {
+  width: 8rem;
+}
+.achievement-grid-item-tropiepart {
   display: flex;
 }
 
@@ -607,16 +618,16 @@ a.addtowishbuttonlink {
   padding-right: 0.4rem;
 }
 
-.achievementsgridpanel {
+.achievements-grid-panel {
   padding-top: 1.5rem;
   display: flex;
 }
 
-.achievementgriditem {
-  padding-right: 6.5rem;
+.achievement-grid-item {
+  padding-right: 5.4rem;
 }
 
-.seeallachievements {
+.see-all-achievements {
   margin-top: 2rem;
   background-color: rgba(245, 245, 245, 0.1);
   border-radius: 4px;
@@ -625,7 +636,7 @@ a.addtowishbuttonlink {
   height: 3rem;
 }
 
-.seeallachievementslink {
+.see-all-achievements-link {
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-size: 11px;
@@ -633,12 +644,12 @@ a.addtowishbuttonlink {
   width: 60rem;
 }
 
-.seeallachievementsinner {
+.see-all-achievements-inner {
   padding: 0.8rem;
   width: 60rem;
 }
 
-.gameeditions {
+.game-editions {
   position: absolute;
   top: 110rem;
 }
@@ -655,7 +666,7 @@ a.addtowishbuttonlink {
   margin-right: 1rem;
 }
 
-.editionsheading {
+.editions-heading {
   color: rgb(245, 245, 245);
   font-size: 18px;
   line-height: 25px;
@@ -663,18 +674,18 @@ a.addtowishbuttonlink {
   margin-bottom: 1rem;
 }
 
-.cardtitle {
+.card-title {
   color: rgb(245, 245, 245);
   font-size: 18px;
   line-height: 25px;
   letter-spacing: -0.2px;
 }
 
-.tagandtitle {
+.tag-and-title {
   display: flex;
 }
 
-.cardtextpart {
+.card-text-part {
   color: rgba(245, 245, 245, 0.6);
   font-size: 15px;
   line-height: 25px;
@@ -682,21 +693,38 @@ a.addtowishbuttonlink {
   width: 30rem;
 }
 
-.cardtoppart {
+.card-toppart {
   display: flex;
 }
 
-.cardcontent {
+.card-content {
   margin-top: 2rem;
   margin-left: 2rem;
 }
 
-.editioncard {
+.edition-card {
   background-color: rgb(32, 32, 32);
   width: 61rem;
 }
 
-.lineseparator {
+.line-separator {
   background-color: rgba(245, 245, 245, 0.2);
   height: 1px;
+}
+
+.a {
+  position: absolute;
+  top: 21.3rem;
+  right: 3.6rem;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(18, 18, 18);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2.4rem;
+  padding: 1px 6px;
 }
