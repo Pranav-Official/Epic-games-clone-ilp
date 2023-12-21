@@ -13,10 +13,10 @@ body {
 body {
   background-color: var(--color-main-page);
   font-family: Inter, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: normal;
-  line-height: 20px;
-  letter-spacing: 0.2px;
+  line-height: 1.25rem;
+  letter-spacing: 0.0125rem;
 }
 .out-container {
   margin-left: 10%;
@@ -29,10 +29,10 @@ body {
 }
 .wcontainer h1 {
   color: rgb(245, 245, 245);
-  font-size: 30px;
-  line-height: 35px;
-  letter-spacing: -0.3px;
-  padding-top: 25px;
+  font-size: 1.875rem;
+  line-height: 2.1875rem;
+  letter-spacing: -0.01875rem;
+  padding-top: 1.5625rem;
 }
 .whead {
   flex: 1;
@@ -42,7 +42,7 @@ body {
   color: rgba(245, 245, 245, 0.6);
   text-align: right;
   line-height: 35px;
-  padding-top: 25px;
+  padding-top: 1.5625rem;
   font-size: 15px;
 }
 .bi-box-arrow-up-right {
@@ -62,7 +62,7 @@ body {
   width: 80%;
   height: 70px;
   border-radius: 4px;
-  padding: 25px;
+  padding: 1.5625rem;
   position: relative;
 }
 .preferences-left {
