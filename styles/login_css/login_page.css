@@ -227,10 +227,10 @@ input::placeholder {
 }
 
 .privacy-policy-link {
-  text-decoration: none;
+  text-decoration: underline;
   color: white;
 }
 
 .privacy-policy-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
