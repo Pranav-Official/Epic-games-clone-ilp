@@ -75,6 +75,10 @@ input::placeholder {
   font-weight: 450;
 }
 
+.continue-button:hover {
+  filter: brightness(1.1);
+}
+
 .continue-button {
   position: absolute;
   top: 20rem;
@@ -83,6 +87,7 @@ input::placeholder {
   width: 22.4rem;
   height: 3.5rem;
   border-radius: 4px;
+  transition: all 0.2s ease 0s;
 }
 
 .continue-button-link {
@@ -118,16 +123,25 @@ input::placeholder {
   width: 22.4rem;
 }
 
+.my-col:hover {
+  filter: brightness(1.1);
+}
 .my-col {
   background-color: rgb(2, 125, 0);
   border-radius: 4px;
   height: 4rem;
+  transition: all 0.2s ease 0s;
 }
 
 .my-col2 {
   background-color: rgb(0, 55, 145);
   border-radius: 4px;
   height: 4rem;
+  transition: all 0.2s ease 0s;
+}
+
+.my-col2:hover {
+  filter: brightness(1.1);
 }
 
 .other-sign-link {
@@ -143,42 +157,64 @@ input::placeholder {
   background-color: rgb(233, 0, 0);
   border-radius: 4px;
   height: 4rem;
+  transition: all 0.2s ease 0s;
+}
+.my-col3:hover {
+  filter: brightness(1.1);
 }
 
 .my-col4 {
   background-color: rgb(20, 92, 143);
   border-radius: 4px;
   height: 4rem;
+  transition: all 0.2s ease 0s;
+}
+.my-col4:hover {
+  filter: brightness(1.1);
 }
 
 .my-col5 {
   background-color: rgb(24, 119, 242);
   border-radius: 4px;
   height: 4rem;
+  transition: all 0.2s ease 0s;
 }
 
-.my-col5 {
-  background-color: rgb(24, 119, 242);
-  border-radius: 4px;
-  height: 4rem;
+.my-col5:hover {
+  filter: brightness(1.1);
 }
 
 .my-col6 {
   background-color: rgb(254, 253, 253);
   border-radius: 4px;
   height: 4rem;
+  transition: all 0.2s ease 0s;
+}
+
+.my-col6:hover {
+  filter: brightness(1.1);
 }
 
 .my-col7 {
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
   height: 4rem;
+  transition: all 0.2s ease 0s;
+}
+
+.my-col7:hover {
+  filter: brightness(1.1);
 }
 
 .my-col8 {
   background-color: rgb(255, 212, 0);
   border-radius: 4px;
   height: 4rem;
+  transition: all 0.2s ease 0s;
+}
+
+.my-col8:hover {
+  filter: brightness(1.1);
 }
 
 .privacy-policy-disclaimer {
@@ -191,5 +227,10 @@ input::placeholder {
 }
 
 .privacy-policy-link {
+  text-decoration: none;
   color: white;
+}
+
+.privacy-policy-link:hover {
+  text-decoration: underline;
 }
