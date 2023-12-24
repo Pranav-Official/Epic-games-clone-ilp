@@ -9,16 +9,27 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../styles/discover.css" />
     <link rel="stylesheet" href="../styles/wishlist.css" />
-    <link rel="stylesheet" href="../styles/discover.css">
   </head>
   <body>
-        <header class="header">
+    <header class="header">
       <div class="header-left-side">
         <div class="store-options">
           <div class="epic-logo">
@@ -83,9 +94,9 @@
             <input id="search-field" type="text" placeholder="Search" />
           </div>
           <div class="nav-links">
-            <a class="nav-link" href="../pages/discover.html">Discover</a>
-            <a class="nav-link">Browse</a>
-            <a class="nav-link" href="../pages/news.html">News</a>
+            <a href="../pages/discover.html" class="nav-link">Discover</a>
+            <a href="../pages/browse_page.html" class="nav-link">Browse</a>
+            <a href="../pages/news.html" class="nav-link">News</a>
           </div>
         </div>
         <div class="right-nav">
@@ -99,12 +110,12 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
     <div class="wcontainer">
       <div class="whead"><h1>Wishlist</h1></div>
       <div class="wreward">
         Epic Rewards<i class="bi bi-box-arrow-up-right"></i>
-        <span class="price">₹0.00</span>
+        <span class="price"><b>₹0.00</b></span>
       </div>
     </div>
     <div class="preferences">
@@ -113,7 +124,11 @@
       </div>
       <div class="preferences-left">
         <div class="pl1">
-          <p>Receive email notifications about my wishlist.<i class="bi bi-question-circle"></i></p>
+          <p>
+            Receive email notifications about my wishlist.<i
+              class="bi bi-question-circle"
+            ></i>
+          </p>
         </div>
         <div class="pl2">
           <!-- <a href="#">Manage preferences</a> -->
@@ -138,50 +153,150 @@
           <option value="Price:High to Low">Price:High to Low</option>
         </select>
       </div>
-      <div class="filteroptn"><p>Filters</p></div>
-    </div>
+      <div class="filteroptn">
+        <p>Filters</p>
+      </div>
+      <!-- <img src="../assets/wishlist_images/filter.svg" alt="filter"> -->
     </div>
     <div class="row">
-    <div class="wishlist">
-       <div class="wishimg"><img src="../assets/wishlist_images/wishlist1.PNG" alt="wishlist1"></div>
-       <img id="windows-icon" src="../assets/wishlist_images/windows-icon.svg" alt="windows-icon">
-       <div class="wishdetails"><p><button id="basegm">BASE GAME</button></p>
-        <button id="percentbtn">-15%</button><p id="actualprice">₹2,599</p><p id="price">₹2,209.15</p>
-        <p id="sales">Sale ends 1/10/2024 at 9:30 PM</p>
-         <h5>Ghostrunner 2</h5>
-         <img id="earn-icon" src="../assets/wishlist_images/earn-icon.svg" alt="earn icon">
-        <p id="des">Earn a boosted 10% back in Epic Rewards,offer ends in Jan 10.</p></div>
-        <a id="remove" href="#">Remove</a>
-        <button id="add2cart">ADD TO CART</button>
-    </div>
-    <div class="filtertypes">
-        <hr>
-        <div>
-             <select name="filtertyp" id="ftypes">
-               <option value="events">EVENTS</option>
-               <option value="sale">Holiday Sale</option>
-               </select>
-        </div><hr>
-        <div>
-          <select name="filtertyp" id="ftypes">
-               <option value="genre">GENRE</option>
-               <option value="action">Action</option>
-               <option value="adventure">Adventure</option>
-          </select>
-        </div><hr>
-        <div> 
-           <select name="filtertyp" id="ftypes">
-               <option value="features">FEATURES</option>
-               <option value="player">Single Player</option>
-               </select>
-        </div><hr>
-        <div>
-            <select name="filtertyp" id="ftypes">
-               <option value="platform">PLATFORM</option>
-               <option value="windows">Windows</option>
-               </select>
-        </div><hr>
-    </div>
+      <div class="wishlist">
+        <div class="wishimg">
+          <img src="../assets/wishlist_images/wishlist1.PNG" alt="wishlist1" />
+          <div>
+            <img
+              id="windows-icon"
+              src="../assets/wishlist_images/windows-icon.svg"
+              alt="windows-icon"
+            />
+          </div>
+        </div>
+        <div class="wishdetails">
+          <div class="wishdetails-row1">
+            <div class="wishdetails-row1-flex1">
+              <p><button id="basegm">BASE GAME</button></p>
+              <div><h5>Ghostrunner 2</h5></div>
+            </div>
+            <div class="wishdetails-row1-flex2">
+              <button id="percentbtn">-15%</button>
+              <p id="actualprice">₹2,599</p>
+              <p id="price">₹2,209.15</p>
+              <div><p id="sales">Sale ends 1/10/2024 at 9:30 PM</p></div>
+            </div>
+          </div>
+          <div>
+            <img
+              id="earn-icon"
+              src="../assets/wishlist_images/earn-icon.svg"
+              alt="earn icon"
+            />
+            <p id="des">
+              Earn a boosted 10% back in Epic Rewards,offer ends in Jan 10.
+            </p>
+          </div>
+          <div class="button-row">
+            <div class="remove-button"><a id="remove" href="#">Remove</a></div>
+            <div class="addtocart-button">
+              <button id="add2cart">ADD TO CART</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filtertypes">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo"
+                aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwo"
+              >
+                EVENTS
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="panelsStayOpen-headingTwo"
+            >
+              <div class="accordion-body">
+                <strong>Holiday Sale</strong>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne"
+                aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne"
+              >
+                GENRE
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-headingOne"
+            >
+              <div class="accordion-body">
+                <strong>Action</strong>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseThree"
+                aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseThree"
+              >
+                FEATURES
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="panelsStayOpen-headingThree"
+            >
+              <div class="accordion-body">
+                <strong>Single Player</strong>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne"
+                aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne"
+              >
+                PLATFORM
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-headingOne"
+            >
+              <div class="accordion-body">
+                <strong>Windows</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
