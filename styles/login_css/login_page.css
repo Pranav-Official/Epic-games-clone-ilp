@@ -23,6 +23,17 @@ body {
   border-radius: 4px;
 }
 
+.inner-div-password {
+  position: relative;
+  height: 38rem;
+  text-align: initial;
+  display: inline-table;
+  vertical-align: middle;
+  width: 100%;
+  overflow: visible;
+  padding: 5px;
+}
+
 .inner-div {
   position: relative;
   height: 48rem;
@@ -62,6 +73,8 @@ body {
 }
 
 #email-field {
+  padding-left: 20px;
+  color: #fff;
   width: 22.4rem;
   height: 3.5rem;
   background-color: #202020;
@@ -233,4 +246,111 @@ input::placeholder {
 
 .privacy-policy-link:hover {
   text-decoration: none;
+}
+.signin-prompt {
+  color: rgba(255, 255, 255);
+  position: absolute;
+  top: 10.5rem;
+  left: 6rem;
+  font-size: 17px;
+  font-family: Brutal, sans-serif;
+  font-weight: 550;
+  line-height: 1.5625rem;
+  letter-spacing: -0.2px;
+}
+
+.email-input-field-locked {
+  position: absolute;
+  top: 13.5rem;
+  left: 3.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#email-field-locked {
+  padding-left: 20px;
+  color: rgb(170, 170, 170);
+  width: 22.4rem;
+  height: 3.5rem;
+  background-color: rgba(255, 255, 255, 0.09);
+  border: none;
+  border-radius: 4px;
+  border-color: rgba(245, 245, 245, 0.4);
+}
+
+.edit-button {
+  margin-left: -2rem;
+}
+
+.signing-button {
+  position: absolute;
+  top: 28rem;
+  left: 3.8rem;
+  background-color: #0074e4;
+  width: 22.4rem;
+  height: 3.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease 0s;
+}
+.signin-button:hover {
+  filter: brightness(1.1);
+}
+
+.signing-button-link {
+  text-decoration: none;
+  color: #fff;
+  font: 12px Brutal, sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-input {
+  position: absolute;
+  top: 18.6rem;
+  left: 3.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#password-field {
+  padding-left: 20px;
+  color: rgb(170, 170, 170);
+  width: 22.4rem;
+  height: 3.6rem;
+  background-color: #202020;
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: rgba(245, 245, 245, 0.4);
+}
+
+.forgot-password {
+  position: absolute;
+  top: 24rem;
+  left: 10.8rem;
+}
+
+.forgot-password-link {
+  text-decoration: underline;
+  color: white;
+}
+
+.go-back-link {
+  display: flex;
+  position: absolute;
+  left: 11.5rem;
+  top: 34rem;
+}
+
+.go-back {
+  padding-right: 0.3rem;
+}
+
+.back-link-part {
+  text-decoration: underline;
+  color: white;
 }
