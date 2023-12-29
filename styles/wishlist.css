@@ -3,6 +3,9 @@
   --color-main-page: rgb(18, 18, 18);
   --color-accent: #007aff;
 }
+/* * {
+  border: border-box;
+} */
 
 body {
   background-color: var(--color-main-page);
@@ -205,6 +208,23 @@ input:checked + .slider:before {
   margin-left: 0.625rem;
   color: rgb(245, 245, 245);
   text-align: left;
+  display: flex;
+}
+.filteroptn_flex1 {
+  flex: 1;
+}
+.filteroptn_flex2 {
+  flex: 1;
+}
+.filteroptn_flex2 img {
+  margin-left: 1rem;
+  width: 1.5rem;
+  visibility: hidden;
+}
+@media only screen and (max-width: 1000px) {
+  .filteroptn_flex2 img {
+    visibility: visible;
+  }
 }
 .filteroptn p {
   margin-left: 12rem;
@@ -228,8 +248,16 @@ input:checked + .slider:before {
   line-height: 1.25rem;
   letter-spacing: 0.0125rem;
 }
+
 .filtertypes {
   flex: 1;
+  display: none;
+}
+@media only screen and (max-width: 1000px) {
+  .filtertypes {
+    display: hidden;
+    flex: none;
+  }
 }
 .wishimg {
   flex: 0.5;
@@ -349,10 +377,6 @@ input:checked + .slider:before {
 #remove {
   color: #f5f5f599;
   text-decoration: underline;
-
-  /* position: absolute;
-  bottom: 10%;
-  right: 35%; */
 }
 #add2cart {
   color: rgb(245, 245, 245);
@@ -370,6 +394,7 @@ input:checked + .slider:before {
   line-height: 0.9375rem;
   padding: 0rem 1.25rem;
   height: 3.125rem;
+  border-radius: 0.25rem;
 }
 #add2cart:hover {
   background-color: #ffffff1a;

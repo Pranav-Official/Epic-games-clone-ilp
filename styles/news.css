@@ -3,21 +3,14 @@
   --color-main-page: rgb(18, 18, 18);
   --color-accent: #007aff;
 }
-
-/* how to use the variable:- 
-
-body {
-  background-color: var(--color-background-default);
-  color: var(--color-accent:);
-} */
+/* font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+letter-spacing: 0.2px;
+width: 100%;
+overflow-x: hidden; */
 body {
   font-family: Inter, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 20px;
-  letter-spacing: 0.2px;
-  width: 100%;
-  overflow-x: hidden;
   background-color: var(--color-main-page);
   color: white;
 }
@@ -121,6 +114,37 @@ hr {
 }
 .row {
   display: flex;
+}
+@media only screen and (max-width: 1000px) {
+  .news-top {
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-left: 5rem;
+  }
+  .row {
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-left: 5rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .row .row-left {
+    margin-left: 0%;
+  }
+  .row-left img {
+    width: 200px;
+  }
+  .pagination {
+    margin-left: 18%;
+  }
+  .card-one {
+    margin-left: 6%;
+  }
+  .card-one img {
+    width: 94%;
+  }
 }
 .row-left {
   flex: 1;
