@@ -50,14 +50,15 @@
           </div>
           <div class="signup-text">Sign In or Sign Up</div>
           <div class="email-input-field">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              id="email-field"
-            />
+            <div class="email-input-field-inner">
+              <input type="email" name="email" id="email-field" />
+              <label class="placeholder-label" for="email-field"
+                >Email Address</label
+              >
+            </div>
           </div>
-          <div class="continue-button">
+          <div hidden id="invalid-mail" class="invalid-mail-indicator"></div>
+          <div id="continue-div" class="disabled">
             <a class="continue-button-link" id="continue-link" href="#"
               >CONTINUE</a
             >
