@@ -55,15 +55,18 @@ const validateInput = () => {
   let emailInput = document.getElementById("email-field");
   let submitDiv = document.getElementById("continue-div");
   let isvalidDiv = document.getElementById("invalid-mail");
+  let continueLink = document.getElementById("continue-link");
 
   var isValidEmail = isValidEmailFormat(emailInput.value);
   if (emailInput.value.trim() === "") {
+    continueLink.style.cursor = "default";
     emailInput.style.borderColor = "#DE3341";
     submitDiv.classList.remove("continue-button");
     isvalidDiv.textContent = "Required";
     isvalidDiv.removeAttribute("hidden");
     return false;
   } else if (!isValidEmail) {
+    continueLink.style.cursor = "default";
     emailInput.style.borderColor = "#DE3341";
     submitDiv.classList.remove("continue-button");
     isvalidDiv.textContent = "Invalid email";
@@ -71,6 +74,7 @@ const validateInput = () => {
     return false;
   } else {
     console.log("valid");
+    continueLink.style.cursor = "pointer";
     emailInput.style.borderColor = "";
     isvalidDiv.setAttribute("hidden", "true");
     submitDiv.classList.add("continue-button");
