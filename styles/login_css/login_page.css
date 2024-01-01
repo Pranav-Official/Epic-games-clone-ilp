@@ -310,8 +310,40 @@ input::placeholder {
   border-color: rgba(245, 245, 245, 0.4);
 }
 
+.email-input-inner {
+  position: relative;
+}
+
+#email-inputed {
+  position: absolute;
+  top: 1.8rem;
+  left: 10px;
+  color: #8b8b8b;
+  font-size: 0.875rem;
+  font-family: Brutal, sans-serif;
+  font-weight: 450;
+}
+
+.placeholder-label-locked {
+  position: absolute;
+  left: 10px;
+  top: 10%;
+  font-size: 10px;
+  font-family: Brutal, sans-serif;
+  color: #8b8b8b;
+  font-weight: 600;
+}
+
+.edit-button:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
 .edit-button {
-  margin-left: -2rem;
+  z-index: +1;
+  margin-left: -2.4rem;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 .signing-button {
@@ -357,6 +389,24 @@ input::placeholder {
   border: 1px solid;
   border-radius: 4px;
   border-color: rgba(245, 245, 245, 0.4);
+}
+
+.password-eye-button {
+  z-index: +1;
+  margin-left: -2.5rem;
+  padding: 6px;
+  border-radius: 4px;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.password-eye-button:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+#eye-button {
+  width: 24px;
+  height: 22px;
+  color: rgb(255 255 255);
 }
 
 .forgot-password {

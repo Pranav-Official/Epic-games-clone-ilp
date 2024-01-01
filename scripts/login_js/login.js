@@ -50,6 +50,7 @@ document
     }
   });
 
+//function to validate email input field
 const validateInput = () => {
   let emailInput = document.getElementById("email-field");
   let submitDiv = document.getElementById("continue-div");
@@ -77,6 +78,7 @@ const validateInput = () => {
   }
 };
 
+//funcion to check email format
 function isValidEmailFormat(email) {
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -84,6 +86,7 @@ function isValidEmailFormat(email) {
 
 document.getElementById("email-field").addEventListener("input", validateInput);
 
+//funtion to animate inputfield placeholder text
 document.getElementById("email-field").addEventListener("input", function () {
   var placeholderLabel = document.querySelector(".placeholder-label");
   placeholderLabel.style.top = this.value ? "20%" : "50%";
