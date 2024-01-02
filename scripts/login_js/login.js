@@ -38,6 +38,7 @@ document
           if (signInMethods.length === 0) {
             console.log(signInMethods);
             console.log("Email is not registered.");
+            window.location.href = "../signup_page/signup.html";
           } else {
             console.log("Email is already registered.");
             console.log("Sign-in methods:", signInMethods);
