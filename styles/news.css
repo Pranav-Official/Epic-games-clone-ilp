@@ -58,6 +58,7 @@ h1 span {
 .card-one img {
   width: 400px;
   margin-left: 1rem;
+  border-radius: 0.5rem;
 }
 .card-two {
   flex: 1;
@@ -69,17 +70,18 @@ h1 span {
 .card-two img {
   width: 400px;
   margin-left: 1rem;
+  border-radius: 0.5rem;
 }
 .card-title {
   color: rgb(245, 245, 245);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
   line-height: 20px;
   letter-spacing: 0.2px;
 }
 .card-text {
   color: rgba(245, 245, 245, 0.6);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: normal;
   line-height: 20px;
   letter-spacing: 0.2px;
@@ -102,18 +104,19 @@ h1 span {
   text-decoration: none;
   transition: background-color 0.3s;
   text-align: center;
+  background-color: var(--color-main-page);
 }
-.pagination button.active {
+/* .pagination button.active {
   background-color: grey;
   color: white;
   text-align: center;
   text-decoration: none;
-}
-.pagination button:hover:not(.active) {
+} */
+/* .pagination button:hover:not(.active) {
   background-color: #ddd;
   text-align: center;
   text-decoration: none;
-}
+} */
 hr {
   height: 1px;
   border-width: 0;
@@ -146,15 +149,17 @@ hr {
   }
   .row-left img {
     width: 200px;
+    border-radius: 0.5rem;
   }
   .pagination {
     margin-left: 18%;
   }
   .card-one {
-    margin-left: 6%;
+    margin-left: 0;
   }
   .card-one img {
     width: 94%;
+    border-radius: 0.5rem;
   }
 }
 .row-left {
@@ -164,6 +169,7 @@ hr {
 .row-left img {
   width: 15rem;
   margin-right: 1.5rem;
+  border-radius: 0.5rem;
 }
 .row-right {
   flex: 4;
@@ -171,4 +177,5 @@ hr {
 }
 .row-right p {
   margin-right: 15%;
+  font-size: 15px;
 }
