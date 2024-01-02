@@ -566,3 +566,19 @@ h3 {
   transform-origin: 100% 100%;
   rotate: 45deg;
 }
+@media screen and (min-width: 1280px) {
+  .AccountsListTiles__wrapper {
+    grid-auto-rows: minmax(210px, max-content);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .AccountsListTiles__wrapper {
+    grid-auto-rows: minmax(calc((100vw - 140px) / 5.5), max-content);
+  }
+}
+@media screen and (min-width: 768px) {
+  .AccountsListTiles__wrapper {
+    grid-gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
