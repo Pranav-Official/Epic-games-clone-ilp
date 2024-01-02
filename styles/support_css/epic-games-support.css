@@ -15,7 +15,7 @@ body {
   width: 100%;
   height: 100%;
   display: block;
-  background-color: #2a2a2a;
+  background-color: rgb(21, 21, 21);
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -580,5 +580,262 @@ h3 {
   .AccountsListTiles__wrapper {
     grid-gap: 30px;
     grid-template-columns: repeat(6, 1fr);
+  }
+}
+.AccountsListTiles__wrapper:focus {
+  outline: none;
+}
+.AccountsListTiles__wrapper {
+  display: grid;
+  padding: 0;
+  list-style: none;
+}
+@media screen and (min-width: 768px) {
+  .AccountsListTiles__wrapper.AccountsListTiles__item--multiple-2
+    .AccountsListTiles__item,
+  .AccountsListTiles__wrapper.AccountsListTiles__item--multiple-2
+    .AccountsListTiles__item:nth-child(-n + 2),
+  .AccountsListTiles__wrapper.AccountsListTiles__item--multiple-2
+    .AccountsListTiles__item:nth-last-child(-n + 2) {
+    grid-column: span 3;
+  }
+}
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+.AccountTile {
+  border: none;
+  text-decoration: none;
+  text-align: right;
+  display: block;
+  height: 100%;
+  border-radius: 10px;
+  outline: none;
+  position: relative;
+}
+.AccountTile:before {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  content: "";
+  pointer-events: none;
+  bottom: -4px;
+  left: -4px;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  transition: border-color 0.2s ease-in-out;
+}
+.AccountTile .AccountTile__wrapper {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+@media screen and (min-width: 1280px) {
+  .AccountTile .AccountTile__content {
+    width: 243px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .AccountTile .AccountTile__content {
+    padding: 20px 20px 20px 60px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .AccountTile .AccountTile__content {
+    clip-path: polygon(60px 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+.AccountTile .AccountTile__content {
+  background-color: #272727;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  display: inline-block;
+  height: 101%;
+  margin: -1px -1px -1px 0;
+  position: relative;
+  z-index: 2;
+}
+@media screen and (min-width: 1024px) {
+  .AccountTile .AccountTile__content .AccountTile__icon {
+    height: 60px;
+    margin: 0 0 15px;
+    width: 60px;
+  }
+}
+.AccountTile .AccountTile__content .AccountTile__icon {
+  align-items: center;
+  display: inline-flex;
+  height: 60px;
+  justify-content: center;
+  margin: 0 0 15px;
+  width: 60px;
+}
+
+.AccountTile .AccountTile__content .AccountTile__icon img {
+  max-width: 100%;
+}
+img {
+  vertical-align: middle;
+  overflow: clip;
+}
+@media screen and (min-width: 1024px) {
+  .AccountTile .AccountTile__content .AccountTile__title {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+.AccountTile .AccountTile__content .AccountTile__title {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  margin: 0;
+  word-break: break-word;
+}
+.AccountTile .AccountTile__image-wrapper {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 25%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 25%;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateZ(0);
+}
+.AccountTile .AccountTile__image {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  transform-origin: 0 50%;
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+}
+@media screen and (min-width: 1280px) {
+  .EnterpriseListTiles__wrapper {
+    grid-auto-rows: 210px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .EnterpriseListTiles__wrapper {
+    grid-gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+.EnterpriseListTiles__wrapper,
+.EnterpriseListTiles__wrapper:active,
+.EnterpriseListTiles__wrapper:focus {
+  outline: none;
+}
+.EnterpriseListTiles__wrapper {
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .EnterpriseListTiles__wrapper.EnterpriseListTiles__item--multiple-2
+    .EnterpriseListTiles__item:first-child {
+    grid-column: span 6;
+  }
+}
+.EnterpriseTile__wrapper {
+  align-items: center;
+  border: none;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  outline: none;
+  width: 100%;
+  position: relative;
+}
+.EnterpriseTile__wrapper:before {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  content: "";
+  pointer-events: none;
+  bottom: -4px;
+  left: -4px;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  transition: border-color 0.2s ease-in-out;
+}
+@media screen and (min-width: 768px) {
+  .EnterpriseTile__wrapper
+    .EnterpriseTile__image-wrapper.EnterpriseTile__image-wrapper--first {
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+}
+.EnterpriseTile__wrapper .EnterpriseTile__image-wrapper {
+  align-items: center;
+  border-radius: 10px;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transform: translateZ(0);
+  width: 100%;
+}
+.EnterpriseTile__wrapper .EnterpriseTile__triangle {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  height: 60px;
+  width: 60px;
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none"%3E%3Cg clip-path="url(%23clip0_717_3426)"%3E%3Cg filter="url(%23filter0_d_717_3426)"%3E%3Cpath d="M0-4.227h60a4 4 0 014 4v60l-64-64z" fill="%23FFE600"/%3E%3C/g%3E%3Cpath d="M51 11.617a1.817 1.817 0 00-1.861-1.843l-8.915.131c-2.499.004-2.504 3.744-.005 3.74l3.048-.01c.694-.002.856.395.368.882l-6.087 6.07a1.865 1.865 0 000 2.641 1.88 1.88 0 002.648 0l6.087-6.07c.49-.49.886-.325.884.366l-.01 3.04c-.003 2.493 3.746 2.487 3.75-.006L51 11.617z" fill="%23141414"/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id="clip0_717_3426"%3E%3Cpath fill="%23fff" transform="translate(0 .773)" d="M0 0h59v59H0z"/%3E%3C/clipPath%3E%3Cfilter id="filter0_d_717_3426" x="-2" y="-6.227" width="72" height="72" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"%3E%3CfeFlood flood-opacity="0" result="BackgroundImageFix"/%3E%3CfeColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/%3E%3CfeOffset dx="2" dy="2"/%3E%3CfeGaussianBlur stdDeviation="2"/%3E%3CfeComposite in2="hardAlpha" operator="out"/%3E%3CfeColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/%3E%3CfeBlend in2="BackgroundImageFix" result="effect1_dropShadow_717_3426"/%3E%3CfeBlend in="SourceGraphic" in2="effect1_dropShadow_717_3426" result="shape"/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+@media screen and (min-width: 768px) {
+  .EnterpriseTile__wrapper
+    .EnterpriseTile__image-wrapper.EnterpriseTile__image-wrapper--first
+    .EnterpriseTile__icon-wrapper {
+    margin: 0 6%;
+    width: 36%;
+    max-width: 414px;
+  }
+}
+.EnterpriseTile__wrapper .EnterpriseTile__icon-wrapper {
+  position: relative;
+  z-index: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.EnterpriseTile__wrapper .EnterpriseTile__icon-wrapper .EnterpriseTile__icon {
+  max-width: 50%;
+}
+.EnterpriseTile__wrapper .EnterpriseTile__icon-wrapper .EnterpriseTile__icon1 {
+  max-width: 100%;
+}
+.EnterpriseTile__wrapper
+  .EnterpriseTile__image-wrapper.EnterpriseTile__image-wrapper--first
+  .EnterpriseTile__image {
+  width: 100%;
+}
+.EnterpriseTile__wrapper .EnterpriseTile__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+  object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .EnterpriseListTiles__wrapper.EnterpriseListTiles__item--multiple-2
+    .EnterpriseListTiles__item {
+    grid-column: span 3;
   }
 }
