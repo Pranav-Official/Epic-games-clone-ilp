@@ -129,6 +129,7 @@ hr {
     margin-left: 5rem;
   }
 }
+
 @media only screen and (max-width: 1000px) {
   .row .row-left {
     margin-left: 0%;
@@ -150,6 +151,14 @@ hr {
   flex: 1;
   margin-left: 13%;
 }
+.row-left img {
+  width: 15rem;
+  margin-right: 1.5rem;
+}
 .row-right {
   flex: 4;
+  /* margin-right: 10%; */
+}
+.row-right p {
+  margin-right: 10%;
 }
