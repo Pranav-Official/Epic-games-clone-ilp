@@ -1,10 +1,10 @@
 //API url and request
-let url =
+const url =
   "https://newsapi.org/v2/everything?" +
   "q=Games&" +
   "apiKey=4bdcb41ba60e45ae98fac6b55ae85c2c";
 
-let req = new Request(url);
+const req = new Request(url);
 
 const apiKey = "4bdcb41ba60e45ae98fac6b55ae85c2c";
 const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${apiKey}`;
