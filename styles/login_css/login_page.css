@@ -34,6 +34,17 @@ body {
   padding: 5px;
 }
 
+.inner-div-login {
+  position: relative;
+  height: 54rem;
+  text-align: initial;
+  display: inline-table;
+  vertical-align: middle;
+  width: 100%;
+  overflow: visible;
+  padding: 5px;
+}
+
 .inner-div {
   position: relative;
   height: 48rem;
@@ -479,4 +490,237 @@ input::placeholder {
   transform: translateY(-50%);
   pointer-events: none;
   transition: top 0.3s, font-size 0.3s;
+}
+
+.signup-prompt {
+  color: rgba(255, 255, 255);
+  position: absolute;
+  top: 10.5rem;
+  left: 13rem;
+  font-size: 17px;
+  font-family: Brutal, sans-serif;
+  font-weight: 550;
+  line-height: 1.5625rem;
+  letter-spacing: -0.2px;
+}
+
+.name {
+  margin-right: 1rem;
+  position: relative;
+  width: 10.7rem;
+  height: 3.6rem;
+  background-color: #202020;
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: rgba(245, 245, 245, 0.4);
+}
+
+.name-box {
+  position: absolute;
+  width: 7rem;
+  background-color: #202020;
+  border: none;
+  outline: none;
+  top: 1.8rem;
+  padding-left: 20px;
+  color: white;
+}
+
+.firt-name-label-class {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: top 0.3s, font-size 0.3s;
+}
+
+.last-name-label-class {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: top 0.3s, font-size 0.3s;
+}
+
+.name-input-field {
+  position: absolute;
+  display: flex;
+  top: 18.5rem;
+  left: 3.8rem;
+}
+
+.displayname-box {
+  width: 22.4rem;
+  height: 3.6rem;
+  background-color: #202020;
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: rgba(245, 245, 245, 0.4);
+  padding-left: 20px;
+  color: white;
+}
+
+.displayname-input-field {
+  position: absolute;
+  display: flex;
+  top: 23.5rem;
+  left: 3.8rem;
+}
+
+.display-name-label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: top 0.3s, font-size 0.3s;
+}
+
+.displayname-info-popup {
+  z-index: +1;
+  margin-left: -2.8rem;
+  justify-items: center;
+  height: 2rem;
+  width: 2rem;
+  margin-top: 0.8rem;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.displayname-info-popup:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+.signup-button-dissabled {
+  opacity: 50%;
+  position: absolute;
+  top: 41rem;
+  left: 3.8rem;
+  background-color: #0074e4;
+  width: 22.4rem;
+  height: 3.5rem;
+  border-radius: 4px;
+}
+
+.signup-button {
+  opacity: 100%;
+  position: absolute;
+  top: 41rem;
+  left: 3.8rem;
+  background-color: #0074e4;
+  width: 22.4rem;
+  height: 3.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease 0s;
+}
+.signup-button:hover {
+  filter: brightness(1.2);
+}
+
+.signup-button-link {
+  cursor: default;
+  text-decoration: none;
+  color: #fff;
+  font: 12px Brutal, sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-go-back-link {
+  display: flex;
+  position: absolute;
+  left: 11.5rem;
+  top: 49.5rem;
+}
+
+.signup-password-input {
+  position: absolute;
+  display: flex;
+  top: 28.6rem;
+  left: 3.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-password-eye-button {
+  z-index: +1;
+  margin-left: -4.8rem;
+  margin-bottom: 0.1rem;
+  padding: 6px;
+  border-radius: 4px;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.signup-password-eye-button:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+.password-info-popup {
+  z-index: +1;
+  margin-bottom: 1rem;
+  justify-items: center;
+  height: 2rem;
+  width: 2rem;
+  margin-top: 0.8rem;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.password-info-popup:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+.invalid-password-signup-indicator {
+  position: absolute;
+  color: #de3341;
+  font: 12px Brutal, sans-serif;
+  top: 22.5rem;
+  left: 3.8rem;
+}
+
+.offers-box {
+  position: absolute;
+  top: 34rem;
+  left: 4rem;
+}
+
+.styled-checkbox {
+  display: flex;
+}
+.checkbox-input {
+  margin-top: 3px;
+  margin-right: 1rem;
+  height: 18px;
+  width: 18px;
+}
+
+.check-text {
+  padding-bottom: 10px;
+  width: 75%;
+  font-size: 14px;
+  font-family: Brutal, sans-serif;
+  line-height: 1.25rem;
+  letter-spacing: 0.1px;
+}
+
+.terms-link {
+  color: white;
+}
+
+.terms-link:hover {
+  text-decoration: none;
+}
+
+.signup-privacy {
+  position: absolute;
+  top: 47rem;
+  left: 12.4rem;
 }
