@@ -504,7 +504,17 @@ input::placeholder {
   letter-spacing: -0.2px;
 }
 
-.name {
+.name-f {
+  margin-right: 1rem;
+  position: relative;
+  width: 10.7rem;
+  height: 3.6rem;
+  background-color: #202020;
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: rgba(245, 245, 245, 0.4);
+}
+.name-l {
   margin-right: 1rem;
   position: relative;
   width: 10.7rem;
@@ -515,7 +525,7 @@ input::placeholder {
   border-color: rgba(245, 245, 245, 0.4);
 }
 
-.name-box {
+.name-box-l {
   position: absolute;
   width: 7rem;
   background-color: #202020;
@@ -524,6 +534,26 @@ input::placeholder {
   top: 1.8rem;
   padding-left: 20px;
   color: white;
+}
+
+.name-box-f {
+  position: absolute;
+  width: 7rem;
+  background-color: #202020;
+  border: none;
+  outline: none;
+  top: 1.8rem;
+  padding-left: 20px;
+  color: white;
+}
+
+.name-f:focus-within {
+  outline: 1px solid rgb(253, 253, 255);
+  outline-offset: -1px;
+}
+.name-l:focus-within {
+  outline: 1px solid rgb(253, 253, 255);
+  outline-offset: -1px;
 }
 
 .firt-name-label-class {
@@ -552,14 +582,29 @@ input::placeholder {
 }
 
 .displayname-box {
+  padding-left: 20px;
+  color: white;
+  position: absolute;
+  width: 7rem;
+  background-color: #202020;
+  border: none;
+  outline: none;
+  top: 1.8rem;
+}
+.display-name {
+  position: relative;
+  display: flex;
   width: 22.4rem;
   height: 3.6rem;
   background-color: #202020;
   border: 1px solid;
   border-radius: 4px;
   border-color: rgba(245, 245, 245, 0.4);
-  padding-left: 20px;
-  color: white;
+}
+
+.display-name:focus-within {
+  outline: 1px solid rgb(253, 253, 255);
+  outline-offset: -1px;
 }
 
 .displayname-input-field {
@@ -717,6 +762,15 @@ input::placeholder {
 
 .terms-link:hover {
   text-decoration: none;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1;
 }
 
 .signup-privacy {

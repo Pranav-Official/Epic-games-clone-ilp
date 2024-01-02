@@ -35,7 +35,7 @@ const updateMailLockedField = () => {
 };
 document.addEventListener("DOMContentLoaded", updateMailLockedField);
 
-//function to
+//function to signup a new user
 function signup() {
   const email = sessionStorage.getItem("email");
   const password = document.getElementById("password-field").value;
@@ -58,7 +58,6 @@ function signup() {
 }
 
 document.getElementById("signup-button").addEventListener("click", signup);
-
 
 //function to create document with user data in firestore
 function createUserData(email, firstName, lastName, displayName) {
@@ -87,3 +86,92 @@ function createUserData(email, firstName, lastName, displayName) {
       console.error("Error creating user data:", error);
     });
 }
+
+//function to animate placeholder text
+function onFocusAnimation(divInQuestion) {
+  let placeholderLabel = document.querySelector(divInQuestion);
+  placeholderLabel.style.top = "30%";
+  placeholderLabel.style.fontSize = "12px";
+}
+
+//Function to revert animated placeholder text
+function onBlurAnimation(divInQuestion, inputField) {
+  let placeholderLabel = document.querySelector(divInQuestion);
+  // Revert the styles when focus is lost and no value in field
+  let inputVal = document.getElementById(inputField).value;
+  if (!inputVal) {
+    placeholderLabel.style.top = "50%";
+    placeholderLabel.style.fontSize = "14px";
+  }
+}
+
+function noPopUp() {
+  popupMessage.style.display = "none";
+}
+
+function popUp() {
+  const popupMessage = document.getElementById("popupMessage");
+  // Display the popup at position
+  popupMessage.style.display = "block";
+  popupMessage.style.top = 3 + "rem";
+  popupMessage.style.left = 10 + "rem";
+}
+
+function noPopUP() {
+  const popupMessage = document.getElementById("popupMessage");
+  popupMessage.style.display = "none";
+}
+
+document
+  .getElementById("toggle-displayname-info")
+  .addEventListener("mouseover", () => {
+    popUp();
+  });
+
+document
+  .getElementById("toggle-displayname-info")
+  .addEventListener("mouseout", () => {
+    noPopUp();
+  });
+
+document
+  .getElementById("password-field")
+  .addEventListener("focus", function () {
+    onFocusAnimation(".password-placeholder-label", "password-field");
+  });
+document.getElementById("password-field").addEventListener("blur", function () {
+  onBlurAnimation(".password-placeholder-label", "password-field");
+});
+
+document
+  .getElementById("first-name-input")
+  .addEventListener("focus", function () {
+    onFocusAnimation("#first-name-label", "first-name-input");
+  });
+document
+  .getElementById("first-name-input")
+  .addEventListener("blur", function () {
+    onBlurAnimation("#first-name-label", "first-name-input");
+  });
+
+document
+  .getElementById("last-name-input")
+  .addEventListener("focus", function () {
+    onFocusAnimation("#last-name-label", "last-name-input");
+  });
+document
+  .getElementById("last-name-input")
+  .addEventListener("blur", function () {
+    onBlurAnimation("#last-name-label", "last-name-input");
+  });
+
+document
+  .getElementById("display-name-inputed")
+  .addEventListener("focus", function () {
+    onFocusAnimation("#displayname-label", "display-name-inputed");
+  });
+document
+  .getElementById("display-name-inputed")
+  .addEventListener("blur", function () {
+    onBlurAnimation("#displayname-label", "display-name-inputed");
+  });
