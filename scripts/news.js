@@ -115,15 +115,18 @@ function displayNews(newsData, start) {
   const newsTop = document.getElementById("news-top");
   newsTop.innerHTML = "";
   newsContainer.innerHTML = "";
-  for (let i = start; i < Math.min(start + 10, newsData.length); i++) {
-    const newsItem1 = newsData[i];
 
-    if (i == 1) {
-      const newsItem2 = newsData[i + 1];
-      let topNews = topNewsTemplate(newsItem1, newsItem2);
-      newsTop.insertAdjacentHTML("beforeend", topNews);
-      i++;
-    } else {
+  // Display top news if available
+  if (newsData.length >= 2) {
+    const newsItem1 = newsData[1];
+    const newsItem2 = newsData[0];
+    let topNews = topNewsTemplate(newsItem1, newsItem2);
+    newsTop.insertAdjacentHTML("beforeend", topNews);
+  }
+
+  for (let i = start; i < Math.min(start + 10, newsData.length); i++) {
+    if (i >= 2) {
+      const newsItem1 = newsData[i];
       const newsDiv = document.createElement("div");
       newsDiv.innerHTML = rowNewsTemplate(newsItem1);
       newsContainer.appendChild(newsDiv);
@@ -136,9 +139,8 @@ async function init() {
   newsData = await fetchData(apiUrl);
   displayNews(newsData, 0);
 }
-//To calculate next page news.
+//To display next page news.
 const nextPage = (num) => {
-  init();
   displayNews(newsData, num * 10);
 };
 // Initial load
