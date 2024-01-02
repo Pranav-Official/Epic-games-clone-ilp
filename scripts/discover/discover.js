@@ -214,7 +214,8 @@ const populateSalesHighlights = async (title, id, parameterList) => {
           gameCard.querySelector(".game-card-title").textContent =
             data["results"][i].name;
         }
-        let prices = await getPrice(data["results"][i].slug);
+        // let prices = await getPrice(data["results"][i].slug);
+        let prices = null;
         if (prices === null) {
           gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
           gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
