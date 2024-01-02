@@ -227,7 +227,7 @@ input:checked + .slider:before {
   }
 }
 .filteroptn p {
-  margin-left: 12rem;
+  margin-left: 16rem;
 }
 .row {
   display: flex;
@@ -251,12 +251,11 @@ input:checked + .slider:before {
 
 .filtertypes {
   flex: 1;
-  display: none;
+  visibility: visible;
 }
 @media only screen and (max-width: 1000px) {
   .filtertypes {
-    display: hidden;
-    flex: none;
+    visibility: hidden;
   }
 }
 .wishimg {
