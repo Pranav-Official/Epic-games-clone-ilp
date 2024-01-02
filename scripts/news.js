@@ -4,11 +4,6 @@ var url =
   "apiKey=4bdcb41ba60e45ae98fac6b55ae85c2c";
 
 var req = new Request(url);
-// fetch(url)
-//   .then((response) => response.json())
-//   .then((json) => console.log(json));
-
-// news.js
 
 const apiKey = "4bdcb41ba60e45ae98fac6b55ae85c2c";
 const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${apiKey}`;
@@ -29,38 +24,38 @@ const newsTemplate = (newsItem) => `
   <hr>
 `;
 
-const secondNewsTemplate = (newsItem) => `
+const secondNewsTemplate = (newsItem1, newsItem2) => `
  <div class="news-top">
         <div class="card-one">
           <img
             class="card-img-top"
-            src="${newsItem.urlToImage}"
-            alt="${newsItem.id}"
+            src="${newsItem1.urlToImage}"
+            alt="${newsItem1.id}"
           />
           <div class="card-body">
-            <p>${newsItem.publishedAt}</p>
+            <p>${newsItem1.publishedAt}</p>
             <h4 class="card-title">
-              ${newsItem.title}
+              ${newsItem1.title}
             </h4>
-            <p class="card-text">${newsItem.description}</p>
-            <a href="${newsItem.url}">Read more</a>
+            <p class="card-text">${newsItem1.description}</p>
+            <a href="${newsItem1.url}">Read more</a>
           </div>
         </div>
         <div class="card-two">
           <img
             class="card-img-top"
-            src="${newsItem.urlToImage}"
-            alt="${newsItem.id}"
+            src="${newsItem2.urlToImage}"
+            alt="${newsItem2.id}"
           />
           <div class="card-body">
-            <p>${newsItem.publishedAt}</p>
+            <p>${newsItem2.publishedAt}</p>
             <h4 class="card-title">
-             ${newsItem.title}
+             ${newsItem2.title}
             </h4>
             <p class="card-text">
-              ${newsItem.description}
+              ${newsItem2.description}
             </p>
-            <a href="${newsItem.url}">Read more</a>
+            <a href="${newsItem2.url}">Read more</a>
           </div>
         </div>
       </div>
@@ -83,43 +78,34 @@ async function fetchData(apiUrl) {
   }
 }
 
-function displayNews(newsData) {
+function displayNews(newsData, start) {
   const newsContainer = document.getElementById("newsContainer");
   const newsTop = document.getElementById("news-top");
   newsTop.innerHTML = "";
   newsContainer.innerHTML = "";
-  for (let i = 0; i < Math.min(10, newsData.length); i++) {
-    const newsItem = newsData[i];
+  for (let i = start; i < Math.min(start + 10, newsData.length); i++) {
+    const newsItem1 = newsData[i];
+
     if (i == 1) {
-      let topNews = secondNewsTemplate(newsItem);
+      const newsItem2 = newsData[i + 1];
+      let topNews = secondNewsTemplate(newsItem1, newsItem2);
       newsTop.insertAdjacentHTML("beforeend", topNews);
       i++;
     } else {
       const newsDiv = document.createElement("div");
-      newsDiv.innerHTML = newsTemplate(newsItem);
+      newsDiv.innerHTML = newsTemplate(newsItem1);
       newsContainer.appendChild(newsDiv);
     }
   }
 }
 
-// function displaySecondNews(secondNewsData) {
-//   const secondNewsContainer = document.querySelector(".news-top");
-//   secondNewsContainer.innerHTML = ""; // Clear existing content
-
-//   secondNewsData.forEach((newsItem) => {
-//     const newsDiv = document.createElement("div");
-//     newsDiv.innerHTML = secondNewsTemplate(newsItem);
-//     secondNewsContainer.appendChild(newsDiv);
-//   });
-// }
-
+let newsData;
 async function init() {
-  const newsData = await fetchData(apiUrl);
-  displayNews(newsData);
-
-  //   const secondNewsData = await fetchData(apiUrlForSecondSection);
-  //   displaySecondNews(secondNewsData);
+  newsData = await fetchData(apiUrl);
+  displayNews(newsData, 0);
 }
-
+const nextPage = (num) => {
+  displayNews(newsData, num * 10);
+};
 // Initial load
 init();

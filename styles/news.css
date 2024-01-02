@@ -95,7 +95,7 @@ h1 span {
 .pagination {
   margin-left: 40%;
 }
-.pagination a {
+.pagination button {
   color: white;
   float: left;
   padding: 8px 16px;
@@ -103,14 +103,16 @@ h1 span {
   transition: background-color 0.3s;
   text-align: center;
 }
-.pagination a.active {
+.pagination button.active {
   background-color: grey;
   color: white;
   text-align: center;
+  text-decoration: none;
 }
-.pagination a:hover:not(.active) {
+.pagination button:hover:not(.active) {
   background-color: #ddd;
   text-align: center;
+  text-decoration: none;
 }
 hr {
   height: 1px;
