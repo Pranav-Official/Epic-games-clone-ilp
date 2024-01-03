@@ -25,11 +25,29 @@ a:visited {
 }
 
 body {
-  background-color: var(--color-main-page);
-
+  background-color: var(--color-main-page) !important;
+  color: var(--color-text-default) !important;
   font-family: "Inter", sans-serif;
-  color: var(--color-text-default);
   margin: 0;
+}
+
+.h1,
+h1 {
+  font-size: 1.8rem !important;
+}
+
+.h3,
+h3 {
+  font-size: 1.2rem !important;
+}
+
+.h4,
+h4 {
+  font-size: 1rem !important;
+}
+
+button {
+  font-size: 0.8rem;
 }
 
 .body-container {
@@ -40,7 +58,7 @@ body {
 }
 
 header {
-  display: flex;
+  display: flex !important;
   flex-direction: row;
   justify-content: space-between;
   height: 5rem;
@@ -169,6 +187,12 @@ header {
   align-items: center;
   gap: 1.5rem;
 }
+.nav-link {
+  padding: 0 !important;
+}
+/* .nav-link:hover {
+  color: var(--color-text-default) !important;
+} */
 
 .right-nav {
   display: flex;

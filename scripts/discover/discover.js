@@ -44,14 +44,21 @@ const bestGamesOf2023 = async () => {
         gameCard.querySelector(".base-game").textContent = "BASE GAME";
         gameCard.querySelector(".game-card-title").textContent =
           data["results"][i].name;
-        let prices = await getPrice(data["results"][i].slug);
-        console.log(prices);
-        gameCard.querySelector(".game-card-discount").textContent =
-          "-" + Math.trunc(prices.calculatedDiscount) + "%"; // You may need to update this value
-        gameCard.querySelector(".game-card-previous-price").textContent =
-          "₹" + prices.retailPrice; // You may need to update this value
-        gameCard.querySelector(".game-card-current-price").textContent =
-          "₹" + prices.salePrice; // You may need to update this value
+        // let prices = await getPrice(data["results"][i].slug);
+        let prices = null;
+        if (prices === null) {
+          gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
+          gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
+          gameCard.querySelector(".game-card-current-price").remove(); // You may need to update this value
+        } else {
+          console.log(prices);
+          gameCard.querySelector(".game-card-discount").textContent =
+            "-" + Math.trunc(prices.calculatedDiscount) + "%"; // You may need to update this value
+          gameCard.querySelector(".game-card-previous-price").textContent =
+            "₹" + prices.retailPrice; // You may need to update this value
+          gameCard.querySelector(".game-card-current-price").textContent =
+            "₹" + prices.salePrice; // You may need to update this value
+        }
       }
     } else {
       console.error("Insufficient data to update game cards.");
@@ -183,7 +190,7 @@ const appedSalesHighlights = async (id) => {
     .querySelector(".game-cards-container")
     .setAttribute("id", id + "-game-cards");
   node.parentNode.appendChild(sales_highlights_copy);
-  console.log(sales_highlights_copy);
+  // console.log(sales_highlights_copy);
 };
 
 const populateSalesHighlights = async (title, id, parameterList) => {
