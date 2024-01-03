@@ -75,7 +75,7 @@ p {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
-.para-style {
+.para-style-questions {
   font-size: 10.5pt;
   font-variant: normal;
   font-family: Arial;
@@ -84,4 +84,7 @@ p {
   font-style: normal;
   text-decoration: none;
   padding-bottom: 50px;
+}
+span {
+  font-size: 14px;
 }

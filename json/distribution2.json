@@ -1,0 +1,20 @@
+[
+  {
+    "imageSrc": "https://cdn2.unrealengine.com/epic-games-payment-methods-18cc6135990f.svg",
+    "altText": "Epic Games Payment Methods",
+    "header": "Worldwide E-Commerce",
+    "description": "Epic's payment service supports 76 payment methods with 47 regional currencies and more on the way."
+  },
+  {
+    "imageSrc": "https://cdn2.unrealengine.com/epic-games-wallet-2af74bb47a7a.svg",
+    "altText": "Epic Games Wallet",
+    "header": "Epic Wallet",
+    "description": "Users can load up their Wallet with funds to spend on products and services in the store, now available in more than 140 countries."
+  },
+  {
+    "imageSrc": "https://cdn2.unrealengine.com/game-ratings-localization-and-affliate-network-benefits-a931a6cb27b8.svg",
+    "altText": "Game Ratings, Localization and Affiliate Network Benefits",
+    "header": "Additional Benefits",
+    "description": "Easy IARC ratings in Epic Developer Portal, request no-cost localization for store pages and activate our Support-A-Creator affiliate network."
+  }
+]

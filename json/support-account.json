@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Epic Games Store",
+    "url": "/help/en-US/epic-games-store-c5719341124379",
+    "image": "https://cdn2.unrealengine.com/epic-games-store-bg-1665x933-4e29c08e33b5.jpg",
+    "icon": "https://cdn2.unrealengine.com/epic-games-store-logo-cf6ff7693f41.svg"
+  },
+  {
+    "label": "Accounts",
+    "url": "/help/en-US/epic-accounts-c5719348850459",
+    "image": "https://cdn2.unrealengine.com/accounts-bg-1665x933-5f82f73b48d7.jpg",
+    "icon": "https://cdn2.unrealengine.com/account-icon-448fa063b491.svg"
+  },
+  {
+    "label": "Our Creator Programs",
+    "url": "/help/en-US/support-a-creator-c5719349318939",
+    "image": "https://cdn2.unrealengine.com/our-creator-program-1665x933-361b572eca78.jpg",
+    "icon": "https://cdn2.unrealengine.com/support-a-creator-icon-92aeb1d708d9.svg"
+  },
+  {
+    "label": "Payments",
+    "url": "/help/en-US/billing-support-c5719364845851",
+    "image": "https://cdn2.unrealengine.com/new-payments-1665x933-6088931d6362.jpg",
+    "icon": "https://cdn2.unrealengine.com/payments-icon-a5db4883bd25.svg"
+  },
+  {
+    "label": "Technical",
+    "url": "/help/en-US/technical-support-c5719357686683",
+    "image": "https://cdn2.unrealengine.com/technical-bg-new-1665x933-6556f996c56b.jpg",
+    "icon": "https://cdn2.unrealengine.com/technical-icon-cf14df109b05.svg"
+  },
+  {
+    "label": "Parent/Guardian Support",
+    "url": "/help/en-US/contact-us-parent",
+    "image": "https://cdn2.unrealengine.com/parental-bg-1665x933-b29f09ed5b37.jpg",
+    "icon": "https://cdn2.unrealengine.com/parental-icon-103920e2f273.svg"
+  }
+]
