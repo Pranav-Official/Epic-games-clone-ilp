@@ -1,866 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Distribution</title>
-    <link rel="stylesheet" href="../../styles/distribution_css/dis_style.css" />
-    <link rel="stylesheet" href="../../styles/discover.css" />
-  </head>
-  <body id="distribution">
-    <header class="header">
-      <div class="header-left-side">
-        <div class="store-options">
-          <div class="epic-logo">
-            <img class="epic-logo-image" src="../../assets/epic-logo.png" />
-            <span aria-hidden="true" class="icon"
-              ><!--?lit$758340424$--><svg
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M15.53 7.47a.75.75 0 0 0-1.06 0L10 11.94 5.53 7.47a.75.75 0 0 0-1.06 1.06L10 14.06l5.53-5.53a.75.75 0 0 0 0-1.06Z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </span>
-          </div>
-          <div class="h-ruler"></div>
-          <div class="store-logo">
-            <img class="store-logo-image" src="../../assets/store-logo.png" />
-          </div>
-        </div>
-        <div class="epic-pages">
-          <a class="epic-pages-link">Distribution</a>
-          <a class="epic-pages-link">Support</a>
-          <a class="epic-pages-link">Unreal Engine</a>
-        </div>
-      </div>
-      <div class="header-right-side">
-        <div class="profile">
-          <img src="../assets/profile.png" alt="" />
-        </div>
-        <button class="download-button">Download</button>
-      </div>
-    </header>
-    <div class="distribution-page-body">
-      <div class="head-navbar">
-        <div class="left-nav">
-          <div class="search-box">
-            <div class="search-button">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="search-icon"
-                viewBox="0 0 21 20"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <g
-                  transform="scale(1 -1) rotate(-45 -11.93502884 -2)"
-                  stroke="currentColor"
-                  stroke-width="1.65"
-                  fill="none"
-                  fill-rule="evenodd"
-                >
-                  <circle cx="7.70710678" cy="7.70710678" r="7"></circle>
-                  <path
-                    d="M15.2071068 8.62132034h5.6923881"
-                    stroke-linecap="square"
-                  ></path>
-                </g>
-              </svg>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Distribution</title>
+      <link rel="stylesheet" href="../../styles/distribution_css/dis_style.css" />
+      <link rel="stylesheet" href="../../styles/discover.css" />
+      <link rel="icon" href="../../assets/Epic_Games_logo.svg.png" type="image/png">
+      <script src="../../scripts/distribution1.js"></script>
+      <script src="../../scripts/distribution2.js"></script>
+      <script src="../../scripts/distributionfaq.js"></script>
+   </head>
+   <body id="distribution">
+      <header class="header">
+         <div class="header-left-side">
+            <div class="store-options">
+               <div class="epic-logo">
+                  <img class="epic-logo-image" src="../../assets/epic-logo.png" />
+                  <span aria-hidden="true" class="icon">
+                     <!--?lit$758340424$-->
+                     <svg
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                           fill-rule="evenodd"
+                           d="M15.53 7.47a.75.75 0 0 0-1.06 0L10 11.94 5.53 7.47a.75.75 0 0 0-1.06 1.06L10 14.06l5.53-5.53a.75.75 0 0 0 0-1.06Z"
+                           clip-rule="evenodd"
+                           ></path>
+                     </svg>
+                  </span>
+               </div>
+               <div class="h-ruler"></div>
+               <div class="store-logo">
+                  <img class="store-logo-image" src="../../assets/store-logo.png" />
+               </div>
             </div>
-            <input id="search-field" type="text" placeholder="Search" />
-          </div>
-          <div class="nav-links">
-            <a href="../../pages/discover.html" class="nav-link">Discover</a>
-            <a href="../../pages/browse_page.html" class="nav-link">Browse</a>
-            <a href="../../pages/news.html" class="nav-link">News</a>
-          </div>
-        </div>
-        <div class="right-nav">
-          <div class="list-button">
-            <a href="../../pages/wishlist.html" class="list-test">Wish List</a>
-            <span class="list-count" id="wish-list-count"></span>
-          </div>
-          <div class="list-button">
-            <a href="../../pages/cart.html" class="list-text">Cart</a>
-            <span class="list-count" id="cart-count"></span>
-          </div>
-        </div>
+            <div class="epic-pages">
+               <a class="epic-pages-link">Distribution</a>
+               <a class="epic-pages-link">Support</a>
+               <a class="epic-pages-link">Unreal Engine</a>
+            </div>
+         </div>
+         <div class="header-right-side">
+            <div class="profile">
+               <img src="../assets/profile.png" alt="" />
+            </div>
+            <button class="download-button">Download</button>
+         </div>
+      </header>
+      <div class="distribution-page-body">
+      <div class="head-navbar">
+         <div class="left-nav">
+            <div class="search-box">
+               <div class="search-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 21 20" preserveAspectRatio="xMidYMid meet">
+                     <g transform="scale(1 -1) rotate(-45 -11.93502884 -2)" stroke="currentColor" stroke-width="1.65" fill="none" fill-rule="evenodd">
+                        <circle cx="7.70710678" cy="7.70710678" r="7"></circle>
+                        <path d="M15.2071068 8.62132034h5.6923881" stroke-linecap="square"></path>
+                     </g>
+                  </svg>
+               </div>
+               <input id="search-field" type="text" placeholder="Search" />
+            </div>
+            <div class="nav-links">
+               <a href="../../pages/discover.html" class="nav-link">Discover</a>
+               <a href="../../pages/browse_page.html" class="nav-link">Browse</a>
+               <a href="../../pages/news.html" class="nav-link">News</a>
+            </div>
+         </div>
+         <div class="right-nav">
+            <div class="list-button">
+               <a href="../../pages/wishlist.html" class="list-test">Wish List</a>
+               <span class="list-count" id="wish-list-count"></span>
+            </div>
+            <div class="list-button">
+               <a href="../../pages/cart.html" class="list-text">Cart</a>
+               <span class="list-count" id="cart-count"></span>
+            </div>
+         </div>
       </div>
       <div id="distribution-section-one">
-        <div id="distribution-section-one-bg">
-          <div id="distribution-section-one-bg-content">
-            <div id="animation-section-one">
-              <img
-                src="../../assets/distribution_assets/epic-games-store-self-service-publishing-tools-4554ceb470ed.webp"
-                alt=""
-                class="image-width"
-              />
-            </div>
-            <div id="text-section-one">
-              <div id="section-one-logo">
-                <div id="s-one">
-                  <div id="s-one-two">
-                    <img
-                      alt="Epic Games Logo"
-                      src="https://cdn2.unrealengine.com/egs-logotype-2023-vertical-white-91864692d16e.svg?h=960&amp;quality=medium&amp;resize=1&amp;w=1280"
-                      data-image="https://cdn2.unrealengine.com/egs-logotype-2023-vertical-white-91864692d16e.svg?h=960&amp;quality=medium&amp;resize=1&amp;w=1280"
-                      data-testid="picture-image"
-                    />
+         <div id="distribution-section-one-bg">
+            <div id="distribution-section-one-bg-content">
+               <div id="animation-section-one">
+                  <img src="../../assets/distribution_assets/epic-games-store-self-service-publishing-tools-4554ceb470ed.webp" alt="" class="image-width" />
+               </div>
+               <div id="text-section-one">
+                  <div id="section-one-logo">
+                     <div id="s-one">
+                        <div id="s-one-two">
+                           <img alt="Epic Games Logo" src="https://cdn2.unrealengine.com/egs-logotype-2023-vertical-white-91864692d16e.svg?h=960&amp;quality=medium&amp;resize=1&amp;w=1280" data-image="https://cdn2.unrealengine.com/egs-logotype-2023-vertical-white-91864692d16e.svg?h=960&amp;quality=medium&amp;resize=1&amp;w=1280"
+                              data-testid="picture-image" />
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
-              <h1 class="description-tag">
-                <span class="description-tag-section-one">
-                  Now open to all developers and publishers
-                </span>
-              </h1>
-              <span class="sign-up-section-one">
-                <div id="banner-section">
-                  <a
-                    href="https://dev.epicgames.com/portal/"
-                    class="sign-up"
-                    rel="noopener"
-                  >
-                    <span class="sign-up-white-box"> SIGN UP TODAY </span>
-                  </a>
-                </div>
-              </span>
-              <div id="subtitle">
-                <span class="subtitle-section-one">
-                  Start distributing PC Games on the Epic Games Store with our
-                  new self-service publishing tools.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <span>
-          <div class="section-two">
-            <div class="section-two-1">
-              <div class="section-two-1-1">
-                <div class="sec-2-1-1-1">
-                  <div class="sec-2-1-1-1-image">
-                    <img
-                      src="https://cdn2.unrealengine.com/direct-game-distribution-06596600236d.svg"
-                      alt="Direct Game Distribution"
-                      class="sec-2-img1"
-                    />
-                  </div>
-                  <div class="sec-2-1-1-1-desc">
-                    <h2 class="sec-2-1-1-1-header">Reach a Global Audience</h2>
-                    <div class="market-card">
-                      <h3 class="market-card-1">
-                        Direct distribution of over 230 million Epic users
-                        across 187 countries with 18 languages supported
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="section-two-1-1">
-                <div class="sec-2-1-1-1">
-                  <div class="sec-2-1-1-1-image">
-                    <img
-                      src="https://cdn2.unrealengine.com/video-game-revenue-c74196d72f94.svg"
-                      alt="Video Game Revenue"
-                      class="sec-2-img-1"
-                    />
-                  </div>
-                  <div class="sec-2-1-1-1-desc">
-                    <h2 class="sec-2-1-1-1-header">88%/12% Revenue Split</h2>
-                    <div class="market-card">
-                      <h3 class="market-card-1">
-                        Keep 88% of the revenue and monitor product performance
-                        with integrated analytics dashboards.
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="section-two-1-1">
-                <div class="sec-2-1-1-1">
-                  <div class="sec-2-1-1-1-image">
-                    <img
-                      src="https://cdn2.unrealengine.com/player-engagement-69f0a2ba31cd.svg"
-                      alt="Player Engagement"
-                      class="sec-2-img-1"
-                    />
-                  </div>
-                  <div class="sec-2-1-1-1-desc">
-                    <h2 class="sec-2-1-1-1-header">Drive Player Engagement</h2>
-                    <div class="market-card">
-                      <h3 class="market-card-1">
-                        Tap into store features like wishlists, achievements,
-                        store-wide promotions and more!
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </span>
-      </div>
-      <div>
-        <span>
-          <div class="section-two">
-            <div class="section-two-1">
-              <div class="section-two-1-1">
-                <div class="sec-2-1-1-1">
-                  <div class="sec-2-1-1-1-image">
-                    <img
-                      src="https://cdn2.unrealengine.com/epic-games-payment-methods-18cc6135990f.svg"
-                      alt="Epic Games Payment Methods"
-                      class="sec-2-img-1"
-                    />
-                  </div>
-                  <div class="sec-2-1-1-1-desc">
-                    <h2 class="sec-2-1-1-1-header">Worldwide E-Commerce</h2>
-                    <div class="market-card">
-                      <h3 class="market-card-1">
-                        Epic's payment service supports 76 payment methods with
-                        47 regional currencies and more on the way.
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="section-two-1-1">
-                <div class="sec-2-1-1-1">
-                  <div class="sec-2-1-1-1-image">
-                    <img
-                      src="https://cdn2.unrealengine.com/epic-games-wallet-2af74bb47a7a.svg"
-                      alt="Epic Games Wallet"
-                      class="sec-2-img-1"
-                    />
-                  </div>
-                  <div class="sec-2-1-1-1-desc">
-                    <h2 class="sec-2-1-1-1-header">Epic Wallet</h2>
-                    <div class="market-card">
-                      <h3 class="market-card-1">
-                        Users can load up their Wallet with funds to spend on
-                        products and services in the store, now available in
-                        more than 140 countries.
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="section-two-1-1">
-                <div class="sec-2-1-1-1">
-                  <div class="sec-2-1-1-1-image">
-                    <img
-                      src="https://cdn2.unrealengine.com/game-ratings-localization-and-affliate-network-benefits-a931a6cb27b8.svg"
-                      alt="Game Ratings, Localization and Affiliate Network Benefits"
-                      class="sec-2-img-1"
-                    />
-                  </div>
-                  <div class="sec-2-1-1-1-desc">
-                    <h2 class="sec-2-1-1-1-header">Additional Benefits</h2>
-                    <div class="market-card">
-                      <h3 class="market-card-1">
-                        Easy IARC ratings in Epic Developer Portal, request
-                        no-cost localization for store pages and activate our
-                        Support-A-Creator affiliate network.
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </span>
-      </div>
-      <div>
-        <span>
-          <div class="section-4">
-            <div class="section-4-1">
-              <div class="section-4-1-1">
-                <div class="section-4-1-1-1">
-                  <div class="inner-section-4-left">
-                    <img
-                      data-testid="lazy-image-observer"
-                      data-image="https://cdn2.unrealengine.com/epic-developer-community-d6fe0dc96d78.svg"
-                      class="section-4-image"
-                      alt="Epic Developer Community Logo"
-                      src="https://cdn2.unrealengine.com/epic-developer-community-d6fe0dc96d78.svg"
-                      data-animated="animated"
-                    />
-                  </div>
-                  <div class="inner-section-4-right">
-                    <div class="inner-section-4-right-1">
-                      <span class="inner-section-text"
-                        >Join the discussion or create topics for community
-                        support around distribution
-                      </span>
-                      <div>
+                  <h1 class="description-tag">
+                     <span class="description-tag-section-one">
+                     Now open to all developers and publishers
+                     </span>
+                  </h1>
+                  <span class="sign-up-section-one">
+                     <div id="banner-section">
                         <a
-                          href="https://dev.epicgames.com/community/epic-games-store"
-                          class="inner-section-link"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                          ><span class="inner-section-text-3"
-                            >Go to the community</span
-                          ></a
-                        >
-                      </div>
-                    </div>
+                           href="https://dev.epicgames.com/portal/"
+                           class="sign-up"
+                           rel="noopener"
+                           >
+                        <span class="sign-up"> SIGN UP TODAY </span>
+                        </a>
+                     </div>
+                  </span>
+                  <div id="subtitle">
+                     <span class="subtitle-section-one">
+                     Start distributing PC Games on the Epic Games Store with our
+                     new self-service publishing tools.
+                     </span>
                   </div>
-                </div>
-              </div>
+               </div>
             </div>
-          </div>
-        </span>
+         </div>
+      </div>
+      <div id="dynamicContentContainer"></div>
+      <div id="dynamicContentContainer2"></div>
+      <div>
+         <span>
+            <div class="section-4">
+               <div class="section-4-1">
+                  <div class="section-4-1-1">
+                     <div class="section-4-1-1-1">
+                        <div class="inner-section-4-left">
+                           <img
+                              data-testid="lazy-image-observer"
+                              data-image="https://cdn2.unrealengine.com/epic-developer-community-d6fe0dc96d78.svg"
+                              class="section-4-image"
+                              alt="Epic Developer Community Logo"
+                              src="https://cdn2.unrealengine.com/epic-developer-community-d6fe0dc96d78.svg"
+                              data-animated="animated"
+                              />
+                        </div>
+                        <div class="inner-section-4-right">
+                           <div class="inner-section-4-right-1">
+                              <span class="inner-section-text"
+                                 >Join the discussion or create topics for community
+                              support around distribution
+                              </span>
+                              <div>
+                                 <a href="https://dev.epicgames.com/community/epic-games-store" class="inner-section-link" rel="noopener noreferrer" target="_blank"><span class="inner-section-text-3"
+                                    >Go to the community</span
+                                    ></a
+                                    >
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </span>
       </div>
       <div>
-        <span>
-          <div class="section-5">
-            <div class="secion-5-flex">
-              <div class="section-5-left">
-                <div class="section-5-left-content">
-                  <div class="section-5-left-logo">
-                    <div class="section-5-left-logo-1">
-                      <img
-                        data-testid="lazy-image-observer"
-                        data-image="https://cdn2.unrealengine.com/epic-online-services-2023-fa8f84319372.svg"
-                        class="section-5-logo"
-                        alt="Epic Online Services"
-                        src="https://cdn2.unrealengine.com/epic-online-services-2023-fa8f84319372.svg"
-                        data-animated="animated"
-                      />
-                    </div>
-                    <div class="section-5-content">
-                      <div class="section-5-content-div">
-                        <span class="section-5-content-text"
-                          >A modular set of online services to connect your
-                          community across all platforms</span
-                        >
-                        <div>
-                          <a
-                            href="https://dev.epicgames.com/services"
-                            class="section-5-link"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            ><span class="section-5-link-2"
-                              >Explore our services</span
-                            ></a
-                          >
+         <span>
+            <div class="section-5">
+               <div class="secion-5-flex">
+                  <div class="section-5-left">
+                     <div class="section-5-left-content">
+                        <div class="section-5-left-logo">
+                           <div class="section-5-left-logo-1">
+                              <img
+                                 data-testid="lazy-image-observer"
+                                 data-image="https://cdn2.unrealengine.com/epic-online-services-2023-fa8f84319372.svg"
+                                 class="section-5-logo"
+                                 alt="Epic Online Services"
+                                 src="https://cdn2.unrealengine.com/epic-online-services-2023-fa8f84319372.svg"
+                                 data-animated="animated"
+                                 />
+                           </div>
+                           <div class="section-5-content">
+                              <div class="section-5-content-div">
+                                 <span class="section-5-content-text"
+                                    >A modular set of online services to connect your
+                                 community across all platforms</span
+                                    >
+                                 <div>
+                                    <a
+                                       href="https://dev.epicgames.com/services"
+                                       class="section-5-link"
+                                       rel="noopener noreferrer"
+                                       target="_blank"
+                                       ><span class="section-5-link-2"
+                                       >Explore our services</span
+                                       ></a
+                                       >
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="section-5-left">
-                <div class="section-5-left-content">
-                  <div class="section-5-left-logo">
-                    <div class="section-5-left-logo-1">
-                      <img
-                        data-testid="lazy-image-observer"
-                        data-image="https://cdn2.unrealengine.com/unreal-engine-2023-e98a5487e128.svg"
-                        class="section-5-logo"
-                        alt="Unreal Engine"
-                        src="https://cdn2.unrealengine.com/unreal-engine-2023-e98a5487e128.svg"
-                        data-animated="animated"
-                      />
-                    </div>
-                    <div class="section-5-content">
-                      <div class="section-5-content-div">
-                        <span class="section-5-content-text"
-                          >The world's most open and advanced real-time 3D
-                          creation tool</span
-                        >
-                        <div>
-                          <a
-                            href="https://dev.epicgames.com/services"
-                            class="section-5-link"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            ><span class="section-5-link-2">Learn more</span></a
-                          >
+                  <div class="section-5-left">
+                     <div class="section-5-left-content">
+                        <div class="section-5-left-logo">
+                           <div class="section-5-left-logo-1">
+                              <img
+                                 data-testid="lazy-image-observer"
+                                 data-image="https://cdn2.unrealengine.com/unreal-engine-2023-e98a5487e128.svg"
+                                 class="section-5-logo"
+                                 alt="Unreal Engine"
+                                 src="https://cdn2.unrealengine.com/unreal-engine-2023-e98a5487e128.svg"
+                                 data-animated="animated"
+                                 />
+                           </div>
+                           <div class="section-5-content">
+                              <div class="section-5-content-div">
+                                 <span class="section-5-content-text"
+                                    >The world's most open and advanced real-time 3D
+                                 creation tool</span
+                                    >
+                                 <div>
+                                    <a
+                                       href="https://dev.epicgames.com/services"
+                                       class="section-5-link"
+                                       rel="noopener noreferrer"
+                                       target="_blank"
+                                       ><span class="section-5-link-2">Learn more</span></a
+                                       >
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </div>
-              </div>
+               </div>
             </div>
-          </div>
-        </span>
+         </span>
       </div>
       <div>
-        <span>
-          <div class="final-section">
-            <div class="final-section-div">
-              <section class="final-section-heading">
-                <h2 class="final-section-faq">Frequently Asked Questions</h2>
-              </section>
-              <ul class="faq-section">
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                      onclick="toggleIcon(this)"
-                    >
-                      <div class="faq-section-question">
+      <span>
+      <div class="final-section">
+      <div class="final-section-div">
+         <section class="final-section-heading">
+            <h2 class="final-section-faq">Frequently Asked Questions</h2>
+         </section>
+         <ul class="faq-section">
+            <li class="faq-section-list">
+               <div class="faq-section-list-div">
+                  <button
+                     class="faq-section-button"
+                     aria-expanded="false"
+                     aria-controls="collapsable-panel-marketing-question-0"
+                     aria-label="Why should I distribute my game on the Epic Games Store?"
+                     onclick="toggleAnswer(this)"
+                     >
+                     <div class="faq-section-question">
                         <h3 class="faq-section-questions">
-                          Why should I distribute my game on the Epic Games
-                          Store?
+                           Why should I distribute my game on the Epic Games Store?
                         </h3>
-                      </div>
-                      <span
+                     </div>
+                     <span
                         class="faq-maxmin-icons"
                         aria-hidden="true"
                         data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
-                        <div class="faq-collapse-btm">
-                          The Epic Games Store has a global audience of over
-                          230M+ users, a 88%/12% revenue split and additional
-                          no-cost services to help bring your game to market.
-                          For games built on Unreal Engine, engine royalty fees
-                          are waived for in-store purchases using Epic's payment
-                          processor. In-app purchases and products using their
-                          own payment processor are not exempt from engine
-                          royalties.
-                        </div>
-                      </div>
-                    </div>
+                        ><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg>
+                     </span>
+                  </button>
+                  <div class="faq-collapse-section">
+                     <div class="faq-collapse-btm">
+                        The Epic Games Store has a global audience of over 230M+
+                        users, an 88%/12% revenue split, and additional no-cost
+                        services to help bring your game to market. For games
+                        built on Unreal Engine, engine royalty fees are waived
+                        for in-store purchases using Epic's payment processor.
+                        In-app purchases and products using their own payment
+                        processor are not exempt from engine royalties.
+                     </div>
                   </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
+               </div>
+            </li>
+            <li class="faq-section-list">
+               <div class="faq-section-list-div">
+                  <button
+                     class="faq-section-button"
+                     aria-expanded="false"
+                     aria-controls="collapsable-panel-marketing-question-0"
+                     aria-label="My game is built with Unity or another engine, can I
+                     bring it to the Epic Game Store?"
+                     onclick="toggleAnswer(this)"
+                     >
+                     <div class="faq-section-question">
                         <h3 class="faq-section-questions">
-                          My game is built with Unity or another engine, can I
-                          bring it to the Epic Game Store
+                           My game is built with Unity or another engine, can I
+                           bring it to the Epic Game Store?
                         </h3>
-                      </div>
-                      <span
+                     </div>
+                     <span
                         class="faq-maxmin-icons"
                         aria-hidden="true"
                         data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
                         >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg>
+                     </span>
+                  </button>
+                  <div id="faq-collapse">
+                     <div class="faq-collapse-section">
                         <div class="faq-collapse-btm">
-                          Yes, the Epic Games store is engine-agnostic. Epic is
-                          aiming to bring great games to players, regardless of
-                          your engine choice.
+                           Yes, the Epic Games store is engine-agnostic. Epic is
+                           aiming to bring great games to players, regardless of
+                           your engine choice.
                         </div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
+               </div>
+            </li>
+            <li class="faq-section-list">
+               <div class="faq-section-list-div">
+                  <button
+                     class="faq-section-button"
+                     aria-expanded="false"
+                     aria-controls="collapsable-panel-marketing-question-0"
+                     aria-label="What are the Epic Games Store self-service publishing tools?"
+                     onclick="toggleAnswer(this)"
+                     >
+                     <div class="faq-section-question">
                         <h3 class="faq-section-questions">
-                          What are the Epic Game Store self-service publishing
-                          tools?
+                           What are the Epic Games Store self-service publishing
+                           tools?
                         </h3>
-                      </div>
-                      <span
+                     </div>
+                    <span
                         class="faq-maxmin-icons"
                         aria-hidden="true"
                         data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
                         >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg>
+                     </span>
+                  </button>
+                  <div id="faq-collapse">
+                     <div class="faq-collapse-section">
                         <div class="faq-collapse-btm">
-                          They are a suite of tools within the Epic Developer
-                          Portal used by developers to set up their game pages,
-                          pricing, offers, builds, and updates on the Epic Games
-                          Store.
+                           They are a suite of tools within the Epic Developer
+                           Portal used by developers to set up their game pages,
+                           pricing, offers, builds, and updates on the Epic Games
+                           Store.
                         </div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
+               </div>
+            </li>
+            <li class="faq-section-list">
+               <div class="faq-section-list-div">
+                  <button
+                     class="faq-section-button"
+                     aria-expanded="false"
+                     aria-controls="collapsable-panel-marketing-question-0"
+                     aria-label="What is the Epic Developer Portal?"
+                     onclick="toggleAnswer(this)"
+                     >
+                     <div class="faq-section-question">
                         <h3 class="faq-section-questions">
-                          What is Epic Developer Portal?
+                           What is the Epic Developer Portal?
                         </h3>
-                      </div>
-                      <span
+                     </div>
+                     <span
                         class="faq-maxmin-icons"
                         aria-hidden="true"
                         data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
                         >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg>
+                     </span>
+                  </button>
+                  <div id="faq-collapse">
+                     <div class="faq-collapse-section">
                         <div class="faq-collapse-btm">
-                          The Developer Portal is the central hub to distribute
-                          games on the Epic Games Store and enhance games with
-                          Epic Online Services. The Developer Portal is used to
-                          update product information, configure back-end
-                          services, support players, and view game financial
-                          data, usage reports, and other statistical data. Learn
-                          more by reading the Developer Portal documentation.
+                           The Developer Portal is the central hub to distribute games on the Epic Games Store and enhance games with Epic Online Services. The Developer Portal is used to update product information, configure back-end services, support players, and view game financial data, usage reports, and other statistical data. Learn more by reading the <span class="dev-doc"><a href="https://dev.epicgames.com/docs/dev-portal" class="dev-doc-css" aria-label="" rel="noopener noreferrer" target="_blank">Developer Portal documentation</a></span>
                         </div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
+               </div>
+            </li>
+            <li class="faq-section-list">
+               <div class="faq-section-list-div">
+                  <button class="faq-section-button" aria-expanded="false" aria-controls="collapsable-panel-marketing-question-0" aria-label="What other developer tools does Epic Games offer?" onclick="toggleAnswer(this)">
+                     <div class="faq-section-question">
                         <h3 class="faq-section-questions">
-                          What other developer tools does Epic Offer?
+                           What other developer tools does Epic Games offer?
                         </h3>
-                      </div>
-                      <span
-                        class="faq-maxmin-icons"
-                        aria-hidden="true"
-                        data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
+                     </div>
+                     <span class="faq-maxmin-icons" aria-hidden="true" data-testid="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg>
+                     </span>
+                  </button>
+                  <div id="faq-collapse">
+                     <div class="faq-collapse-section">
                         <div class="faq-collapse-btm">
-                          "Epic offers an ecosystem of tools, services, and
-                          communities to help anyone create, power, and
-                          distribute software. With a single Epic Games account,
-                          anyone can create with Unreal Engine, enhance with
-                          Epic Online Services and Kids Web Services, and
-                          distribute PC games on the Epic Games Store. Even more
-                          tools like Twinmotion, MetaHuman, Quixel, and
-                          Capturing Reality bring your project to the next
-                          level. And the Epic Developer Community is here to
-                          connect creators alike to share and learn. Learn more
-                          about Epic's ecosystem of tools, services, and
-                          communities.
+                           "Epic offers an ecosystem of tools, services, and communities to help anyone create, power, and distribute software. With a single Epic Games account, anyone can create with Unreal Engine, enhance with Epic Online Services and Kids Web Services, and distribute
+                           PC games on the Epic Games Store. Even more tools like Twinmotion, MetaHuman, Quixel, and Capturing Reality bring your project to the next level. And the Epic Developer Community is here to connect creators alike to share and learn.
+                           Learn more about<span class="dev-doc"><a href="https://dev.epicgames.com/" class="dev-doc-css" aria-label="" rel="noopener noreferrer" target="_blank">Epic's ecosystem of tools, services, and communities</a>".</span>
                         </div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
+               </div>
+            </li>
+            <li class="faq-section-list">
+               <div class="faq-section-list-div">
+                  <button class="faq-section-button" aria-expanded="false" aria-controls="collapsable-panel-marketing-question-0" aria-label="How do I distribute game on the Epic Games Store?" onclick="toggleAnswer(this)">
+                     <div class="faq-section-question">
                         <h3 class="faq-section-questions">
-                          How do I distribute games on the Epic Games Store?
+                           How do I distribute game on the Epic Games Store?
                         </h3>
-                      </div>
-                      <span
-                        class="faq-maxmin-icons"
-                        aria-hidden="true"
-                        data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
+                     </div>
+                     <span class="faq-maxmin-icons" aria-hidden="true" data-testid="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg>
+                     </span>
+                  </button>
+                  <div id="faq-collapse">
+                     <div class="faq-collapse-section">
                         <div class="faq-collapse-btm">
-                          Getting started is easy, just log in or create an
-                          account at dev.epicgames.com/portal. From there the
-                          sign up wizard will help guide registration of your
-                          company and the build of your first game. Be sure to
-                          have business information (contact info and tax/payout
-                          information) on hand. Important to note there is a
-                          recoupable $100 USD submission fee per game which will
-                          need to paid before releasing on the store. Read our
-                          announcement blog for an overview of the
-                          self-publishing process.
+                           Getting started is easy, just log in or create an account at <span class="dev-doc"><a href="https://dev.epicgames.com/portal" class="dev-doc-css" aria-label="" rel="noopener noreferrer" target="_blank">dev.epicgames.com/portal</a></span>.
+                           From there the sign up wizard will help guide registration of your company and the build of your first game. Be sure to have business information (contact info and tax/payout information) on hand. Important to note there is a recoupable
+                           $100 USD submission fee per game which will need to paid before releasing on the store. Read our <a class="dev-doc-css" aria-label="" href="/en-US/news/epic-games-store-launches-self-publishing-tools-for-game-developers-and-publishers">announcement blog</a>                        or an overview of the self-publishing process.
                         </div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
+               </div>
+            </li>
+            <li class="faq-section-list">
+               <div class="faq-section-list-div">
+                  <button class="faq-section-button" aria-expanded="false" aria-controls="collapsable-panel-marketing-question-0" aria-label="Are there any requirement for a game to lauch on the Store?" onclick="toggleAnswer(this)">
+                     <div class="faq-section-question">
                         <h3 class="faq-section-questions">
-                          Are there any requirements for a game to launch on the
-                          Store?
+                           Are there any requirement for a game to lauch on the Store?
                         </h3>
-                      </div>
-                      <span
-                        class="faq-maxmin-icons"
-                        aria-hidden="true"
-                        data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
+                     </div>
+                     <span class="faq-maxmin-icons" aria-hidden="true" data-testid="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg>
+                     </span>
+                  </button>
+                  <div id="faq-collapse">
+                     <div class="faq-collapse-section">
                         <div class="faq-collapse-btm">
-                          All products published on the Epic Games Store adhere
-                          to our content guidelines. In addition, they must
-                          launch, run, and be consistent with the product
-                          description presented to users via their Product
-                          Details Page (PDP). Multiplayer games must support
-                          crossplay across all PC stores. This is to make sure
-                          players who purchase a multiplayer game on any store
-                          can easily connect with other players, regardless of
-                          where the game was purchased. To achieve this, you can
-                          implement crossplay yourself, use a third-party SDK,
-                          or use Epic Online Services for free. Achievements -
-                          All games onboarded to the Epic Games Store publishing
-                          tools after March 9, 2023 are required to enable Epic
-                          Games Store achievements if the game has achievements
-                          on other PC stores. This helps standardize the player
-                          experience regardless of where the game was purchased.
-                          Visit the Epic Games Store Requirements documentation
-                          for more information.
+                           All products published on the Epic Games Store adhere to our content guidelines. In addition, they must launch, run, and be consistent with the product description presented to users via their Product Details Page (PDP).
+                           <br>
+                           <br> Multiplayer games must support crossplay across all PC stores. This is to make sure players who purchase a multiplayer game on any store can easily connect with other players, regardless of where the game was purchased. To achieve
+                           this, you can implement crossplay yourself, use a third-party SDK, or use Epic Online Services for free.
+                           <br>
+                           <br> Achievements - All games onboarded to the Epic Games Store publishing tools after March 9, 2023 are required to enable Epic Games Store achievements if the game has achievements on other PC stores. This helps standardize the player
+                           experience regardless of where the game was purchased.
+                           <br>
+                           <br> Visit the
+                           <span class="dev-doc">
+                              <a href="https://dev.epicgames.com/docs/epic-games-store/requirements-guidelines/distribution-requirements/requirements-overview" class="dev-doc-css" aria-label="" rel="noopener noreferrer" target="_blank">Epic Games Store Requirements documentation</a> for more information.
                         </div>
-                      </div>
-                    </div>
+                     </div>
                   </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
-                        <h3 class="faq-section-questions">
-                          Any prohibited content the the Store may decline?
-                        </h3>
-                      </div>
-                      <span
-                        class="faq-maxmin-icons"
-                        aria-hidden="true"
-                        data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
-                        <div class="faq-collapse-btm">
-                          Products that contain prohibited content (hateful or
-                          discriminatory content, pornography, and illegal
-                          content) are not eligible for distribution on the Epic
-                          Games Store. Content that infringes on intellectual
-                          property you do not own or have rights to use scams,
-                          frauds, or deceptive practices, such as fake games or
-                          malware are also prohibited. Published products
-                          receiving complaints about content that does not meet
-                          the criteria may be subject to re-review and removal
-                          from the Epic Games Store. Visit the Epic Games Store
-                          Ratings & Content Guidelines documentation for more
-                          information.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
-                        <h3 class="faq-section-questions">
-                          Does the Epic Games store have regional pricing?
-                        </h3>
-                      </div>
-                      <span
-                        class="faq-maxmin-icons"
-                        aria-hidden="true"
-                        data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
-                        <div class="faq-collapse-btm">
-                          Yes, we do support regional pricing. We also have a
-                          set of suggested regional discounts based on local
-                          norms.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="faq-section-list">
-                  <div class="faq-section-list-div">
-                    <button
-                      class="faq-section-button"
-                      aria-expanded="false"
-                      aria-controls="collapsable-panel-marketing-question-0"
-                      aria-label="Why should I distribute my game on the Epic Games Store?"
-                    >
-                      <div class="faq-section-question">
-                        <h3 class="faq-section-questions">
-                          How do refunds work on the Epic Games Store?
-                        </h3>
-                      </div>
-                      <span
-                        class="faq-maxmin-icons"
-                        aria-hidden="true"
-                        data-testid="icon"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="svg-icon-pack"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z"
-                            fill="currentColor"
-                          ></path></svg
-                      ></span>
-                    </button>
-                    <div id="faq-collapse">
-                      <div class="faq-collapse-section">
-                        <div class="faq-collapse-btm">
-                          Games and products purchased through the Epic Games
-                          Store are generally eligible for a refund. These
-                          products are marked “refundable”. If a game or product
-                          is marked as "non-refundable", then it is not eligible
-                          for a refund. Products that include virtual currency
-                          or other consumables are marked “non-refundable” and
-                          are not eligible for refund. Also, most in-app
-                          purchases are non-refundable. Epic cannot provide
-                          refunds for purchases made outside of the Epic Games
-                          Store. Visit the Epic Games Store Refund Policy for
-                          more information.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+               </div>
+            </li>
+            <li class="faq-section-list">
+            <div class="faq-section-list-div">
+            <button
+               class="faq-section-button"
+               aria-expanded="false"
+               aria-controls="collapsable-panel-marketing-question-0"
+               aria-label="Any prohibited content that the store may decline?"
+               onclick="toggleAnswer(this)"
+               >
+            <div class="faq-section-question">
+            <h3 class="faq-section-questions">
+            Any prohibited content that the store may decline?
+            </h3>
             </div>
-          </div>
-        </span>
+            <span
+               class="faq-maxmin-icons"
+               aria-hidden="true"
+               data-testid="icon"
+               ><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg>
+            </button>
+            <div id="faq-collapse">
+            <div class="faq-collapse-section">
+            <div class="faq-collapse-btm">
+            Products that contain prohibited content (hateful or discriminatory content, pornography, and illegal content) are not eligible for distribution on the Epic Games Store. Content that infringes on intellectual property you do not own or have rights to
+            use scams, frauds, or deceptive practices, such as fake games or malware are also prohibited. Published products receiving complaints about content that does not meet the criteria may be subject to re-review and removal
+            from the Epic Games Store. Visit the <span class="dev-doc"><a href="https://dev.epicgames.com/docs/epic-games-store/requirements-guidelines/content-ratings" class="dev-dec-css" aria-label="" rel="noopener noreferrer" target="_blank">Epic Games Store Ratings &amp; Content Guidelines documentation</a></span>                                    for more information.
+            </div>
+            </div>
+            </div>
+            </li>
+            <li class="faq-section-list">
+            <div class="faq-section-list-div">
+            <button class="faq-section-button" aria-expanded="false" aria-controls="collapsable-panel-marketing-question-0" aria-label="Does Epic Games Store have regional pricing?" onclick="toggleAnswer(this)">
+            <div class="faq-section-question">
+            <h3 class="faq-section-questions">
+            Does Epic Games Store have regional pricing?
+            </h3>
+            </div>
+            <span class="faq-maxmin-icons" aria-hidden="true" data-testid="icon"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg></span>
+            </button>
+            <div id="faq-collapse">
+            <div class="faq-collapse-section">
+            <div class="faq-collapse-btm">
+            Yes, we do support regional pricing. We also have a set of suggested regional discounts based on local norms.
+            </div>
+            </div>
+            </div>
+            </li>
+            <li class="faq-section-list">
+            <div class="faq-section-list-div">
+            <button class="faq-section-button" aria-expanded="false" aria-controls="collapsable-panel-marketing-question-0" aria-label="How does refund work on Epic Games Store?" onclick="toggleAnswer(this)">
+            <div class="faq-section-question">
+            <h3 class="faq-section-questions">
+            How does refund work on Epic Games Store?
+            </h3>
+            </div>
+            <span class="faq-maxmin-icons" aria-hidden="true" data-testid="icon"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon-pack" viewBox="0 0 12 12" width="12" height="12">
+                        <path d="M6.91667 1.41667C6.91667 0.910406 6.50626 0.5 6 0.5C5.49374 0.5 5.08333 0.910406 5.08333 1.41667V5.08333H1.41667C0.910406 5.08333 0.5 5.49374 0.5 6C0.5 6.50626 0.910406 6.91667 1.41667 6.91667H5.08333V10.5833C5.08333 11.0896 5.49374 11.5 6 11.5C6.50626 11.5 6.91667 11.0896 6.91667 10.5833V6.91667H10.5833C11.0896 6.91667 11.5 6.50626 11.5 6C11.5 5.49374 11.0896 5.08333 10.5833 5.08333H6.91667V1.41667Z" stroke="white" fill="white"></path>
+                    </svg></span>
+            </button>
+            <div id="faq-collapse">
+            <div class="faq-collapse-section">
+            <div class="faq-collapse-btm">
+            Games and products purchased through the Epic Games Store are generally eligible for a refund. These products are marked “refundable”. If a game or product is marked as "non-refundable", then it is not eligible for a refund. Products that include virtual
+            currency or other consumables are marked “non-refundable” and are not eligible for refund. Also, most in-app purchases are non-refundable. Epic cannot provide refunds for purchases made outside of the Epic Games Store. Visit the
+            <span class="dev-doc"><a href="https://www.epicgames.com/site/store-refund-policy" class="dev-doc-css" aria-label="" rel="noopener noreferrer" target="_blank">Epic Games Store Refund Policy</a></span> for
+            more information.
+            </div>
+            </div>
+            </div>
+            </li>
+         </ul>
+         </div>
+         </div>
+         </span>
+         </div>
       </div>
-    </div>
-
-    <script src="../../scripts/distribution.js"></script>
-  </body>
+   </body>
 </html>
