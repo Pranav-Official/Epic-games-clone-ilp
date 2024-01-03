@@ -105,10 +105,7 @@ function onBlurAnimation(divInQuestion, inputField) {
   }
 }
 
-function noPopUp() {
-  popupMessage.style.display = "none";
-}
-
+//function to show the popup box for displayname and  password
 function popUp(popid) {
   const popupMessage = document.getElementById(popid);
   // Display the popup at position
@@ -116,12 +113,122 @@ function popUp(popid) {
   popupMessage.style.top = 3 + "rem";
   popupMessage.style.left = 10 + "rem";
 }
-
-function noPopUP() {
-  console.log("hehe");
+//function to hide the popup box for displayname and password
+function noPopUp(popid) {
   const popupMessage = document.getElementById(popid);
   popupMessage.style.display = "none";
 }
+
+//validate first name
+const validateFirstName = () => {
+  let FirstNameInput = document.getElementById("first-name-input");
+  let DisplayBox = document.getElementById("first-name");
+  let signUpDiv = document.getElementById("sign-up-div");
+  let isvalidDiv = document.getElementById("invalid-display");
+  let singUpLink = document.getElementById("signup-button");
+
+  if (displayNameInput.value.trim() === "") {
+    singUpLink.style.cursor = "default";
+    DisplayBox.style.borderColor = "#DE3341";
+    signUpDiv.classList.remove("signup-button");
+    isvalidDiv.textContent = "Required";
+    isvalidDiv.removeAttribute("hidden");
+    return false;
+  } else if (!isValidDisplayNameFormat(displayNameInput.value)) {
+    singUpLink.style.cursor = "default";
+    DisplayBox.style.borderColor = "#DE3341";
+    signUpDiv.classList.remove("signup-button");
+    isvalidDiv.textContent = "Wrong format";
+    isvalidDiv.removeAttribute("hidden");
+    return false;
+  } else {
+    console.log("valid");
+    DisplayBox.style.borderColor = "";
+    isvalidDiv.setAttribute("hidden", "true");
+    // signInDiv.classList.add("signing-button");
+    return true;
+  }
+};
+
+//function to validate displayname
+const validateDisplayName = () => {
+  let displayNameInput = document.getElementById("display-name-inputed");
+  let DisplayBox = document.getElementById("display-name-id");
+  let signUpDiv = document.getElementById("sign-up-div");
+  let isvalidDiv = document.getElementById("invalid-display");
+  let singUpLink = document.getElementById("signup-button");
+
+  if (displayNameInput.value.trim() === "") {
+    singUpLink.style.cursor = "default";
+    DisplayBox.style.borderColor = "#DE3341";
+    signUpDiv.classList.remove("signup-button");
+    isvalidDiv.textContent = "Required";
+    isvalidDiv.removeAttribute("hidden");
+    return false;
+  } else if (!isValidDisplayNameFormat(displayNameInput.value)) {
+    singUpLink.style.cursor = "default";
+    DisplayBox.style.borderColor = "#DE3341";
+    signUpDiv.classList.remove("signup-button");
+    isvalidDiv.textContent = "Wrong format";
+    isvalidDiv.removeAttribute("hidden");
+    return false;
+  } else {
+    console.log("valid");
+    DisplayBox.style.borderColor = "";
+    isvalidDiv.setAttribute("hidden", "true");
+    // signInDiv.classList.add("signing-button");
+    return true;
+  }
+};
+
+//funcion to validate password
+const validatePassword = () => {
+  let passwordInput = document.getElementById("password-field");
+  let passwordBox = document.getElementById("password-box-id");
+  let signUpDiv = document.getElementById("sign-up-div");
+  let isvalidDiv = document.getElementById("invalid-password");
+  let singUpLink = document.getElementById("signup-button");
+
+  if (passwordInput.value.trim() === "") {
+    singUpLink.style.cursor = "default";
+    passwordBox.style.borderColor = "#DE3341";
+    signUpDiv.classList.remove("signup-button");
+    isvalidDiv.textContent = "Required";
+    isvalidDiv.removeAttribute("hidden");
+    return false;
+  } else if (!isValidPasswordFormat(passwordInput.value)) {
+    singUpLink.style.cursor = "default";
+    passwordBox.style.borderColor = "#DE3341";
+    signUpDiv.classList.remove("signup-button");
+    isvalidDiv.textContent = "Wrong format";
+    isvalidDiv.removeAttribute("hidden");
+    return false;
+  } else {
+    console.log("valid");
+    passwordBox.style.borderColor = "";
+    isvalidDiv.setAttribute("hidden", "true");
+    // signInDiv.classList.add("signing-button");
+    return true;
+  }
+};
+
+function isValidPasswordFormat(password) {
+  let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=\S+$).{7,}$/;
+  return passwordRegex.test(password);
+}
+function isValidDisplayNameFormat(name) {
+  let DisplayNameRegex =
+    /^[a-zA-Z0-9](?!.*?[._-]{2})[a-zA-Z0-9._-]{2,15}[a-zA-Z0-9]$/;
+  return DisplayNameRegex.test(name);
+}
+
+document
+  .getElementById("password-field")
+  .addEventListener("input", validatePassword);
+
+document
+  .getElementById("display-name-inputed")
+  .addEventListener("input", validateDisplayName);
 
 document
   .getElementById("toggle-displayname-info")

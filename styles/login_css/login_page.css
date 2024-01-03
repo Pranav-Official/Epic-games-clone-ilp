@@ -796,3 +796,19 @@ input::placeholder {
   top: 47rem;
   left: 12.4rem;
 }
+
+.signup-invalid-password-indicator {
+  position: absolute;
+  color: #de3341;
+  font: 12px Brutal, sans-serif;
+  top: 32.5rem;
+  left: 3.8rem;
+}
+
+.signup-invalid-display-indicator {
+  position: absolute;
+  color: #de3341;
+  font: 12px Brutal, sans-serif;
+  top: 27.2rem;
+  left: 3.8rem;
+}
