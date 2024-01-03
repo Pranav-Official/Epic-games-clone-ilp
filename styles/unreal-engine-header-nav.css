@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500wght@200wght@400&display=swap");
+
+.unreal-engine-nav-bar {
+  display: flex;
+  background-color: #101014;
+  height: 4.5rem;
+  font-family: Inter, sans-serif;
+}
+@media (min-width: 768px) {
+  .global-header {
+    --header-padding-inline: 1.5rem;
+    column-gap: 1.5rem;
+  }
+}
+.global-header {
+  --drawer-main-cta-height: 5.875rem;
+  --drawer-padding-block-end: 1.5rem;
+  --drawer-padding-block-start: 0.5rem;
+  --drawer-toolbar-height: 2.5rem;
+  --transform-direction: 1;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: var(--header-height);
+  padding-block: 1.25rem;
+  padding-inline: var(--header-padding-inline);
+  position: relative;
+  width: 100%;
+  background: var(--color-background-default, #18181c);
+  z-index: var(--header-z-index, 9000);
+}
+@media (min-width: 768px) {
+  .global-header__flyout-wrapper {
+    gap: 1rem;
+  }
+}
+.global-header__flyout-wrapper {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+}

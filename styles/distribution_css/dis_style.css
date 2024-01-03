@@ -6,7 +6,8 @@
 }
 body {
   font-family: "Inter", sans-serif;
-  background-color: rgb(18, 18, 18);
+  background-color: var(--color-background-default);
+  overflow-x: hidden;
 }
 
 .distribution-page-body {
@@ -85,9 +86,10 @@ body {
 .description-tag-section-one {
   font-weight: bold;
 }
+
 .sign-up {
   height: 40px;
-  font-weight: 600;
+  font-weight: 700;
   display: inline-flex;
   position: relative;
   border-radius: 4px;
@@ -96,12 +98,16 @@ body {
   align-items: center;
   justify-content: center;
   line-height: 15px;
-  padding: 0px 20px;
+  padding: 0px 22px;
   background-color: rgb(245, 245, 245);
   color: black;
-  min-width: 200px;
+  min-width: 120px;
+  min-height: 50px;
   font-size: 12px;
   letter-spacing: 0.5px;
+}
+.sign-up:hover {
+  color: rgb(66, 66, 66);
 }
 
 a {
@@ -140,6 +146,17 @@ a {
 .section-two {
   margin-bottom: 20px;
 }
+
+#dynamicContentContainer {
+  display: flex;
+  gap: 16px;
+}
+#dynamicContentContainer2 {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
 .section-two-1 {
   display: flex;
   gap: 16px;
@@ -159,7 +176,7 @@ a {
   gap: 20px;
 }
 .sec-2-img1 {
-  width: 100%;
+  width: 80%
 }
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
   .sec-2-1-1-1-image {
@@ -275,6 +292,10 @@ a {
   color: rgba(245, 245, 245, 0.6);
   transition: all 125ms ease-in-out;
 }
+.inner-section-text-3:hover {
+  color: rgb(255, 255, 255);
+  transition: all 125ms ease-in-out;
+}
 
 .section-5 {
   margin-bottom: 20px;
@@ -358,7 +379,11 @@ a {
 .section-5-link-2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(245, 245, 245, 0.6);
-  transition: all 125ms ease-in-out 0s;
+  transition: all 125ms ease-in-out;
+}
+.section-5-link-2:hover {
+  color: rgb(255, 255, 255);
+  transition: all 125ms ease-in-out 0.1s;
 }
 .final-section {
   margin-bottom: 20px;
@@ -401,9 +426,19 @@ a {
   align-items: baseline;
   width: 100%;
 }
+
+.faq-section-button:hover,
+.faq-section-button :hover * {
+  color: #007aff;
+  transition: 125ms ease-in-out 0s;
+}
+.faq-section-button:hover path {
+  stroke: #007aff;
+  fill: #007aff;
+}
 .faq-section-button::before {
   transition: border 125ms ease-in-out 0s;
-  content: "";
+  content: " ";
   position: absolute;
   left: 0px;
   top: 0px;
@@ -442,13 +477,7 @@ a {
   width: 100%;
   height: 100%;
 }
-#faq-collapse {
-  margin-top: 20px;
-}
-.faq-collapse-section {
-  color: rgb(245, 245, 245);
-  margin-top: 3px;
-}
+
 .faq-collapse-btm {
   margin-bottom: 20px;
   color: rgba(255, 255, 255, 0.6);
@@ -462,3 +491,15 @@ a {
   /* Add styles for the minus icon, e.g., rotate 45 degrees */
   transform: rotate(45deg);
 }
+.dev-doc {
+  display: inline-block;
+  color: rgba(245, 245, 245, 0.6);
+}
+.dev-doc-css {
+  color: inherit;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.6);
+  cursor: pointer;
+  word-break: break-word;
+}
+
+
