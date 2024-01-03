@@ -109,8 +109,8 @@ function noPopUp() {
   popupMessage.style.display = "none";
 }
 
-function popUp() {
-  const popupMessage = document.getElementById("popupMessage");
+function popUp(popid) {
+  const popupMessage = document.getElementById(popid);
   // Display the popup at position
   popupMessage.style.display = "block";
   popupMessage.style.top = 3 + "rem";
@@ -118,20 +118,33 @@ function popUp() {
 }
 
 function noPopUP() {
-  const popupMessage = document.getElementById("popupMessage");
+  console.log("hehe");
+  const popupMessage = document.getElementById(popid);
   popupMessage.style.display = "none";
 }
 
 document
   .getElementById("toggle-displayname-info")
   .addEventListener("mouseover", () => {
-    popUp();
+    popUp("popupMessage");
   });
 
 document
   .getElementById("toggle-displayname-info")
   .addEventListener("mouseout", () => {
-    noPopUp();
+    noPopUp("popupMessage");
+  });
+
+document
+  .getElementById("toggle-password-info")
+  .addEventListener("mouseover", () => {
+    popUp("popupMessage2");
+  });
+
+document
+  .getElementById("toggle-password-info")
+  .addEventListener("mouseout", () => {
+    noPopUp("popupMessage2");
   });
 
 document

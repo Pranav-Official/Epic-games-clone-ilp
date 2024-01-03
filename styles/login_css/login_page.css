@@ -405,6 +405,10 @@ input::placeholder {
   align-items: center;
 }
 
+.password-input-inner {
+  position: relative;
+}
+
 .password-box {
   position: relative;
   width: 22.4rem;
@@ -765,12 +769,26 @@ input::placeholder {
 }
 
 .popup {
+  box-shadow: #201e1e;
   display: none;
+  width: 70%;
   position: absolute;
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
+  background-color: rgb(41, 38, 38);
+  border: 1px solid #201e1e;
+  border-radius: 4px;
   padding: 10px;
-  z-index: 1;
+  z-index: 2;
+}
+.popup-password {
+  box-shadow: #201e1e;
+  display: none;
+  width: 70%;
+  position: absolute;
+  background-color: rgb(41, 38, 38);
+  border: 1px solid #201e1e;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 2;
 }
 
 .signup-privacy {
