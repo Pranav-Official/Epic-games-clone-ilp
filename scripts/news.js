@@ -70,7 +70,7 @@ const rowNewsTemplate = (newsItem) => {
 `;
 };
 //function to display published time
-function timeAgo(dateString) {
+const timeAgo = (dateString) => {
   const currentDate = new Date();
   const publishDate = new Date(dateString);
   const timeDifference = currentDate - publishDate;
@@ -92,7 +92,7 @@ function timeAgo(dateString) {
   } else {
     return `${seconds}SEC AGO`;
   }
-}
+};
 async function fetchData(apiUrl) {
   try {
     const response = await fetch(apiUrl);
@@ -110,7 +110,7 @@ async function fetchData(apiUrl) {
   }
 }
 //to display news from specific number
-function displayNews(newsData, start) {
+const displayNews = (newsData, start) => {
   const newsContainer = document.getElementById("newsContainer");
   const newsTop = document.getElementById("news-top");
   newsTop.innerHTML = "";
@@ -132,7 +132,7 @@ function displayNews(newsData, start) {
       newsContainer.appendChild(newsDiv);
     }
   }
-}
+};
 
 let newsData;
 async function init() {
