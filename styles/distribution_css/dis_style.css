@@ -175,8 +175,28 @@ a {
   padding: 40px;
   gap: 20px;
 }
+.sec-2-1-1-1-image {
+  animation: floatAnimation 2s infinite ease-in-out;
+}
 .sec-2-img1 {
-  width: 80%
+  width: 80%;
+}
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(-5px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateY(5px); /* Adjust the distance of the movement */
+  }
+  75% {
+    transform: translatex(5px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
   .sec-2-1-1-1-image {
@@ -501,5 +521,3 @@ a {
   cursor: pointer;
   word-break: break-word;
 }
-
-
