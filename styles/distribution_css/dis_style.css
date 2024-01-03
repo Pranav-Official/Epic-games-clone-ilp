@@ -179,7 +179,7 @@ a {
   animation: floatAnimation 2s infinite ease-in-out;
 }
 .sec-2-img1 {
-  width: 80%;
+  width: 100%;
 }
 @keyframes floatAnimation {
   0% {
@@ -198,6 +198,22 @@ a {
     transform: translateY(-5px);
   }
 }
+.sec-2-1-1-1:hover {
+  transform: scale(1.1);
+  animation: gradientAnimation 3s infinite linear;
+  transition: transform 0.3s ease-in-out;
+  background: linear-gradient(to right, #0057b4, #007bff);
+  background-size: 200% 100%;
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
   .sec-2-1-1-1-image {
     width: 140px;
