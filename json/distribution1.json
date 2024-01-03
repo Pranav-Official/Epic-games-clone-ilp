@@ -1,0 +1,20 @@
+[
+  {
+    "imageSrc": "https://cdn2.unrealengine.com/direct-game-distribution-06596600236d.svg",
+    "altText": "Direct Game Distribution",
+    "header": "Reach a Global Audience",
+    "description": "Direct distribution of over 230 million Epic users across 187 countries with 18 languages supported"
+  },
+  {
+    "imageSrc": "https://cdn2.unrealengine.com/video-game-revenue-c74196d72f94.svg",
+    "altText": "Video Game Revenue",
+    "header": "88%/12% Revenue Split",
+    "description": "Keep 88% of the revenue and monitor product performance with integrated analytics dashboards."
+  },
+  {
+    "imageSrc": "https://cdn2.unrealengine.com/player-engagement-69f0a2ba31cd.svg",
+    "altText": "Player Engagement",
+    "header": "Drive Player Engagement",
+    "description": "Tap into store features like wishlists, achievements, store-wide promotions and more!"
+  }
+]
