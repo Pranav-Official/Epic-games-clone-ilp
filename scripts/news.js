@@ -8,7 +8,6 @@ const req = new Request(url);
 
 const apiKey = "4bdcb41ba60e45ae98fac6b55ae85c2c";
 const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${apiKey}`;
-const apiUrlForSecondSection = `https://newsapi.org/v2/everything?q=Games&from=2024-01-02&sortBy=popularity&apiKey=${apiKey}`;
 
 //Top news
 const topNewsTemplate = (newsItem1, newsItem2) => {
