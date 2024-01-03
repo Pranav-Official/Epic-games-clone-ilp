@@ -61,6 +61,29 @@ a.epic-pages-link {
   display: flex;
 }
 
+.game-card-discount {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5;
+  background-color: var(--color-accent);
+  /* padding: -2rem; */
+  border-radius: 0.2rem;
+  margin-left: 0;
+  font-size: 0.7rem;
+  padding-inline: 0.3rem;
+}
+
+.game-card-title {
+  font-size: 0.8rem;
+}
+
+.game-card h4 {
+  font-size: 15px;
+}
+
+.game-card p {
+  font-size: 10px;
+}
+
 .img-container {
   position: relative;
 }
@@ -69,12 +92,10 @@ a.epic-pages-link {
 .img2 img,
 .img3 img {
   position: absolute;
-  top: 60px;
-  left: 0;
-  width: 12rem;
+  top: 50px;
+  left: 10px;
+  width: 10rem;
   height: 10rem;
-  padding: 2rem;
-  border-radius: 18%;
   padding-bottom: 2.5rem;
 }
 
@@ -90,7 +111,7 @@ a.epic-pages-link {
 
 .actgame-text {
   position: absolute;
-  top: 87%;
+  top: 94%;
   left: 52%;
   transform: translate(-50%, -50%);
   color: white;
@@ -190,4 +211,27 @@ a.epic-pages-link {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 25vw;
+  gap: 1rem;
+}
+
+.pagination {
+  margin-left: 40%;
+}
+.pagination button {
+  color: rgb(187, 187, 187);
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  text-align: center;
+  background-color: var(--color-main-page);
+  margin-top: 30px;
+  align-items: center;
+  border: none; /* Remove border */
+  box-shadow: none;
+  outline: none; /* Remove outline */
+}
+
+.game-card {
+  height: 30rem;
 }
