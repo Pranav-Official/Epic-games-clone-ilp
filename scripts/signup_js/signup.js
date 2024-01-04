@@ -119,31 +119,65 @@ function noPopUp(popid) {
   popupMessage.style.display = "none";
 }
 
-//validate first name
-const validateFirstName = () => {
-  let FirstNameInput = document.getElementById("first-name-input");
-  let DisplayBox = document.getElementById("first-name");
+//checks if all required fields are filled
+const areAllFieldsFilled = () => {
+  // Get all input elements on the page
+  var inputElements = document.querySelectorAll("input");
+
+  for (var i = 0; i < inputElements.length; i++) {
+    var currentElement = inputElements[i];
+    if (currentElement.id !== "optional-checkbox") {
+      if (!currentElement.value.trim()) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+};
+
+//function to validate last name
+const validateLastName = () => {
+  let LastNameInput = document.getElementById("last-name-input");
+  let LastNameBox = document.getElementById("last-name");
   let signUpDiv = document.getElementById("sign-up-div");
-  let isvalidDiv = document.getElementById("invalid-display");
+  let isvalidDiv = document.getElementById("invalid-lastname-signup");
   let singUpLink = document.getElementById("signup-button");
 
-  if (displayNameInput.value.trim() === "") {
+  if (LastNameInput.value.trim() === "") {
     singUpLink.style.cursor = "default";
-    DisplayBox.style.borderColor = "#DE3341";
+    LastNameBox.style.borderColor = "#DE3341";
     signUpDiv.classList.remove("signup-button");
     isvalidDiv.textContent = "Required";
     isvalidDiv.removeAttribute("hidden");
     return false;
-  } else if (!isValidDisplayNameFormat(displayNameInput.value)) {
+  } else {
+    console.log("valid");
+    LastNameBox.style.borderColor = "";
+    isvalidDiv.setAttribute("hidden", "true");
+    // signInDiv.classList.add("signing-button");
+    return true;
+  }
+};
+
+//validate first name
+const validateFirstName = () => {
+  let FirstNameInput = document.getElementById("first-name-input");
+  let FirstNameBox = document.getElementById("first-name");
+  let signUpDiv = document.getElementById("sign-up-div");
+  let isvalidDiv = document.getElementById("invalid-firstname-signup");
+  let singUpLink = document.getElementById("signup-button");
+
+  if (FirstNameInput.value.trim() === "") {
     singUpLink.style.cursor = "default";
-    DisplayBox.style.borderColor = "#DE3341";
+    FirstNameBox.style.borderColor = "#DE3341";
     signUpDiv.classList.remove("signup-button");
-    isvalidDiv.textContent = "Wrong format";
+    isvalidDiv.textContent = "Required";
     isvalidDiv.removeAttribute("hidden");
     return false;
   } else {
     console.log("valid");
-    DisplayBox.style.borderColor = "";
+    FirstNameBox.style.borderColor = "";
     isvalidDiv.setAttribute("hidden", "true");
     // signInDiv.classList.add("signing-button");
     return true;
@@ -207,7 +241,10 @@ const validatePassword = () => {
     console.log("valid");
     passwordBox.style.borderColor = "";
     isvalidDiv.setAttribute("hidden", "true");
-    // signInDiv.classList.add("signing-button");
+    if (areAllFieldsFilled) {
+      signUpDiv.classList.add("signing-button");
+    }
+
     return true;
   }
 };
@@ -229,6 +266,14 @@ document
 document
   .getElementById("display-name-inputed")
   .addEventListener("input", validateDisplayName);
+
+document
+  .getElementById("first-name-input")
+  .addEventListener("input", validateFirstName);
+
+document
+  .getElementById("last-name-input")
+  .addEventListener("input", validateLastName);
 
 document
   .getElementById("toggle-displayname-info")
