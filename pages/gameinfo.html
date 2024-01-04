@@ -6,6 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="/styles/gameinfo.css" />
     <link rel="stylesheet" href="../styles/discover.css" />
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
   <body>
     <div>
@@ -91,7 +97,7 @@
       </div>
       <div class="game-page">
         <div class="game-heading">
-          <h1>Alan Wake 2</h1>
+          <h1 id="game-main-title"></h1>
         </div>
         <div class="game-heading-more">
           <div class="stars">
@@ -153,62 +159,24 @@
 
         <div class="overview">
           <div class="overview-left">
-            <div class="overview-img">
-              <img
-                height="330"
-                width="650"
-                src="/assets/gameinfo/alanwake2.jpg"
-                alt=""
-              />
-            </div>
-            <div class="overview-bar-flex">
-              <div class="overview-imgbar">
-                <a class="round-button" href="#"><</a>
+            <!-- Slider main container -->
+            <div class="swiper" loop="true">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+
+                ...
               </div>
-              <div class="overview-imgbar-cont">
-                <div class="overview-imgbar-thumb">
-                  <img
-                    height="50"
-                    width="89"
-                    src="/assets/gameinfo/alanwakethumb.webp"
-                    alt=""
-                  />
-                </div>
-                <div class="overview-imgbar-thumb">
-                  <img
-                    height="50"
-                    width="89"
-                    src="/assets/gameinfo/alanwakethumb.webp"
-                    alt=""
-                  />
-                </div>
-                <div class="overview-imgbar-thumb">
-                  <img
-                    height="50"
-                    width="89"
-                    src="/assets/gameinfo/alanwakethumb.webp"
-                    alt=""
-                  />
-                </div>
-                <div class="overview-imgbar-thumb">
-                  <img
-                    height="50"
-                    width="89"
-                    src="/assets/gameinfo/alanwakethumb.webp"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="overview-imgbar">
-                <a class="round-button" href="#">></a>
-              </div>
+              <!-- If we need pagination -->
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <div class="swiper-scrollbar"></div>
             </div>
-            <div class="gametext">
-              Saga Anderson arrives to investigate ritualistic murders in a
-              small town. Alan Wake pens a dark story to shape the reality
-              around him. These two heroes are somehow connected. Can they
-              become the heroes they need to be?
-            </div>
+            <div class="gametext"></div>
             <div class="genre-whole">
               <div class="genre-features">
                 <div class="vertical-line"></div>
@@ -260,13 +228,13 @@
               <div class="offer-faq-button-enclose">
                 <center>
                   <div class="offer-faq-button">
-                    <a class="offer-faq-buttonbt" href="">VIEW FAQ</a>
+                    <a class="offer-faq-buttonbt" href="#">VIEW FAQ</a>
                   </div>
                 </center>
               </div>
             </div>
 
-            <div class="game-big-description">
+            <div id="big-game-description" class="game-big-description">
               <div class="game-bigparts">
                 A string of ritualistic murders threatens Bright Falls, a
                 small-town community surrounded by Pacific Northwest wilderness.
@@ -298,7 +266,7 @@
             </div>
             <div class="show-more-button">
               <div class="show-more-link-partdiv">
-                <a class="show-more-linkpart" href="#">SHOW MORE </a>
+                <a id="show-more-link" class="show-more-linkpart">SHOW MORE </a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="svgcss-arow"

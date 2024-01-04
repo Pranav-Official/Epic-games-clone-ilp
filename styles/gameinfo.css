@@ -178,9 +178,13 @@ a.lilink:hover {
 .gametext {
   font-size: 18px;
   line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 7.6rem;
   letter-spacing: -0.2px;
-  width: 68%;
-  margin-top: 3rem;
+  width: 40rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
 .vertical-line {
@@ -263,6 +267,13 @@ a.genlink {
 
 .game-big-description {
   margin-top: 3rem;
+  width: 67%;
+  transition: height 0.5s ease;
+  height: 7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 1rem;
+  color: rgba(245, 245, 245, 0.6);
 }
 
 .game-bigparts {
@@ -298,6 +309,9 @@ a.show-more-linkpart {
 
   top: 2rem;
   right: 8rem;
+}
+
+.overview-left {
 }
 
 .overview-right {
@@ -727,4 +741,11 @@ a.add-to-wishbutton-link {
   width: 15rem;
   height: 2.4rem;
   padding: 1px 6px;
+}
+
+.swiper {
+  position: absolute;
+  left: -11rem;
+  height: 330px;
+  width: 650px;
 }
