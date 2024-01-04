@@ -30,10 +30,29 @@ const database = getFirestore(app);
 const updateMailLockedField = () => {
   const email = sessionStorage.getItem("email");
   const lockedMail = document.getElementById("email-inputed");
-  console.log(email);
   lockedMail.innerText = email;
 };
 document.addEventListener("DOMContentLoaded", updateMailLockedField);
+
+//function to toggle vissibility of Password field
+function togglePasswordVisibility() {
+  var passwordInput = document.getElementById("password-field");
+  var toggleIcon = document.getElementById("eye-button");
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    toggleIcon.innerHTML =
+      '<path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/> <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>';
+  } else {
+    passwordInput.type = "password";
+    toggleIcon.innerHTML =
+      '<path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588M5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/> <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>';
+  }
+}
+
+document
+  .getElementById("eye-button")
+  .addEventListener("click", togglePasswordVisibility);
 
 //function to signup a new user
 function signup() {
@@ -43,18 +62,28 @@ function signup() {
   const lastName = document.getElementById("last-name-input").value;
   const displayName = document.getElementById("display-name-inputed").value;
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-
-      window.alert("Success! Account created");
-      // Call the function to create user data in Firestore
-      createUserData(email, firstName, lastName, displayName);
-    })
-    .catch((error) => {
-      console.log(error);
-      window.alert("Error occured! Try Again!");
-    });
+  //check if the fields and checkbox is valid
+  if (
+    validateDisplayName() &&
+    validateFirstName() &&
+    validateLastName() &&
+    validatePassword() &&
+    areAllFieldsFilled()
+  ) {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential + "Ussr");
+        //not using yet
+        const user = userCredential.user;
+        // Call the function to create user data in Firestore
+        createUserData(email, firstName, lastName, displayName);
+        window.alert("Success! Account created");
+      })
+      .catch((error) => {
+        console.log(error);
+        window.alert("Error occured! Try Again!");
+      });
+  }
 }
 
 document.getElementById("signup-button").addEventListener("click", signup);
@@ -121,20 +150,38 @@ function noPopUp(popid) {
 
 //checks if all required fields are filled
 const areAllFieldsFilled = () => {
-  // Get all input elements on the page
-  var inputElements = document.querySelectorAll("input");
-
-  for (var i = 0; i < inputElements.length; i++) {
-    var currentElement = inputElements[i];
-    if (currentElement.id !== "optional-checkbox") {
-      if (!currentElement.value.trim()) {
-        return false;
-      }
+  let signUpDiv = document.getElementById("sign-up-div");
+  let singUpLink = document.getElementById("signup-button");
+  // Get all text input elements on the page
+  let inputElements = document.querySelectorAll('input[type="text"]');
+  let checkboxElement = document.querySelector("#checkbox-input-required");
+  let paswordElement = document.querySelector("#password-field");
+  for (let i = 0; i < inputElements.length; i++) {
+    let currentElement = inputElements[i];
+    if (!currentElement.value.trim()) {
+      return false;
     }
   }
 
-  return true;
+  if (checkboxElement.checked) {
+    signUpDiv.classList.add("signup-button");
+    singUpLink.style.cursor = "pointer";
+  } else {
+    signUpDiv.classList.remove("signup-button");
+    singUpLink.style.cursor = "default";
+  }
+
+  //checking the password field before returning true
+  if (checkboxElement.checked && paswordElement.value.trim()) {
+    return true;
+  } else {
+    return false;
+  }
 };
+
+document
+  .getElementById("checkbox-input-required")
+  .addEventListener("input", areAllFieldsFilled);
 
 //function to validate last name
 const validateLastName = () => {
@@ -152,10 +199,12 @@ const validateLastName = () => {
     isvalidDiv.removeAttribute("hidden");
     return false;
   } else {
-    console.log("valid");
     LastNameBox.style.borderColor = "";
     isvalidDiv.setAttribute("hidden", "true");
-    // signInDiv.classList.add("signing-button");
+    if (areAllFieldsFilled()) {
+      signUpDiv.classList.add("signup-button");
+      singUpLink.style.cursor = "pointer";
+    }
     return true;
   }
 };
@@ -176,10 +225,12 @@ const validateFirstName = () => {
     isvalidDiv.removeAttribute("hidden");
     return false;
   } else {
-    console.log("valid");
     FirstNameBox.style.borderColor = "";
     isvalidDiv.setAttribute("hidden", "true");
-    // signInDiv.classList.add("signing-button");
+    if (areAllFieldsFilled()) {
+      signUpDiv.classList.add("signup-button");
+      singUpLink.style.cursor = "pointer";
+    }
     return true;
   }
 };
@@ -207,10 +258,12 @@ const validateDisplayName = () => {
     isvalidDiv.removeAttribute("hidden");
     return false;
   } else {
-    console.log("valid");
     DisplayBox.style.borderColor = "";
     isvalidDiv.setAttribute("hidden", "true");
-    // signInDiv.classList.add("signing-button");
+    if (areAllFieldsFilled()) {
+      signUpDiv.classList.add("signup-button");
+      singUpLink.style.cursor = "pointer";
+    }
     return true;
   }
 };
@@ -238,11 +291,11 @@ const validatePassword = () => {
     isvalidDiv.removeAttribute("hidden");
     return false;
   } else {
-    console.log("valid");
     passwordBox.style.borderColor = "";
     isvalidDiv.setAttribute("hidden", "true");
-    if (areAllFieldsFilled) {
-      signUpDiv.classList.add("signing-button");
+    if (areAllFieldsFilled()) {
+      signUpDiv.classList.add("signup-button");
+      singUpLink.style.cursor = "pointer";
     }
 
     return true;

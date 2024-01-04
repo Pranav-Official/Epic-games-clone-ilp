@@ -48,7 +48,7 @@ function signIn() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("Signed in as:", user.email);
-        window.location.href = "login_fail.html";
+        window.location.href = "../discover.html";
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -85,7 +85,6 @@ document
     placeholderLabel.style.top = "30%";
     placeholderLabel.style.fontSize = "12px";
   });
-  
 
 //Function to revert animated password field placeholder text
 document.getElementById("password-field").addEventListener("blur", function () {
