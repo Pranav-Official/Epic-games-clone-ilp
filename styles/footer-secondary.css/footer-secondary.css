@@ -44,6 +44,8 @@ body {
   font-feature-settings: "kern";
   -webkit-font-smoothing: subpixel-antialiased;
   box-sizing: border-box;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 @media (min-width: 1920px) {
   .egf-container {
@@ -133,6 +135,13 @@ i {
 .button-label {
   text-transform: uppercase;
 }
+
+.button-label {
+  transition: 0.3s ease-in-out;
+}
+.up-button .button-label:hover {
+  color: #007bff;
+}
 span {
   font-family: OpenSans, sans-serif, arial;
   font-size: 13px;
@@ -188,8 +197,19 @@ a {
   text-decoration: none;
   transition: color 0.3s ease-out 0s;
 }
+.link-legal-tags a {
+  color: white !important;
+  text-decoration: none;
+  background-color: transparent;
+}
+
 .footer-link {
   padding: 0px 12px 8px;
+}
+.columns a:hover {
+  color: #007bff;
+  transition: 0.2s ease-in-out;
+  text-decoration: none !important;
 }
 .foot-text {
   line-height: 22px;

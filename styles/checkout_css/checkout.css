@@ -327,7 +327,6 @@ h2 {
   cursor: inherit;
   height: 100%;
   margin: 0;
-  opacity: 0;
   padding: 0;
   z-index: 1;
   border-radius: 50%;
@@ -378,7 +377,10 @@ input {
   position: absolute;
   top: 50%;
   transform: rotate(45deg) scale(0) translate(-50%, -50%);
-  transition: all 0.1s, opacity 0.1s;
+  transition: all 0.1s;
+}
+.payment-method__form {
+  display: none; /* Hide by default */
 }
 .payment-method-icon__wrap {
   width: 60px;
@@ -444,13 +446,13 @@ p {
   position: relative;
   border-radius: var(--pmt-ui-color-border-raduis);
 }
+
 .payment-method-icon--choose {
   background-size: 50%;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhl…sbD0iI0ZCRkJGQiIgZD0iTTAgNGgyOHY0SDB6Ii8+PC9zdmc+");
 }
+
 .payment-method-icon {
-  background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhl…sbD0iI0ZCRkJGQiIgZD0iTTAgNGgyOHY0SDB6Ii8+PC9zdmc+");
-  background-repeat: no-repeat;
+  background-size: contain;
   background-position: 50%;
   flex-shrink: 0;
   height: 28px;
@@ -705,7 +707,6 @@ p {
 }
 .payment-input__element {
   font-size: 14px;
-  opacity: 0;
   margin: 0;
   position: absolute;
   bottom: 0;

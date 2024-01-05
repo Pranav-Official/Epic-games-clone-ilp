@@ -6,7 +6,7 @@
 }
 body {
   font-family: "Inter", sans-serif;
-  background-color: var(--color-background-default);
+  background-color: var(--color-background-default)!important;
   overflow-x: hidden;
 }
 
