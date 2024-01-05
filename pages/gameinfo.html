@@ -160,12 +160,10 @@
         <div class="overview">
           <div class="overview-left">
             <!-- Slider main container -->
-            <div class="swiper" loop="true">
+            <div class="swiper main-swiper" loop="true">
               <!-- Additional required wrapper -->
               <div class="swiper-wrapper">
                 <!-- Slides -->
-
-                ...
               </div>
               <!-- If we need pagination -->
 
@@ -176,6 +174,7 @@
               <!-- If we need scrollbar -->
               <div class="swiper-scrollbar"></div>
             </div>
+
             <div class="gametext"></div>
             <div class="genre-whole">
               <div class="genre-features">
@@ -183,48 +182,24 @@
                 <div class="genres">
                   <div class="genre-heading">Genres</div>
                   <div class="genre-in-question">
-                    <ul class="genre-in-questionlist">
-                      <li class="gnlitem">
-                        <a class="genlink" href="#">Action-Adventure,</a>
-                      </li>
-                      <li class="gnlitem">
-                        <a class="genlink" href="#">Horror,</a>
-                      </li>
-                      <li class="gnlitem">
-                        <a class="genlink" href="#">Shooter</a>
-                      </li>
-                    </ul>
+                    <ul id="genre" class="genre-in-questionlist"></ul>
                   </div>
                 </div>
               </div>
 
-              <div class="genre-features">
+              <div class="genre-tags">
                 <div class="vertical-line"></div>
                 <div class="genres">
                   <div class="genre-heading">Features</div>
                   <div class="genre-in-question">
-                    <ul class="genre-in-questionlist">
-                      <li class="gnlitem">
-                        <a class="genlink" href="#">Achievements,</a>
-                      </li>
-                      <li class="gnlitem">
-                        <a class="genlink" href="#">Cloud Saves,</a>
-                      </li>
-                      <li class="gnlitem">
-                        <a class="genlink" href="#">Single Player</a>
-                      </li>
-                    </ul>
+                    <ul id="features" class="genre-in-questionlist"></ul>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="offer-faq">
-              <div class="offer-faq-text">
-                Buy Alan Wake 2 during our Holiday Sale and we’ll email a
-                digital voucher code for one copy of Alan Wake Remastered on PC.
-                Offer ends January 10, 2024 at 11am EST, see faq for details.
-              </div>
+              <div class="offer-faq-text"></div>
               <div class="offer-faq-button-enclose">
                 <center>
                   <div class="offer-faq-button">
@@ -234,43 +209,14 @@
               </div>
             </div>
 
-            <div id="big-game-description" class="game-big-description">
-              <div class="game-bigparts">
-                A string of ritualistic murders threatens Bright Falls, a
-                small-town community surrounded by Pacific Northwest wilderness.
-                Saga Anderson, an accomplished FBI agent with a reputation for
-                solving impossible cases arrives to investigate the murders.
-                Anderson’s case spirals into a nightmare when she discovers
-                pages of a horror story that starts to come true around her.
-              </div>
-
-              <div class="game-bigparts">
-                Alan Wake, a lost writer trapped in a nightmare beyond our
-                world, writes a dark story in an attempt to shape the reality
-                around him and escape his prison. With a dark horror hunting
-                him, Wake is trying to retain his sanity and beat the devil at
-                his own game.
-              </div>
-              <div class="game-bigparts">
-                Anderson and Wake are two heroes on two desperate journeys in
-                two separate realities, connected at heart in ways neither of
-                them can understand: reflecting each other, echoing each other,
-                and affecting the worlds around them.
-              </div>
-              <div class="game-bigparts">
-                Fueled by the horror story, supernatural darkness invades Bright
-                Falls, corrupting the locals and threatening the loved ones of
-                both Anderson and Wake. Light is their weapon—and their safe
-                haven — against the darkness they face.
-              </div>
-            </div>
+            <div id="big-game-description" class="game-big-description"></div>
             <div class="show-more-button">
               <div class="show-more-link-partdiv">
                 <a id="show-more-link" class="show-more-linkpart">SHOW MORE </a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="svgcss-arow"
-                  viewBox="1"
+                  viewBox="1 "
                 >
                   <path
                     stroke="currentColor"
@@ -285,8 +231,9 @@
           <div class="overview-right">
             <div class="overview-right-titleimg">
               <img
+                id="game-thumb-image"
                 width="130"
-                height="130"
+                height="65"
                 src="/assets/gameinfo/alanwaketitle.webp"
                 alt=""
               />
@@ -296,13 +243,13 @@
             </div>
             <div class="price-and-discount">
               <div class="discount">
-                <div class="discount-percent">-20%</div>
+                <div class="discount-percent"></div>
               </div>
               <div class="slashed-price"><s>2748₹</s></div>
               <div class="price-now">2198.40₹</div>
             </div>
             <div class="sale-end-info">
-              <div>Sale ends 1/10/2024 at 9:30 PM</div>
+              <div></div>
             </div>
             <div class="buy-now-button">
               <a class="buy-button-link" href="#">BUY NOW</a>
@@ -397,7 +344,7 @@
             <div class="release-withbr">
               <div class="release-partwhole">
                 <div class="rel-part">Release Date</div>
-                <div class="rel-who">10/27/23</div>
+                <div class="rel-who"></div>
               </div>
               <hr class="hrline1" />
             </div>
@@ -469,156 +416,7 @@
         </div>
         <div class="achievements">
           <div class="achievement-heading">Available Achievements</div>
-          <div class="achievements-grid-panel">
-            <div class="achievement-grid-item">
-              <div class="achievement-grid-item-image">
-                <img
-                  width="100"
-                  height="100"
-                  src="/assets/gameinfo/achievement_eg.png"
-                  alt=""
-                />
-              </div>
-              <div class="achievement-grid-item-name">Escape its Gravity</div>
-              <div class="achievement-grid-item-tropiepart">
-                <div class="trophie">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    style="color: rgb(202, 81, 43)"
-                    fill="currentColor"
-                    class="bi bi-trophy-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                    />
-                  </svg>
-                </div>
-                <div class="exppart">10XP</div>
-              </div>
-            </div>
-
-            <div class="achievement-grid-item">
-              <div class="achievement-grid-item-image">
-                <img
-                  width="100"
-                  height="100"
-                  src="/assets/gameinfo/achievement_eg.png"
-                  alt=""
-                />
-              </div>
-              <div class="achievement-grid-item-name">Escape its Gravity</div>
-              <div class="achievement-grid-item-tropiepart">
-                <div class="trophie">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    style="color: rgb(202, 81, 43)"
-                    fill="currentColor"
-                    class="bi bi-trophy-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                    />
-                  </svg>
-                </div>
-                <div class="exppart">10XP</div>
-              </div>
-            </div>
-
-            <div class="achievement-grid-item">
-              <div class="achievement-grid-item-image">
-                <img
-                  width="100"
-                  height="100"
-                  src="/assets/gameinfo/achievement_eg.png"
-                  alt=""
-                />
-              </div>
-              <div class="achievement-grid-item-name">Escape its Gravity</div>
-              <div class="achievement-grid-item-tropiepart">
-                <div class="trophie">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    style="color: rgb(202, 81, 43)"
-                    fill="currentColor"
-                    class="bi bi-trophy-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                    />
-                  </svg>
-                </div>
-                <div class="exppart">10XP</div>
-              </div>
-            </div>
-
-            <div class="achievement-grid-item">
-              <div class="achievement-grid-item-image">
-                <img
-                  width="100"
-                  height="100"
-                  src="/assets/gameinfo/achievement_eg.png"
-                  alt=""
-                />
-              </div>
-              <div class="achievement-grid-item-name">Escape its Gravity</div>
-              <div class="achievement-grid-item-tropiepart">
-                <div class="trophie">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    style="color: rgb(202, 81, 43)"
-                    fill="currentColor"
-                    class="bi bi-trophy-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                    />
-                  </svg>
-                </div>
-                <div class="exppart">10XP</div>
-              </div>
-            </div>
-            <div class="achievement-grid-item">
-              <div class="achievement-grid-item-image">
-                <img
-                  width="100"
-                  height="100"
-                  src="/assets/gameinfo/achievement_eg.png"
-                  alt=""
-                />
-              </div>
-              <div class="achievement-grid-item-name">Escape its Gravity</div>
-              <div class="achievement-grid-item-tropiepart">
-                <div class="trophie">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    style="color: rgb(202, 81, 43)"
-                    fill="currentColor"
-                    class="bi bi-trophy-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
-                    />
-                  </svg>
-                </div>
-                <div class="exppart">10XP</div>
-              </div>
-            </div>
-          </div>
+          <div class="achievements-grid-panel"></div>
           <div class="see-all-achievements">
             <div class="see-all-achievements-inner">
               <a class="see-all-achievements-link" href="#"

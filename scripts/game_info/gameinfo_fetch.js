@@ -3,10 +3,9 @@ const apiKey = API_KEY;
 const baseURL = "https://api.rawg.io/api/";
 
 //static for now
-let gameSlug = "grand-theft-auto-v";
 
 //function to fetch data for single game from rawg
-const fetchSingleGameData = async () => {
+export const fetchSingleGameData = async (gameSlug) => {
   try {
     const response = await axios.get(
       `${baseURL}games/${gameSlug}?key=${apiKey}`
@@ -18,8 +17,8 @@ const fetchSingleGameData = async () => {
     throw error;
   }
 };
-//function to fetch additonal s
-export const fetchGameScreenShots = async () => {
+//function to fetch additonal screenshots
+export const fetchGameScreenShots = async (gameSlug) => {
   try {
     const response = await axios.get(
       `${baseURL}games/${gameSlug}/screenshots?key=${apiKey}`
@@ -32,6 +31,27 @@ export const fetchGameScreenShots = async () => {
   }
 };
 
+//function to fetch additonal screenshots
+export const fetchGameAchievements = async (gameSlug, pageNumber) => {
+  try {
+    const response = await axios.get(
+      `${baseURL}games/${gameSlug}/achievements?key=${apiKey}&page${pageNumber}`
+    );
+    const AchievementsData = response.data;
+    console.log(AchievementsData); // Log the data here
+    return AchievementsData;
+  } catch (error) {
+    throw error;
+  }
+};
 
-
-export default fetchSingleGameData;
+export const fetchGameThumb = async (gameSlug) => {
+  try {
+    const cheapSharkUrl = "https://www.cheapshark.com/api/1.0/games?title";
+    const response = await axios.get(`${cheapSharkUrl}=${gameSlug}`);
+    const cheapShark = response.data;
+    return cheapShark;
+  } catch (error) {
+    throw error;
+  }
+};

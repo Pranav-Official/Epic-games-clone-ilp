@@ -102,7 +102,7 @@ function createUserData(email, firstName, lastName, displayName) {
     Last_Name: lastName,
     Display_Name: displayName,
     Email_ID: email,
-    Wishlist: {}, // Array of {product_id: string, API_URL: string, count: number}
+    Wishlist: [], // Array of {product_id: string, API_URL: string, count: number}
     Cart: [], // Array of {product_id: string, API_URL: string, count: number}
   };
 

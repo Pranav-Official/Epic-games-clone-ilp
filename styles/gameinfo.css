@@ -206,6 +206,8 @@ a.lilink:hover {
 }
 
 a.genlink {
+  white-space: nowrap;
+
   text-align: center;
   text-decoration: underline;
   display: block;
@@ -214,10 +216,23 @@ a.genlink {
 
 .gnlitem {
   padding-right: 0.5rem;
+  width: fit-content;
 }
 
 .genre-features {
   display: flex;
+  width: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 3rem;
+  padding-right: 3rem;
+}
+
+.genre-tags {
+  display: flex;
+  width: 19.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: 3rem;
   padding-right: 3rem;
 }
@@ -233,6 +248,7 @@ a.genlink {
   font-weight: normal;
   line-height: 20px;
   letter-spacing: 0.2px;
+  backdrop-filter: blur(0);
 }
 
 .offer-faq-button {
@@ -240,7 +256,6 @@ a.genlink {
   border-radius: 4px;
   margin-top: 0.8rem;
   margin-left: 4rem;
-  width: 50%;
   padding: 10px;
   border-style: solid;
   border-width: 1px;
@@ -306,8 +321,7 @@ a.show-more-linkpart {
 
 .overview-right-titleimg {
   position: absolute;
-
-  top: 2rem;
+  top: 6rem;
   right: 8rem;
 }
 
@@ -337,7 +351,7 @@ a.show-more-linkpart {
 .price-and-discount {
   position: absolute;
   top: 14rem;
-  right: 9.6rem;
+  right: 10.5rem;
   display: flex;
 }
 .discount {
@@ -353,8 +367,11 @@ a.show-more-linkpart {
 
 .slashed-price {
   margin-right: 0.7rem;
+  width: 2;
 }
 
+.pub-who {
+}
 .sale-end-info {
   position: absolute;
   width: 10rem;
@@ -513,7 +530,8 @@ a.add-to-wishbutton-link {
   width: 6.5rem;
 }
 .pub-who {
-  width: 11rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .release-withbr {
@@ -527,7 +545,7 @@ a.add-to-wishbutton-link {
 }
 .rel-part {
   color: rgba(245, 245, 245, 0.6);
-  width: 12.4rem;
+  width: 10.4rem;
 }
 
 .platform-withbr {

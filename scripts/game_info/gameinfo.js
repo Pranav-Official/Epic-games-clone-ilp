@@ -1,16 +1,26 @@
-import fetchSingleGameData from "../game_info/gameinfo_fetch.js";
-import { fetchGameScreenShots } from "../game_info/gameinfo_fetch.js";
+import {
+  fetchGameScreenShots,
+  fetchGameThumb,
+  fetchSingleGameData,
+  fetchGameAchievements,
+} from "../game_info/gameinfo_fetch.js";
+import getPrice from "../getprice.js";
+let gameSlug = "grand-theft-auto-v";
 
 //function to dynamically load page details
 const displayPage = async () => {
   try {
-    const gameData = await fetchSingleGameData();
-    const screenshots = await fetchGameScreenShots();
+    const gameData = await fetchSingleGameData(gameSlug);
+    const screenshots = await fetchGameScreenShots(gameSlug);
+    const cheapSharkThumb = await fetchGameThumb(gameSlug);
+    const AchievementsOverview = await fetchGameAchievements(gameSlug, 1);
+    const gamePriceData = await getPrice(gameSlug);
+    console.log(gamePriceData);
     const truncatedDescription = gameData.description.split(/<\/p>/)[0];
 
     let screenshothtml = ``;
-    console.log(gameData);
-    console.log(screenshots);
+    // console.log(gameData);
+    // console.log(screenshots);
     screenshothtml = ` <div class="swiper-slide">
                   <img
                 
@@ -28,7 +38,6 @@ const displayPage = async () => {
       truncatedDescription;
     //screenshots
     for (let i = 0; i < screenshots.count; i++) {
-      console.log(i);
       screenshothtml = `<div class="swiper-slide"><img
                     height="330"
                     width="650"
@@ -38,7 +47,111 @@ const displayPage = async () => {
 
       swiper.appendSlide(screenshothtml);
     }
-    // console.log(screenshothtml);
+
+    //genres
+    const genres = gameData.genres;
+    let genrehtml = ``;
+    for (let genre of genres) {
+      genrehtml += ` <li class="gnlitem">
+         <a class="genlink">
+          ${genre.name},
+         </a>
+       </li>`;
+    }
+    document.querySelector("#genre").innerHTML = genrehtml;
+    //features
+    const features = gameData.tags;
+    let featureshtml = ``;
+    let i = 2;
+    for (let tag of features) {
+      if (!tag.name.includes("Steam")) {
+        featureshtml += ` <li class="gnlitem">
+                        <a class="genlink" >${tag.name},</a>
+                      </li>`;
+        i--;
+      }
+
+      if (i == 0) {
+        break;
+      }
+    }
+    document.querySelector("#features").innerHTML = featureshtml;
+
+    //faq div
+    document.querySelector(
+      ".offer-faq-text"
+    ).innerHTML = `Buy ${gameData.name} from our Store and we’ll email a digital voucher
+                code for discount on new purchases.`;
+
+    //thumb image
+    document.querySelector("#game-thumb-image").src = cheapSharkThumb[0].thumb;
+
+    //game price and discount
+    let discountRounded = parseInt(gamePriceData.calculatedDiscount);
+    document.querySelector(
+      ".discount-percent"
+    ).innerHTML = `${discountRounded}%`;
+    document.querySelector(
+      ".slashed-price"
+    ).innerHTML = `<s>₹${gamePriceData.salePrice}</s>`;
+    document.querySelector(
+      ".price-now"
+    ).innerHTML = `₹${gamePriceData.retailPrice}`;
+    if (discountRounded != 0) {
+      document.querySelector(".sale-end-info").innerHTML = `On Sale now`;
+    } else {
+      document.querySelector(
+        ".sale-end-info"
+      ).innerHTML = `No Discount Available`;
+    }
+
+    //developer and publisher
+    document.querySelector(".dev-who").innerHTML = gameData.developers[0].name;
+    document.querySelector(".pub-who").innerHTML = gameData.publishers[0].name;
+    //release date
+    document.querySelector(".rel-who").innerHTML = gameData.released;
+
+    //Achievements
+    let achievementPage = AchievementsOverview.results;
+    let limitNumber = 5;
+    let achievementInnerHtml = ``;
+    for (let achievement of achievementPage) {
+      limitNumber--;
+      achievementInnerHtml += `<div class="achievement-grid-item">
+      <div class="achievement-grid-item-image">
+                <img
+                  width="100"
+                  height="100"
+                  src="${achievement.image}"
+                  alt=""
+                />
+              </div>
+              <div class="achievement-grid-item-name">${achievement.name}</div>
+              <div class="achievement-grid-item-tropiepart">
+                <div class="trophie">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    style="color: rgb(202, 81, 43)"
+                    fill="currentColor"
+                    class="bi bi-trophy-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+                    />
+                  </svg>
+                </div>
+                <div class="exppart">10XP</div>
+              </div>
+            </div>`;
+      if (limitNumber == 0) {
+        break;
+      }
+    }
+    document.querySelector(".achievements-grid-panel").innerHTML =
+      achievementInnerHtml;
   } catch (error) {
     console.error("Error fetching game details:", error);
   }
@@ -71,16 +184,13 @@ const swiper = new Swiper(".swiper", {
 function expandDiv() {
   let flag = true;
   const expandableDiv = document.getElementById("big-game-description");
-  // Set the height to auto to show all content
-  if (flag) {
-    expandableDiv.style.height = "auto";
-    flag = false;
+  if (expandableDiv.clientHeight === expandableDiv.scrollHeight) {
+    expandableDiv.style.height = `${expandableDiv.scrollHeight / 2}px`; // Set half height
   } else {
-    expandableDiv.style.height = "7rem";
-    flag = true;
+    expandableDiv.style.height = `${expandableDiv.scrollHeight}px`; // Set full height
   }
 }
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
 
-displayPage();
+window.onload = displayPage;
