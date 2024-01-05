@@ -563,6 +563,7 @@ header {
 .tripple-item-image img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 .middle-tripple-list {
@@ -575,4 +576,21 @@ header {
   width: 100%;
   background-color: var(--color-navbar);
   margin-top: 7rem;
+}
+
+.hightlight-change-buttons div {
+  margin-left: 1rem;
+  border: 1px white solid;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border-radius: 3rem;
+}
+
+.best-games-slider {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  height: 30vw;
 }

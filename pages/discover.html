@@ -298,9 +298,14 @@
         </div>
       </div>
       <div onload="bestGamesOf2023()" class="sale-highlights">
-        <div class="sale-title">
-          <h1>Best Games of 2023</h1>
-          <div class="hightlight-change-buttons"></div>
+        <div
+          class="sale-title d-flex flex-row justify-content-between align-content-center"
+        >
+          <h1>Best Games of 2023 <i class="bi bi-chevron-right"></i></h1>
+          <div class="hightlight-change-buttons d-flex flex-row">
+            <div><i class="bi bi-chevron-left"></i></div>
+            <div><i class="bi bi-chevron-right"></i></div>
+          </div>
         </div>
         <div class="game-cards-container" id="bestof2023-highlights-game-cards">
           <!-- sale-highlights-game-cards -->
@@ -397,7 +402,7 @@
         </div>
       </div>
       <div class="tripple-list-container" id="tripple-list-container-1">
-        <div class="tripple-list left-tripple-list">
+        <div class="tripple-list left-tripple-list" id="left-tripple-list">
           <div class="tripple-list-title">
             <h3>Top Sellers</h3>
             <button>View More</button>
@@ -470,7 +475,7 @@
             </div>
           </div>
         </div>
-        <div class="tripple-list middle-tripple-list">
+        <div class="tripple-list middle-tripple-list" id="middle-tripple-list">
           <div class="tripple-list-title">
             <h3>Top Sellers</h3>
             <button>View More</button>
@@ -489,7 +494,7 @@
             </div>
           </div>
         </div>
-        <div class="tripple-list right-tripple-list">
+        <div class="tripple-list right-tripple-list" id="right-tripple-list">
           <div class="tripple-list-title">
             <h3>Top Sellers</h3>
             <button>View More</button>
@@ -850,6 +855,10 @@
     <script type="module" src="../scripts/discover/discover.js" defer></script>
     <script
       src="../scripts/_functions/discoverpage/scrollNavbar.js"
+      defer
+    ></script>
+    <script
+      src="../scripts/_functions/discoverpage/gameClick.js"
       defer
     ></script>
   </body>

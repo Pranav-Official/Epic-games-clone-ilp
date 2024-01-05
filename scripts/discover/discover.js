@@ -38,6 +38,7 @@ const bestGamesOf2023 = async () => {
       for (let i = 0; i < 5; i++) {
         const gameCard =
           gameCardsContainer.getElementsByClassName("game-card")[i];
+        gameCard.setAttribute("data-slug", data["results"][i].slug);
 
         // Update game card content with fetched data
         gameCard.querySelector(".game-card-image img").src =
@@ -96,6 +97,7 @@ const populateSalesHighlights = async (title, id, parameterList) => {
       for (let i = 0; i < 5; i++) {
         const gameCard =
           gameCardsContainer.getElementsByClassName("game-card")[i];
+        gameCard.setAttribute("data-slug", data["results"][i].slug);
 
         // Update game card content with fetched data
         gameCard.querySelector(".game-card-image img").src =
@@ -132,24 +134,74 @@ const populateSalesHighlights = async (title, id, parameterList) => {
   }
 };
 
-bestGamesOf2023();
-// reecentlyUpadatedList();
-// recentlyReleasedList();
-// appedSalesHighlights("recentlyReleased-highlights");
+const populateTrippleList = async (title, id, parameterList) => {
+  let trippleListContainer = document.getElementById(id);
 
-populateSalesHighlights("Top Rated", "topRated-highlights", [
-  ["platforms", "4"],
-  ["ordering", "-metacritic"],
-]);
+  trippleListContainer.querySelector(".tripple-list-title h3").textContent =
+    title;
 
-populateSalesHighlights("Recently Updated", "recentlyUpdated-highlights", [
-  ["platforms", "4"],
-  ["ordering", "-updated"],
-]);
-populateSalesHighlights("Recently Released", "recentlyReleased-highlights", [
-  ["platforms", "4"],
-  ["ordering", "-released"],
-]);
+  let trippleListItemsContainer = trippleListContainer.querySelector(
+    ".tripple-list-items"
+  );
+
+  // Remove existing tripple items if any
+  trippleListItemsContainer.innerHTML = "";
+
+  try {
+    const data = await fetchData(API_KEY, parameterList);
+
+    // Loop through the first 5 results and create new tripple items
+    for (let i = 0; i < 5; i++) {
+      // Create a new tripple item
+      const trippleItem = document.createElement("div");
+      trippleItem.classList.add("tripple-item");
+
+      // Add content to the tripple item
+      trippleItem.setAttribute("data-slug", data["results"][i].slug);
+      trippleItem.innerHTML = `
+        <div class="tripple-item-image">
+          <img src="${data["results"][i].background_image}" />
+        </div>
+        <div class="tripple-item-text">
+          <h4>${
+            data["results"][i].name.length > 25
+              ? data["results"][i].name.slice(0, 25) + "..."
+              : data["results"][i].name
+          }</h4>
+          <div class="game-card-footer">
+            <p class="game-card-discount"></p>
+            <h4 class="game-card-previous-price"></h4>
+            <h4 class="game-card-current-price"></h4>
+          </div>
+        </div>
+      `;
+
+      // Append the tripple item to the container
+      trippleListItemsContainer.appendChild(trippleItem);
+
+      // Fetch prices
+      // let prices = await getPrice(data["results"][i].slug);
+      let prices = null;
+
+      // Check if prices are available
+      if (prices !== null) {
+        trippleItem.querySelector(".game-card-discount").textContent =
+          "-" + Math.trunc(prices.calculatedDiscount) + "%";
+        trippleItem.querySelector(".game-card-previous-price").textContent =
+          "₹" + prices.retailPrice;
+        trippleItem.querySelector(".game-card-current-price").textContent =
+          "₹" + prices.salePrice;
+      } else {
+        // If prices are not available, you may want to handle it accordingly
+        trippleItem.querySelector(".game-card-discount").remove();
+        trippleItem.querySelector(".game-card-previous-price").remove();
+        trippleItem.querySelector(".game-card-current-price").remove();
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
 
 const swiper = new Swiper(".swiper", {
   // Optional parameters
@@ -188,7 +240,7 @@ swiper.on("transitionEnd", function () {
 
 function logCurrentSlideId() {
   const activeSlideId = swiper.slides[swiper.activeIndex].id;
-  console.log("Current Active Slide ID:", activeSlideId);
+  // console.log("Current Active Slide ID:", activeSlideId);
   const icons = document.getElementsByClassName("carousal-icon-card");
   // const loader_sliders = document.getElementsByClassName("loader-slide");
   for (let i = 0; i < icons.length; i++) {
@@ -268,7 +320,7 @@ const populateSwiper = async () => {
   const caraousalIconArray = document.querySelectorAll(".carousal-icon-card");
   try {
     const data = await fetchCarousalData();
-    console.log(data);
+    // console.log(data);
     for (let i = 0; i < 6; i++) {
       swipperArray[i].innerHTML = carousalTempalate;
       swipperArray[i].setAttribute("id", data[i].gameSlug);
@@ -302,3 +354,41 @@ const populateSwiper = async () => {
 };
 
 populateSwiper();
+
+bestGamesOf2023();
+// reecentlyUpadatedList();
+// recentlyReleasedList();
+// appedSalesHighlights("recentlyReleased-highlights");
+
+populateSalesHighlights("Top Rated", "topRated-highlights", [
+  ["platforms", "4"],
+  ["ordering", "-metacritic"],
+]);
+
+populateSalesHighlights("Recently Updated", "recentlyUpdated-highlights", [
+  ["platforms", "4"],
+  ["ordering", "-updated"],
+]);
+populateSalesHighlights("Recently Released", "recentlyReleased-highlights", [
+  ["platforms", "4"],
+  ["ordering", "-released"],
+]);
+
+populateTrippleList("Best Games 2022", "left-tripple-list", [
+  ["platforms", "4"],
+  ["ordering", "-metacritic"],
+  ["dates", "2021-11-01,2022-12-30"],
+]);
+
+populateTrippleList("Best Action Games", "middle-tripple-list", [
+  ["platforms", "4"],
+  ["ordering", "-metacritic"],
+  ["genres", "action"],
+]);
+populateTrippleList("Best Platformers", "right-tripple-list", [
+  ["platforms", "4"],
+  ["ordering", "-metacritic"],
+  ["genres", "platformer"],
+]);
+
+// Define the click event listener function
