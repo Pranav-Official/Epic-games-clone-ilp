@@ -2,8 +2,6 @@ import { API_KEY } from "../../environment.js";
 const apiKey = API_KEY;
 const baseURL = "https://api.rawg.io/api/";
 
-//static for now
-
 //function to fetch data for single game from rawg
 export const fetchSingleGameData = async (gameSlug) => {
   try {
@@ -45,7 +43,8 @@ export const fetchGameAchievements = async (gameSlug, pageNumber) => {
   }
 };
 
-export const fetchGameThumb = async (gameSlug) => {
+//function to fetch Thumbnail image
+export const fetchGameThumbImage = async (gameSlug) => {
   try {
     const cheapSharkUrl = "https://www.cheapshark.com/api/1.0/games?title";
     const response = await axios.get(`${cheapSharkUrl}=${gameSlug}`);

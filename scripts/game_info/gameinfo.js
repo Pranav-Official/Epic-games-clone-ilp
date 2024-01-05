@@ -1,29 +1,33 @@
 import {
   fetchGameScreenShots,
-  fetchGameThumb,
+  fetchGameThumbImage,
   fetchSingleGameData,
   fetchGameAchievements,
 } from "../game_info/gameinfo_fetch.js";
 import getPrice from "../getprice.js";
-let gameSlug = "grand-theft-auto-v";
+let gameSlug = "forza-horizon";
+
+// Set a timeout to show the body after 3 seconds
+setTimeout(function () {
+  document.body.style.visibility = "visible";
+}, 2100);
 
 //function to dynamically load page details
 const displayPage = async () => {
   try {
     const gameData = await fetchSingleGameData(gameSlug);
     const screenshots = await fetchGameScreenShots(gameSlug);
-    const cheapSharkThumb = await fetchGameThumb(gameSlug);
-    const AchievementsOverview = await fetchGameAchievements(gameSlug, 1);
+    const cheapSharkThumb = await fetchGameThumbImage(gameSlug);
+    const achievementsOverview = await fetchGameAchievements(gameSlug, 1);
     const gamePriceData = await getPrice(gameSlug);
     console.log(gamePriceData);
-    const truncatedDescription = gameData.description.split(/<\/p>/)[0];
+    const truncatedDescription = limitWords(gameData.description, 150);
+    const shortDescription = limitWords(gameData.description, 25);
 
     let screenshothtml = ``;
-    // console.log(gameData);
-    // console.log(screenshots);
+    updateStarRating(gameData.rating);
     screenshothtml = ` <div class="swiper-slide">
                   <img
-                
                     height="330"
                     width="650"
                     src="${gameData.background_image}"
@@ -33,7 +37,7 @@ const displayPage = async () => {
     swiper.appendSlide(screenshothtml);
     console.log(screenshothtml);
     document.querySelector("#game-main-title").innerHTML = gameData.name;
-    document.querySelector(".gametext").innerHTML = gameData.description;
+    document.querySelector(".gametext").innerHTML = shortDescription;
     document.querySelector(".game-big-description").innerHTML =
       truncatedDescription;
     //screenshots
@@ -112,7 +116,7 @@ const displayPage = async () => {
     document.querySelector(".rel-who").innerHTML = gameData.released;
 
     //Achievements
-    let achievementPage = AchievementsOverview.results;
+    let achievementPage = achievementsOverview.results;
     let limitNumber = 5;
     let achievementInnerHtml = ``;
     for (let achievement of achievementPage) {
@@ -157,6 +161,7 @@ const displayPage = async () => {
   }
 };
 
+// swiper for game screen shot carousal
 const swiper = new Swiper(".swiper", {
   // Optional parameters
   direction: "horizontal",
@@ -181,14 +186,42 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+//function to expand the text div on click
 function expandDiv() {
-  let flag = true;
   const expandableDiv = document.getElementById("big-game-description");
   if (expandableDiv.clientHeight === expandableDiv.scrollHeight) {
     expandableDiv.style.height = `${expandableDiv.scrollHeight / 2}px`; // Set half height
   } else {
     expandableDiv.style.height = `${expandableDiv.scrollHeight}px`; // Set full height
   }
+}
+
+//star rating
+function updateStarRating(rating) {
+  // Calculate the number of filled stars (assuming a 5-star system)
+  const numStarsFilled = Math.round((rating / 5) * 5);
+  const starRatingElement = document.getElementById("starRating");
+  starRatingElement.innerHTML =
+    "★".repeat(numStarsFilled) + "☆".repeat(5 - numStarsFilled);
+  document.querySelector(".rating").innerHTML = `${numStarsFilled}.0`;
+}
+
+function limitWords(text, n) {
+  // Split the text into an array of words
+  const words = text.split(" ");
+
+  // Take the first n words
+  const limitedWords = words.slice(0, n);
+
+  // Join the limited words into a string
+  let limitedText = limitedWords.join(" ");
+
+  // Ensure the result ends with a period
+  if (!limitedText.endsWith(".")) {
+    limitedText += "....";
+  }
+
+  return limitedText;
 }
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);

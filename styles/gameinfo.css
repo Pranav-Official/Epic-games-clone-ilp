@@ -5,6 +5,7 @@
 }
 
 body {
+  visibility: hidden;
   color: rgb(245, 245, 245);
   background: var(--color-main-page);
   position: relative;
@@ -51,34 +52,6 @@ h6 {
   top: 3rem;
   left: -0.1rem;
   display: flex;
-}
-
-\\star .star-rating {
-  display: inline-block;
-  font-size: 0;
-}
-
-.star-rating input {
-  display: none;
-}
-
-.star-rating label {
-  display: inline-block;
-  width: 10px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-  font-size: 1.3rem;
-  color: #ccc;
-}
-
-.star-rating label:before {
-  content: "★";
-}
-
-.star-rating input:checked ~ label {
-  color: #fcfcfc;
 }
 
 .rating {
@@ -239,6 +212,11 @@ a.genlink {
 
 .genre-whole {
   display: flex;
+}
+
+.stars {
+  margin-top: 0.35rem;
+  font-size: 1.3rem;
 }
 
 .offer-faq-text {
@@ -767,3 +745,4 @@ a.add-to-wishbutton-link {
   height: 330px;
   width: 650px;
 }
+
