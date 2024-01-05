@@ -152,6 +152,27 @@ header {
   align-items: center;
   height: 6rem;
 }
+.head-navbar2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+}
+
+.empty-header {
+  display: none;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  padding-right: 1vw;
+  z-index: 1000;
+  width: 76vw;
+  background-color: rgb(18, 18, 18);
+}
+
 .left-nav {
   display: flex;
   flex-direction: row;
@@ -178,6 +199,12 @@ header {
   border: 0;
   height: 1.5rem;
   width: 9rem;
+  color: #919191;
+}
+
+#search-field:focus {
+  outline: none; /* Removes the default focus outline */
+  border: none; /* Removes the border when the input is focused */
 }
 
 .nav-links {
@@ -246,7 +273,7 @@ header {
 }
 
 .carousal-game-logo img {
-  width: 100%;
+  object-fit: contain;
 }
 
 .carousal-old-price {
@@ -257,7 +284,7 @@ header {
 .carousal-game-text h4 {
   font-size: 0.8rem;
   font-weight: light;
-  margin-top: 0;
+  margin-top: 1rem;
 }
 
 .carousal-button {
@@ -267,6 +294,7 @@ header {
   font-size: 0.7rem;
   border-radius: 0.4rem;
   margin-right: 1.5rem;
+  background-color: white;
 }
 #add-to-wishlist {
   background-color: rgb(255, 255, 255, 0);
@@ -290,27 +318,48 @@ header {
 }
 
 .carousal-icon-card {
+  position: relative;
   flex: 1;
+  z-index: 0;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: row;
   padding: 4%;
+  overflow: hidden;
   background: var(--color-background-default);
+}
+.loader-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+  background-color: rgb(87, 87, 87);
+  transform: translate(-12rem, 0%);
+  transition-duration: 5000s;
+}
+.loader-slide-active {
+  transform: translate(0%, 0%);
 }
 
 .carousal-icon-image {
   flex: 1;
   border-radius: 0.5rem;
   overflow: hidden;
+  z-index: 10;
 }
 
 .carousal-icon-image img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  z-index: 10;
 }
 
 .carousal-icon-text {
   flex: 3;
+  z-index: 10;
   padding: 4%;
   font-size: 0.8rem;
   display: flex;
@@ -361,6 +410,9 @@ header {
 .game-card-image {
   height: 20vw;
   width: 14vw;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
   /* border: 1px solid var(--color-accent); */
 }
 .game-card-image img {
@@ -368,8 +420,30 @@ header {
   height: 100%;
   object-fit: cover;
 }
+
+.game-card-hover-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition-duration: 0.5s;
+}
+.game-card-hover-effect:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
 .base-game {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem !important;
+  margin-top: 0.5rem;
+}
+
+.game-card-title {
+  font-size: 1rem !important;
+  margin-top: 0rem !important;
+  width: 90%;
 }
 
 .game-card-footer {
