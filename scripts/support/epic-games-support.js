@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const gamesList = document.getElementById('gamesList1');
 
-  fetch("https://mocki.io/v1/a6d0d3d7-206a-4478-9cb0-069c2f1f8aa7") // Replace 'your_api_url' with the actual URL of your API
+  fetch("https://mocki.io/v1/2784bff4-0869-4d40-9333-c2943a43ecbc") // Replace 'your_api_url' with the actual URL of your API
     .then((response) => response.json())
     .then((games) => {
       games.forEach((game) => {

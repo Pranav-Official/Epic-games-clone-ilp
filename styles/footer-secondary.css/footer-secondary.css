@@ -263,3 +263,12 @@ hr {
 .footer-texts {
   font-size: 12px;
 }
+a.footer-link .foot-text:hover {
+  color: #007bff;
+  transition: 105ms 0.2s ease-in-out;
+}
+
+a.footer-link .footer-texts:hover {
+  color: #007bff;
+  transition: 105ms 0.2s ease-in-out;
+}

@@ -20,6 +20,7 @@
     <script src="../../scripts/support/epic-games-support.js"></script>
     <script src="../../scripts/support/supportbuttongames.js"></script>
   </head>
+
   <body>
     <div>
       <div class="eg-support-main-container">
@@ -29,7 +30,7 @@
               <!-- <div class="page-header-message">
                 </div> -->
               <div class="page-hader-content">
-                <div class="heading-wrapper">
+                <div class="heading-wrapper" id="heading-wrapper-heading">
                   <h1 class="heading-wrapper-heading">
                     Welcome to Epic Games Player Support
                   </h1>
@@ -175,399 +176,349 @@
             tabindex="-1"
             id="gamesList1"
           ></ul>
-          <div class="GamesSectionList__wrapper1">
-            <button
-              class="GamesSectionTile__wrapper ShowAllButton"
-              aria-expanded="false"
-              id="showAllButton"
-            >
-              <span class="ShowAllButton__inner">
-                <span
-                  class="Icon__wrapper ControllerIcon__wrapper ShowAllButton__icon"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="23"
-                    fill="none"
+          <div class="SectionWrapper" id="Account">
+            <h3 class="SectionWrapper__heading">Accounts</h3>
+            <div class="SectionWrapper__content">
+              <ul
+                tabindex="-1"
+                class="AccountsListTiles__wrapper AccountsListTiles__item--multiple-2"
+              >
+                <li class="AccountsListTiles__item">
+                  <a
+                    class="AccountTile"
+                    aria-label="Epic Games Store"
+                    href="/help/en-US/epic-games-store-c5719341124379"
                   >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M14.208 0a.75.75 0 0 0-.75.75V3H6.736C4.29 3 2.206 4.531 1.804 6.62L.272 14.589C.096 15.03 0 17.672 0 18.166 0 20.56 0 22.5 5 22.5c1.91 0 3.571-2.815 4.413-5.342.523-1.572 1.93-2.93 3.587-2.93h4c1.657 0 3.064 1.358 3.587 2.93C21.43 19.685 23.09 22.5 25 22.5c5 0 5-1.94 5-4.333 0-.495-.096-3.137-.272-3.58l-1.532-7.966C27.794 4.53 25.71 3 23.264 3h-6.806V.75a.75.75 0 0 0-.75-.75h-1.5ZM8.25 12a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5ZM24 9.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
-                      fill="#fff"
-                    ></path>
-                  </svg>
-                </span>
-                <span class="ShowAllButton__label">Show all Games</span>
-              </span>
-              <span class="ShowAllButton__triangleWrapper">
-                <span
-                  class="Icon__wrapper TileIcon__wrapper ShowAllButton__triangle-arrow"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 40 40"
-                    fill="none"
+                    <div class="AccountTile__wrapper">
+                      <div class="AccountTile__content">
+                        <div class="AccountTile__icon">
+                          <img
+                            src="https://cdn2.unrealengine.com/epic-games-store-logo-cf6ff7693f41.svg"
+                            alt="Epic Games Store"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div class="AccountTile__title" aria-hidden="true">
+                          Epic Games Store
+                        </div>
+                      </div>
+                      <div class="AccountTile__image-wrapper">
+                        <img
+                          class="AccountTile__image"
+                          src="https://cdn2.unrealengine.com/epic-games-store-bg-1665x933-4e29c08e33b5.jpg"
+                          alt="Epic Games Store"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="AccountsListTiles__item">
+                  <a
+                    class="AccountTile"
+                    aria-label="Accounts"
+                    href="/help/en-US/epic-accounts-c5719348850459"
                   >
-                    <path
-                      d="M13.9999 1.84349C14.0106 0.810127 13.1813 -0.0151916 12.139 0.00021216L3.22439 0.131963C0.724993 0.135528 0.719627 3.87513 3.21902 3.87156C3.21902 3.87156 5.57302 3.86399 6.26707 3.86176C6.96111 3.85952 7.12342 4.25693 6.63551 4.74349L0.548148 10.814C-0.183256 11.5434 -0.182003 12.7272 0.547628 13.4548C1.27875 14.1839 2.46835 14.1797 3.19576 13.4543L9.28312 7.38378C9.77368 6.89458 10.1695 7.05916 10.1672 7.75107L10.157 10.7904C10.1539 13.2833 13.9034 13.2775 13.907 10.785L13.9999 1.84349Z"
-                      fill="#fff"
-                    ></path>
-                  </svg>
-                </span>
-                <span class="ShowAllButton__triangle"></span>
-              </span>
-            </button>
+                    <div class="AccountTile__wrapper">
+                      <div class="AccountTile__content">
+                        <div class="AccountTile__icon">
+                          <img
+                            src="https://cdn2.unrealengine.com/account-icon-448fa063b491.svg"
+                            alt="Accounts"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div class="AccountTile__title" aria-hidden="true">
+                          Accounts
+                        </div>
+                      </div>
+                      <div class="AccountTile__image-wrapper">
+                        <img
+                          class="AccountTile__image"
+                          src="https://cdn2.unrealengine.com/accounts-bg-1665x933-5f82f73b48d7.jpg"
+                          alt="Accounts"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="AccountsListTiles__item">
+                  <a
+                    class="AccountTile"
+                    aria-label="our creator programs"
+                    href="/help/en-US/support-a-creator-c5719349318939"
+                  >
+                    <div class="AccountTile__wrapper">
+                      <div class="AccountTile__content">
+                        <div class="AccountTile__icon">
+                          <img
+                            src="https://cdn2.unrealengine.com/support-a-creator-icon-92aeb1d708d9.svg"
+                            alt="our creator programs"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div class="AccountTile__title" aria-hidden="true">
+                          our creator programs
+                        </div>
+                      </div>
+                      <div class="AccountTile__image-wrapper">
+                        <img
+                          class="AccountTile__image"
+                          src="https://cdn2.unrealengine.com/our-creator-program-1665x933-361b572eca78.jpg"
+                          alt="our creator programs"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="AccountsListTiles__item">
+                  <a
+                    class="AccountTile"
+                    aria-label="Payments"
+                    href="/help/en-US/billing-support-c5719364845851"
+                  >
+                    <div class="AccountTile__wrapper">
+                      <div class="AccountTile__content">
+                        <div class="AccountTile__icon">
+                          <img
+                            src="https://cdn2.unrealengine.com/payments-icon-a5db4883bd25.svg"
+                            alt="Payments"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div class="AccountTile__title" aria-hidden="true">
+                          Payments
+                        </div>
+                      </div>
+                      <div class="AccountTile__image-wrapper">
+                        <img
+                          class="AccountTile__image"
+                          src="https://cdn2.unrealengine.com/new-payments-1665x933-6088931d6362.jpg"
+                          alt="Payments"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="AccountsListTiles__item">
+                  <a
+                    class="AccountTile"
+                    aria-label="Technical"
+                    href="/help/en-US/technical-support-c5719357686683"
+                  >
+                    <div class="AccountTile__wrapper">
+                      <div class="AccountTile__content">
+                        <div class="AccountTile__icon">
+                          <img
+                            src="https://cdn2.unrealengine.com/technical-icon-cf14df109b05.svg"
+                            alt="Technical"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div class="AccountTile__title" aria-hidden="true">
+                          Technical
+                        </div>
+                      </div>
+                      <div class="AccountTile__image-wrapper">
+                        <img
+                          class="AccountTile__image"
+                          src="https://cdn2.unrealengine.com/technical-bg-new-1665x933-6556f996c56b.jpg"
+                          alt="Technical"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="AccountsListTiles__item">
+                  <a
+                    class="AccountTile"
+                    aria-label="Parent/Guardian Support"
+                    href="/help/en-US/contact-us-parent"
+                  >
+                    <div class="AccountTile__wrapper">
+                      <div class="AccountTile__content">
+                        <div class="AccountTile__icon">
+                          <img
+                            src="https://cdn2.unrealengine.com/parental-icon-103920e2f273.svg"
+                            alt="Parent/Guardian Support"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div class="AccountTile__title" aria-hidden="true">
+                          Parent/Guardian Support
+                        </div>
+                      </div>
+                      <div class="AccountTile__image-wrapper">
+                        <img
+                          class="AccountTile__image"
+                          src="https://cdn2.unrealengine.com/parental-bg-1665x933-b29f09ed5b37.jpg"
+                          alt="Parent/Guardian Support"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <ul id="gamesList" class="GamesSectionList">
-    <!-- Game list will be populated here -->
-  </ul>
-        </div>
-      </div>
-      <div class="SectionWrapper" id="Account">
-        <h3 class="SectionWrapper__heading">Accounts</h3>
-        <div class="SectionWrapper__content">
-          <ul
-            tabindex="-1"
-            class="AccountsListTiles__wrapper AccountsListTiles__item--multiple-2"
-          >
-            <li class="AccountsListTiles__item">
-              <a
-                class="AccountTile"
-                aria-label="Epic Games Store"
-                href="/help/en-US/epic-games-store-c5719341124379"
+          <div class="SectionWrapper" id="Enterprise">
+            <h3 class="SectionWrapper__heading">Enterprise</h3>
+            <div class="SectionWrapper__content">
+              <ul
+                tabindex="-1"
+                class="EnterpriseListTiles__wrapper EnterpriseListTiles__item--multiple-2"
               >
-                <div class="AccountTile__wrapper">
-                  <div class="AccountTile__content">
-                    <div class="AccountTile__icon">
+                <li class="EnterpriseListTiles__item">
+                  <a
+                    href="https://www.unrealengine.com/support"
+                    class="EnterpriseTile__wrapper"
+                    aria-label="Unreal Engine. Opens an external site"
+                  >
+                    <div
+                      class="EnterpriseTile__image-wrapper EnterpriseTile__image-wrapper--first"
+                    >
+                      <div class="EnterpriseTile__triangle"></div>
+                      <div class="EnterpriseTile__icon-wrapper">
+                        <img
+                          class="EnterpriseTile__icon1"
+                          src="https://cdn2.unrealengine.com/unreal-engine-logo-90db7999f5c9.svg"
+                          alt="Unreal Engine"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
                       <img
-                        src="https://cdn2.unrealengine.com/epic-games-store-logo-cf6ff7693f41.svg"
-                        alt="Epic Games Store"
+                        class="EnterpriseTile__image"
+                        src="https://cdn2.unrealengine.com/unreal-engine-5064x933-31a3347cb9c5.jpg"
+                        alt="Unreal Engine"
+                        loading="lazy"
                         aria-hidden="true"
                       />
                     </div>
-                    <div class="AccountTile__title" aria-hidden="true">
-                      Epic Games Store
-                    </div>
-                  </div>
-                  <div class="AccountTile__image-wrapper">
-                    <img
-                      class="AccountTile__image"
-                      src="https://cdn2.unrealengine.com/epic-games-store-bg-1665x933-4e29c08e33b5.jpg"
-                      alt="Epic Games Store"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="AccountsListTiles__item">
-              <a
-                class="AccountTile"
-                aria-label="Accounts"
-                href="/help/en-US/epic-accounts-c5719348850459"
-              >
-                <div class="AccountTile__wrapper">
-                  <div class="AccountTile__content">
-                    <div class="AccountTile__icon">
+                  </a>
+                </li>
+                <li class="EnterpriseListTiles__item">
+                  <a
+                    href="https://marketplacehelp.epicgames.com"
+                    class="EnterpriseTile__wrapper"
+                    aria-label="Unreal Marketplace. Opens an external site"
+                  >
+                    <div class="EnterpriseTile__image-wrapper">
+                      <div class="EnterpriseTile__triangle"></div>
+                      <div class="EnterpriseTile__icon-wrapper">
+                        <img
+                          class="EnterpriseTile__icon"
+                          src="https://cdn2.unrealengine.com/marketplace-logo-1211x513-d6ce81aef324.png"
+                          alt="Unreal Marketplace"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
                       <img
-                        src="https://cdn2.unrealengine.com/account-icon-448fa063b491.svg"
-                        alt="Accounts"
+                        class="EnterpriseTile__image"
+                        src="https://cdn2.unrealengine.com/marketplace-2466x933-9cc14bafeef9.jpg"
+                        alt="Unreal Marketplace"
+                        loading="lazy"
                         aria-hidden="true"
                       />
                     </div>
-                    <div class="AccountTile__title" aria-hidden="true">
-                      Accounts
-                    </div>
-                  </div>
-                  <div class="AccountTile__image-wrapper">
-                    <img
-                      class="AccountTile__image"
-                      src="https://cdn2.unrealengine.com/accounts-bg-1665x933-5f82f73b48d7.jpg"
-                      alt="Accounts"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="AccountsListTiles__item">
-              <a
-                class="AccountTile"
-                aria-label="our creator programs"
-                href="/help/en-US/support-a-creator-c5719349318939"
-              >
-                <div class="AccountTile__wrapper">
-                  <div class="AccountTile__content">
-                    <div class="AccountTile__icon">
+                  </a>
+                </li>
+                <li class="EnterpriseListTiles__item">
+                  <a
+                    href="https://dev.epicgames.com/community/fortnite/getting-started/uefn"
+                    class="EnterpriseTile__wrapper"
+                    aria-label="Unreal Editor for Fortnite. Opens an external site"
+                  >
+                    <div class="EnterpriseTile__image-wrapper">
+                      <div class="EnterpriseTile__triangle"></div>
+                      <div class="EnterpriseTile__icon-wrapper">
+                        <img
+                          class="EnterpriseTile__icon"
+                          src="https://cdn2.unrealengine.com/unreal-editor-for-fortnite-logo-1149x513-c1f4d03241cd.png"
+                          alt="Unreal Editor for Fortnite"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
                       <img
-                        src="https://cdn2.unrealengine.com/support-a-creator-icon-92aeb1d708d9.svg"
-                        alt="our creator programs"
+                        class="EnterpriseTile__image"
+                        src="https://cdn2.unrealengine.com/unreal-editor-for-fortnite-bg-2466x933-845bf26a10ac.jpg"
+                        alt="Unreal Editor for Fortnite"
+                        loading="lazy"
                         aria-hidden="true"
                       />
                     </div>
-                    <div class="AccountTile__title" aria-hidden="true">
-                      our creator programs
-                    </div>
-                  </div>
-                  <div class="AccountTile__image-wrapper">
-                    <img
-                      class="AccountTile__image"
-                      src="https://cdn2.unrealengine.com/our-creator-program-1665x933-361b572eca78.jpg"
-                      alt="our creator programs"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="AccountsListTiles__item">
-              <a
-                class="AccountTile"
-                aria-label="Payments"
-                href="/help/en-US/billing-support-c5719364845851"
-              >
-                <div class="AccountTile__wrapper">
-                  <div class="AccountTile__content">
-                    <div class="AccountTile__icon">
+                  </a>
+                </li>
+                <li class="EnterpriseListTiles__item">
+                  <a
+                    href="https://twinmotionhelp.epicgames.com/"
+                    class="EnterpriseTile__wrapper"
+                    aria-label="Twinmotion. Opens an external site"
+                  >
+                    <div class="EnterpriseTile__image-wrapper">
+                      <div class="EnterpriseTile__triangle"></div>
+                      <div class="EnterpriseTile__icon-wrapper">
+                        <img
+                          class="EnterpriseTile__icon"
+                          src="https://cdn2.unrealengine.com/twinmotion-logo-1c94fc0b1b0a.svg"
+                          alt="Twinmotion"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
                       <img
-                        src="https://cdn2.unrealengine.com/payments-icon-a5db4883bd25.svg"
-                        alt="Payments"
+                        class="EnterpriseTile__image"
+                        src="https://cdn2.unrealengine.com/twinmotion-2466x933-f6847b84208f.jpg"
+                        alt="Twinmotion"
+                        loading="lazy"
                         aria-hidden="true"
                       />
                     </div>
-                    <div class="AccountTile__title" aria-hidden="true">
-                      Payments
-                    </div>
-                  </div>
-                  <div class="AccountTile__image-wrapper">
-                    <img
-                      class="AccountTile__image"
-                      src="https://cdn2.unrealengine.com/new-payments-1665x933-6088931d6362.jpg"
-                      alt="Payments"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="AccountsListTiles__item">
-              <a
-                class="AccountTile"
-                aria-label="Technical"
-                href="/help/en-US/technical-support-c5719357686683"
-              >
-                <div class="AccountTile__wrapper">
-                  <div class="AccountTile__content">
-                    <div class="AccountTile__icon">
+                  </a>
+                </li>
+                <li class="EnterpriseListTiles__item">
+                  <a
+                    href="https://eoshelp.epicgames.com"
+                    class="EnterpriseTile__wrapper"
+                    aria-label="Epic Online Services. Opens an external site"
+                  >
+                    <div class="EnterpriseTile__image-wrapper">
+                      <div class="EnterpriseTile__triangle"></div>
+                      <div class="EnterpriseTile__icon-wrapper">
+                        <img
+                          class="EnterpriseTile__icon"
+                          src="https://cdn2.unrealengine.com/epic-online-services-logo-e81431bccf91.svg"
+                          alt="Epic Online Services"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      </div>
                       <img
-                        src="https://cdn2.unrealengine.com/technical-icon-cf14df109b05.svg"
-                        alt="Technical"
+                        class="EnterpriseTile__image"
+                        src="https://cdn2.unrealengine.com/epic-online-services-2466x933-7189521d526c.jpg"
+                        alt="Epic Online Services"
+                        loading="lazy"
                         aria-hidden="true"
                       />
                     </div>
-                    <div class="AccountTile__title" aria-hidden="true">
-                      Technical
-                    </div>
-                  </div>
-                  <div class="AccountTile__image-wrapper">
-                    <img
-                      class="AccountTile__image"
-                      src="https://cdn2.unrealengine.com/technical-bg-new-1665x933-6556f996c56b.jpg"
-                      alt="Technical"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="AccountsListTiles__item">
-              <a
-                class="AccountTile"
-                aria-label="Parent/Guardian Support"
-                href="/help/en-US/contact-us-parent"
-              >
-                <div class="AccountTile__wrapper">
-                  <div class="AccountTile__content">
-                    <div class="AccountTile__icon">
-                      <img
-                        src="https://cdn2.unrealengine.com/parental-icon-103920e2f273.svg"
-                        alt="Parent/Guardian Support"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div class="AccountTile__title" aria-hidden="true">
-                      Parent/Guardian Support
-                    </div>
-                  </div>
-                  <div class="AccountTile__image-wrapper">
-                    <img
-                      class="AccountTile__image"
-                      src="https://cdn2.unrealengine.com/parental-bg-1665x933-b29f09ed5b37.jpg"
-                      alt="Parent/Guardian Support"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="SectionWrapper" id="Enterprise">
-        <h3 class="SectionWrapper__heading">Enterprise</h3>
-        <div class="SectionWrapper__content">
-          <ul
-            tabindex="-1"
-            class="EnterpriseListTiles__wrapper EnterpriseListTiles__item--multiple-2"
-          >
-            <li class="EnterpriseListTiles__item">
-              <a
-                href="https://www.unrealengine.com/support"
-                class="EnterpriseTile__wrapper"
-                aria-label="Unreal Engine. Opens an external site"
-              >
-                <div
-                  class="EnterpriseTile__image-wrapper EnterpriseTile__image-wrapper--first"
-                >
-                  <div class="EnterpriseTile__triangle"></div>
-                  <div class="EnterpriseTile__icon-wrapper">
-                    <img
-                      class="EnterpriseTile__icon1"
-                      src="https://cdn2.unrealengine.com/unreal-engine-logo-90db7999f5c9.svg"
-                      alt="Unreal Engine"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <img
-                    class="EnterpriseTile__image"
-                    src="https://cdn2.unrealengine.com/unreal-engine-5064x933-31a3347cb9c5.jpg"
-                    alt="Unreal Engine"
-                    loading="lazy"
-                    aria-hidden="true"
-                  />
-                </div>
-              </a>
-            </li>
-            <li class="EnterpriseListTiles__item">
-              <a
-                href="https://marketplacehelp.epicgames.com"
-                class="EnterpriseTile__wrapper"
-                aria-label="Unreal Marketplace. Opens an external site"
-              >
-                <div class="EnterpriseTile__image-wrapper">
-                  <div class="EnterpriseTile__triangle"></div>
-                  <div class="EnterpriseTile__icon-wrapper">
-                    <img
-                      class="EnterpriseTile__icon"
-                      src="https://cdn2.unrealengine.com/marketplace-logo-1211x513-d6ce81aef324.png"
-                      alt="Unreal Marketplace"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <img
-                    class="EnterpriseTile__image"
-                    src="https://cdn2.unrealengine.com/marketplace-2466x933-9cc14bafeef9.jpg"
-                    alt="Unreal Marketplace"
-                    loading="lazy"
-                    aria-hidden="true"
-                  />
-                </div>
-              </a>
-            </li>
-            <li class="EnterpriseListTiles__item">
-              <a
-                href="https://dev.epicgames.com/community/fortnite/getting-started/uefn"
-                class="EnterpriseTile__wrapper"
-                aria-label="Unreal Editor for Fortnite. Opens an external site"
-              >
-                <div class="EnterpriseTile__image-wrapper">
-                  <div class="EnterpriseTile__triangle"></div>
-                  <div class="EnterpriseTile__icon-wrapper">
-                    <img
-                      class="EnterpriseTile__icon"
-                      src="https://cdn2.unrealengine.com/unreal-editor-for-fortnite-logo-1149x513-c1f4d03241cd.png"
-                      alt="Unreal Editor for Fortnite"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <img
-                    class="EnterpriseTile__image"
-                    src="https://cdn2.unrealengine.com/unreal-editor-for-fortnite-bg-2466x933-845bf26a10ac.jpg"
-                    alt="Unreal Editor for Fortnite"
-                    loading="lazy"
-                    aria-hidden="true"
-                  />
-                </div>
-              </a>
-            </li>
-            <li class="EnterpriseListTiles__item">
-              <a
-                href="https://twinmotionhelp.epicgames.com/"
-                class="EnterpriseTile__wrapper"
-                aria-label="Twinmotion. Opens an external site"
-              >
-                <div class="EnterpriseTile__image-wrapper">
-                  <div class="EnterpriseTile__triangle"></div>
-                  <div class="EnterpriseTile__icon-wrapper">
-                    <img
-                      class="EnterpriseTile__icon"
-                      src="https://cdn2.unrealengine.com/twinmotion-logo-1c94fc0b1b0a.svg"
-                      alt="Twinmotion"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <img
-                    class="EnterpriseTile__image"
-                    src="https://cdn2.unrealengine.com/twinmotion-2466x933-f6847b84208f.jpg"
-                    alt="Twinmotion"
-                    loading="lazy"
-                    aria-hidden="true"
-                  />
-                </div>
-              </a>
-            </li>
-            <li class="EnterpriseListTiles__item">
-              <a
-                href="https://eoshelp.epicgames.com"
-                class="EnterpriseTile__wrapper"
-                aria-label="Epic Online Services. Opens an external site"
-              >
-                <div class="EnterpriseTile__image-wrapper">
-                  <div class="EnterpriseTile__triangle"></div>
-                  <div class="EnterpriseTile__icon-wrapper">
-                    <img
-                      class="EnterpriseTile__icon"
-                      src="https://cdn2.unrealengine.com/epic-online-services-logo-e81431bccf91.svg"
-                      alt="Epic Online Services"
-                      loading="lazy"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <img
-                    class="EnterpriseTile__image"
-                    src="https://cdn2.unrealengine.com/epic-online-services-2466x933-7189521d526c.jpg"
-                    alt="Epic Online Services"
-                    loading="lazy"
-                    aria-hidden="true"
-                  />
-                </div>
-              </a>
-            </li>
-          </ul>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -614,7 +565,9 @@
                   ></path>
                 </svg>
               </span>
-              <span class="button-label">Back to top</span>
+              <a href="#heading-wrapper-heading">
+                <span class="button-label">Back to top</span>
+              </a>
             </button>
           </div>
           <div class="link-legal-tags">
