@@ -93,21 +93,21 @@ h6 {
   letter-spacing: -0.2px;
 }
 
-a.lilink {
+.lilink {
   display: block;
-  color: rgba(245, 245, 245, 0.6);
+  color: rgba(245, 245, 245, 0.6) !important;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-a.lilink:hover {
+.lilink:hover {
   text-decoration: underline;
-  color: rgba(245, 245, 245, 0.6);
+  color: rgba(245, 245, 245, 0.6) !important;
 }
 
 .active {
-  text-decoration: underline;
+  text-decoration: underline !important;
   color: white;
 }
 
