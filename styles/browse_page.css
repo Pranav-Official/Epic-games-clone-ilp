@@ -11,20 +11,17 @@ a.epic-pages-link {
   padding-right: 10%;
   background-color: black;
 }
-
 .heading-text {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.heading-text h4 {
   color: rgb(245, 245, 245);
   font-size: 18px;
   line-height: 25px;
   letter-spacing: -0.2px;
-}
-
-.heading {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .buttons .left {
@@ -52,6 +49,7 @@ a.epic-pages-link {
 .genres {
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .action-games {
@@ -60,6 +58,14 @@ a.epic-pages-link {
   height: 235px;
   position: relative;
   display: flex;
+  flex-direction: row; /* Set the direction to row */
+  padding: 0%;
+}
+
+.genres-container {
+  padding: 2px;
+  margin-top: 20px;
+  overflow: hidden;
 }
 
 .game-card-discount {
@@ -77,47 +83,38 @@ a.epic-pages-link {
   font-size: 0.8rem;
 }
 
-.game-card h4 {
+.game-card h3 {
   font-size: 15px;
 }
 
 .game-card p {
+  font-weight: bold;
+  color: rgb(187, 187, 187);
   font-size: 10px;
 }
 
 .img-container {
   position: relative;
+  flex: 2;
 }
 
-.img1 img,
-.img2 img,
-.img3 img {
+.img1 img {
   position: absolute;
-  top: 50px;
-  left: 10px;
+  top: 30px;
+  left: 32px;
   width: 10rem;
   height: 10rem;
   padding-bottom: 2.5rem;
-}
-
-.img2 img {
-  top: 20px; /* Adjust as needed for overlap */
-  left: 20px; /* Adjust as needed for overlap */
-}
-
-.img3 img {
-  top: 40px; /* Adjust as needed for overlap */
-  left: 40px; /* Adjust as needed for overlap */
+  object-fit: cover;
 }
 
 .actgame-text {
   position: absolute;
-  top: 94%;
-  left: 52%;
+  top: 90%;
+  left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   font-size: 1rem;
-  font-weight: bold;
   text-align: center;
   white-space: nowrap;
 }
@@ -217,56 +214,123 @@ a.epic-pages-link {
   gap: 1rem;
 }
 
-.pagination {
-  margin-left: 40%;
-}
 .pagination button {
+  background-color: black;
   color: rgb(187, 187, 187);
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  text-align: center;
-  background-color: var(--color-main-page);
-  margin-top: 30px;
+  cursor: pointer;
+  /* padding: 8px; */
+  border: none;
+  margin-left: 150px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  margin-top: 20px;
   align-items: center;
-  border: none; /* Remove border */
-  box-shadow: none;
-  outline: none; /* Remove outline */
+  justify-content: center;
 }
 
 .game-card {
   height: 30rem;
 }
 
-.search-box {
+.search-container {
+  position: relative;
   display: flex;
-  background-color: rgb(128, 128, 128, 0.2);
-  border-radius: 0.8rem;
-  flex-direction: row;
-  overflow: hidden;
-  height: 2rem;
   align-items: center;
-  gap: 0.5rem;
-  /* padding-left: 0.6rem; */
-  padding: 0.6rem;
 }
 
-.search-button svg {
-  width: 1rem;
-  height: 1rem;
-  /* margin-top: -20 px; */
+.right #search-fields-2 {
+  padding-left: 28px; /* Adjust the padding as needed */
+  flex: 1; /* Allow the input to take up remaining space */
+  color: rgb(187, 187, 187);
+  background-color: rgb(32, 32, 32);
+  border: 0px;
+  width: 30px;
+  height: 30px;
 }
 
-.right #search-field {
-  background-color: rgb(187, 187, 187);
+.right #search-fields-2:active,
+.right #search-fields-2:focus {
   border: 0;
-  height: 1.5rem;
-  width: 9rem;
-  margin-top: -100px;
-  margin-left: 35px;
+  outline: none;
 }
 
-.search-icon{
-  
+#search-field::placeholder {
+  color: rgb(187, 187, 187);
+}
+/* .search-button {
+  position: absolute;
+  top: 48%;
+  right: 210px; 
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: white;
+} */
+.search-button {
+  position: absolute;
+  margin-right: 8px; /* Adjust the margin as needed */
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-icon {
+  width: 16px; /* Adjust the size of the icon as needed */
+  height: 16px;
+  fill: currentColor;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filter-header #resetButton {
+  color: rgb(187, 187, 187);
+  background-color: none;
+  text-decoration: none;
+  border: 0px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.filter-header h5 {
+  margin-left: 775px;
+  font-size: 20px;
+}
+
+.genres {
+  display: flex;
+  overflow-x: hidden; /* Enable horizontal scrolling if needed */
+  white-space: nowrap;
+}
+
+.genre-item {
+  flex: 0 0 auto;
+  margin-right: 20px; /* Adjust margin between genre items as needed */
+}
+
+.buttons .leftButton,
+.buttons .rightButton {
+  background-color: rgb(32, 32, 32);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 20px; /* Set the width and height to be the same */
+  height: 20px; /* Set the width and height to be the same */
+}
+
+.buttons .leftButton {
+  margin-right: 10px;
+}
+
+.buttons {
+  margin-bottom: 20px;
+  /* padding-left: 890px; */
+  margin-left: auto;
+  /* flex: 1; */
+}
+
+.buttons .active {
+  border: 2px solid white;
 }

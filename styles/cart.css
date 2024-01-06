@@ -13,6 +13,9 @@ a.epic-pages-link {
   padding-left: 10%;
   padding-right: 8%;
 }
+.cart-whole {
+  display: flex;
+}
 
 .cart {
   display: flex;
@@ -75,7 +78,7 @@ a.epic-pages-link {
 .game-details {
   flex: 2;
   margin-top: 20px;
-  width: 1000px;
+  width: 700px;
   height: 235px;
   background-color: rgb(32, 32, 32);
   border-radius: 4px;
@@ -88,7 +91,7 @@ a.epic-pages-link {
 
 .cart-update {
   color: grey;
-  margin-left: 14.5rem;
+  margin-left: 19rem;
   margin-top: -0.3rem;
 }
 
@@ -137,8 +140,8 @@ a.epic-pages-link {
   font-size: 0.8rem;
   margin-top: 0.1em;
   color: white;
+  margin-left: 300px;
 }
-
 .right h4 {
   font-size: 0.9rem;
   margin-top: -2.3rem;
@@ -177,7 +180,7 @@ a.epic-pages-link {
 .price {
   flex: 2;
   color: white;
-  margin-left: 20rem;
+  margin-left: 4rem;
   font-size: 0.8rem;
   padding-right: 1.5rem;
 }
