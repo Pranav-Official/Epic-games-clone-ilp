@@ -7,7 +7,8 @@
      <link rel="stylesheet" href="../../styles/checkout_css/checkout.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-     <script src="../../scripts/checkout.js"></script>
+     <script src="../../scripts/checkout/checkout.js"></script>
+     <script src="../../scripts/checkout/creator.js"></script>
     <title>Checkout</title>
 
 </head>
@@ -31,80 +32,22 @@
                                         <path d="M8.25205 24C9.39178 24 10.6411 24 11.4082 24C11.6712 24 11.8904 24 12 24C12.1096 24 12.3288 24 12.5918 24C13.3589 24 14.6082 24 15.7479 24C19.0795 24 20 22.7872 20 21.5277C20 19.7551 15.0904 17.4694 15.0904 15.8601C15.0904 12.9213 18.3562 11.6851 18.3562 7.23032C18.4 3.24198 15.6384 0 12.2411 0C12.1534 0 11.8466 0 11.7589 0C8.38356 0 5.62192 3.24198 5.62192 7.25364C5.62192 11.7318 8.88767 12.9446 8.88767 15.8834C8.90959 17.4927 4 19.7551 4 21.551C4 22.7872 4.94247 24 8.25205 24Z" fill="white"></path>
                                     </svg>
                                 </div>
-                                <span class="epic-account-name__name">UNDEFINED</span>
+                                <span class="epic-account-name__name">account.name</span>
                             </div>
                         </div> 
                         <div class="payment__scroll-container" id="payment-scroll-container">
                             <div class="payment-error"></div>
                                 <div class="payment-methods">
-                                    <div class="payment-coupon">
-                                        <h2 class="payment-title"><span>Epic Coupons</span>
-                                        </h2>
-                                        <div class="payment-coupon__container">
-                                           <div class="payment-coupon-item payment-coupon__current" role="button" tabindex="0">
-                                                 <div class="payment-coupon-item__icon"></div>
-                                                 <div class="payment-coupon-item__content">
-                                                    <div class="payment-coupon-item__name">
-                                                        <span>Epic Coupon</span>
-                                                    </div>
-                                                    <div class="payment-coupon-item__info">
-                                                        <span>"payment-coupon-item__info"</span>
-                                                        <span class="payment-coupon-item__expire">:"payment-coupon-item__expire"</span>
-                                                        <a class="payment-coupon-item__link">
-                                                            <span>"payment-coupon-item__link"</span>
-                                                        </a>
-                                                    </div>
-                                                 </div>
-                                                <span class="payment-coupon-item__status">
-                                                    <div class="payment-coupon-item__applied_status">
-                                                        <span class="payment-coupon-item__applied">APPLIED</span>
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"class="payment-icon payment-coupon-item__applied-icon">
-                                                            <path d="M17.6161 9.43434L16.2019 8.02013L10.3635 13.8585L7.79793 11.2929L6.38371 12.7071L10.3635 16.6869L17.6161 9.43434Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M22.909 12C22.909 18.0249 18.0248 22.9091 11.9999 22.9091C5.97499 22.9091 1.09082 18.0249 1.09082 12C1.09082 5.97505 5.97499 1.09088 11.9999 1.09088C18.0248 1.09088 22.909 5.97505 22.909 12ZM20.909 12C20.909 16.9203 16.9203 20.9091 11.9999 20.9091C7.07956 20.9091 3.09082 16.9203 3.09082 12C3.09082 7.07962 7.07956 3.09088 11.9999 3.09088C16.9203 3.09088 20.909 7.07962 20.909 12Z" fill="white"></path>
-                                                        </svg>
-                                                    </div>
-                                                </span> 
-                                           </div>
-                                        </div>
-                                    </div>
-                                    <h2 class="payment-title">
-                                        <span>Epic Rewards</span>
-                                    </h2>
-                                    <div class="payment-method payment-method--disabled" tabindex="0">
-                                        <div class="payment-method__trigger" tabindex="-1">
-                                            <div class="payment-method__content">
-                                                <div class="payment-radio payment-radio-disabled">
-                                                    <input name="payment method" class="payment-radio__input" type="radio" tabindex="-1" aria-label="payment method" disabled>
-                                                    <span class="payment-radio__inner"></span>
-                                                </div>
-                                                <div class="payment-method-icon__wrap payment-method-icon__rewards">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"class="payment-method-icon--reward">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z" fill="url(#paint0_radial_10003_176179)"></path>
-                                                        <defs><radialGradient id="paint0_radial_10003_176179" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(3.5 2.5) rotate(45) scale(20.5061)"><stop offset="0.19015" stop-color="#8BAF3B"></stop><stop offset="1" stop-color="#FFB500"></stop></radialGradient></defs>
-                                                    </svg>
-                                                </div>
-                                                <div class="payment-method__name">
-                                                    <h2 class="payment-method__title">
-                                                        <p>
-                                                            <span>Epic Rewards</span>
-                                                            <span class="payment-method__price">:cannot_get:"payment-method__price"</span>
-                                                        </p>
-                                                    </h2>
-                                                </div>
-
-                                            </div>
-                                            <div class="payment-method__actions"></div>
-                                        </div>
-                                    </div>
                                     <div class="payment-methods__container">
                                         <h2 class="payment-title payment-methods__title">
-                                            <span>Other Payment Methods</span>
+                                            <span>Payment Methods</span>
                                         </h2>
                                         <div class="payment-method" tabindex="0">
                                             <div class="payment-method__trigger" tabindex="-1">
                                                 <div class="payment-method__content">
                                                     <div class="payment-radio">
-                                                        <input name="payment method" class="payment-radio__input" type="radio" tabindex="-1" aria-label="payment method" onclick="togglePaymentForm()">
-                                                        <span class="payment-radio__inner"></span>
+                                                        <input name="payment method" class="payment-radio__input" type="checkbox" tabindex="-1" aria-label="payment method" onchange="togglePaymentForm()">
+                                                        <span class="payment-check__inner"></span>
                                                     </div>
                                                     <div class="payment-method-icon__wrap payment-method-icon--IN">
                                                          <div class="payment-method-icon payment-method-icon--choose payment-method-icon--IN" aria-label="CHOOSE" role="img"></div>
@@ -132,7 +75,7 @@
                                                             <span class="payment-bank-icon payment-bank-icon__visa" aria-label="bank-visa" role="img"></span>
                                                         </div>
                                                     </div>
-                                                    <form autocomplete="off">
+                                                    <form>
                                                         <fieldset class="payment-chase-form__container">
                                                             <legend class="hidden">Card Details</legend>
                                                             <div class="payment-form-item--full">
@@ -225,8 +168,8 @@
                                             <div class="payment-method__trigger" tabindex="-1">
                                                 <div class="payment-method__content">
                                                     <div class="payment-radio">
-                                                        <input name="payment method" class="payment-radio__input" type="radio" tabindex="-1" aria-label="payment method" onclick="togglePaymentForm2()">
-                                                        <span class="payment-radio__inner"></span>
+                                                        <input name="payment method" class="payment-radio__input2" type="checkbox" tabindex="-1" aria-label="payment method" onclick="togglePaymentForm2()">
+                                                        <span class="payment-check__inner"></span>
                                                     </div>
                                                     <div class="payment-method-icon__wrap payment-method-icon--IN">
                                                          <div class="payment-method-icon payment-method-icon--choose payment-method-icon--IN" aria-label="CHOOSE" role="img">
@@ -291,27 +234,27 @@
                         </h2>
                         <div class="payment-summaries__scroll-container" id="payment-summaries_scroll-container">
                             <div class="payment-offer-summary">
-                                <div class="payment-offer-summary__content">
-                                    <h2 class="payment-offer-summary__title">"GameName:&#ID /N.A"</h2>
-                                    <p class="payment-offer-summary__author">"AuthorName:&#ID /N.A"</p>
-                                </div>
                                 <div class="payment-offer-summary__thumbnail-image">
-                                    <img alt="Selected Game Thumbnail" src="../assets/checkout/no-image-icon-512x512-lfoanl0w.png" class="payment-offer-summary__thumbnail">
+                                    <img alt="Selected Game Thumbnail" src="../../assets/dbydl.png" class="payment-offer-summary__thumbnail">
                                 </div>
+                                <div class="payment-offer-summary__content">
+                                    <h2 class="payment-offer-summary__title">Dead by Daylight</h2>
+                                    <p class="payment-offer-summary__author">Behaviour Interactive</p>
+                                </div>                                
                             </div>
                             <div class="payment-order-summary payment-summaries__order">
                                 <div class="payment-order-summary__prices">
                                     <div class="payment-price">
                                         <p class="payment-price__label">Price</p>
                                         <p class="payment-price__value">
-                                            <span>"/N.A"</span>
+                                            <span>$69.99</span>
                                         </p>
                                     </div>
                                     <div class="payment-price">
                                         <p class="payment-price__label">Discounts</p>
                                         <p class="payment-price__value">
                                             -
-                                            <span>"/N.A"</span>
+                                            <span>$10.99</span>
                                         </p>
                                     </div>
                                     <div class="payment-order-summary__discounts">
@@ -319,14 +262,14 @@
                                             <p class="payment-price__label">Sale Discount</p>
                                             <p class="payment-price__value">
                                                 -
-                                                <span>"/N.A"</span>
+                                                <span>$7.99</span>
                                            </p>
                                         </div>
                                         <div class="payment-price">
                                             <p class="payment-price__label">Coupn Discount</p>
                                             <p class="payment-price__value">
                                                 -
-                                                <span>"/N.A"</span>
+                                                <span>$3.00</span>
                                             </p>
                                         </div>
                                     </div>
@@ -337,15 +280,9 @@
                                             <span>Total</span>
                                         </p>
                                         <p class="payment-price__value payment-price__value--UPAY">
-                                            <span>"payment-price__value--UPAY"</span>
+                                            <span>$59</span>
                                         </p>
                                     </div>
-                                </div>
-                                <div class="earn-reward">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="earn-reward__icon">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z" fill="white"></path>
-                                    </svg>
-                                    <div class="earn-reward__content"><span>Make this purchase before<date> N.A</date> and earn a<strong> BOOSTED payment-price__value--UPAY%10</strong>in Epic Rewards</span></div>
                                 </div>
                             </div>
                             <div class="payment-affiliation">
@@ -353,9 +290,8 @@
                                     <div class="payment-select">
                                         <div class="payment-input payment-input--densed payment-input--with-addonAfter">
                                             <label class="payment-input__name" for="slug">
-                                                <span>Enter a Creator tag</span>
                                             </label>
-                                            <input id="slug" placeholder="Enter a creator tag" class="payment-input__element" type="text" name="slug" autocomplete="new-password" value="">
+                                            <input id="slug" placeholder="ENTER A CREATOR TAG" class="payment-input__element" type="text" name="slug" autocomplete="new-password" value="">
                                             <div class="payment-input__addonAfter">
                                                 <a aria-label="learn more" href="https://www.epicgames.com/affiliate/overview" class="payment-affiliation__help" target="_blank" rel="noopener noreferrer">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="payment-icon">
@@ -375,7 +311,7 @@
                                         <span class="payment-check-box__inner"></span>
                                     </div>
                                     <p class="payment-check-box__label">
-                                        <span>Click here to share your email with<strong> "payment-offer-summary__author". </strong> "payment-offer-summary__author" will use email address for marketing and otherwise in accordance with its <a target="_blank" class="highlight" href=" " onclick="sendLinkClickEvent('DevEmailOptInPrivacyLinkClicked')">privacy policy</a>, so we encourage you to read it.</span>
+                                        <span>Click here to share your email with<strong> Dambuster Studio. </strong> Dambuster Studios will use email address for marketing and otherwise in accordance with its <a target="_blank" class="highlight" href=" " onclick="sendLinkClickEvent('DevEmailOptInPrivacyLinkClicked')">privacy policy</a>, so we encourage you to read it.</span>
                                     </p>
                                 </div>
                             </div>

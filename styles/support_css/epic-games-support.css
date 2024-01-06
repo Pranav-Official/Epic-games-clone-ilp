@@ -13,18 +13,16 @@
 div {
   display: block;
 }
-
 body {
-  width: 100%;
-  height: 100%;
-  display: block;
-  background-color: rgb(21, 21, 21);
   margin: 0;
   padding: 0;
-  line-height: 1;
+  width: 100%;
+  display: block;
   font-family: Inter, sans-serif;
+  height: 2000px; /* Add some height for scrolling */
+  background-color: rgb(21, 21, 21);
+  line-height: 1;
 }
-
 ul {
   margin-top: 0;
   margin-bottom: 10px;
@@ -141,7 +139,7 @@ h1 {
   flex-wrap: wrap;
   align-items: baseline;
 }
-.server-text{
+.server-text {
   font-size: 11.5px;
 }
 
@@ -309,6 +307,21 @@ h1 {
   overflow: hidden;
 }
 
+.CategoriesStickyBar {
+  height: 50px; /* Set the height of your initial sticky bar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.category-sticky-bar {
+  height: 100px;
+  transition: transform 0.3s ease-in-out;
+}
+.category-sticky-bar.visible {
+  transform: translateY(100%);
+}
 .CategoriesStickyBarItem__background {
   position: absolute;
   left: 0;
@@ -350,10 +363,8 @@ h1 {
 .CategoriesStickyBar.CategoriesStickyBar--sticky {
   background: #272727;
   left: 0;
-  position: fixed;
   right: 0;
   top: -60px;
-  transition: -webkit-transform 0.2s ease-out 0.05s;
   transition: transform 0.2s ease-out 0.05s;
   z-index: 11;
 }
@@ -465,6 +476,12 @@ GamesSectionTile__wrapper ShowAllButton {
   list-style: none;
   padding: 0;
 }
+.GamesSectionList__wrapper2 {
+  display: flex;
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
 
 @media screen and (min-width: 768px) {
   .GamesSectionList__item:first-child {
@@ -549,6 +566,9 @@ GamesSectionTile__wrapper ShowAllButton {
   outline: none;
   text-decoration: none;
 }
+.GamesSectionList__wrapper1 {
+  width: 18%;
+}
 
 .ShowAllButton {
   align-items: center;
@@ -580,6 +600,7 @@ GamesSectionTile__wrapper ShowAllButton {
   padding: 10px;
   position: relative;
   z-index: 1;
+
 }
 
 .ShowAllButton .ShowAllButton__icon {

@@ -187,59 +187,7 @@ h2 {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
-.payment-coupon__container {
-  position: relative;
-  height: 70px;
-}
-.payment-coupon-item {
-  width: 100%;
-  position: relative;
-  height: 70px;
-  padding: 10px 15px;
-  vertical-align: middle;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  outline: none;
-  border: 1px solid transparent;
-}
-.payment-coupon__current {
-  background: var(--pmt-ui-color-bg-paper);
-  border-radius: var(--pmt-ui-border-radius);
-}
-.payment-coupon-item__icon {
-  background: url("../../assets/checkout/epic-games-free-games.webp");
-  background-size: contain;
-}
-.payment-coupon-item__icon {
-  cursor: pointer;
-  background-size: contain;
-  width: 60px;
-  height: 40px;
-  transition: border-color 0.3s ease;
-  flex-shrink: 0;
-}
-.payment-coupon-item__content {
-  padding-left: 10px;
-}
-.payment-coupon-item__name {
-  font-size: 14px;
-  line-height: 16px;
-}
-.payment-coupon-item__info {
-  padding-right: 150px;
-  font-size: 12px;
-  line-height: 14px;
-  color: var(--pmt-ui-color-text-secondary);
-  word-break: break-word;
-}
-.payment-coupon-item__expire {
-  margin: 0 5px;
-}
-.payment-coupon-item__link {
-  display: inline-block;
-  color: var(--pmt-ui-color-text-secondary);
-}
+
 .payment__scroll-container a {
   cursor: pointer;
   text-decoration: underline;
@@ -248,29 +196,6 @@ h2 {
 .payment__scroll-container a:hover {
   text-decoration: none;
   transition: 0.6s ease;
-}
-.payment-coupon-item__status {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-}
-.payment-coupon-item__applied_status {
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  border-radius: var(--pmt-ui-border-radius);
-  border: 1px solid var(--pmt-ui-color-basic-contrast4);
-}
-.payment-coupon-item__applied {
-  margin-top: 2px;
-  line-height: 14px;
-  font-size: 10px;
-  font-weight: 600;
-  margin-right: 6px;
-  color: var(--pmt-ui-color-text-secondary);
 }
 .payment-method payment-method--disabled {
   cursor: not-allowed;
@@ -329,13 +254,18 @@ h2 {
   margin: 0;
   padding: 0;
   z-index: 1;
-  border-radius: 50%;
   position: absolute;
 }
-input[type="radio" i] {
-  background-color: initial;
-  appearance: auto;
-  border: initial;
+.payment-radio__input2 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: inherit;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  position: absolute;
 }
 input {
   text-rendering: auto;
@@ -352,7 +282,7 @@ input {
   padding-inline: 2px;
 }
 .payment-radio__inner {
-  border-radius: 50%;
+  border-radius: 10px;
   position: absolute;
   display: block;
   right: 0;
@@ -458,9 +388,12 @@ p {
   height: 28px;
   width: 60px;
 }
+
+/* Payment summaries */
+
 .payment-summaries {
   position: relative;
-  width: 308px;
+  width: 400px;
   padding: 0 15px;
   background: var(--pmt-ui-color-bg-paper);
   display: flex;
@@ -471,7 +404,6 @@ p {
 .payment-summaries__title {
   padding-top: 36px;
   padding-bottom: 16px;
-  font-weight: 500;
 }
 .payment-title {
   display: block;
@@ -480,7 +412,7 @@ p {
   text-transform: uppercase;
   padding: 15px 0;
   margin: 0;
-  font-weight: 400;
+  font-weight: 600;
 }
 @media only screen and (max-height: 1000px) {
   .payment-summaries__scroll-container {
@@ -502,7 +434,7 @@ p {
 }
 .payment-offer-summary {
   display: flex;
-  flex-wrap: wrap;
+
   align-items: center;
 }
 @media only screen and (max-height: 840px) {
@@ -580,7 +512,7 @@ p {
 }
 .payment-price__value {
   flex: 0 0 auto;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--pmt-ui-color-text-secondary);
 }
 .payment-order-summary__discounts {
@@ -648,7 +580,7 @@ p {
   width: 20px;
   height: 20px;
 }
-.earn-reward__icon path,
+
 .earn-reward__icon svg {
   fill: var(--pmt-ui-color-basic-black);
 }
@@ -736,8 +668,6 @@ p {
 .payment-affiliation__help {
   display: block;
   height: 24px;
-  font-size: 20px;
-  color: var(--pmt-ui-color-text-secondary) !important;
 }
 .payment-developer-privacy {
   font-size: 14px;
@@ -769,11 +699,19 @@ p {
   cursor: inherit;
   height: 100%;
   margin: 0;
-  opacity: 0;
   padding: 0;
   z-index: 1;
   border-radius: 2px;
   position: absolute;
+}
+.payment-check-box__input {
+  color: #000; /* Change this to the default color */
+}
+
+/* Color when the checkbox is checked */
+.payment-check-box__input:checked + .payment-check-box__inner {
+  background-color: #0074e4; /* Change this to the desired color */
+  border-color: #0074e4; /* Change this to the desired color */
 }
 .payment-check-box__inner {
   border-radius: 2px;
@@ -877,6 +815,10 @@ a {
   transition: opacity 0.3s;
 }
 .payment-method__form {
+  width: 100%;
+  text-align: left;
+}
+.payment-method__form2 {
   width: 100%;
   text-align: left;
 }
