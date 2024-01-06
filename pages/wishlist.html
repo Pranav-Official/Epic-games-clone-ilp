@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wishlist</title>
-    <script src="../scripts/wishlist.js"></script>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../styles/footer-main.css/footer-main.css">
     <link rel="stylesheet" href="../styles/footer-main.css">
@@ -153,16 +153,18 @@
         <select name="selectsort" id="sortingtype">
           <option value="On Sale">On Sale</option>
           <option value="Recently Added">Recently Added</option>
-          <option value="Alphabetical">Alphabetical</option>
+          <option value="AlphabeticalA">Alphabetical:A-Z</option>
+          <option value="AlphabeticalZ">Alphabetical:Z-A</option>
           <option value="Price:Low to High">Price:Low to High</option>
           <option value="Price:High to Low">Price:High to Low</option>
         </select>
       </div>
       <div class="filteroptn">
-        <div class="filteroptn_flex1"><p>Filters</p></div>
+        <button id="filter-button" onclick="displayFilters()"><div id="filterbutton_title">Filters</div><img id="filterbutton_img" src="../assets/wishlist_images/filter.svg" alt="filter" /></button>
+        <!-- <div class="filteroptn_flex1"><p>Filters</p></div>
         <div class="filteroptn_flex2">
           <img src="../assets/wishlist_images/filter.svg" alt="filter" />
-        </div>
+        </div> -->
       </div>
       <!-- <img src="../assets/wishlist_images/filter.svg" alt="filter"> -->
     </div>
@@ -572,4 +574,5 @@
     </div>
     </div>
   </body>
+  <script src="../scripts/wishlist.js" type="module"></script>
 </html>
