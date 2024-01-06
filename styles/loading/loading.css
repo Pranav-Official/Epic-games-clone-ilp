@@ -2,14 +2,14 @@
   display: none;
   position: fixed;
   position: absolute;
-  width: 900px;
+  width: 1200px;
   height: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(92, 92, 92); 
+  background-color: rgb(92, 92, 92);
   padding: 20px;
-  z-index: 1000; 
+  z-index: 1000;
   border: 3px solid rgb(255, 255, 255);
 }
 #closeButton {
@@ -19,10 +19,9 @@
 .button-position {
   position: relative;
   width: 30px;
-  left: 870px;
-  top: -85px;
+  left: 98%;
+  top: -11%;
 }
-
 .lds-ring {
   display: inline-block;
   position: relative;
