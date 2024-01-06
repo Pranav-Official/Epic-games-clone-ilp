@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (scrollPosition > headerOffset + scrollThreshold) {
       header.classList.add("fixed-header");
       empty.classList.remove("empty-header");
+      document.querySelector(".epic-menu ").classList.remove("active");
+      document.querySelector(".epic-menu-arrow").classList.remove("active");
     } else {
       header.classList.remove("fixed-header");
       empty.classList.add("empty-header");

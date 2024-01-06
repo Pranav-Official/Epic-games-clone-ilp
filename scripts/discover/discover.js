@@ -21,9 +21,8 @@ const logAPidata = async () => {
 
 const bestGamesOf2023 = async () => {
   let parameterList = [
-    ["metacritic", "75", "100"],
     ["platforms", "4"],
-    ["dates", "2022-11-01,2023-12-30"],
+    ["developers", "epic-games"],
   ];
 
   try {
@@ -70,6 +69,95 @@ const bestGamesOf2023 = async () => {
   }
 };
 
+const addGameCardsToSwipers = () => {
+  const swiperContainers = document.querySelectorAll(
+    ".swiper-highlights-container .swiper-wrapper .swiper-slide"
+  );
+
+  for (let i = 0; i < swiperContainers.length; i++) {
+    const currentContainer = swiperContainers[i];
+    console.log(currentContainer);
+    currentContainer.innerHTML = "";
+    // Add 5 game cards to each swiper
+    for (let j = 0; j < 5; j++) {
+      const gameCard = `<div class="game-card">
+            <div class="game-card-image">
+              <div class="game-card-hover-effect"></div>
+              <img src="../assets/discover-page/null.png.png" alt="" />
+            </div>
+            <p class="base-game">BASE GAME</p>
+            <h3 class="game-card-title"></h3>
+            <div class="game-card-footer">
+              <p class="game-card-discount"></p>
+              <h4 class="game-card-previous-price"></h4>
+              <h4 class="game-card-current-price"></h4>
+            </div>
+          </div>`;
+      currentContainer.innerHTML += gameCard;
+      // currentContainer.appendChild(gameCard);
+    }
+  }
+};
+
+const swiperHighlightsPopulator = async () => {
+  let parameterList = [
+    ["metacritic", "75", "100"],
+    ["platforms", "4"],
+    ["dates", "2022-11-01,2023-12-30"],
+  ];
+
+  addGameCardsToSwipers();
+  try {
+    const data = await fetchData(API_KEY, parameterList);
+    const gameCardsContainers = document.querySelectorAll(
+      ".swiper-highlights-container .swiper-wrapper .swiper-slide"
+    );
+
+    // Check if there are at least 15 results
+    if (data["results"].length >= 15) {
+      // Loop through each swiper container and update the game cards
+      for (let i = 0; i < gameCardsContainers.length; i++) {
+        const currentContainer = gameCardsContainers[i];
+
+        // Loop through 5 results for each swiper
+        for (let j = 0; j < 5; j++) {
+          const gameCard =
+            currentContainer.getElementsByClassName("game-card")[j];
+          gameCard.setAttribute("data-slug", data["results"][i * 5 + j].slug);
+
+          // Update game card content with fetched data
+          gameCard.querySelector(".game-card-image img").src =
+            data["results"][i * 5 + j].background_image;
+          gameCard.querySelector(".base-game").textContent = "BASE GAME";
+          gameCard.querySelector(".game-card-title").textContent =
+            data["results"][i * 5 + j].name;
+          // let prices = await getPrice(data["results"][i * 5 + j].slug);
+          let prices = null;
+          if (prices === null) {
+            gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
+            gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
+            gameCard.querySelector(".game-card-current-price").remove(); // You may need to update this value
+          } else {
+            console.log(prices);
+            gameCard.querySelector(".game-card-discount").textContent =
+              "-" + Math.trunc(prices.calculatedDiscount) + "%"; // You may need to update this value
+            gameCard.querySelector(".game-card-previous-price").textContent =
+              "₹" + prices.retailPrice; // You may need to update this value
+            gameCard.querySelector(".game-card-current-price").textContent =
+              "₹" + prices.salePrice; // You may need to update this value
+          }
+        }
+      }
+    } else {
+      console.error("Insufficient data to update game cards.");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+swiperHighlightsPopulator();
+
 const appedSalesHighlights = async (id) => {
   const node = document.getElementsByClassName("sale-highlights")[0];
   const sales_highlights_copy = node.cloneNode(true);
@@ -77,7 +165,11 @@ const appedSalesHighlights = async (id) => {
   sales_highlights_copy
     .querySelector(".game-cards-container")
     .setAttribute("id", id + "-game-cards");
-  node.parentNode.appendChild(sales_highlights_copy);
+  // node.parentNode.appendChild(sales_highlights_copy);
+  node.parentNode.insertBefore(
+    sales_highlights_copy,
+    document.querySelector(".end-event-container")
+  );
   // console.log(sales_highlights_copy);
 };
 
@@ -100,8 +192,13 @@ const populateSalesHighlights = async (title, id, parameterList) => {
         gameCard.setAttribute("data-slug", data["results"][i].slug);
 
         // Update game card content with fetched data
-        gameCard.querySelector(".game-card-image img").src =
-          data["results"][i].background_image;
+        if (data["results"][i].background_image == null) {
+          gameCard.querySelector(".game-card-image img").src =
+            "../../assets/no-image-available.png";
+        } else {
+          gameCard.querySelector(".game-card-image img").src =
+            data["results"][i].background_image;
+        }
         gameCard.querySelector(".base-game").textContent = "BASE GAME";
         if (data["results"][i].name.length > 25) {
           gameCard.querySelector(".game-card-title").textContent =
@@ -203,7 +300,7 @@ const populateTrippleList = async (title, id, parameterList) => {
   }
 };
 
-const swiper = new Swiper(".swiper", {
+const swiper = new Swiper(".feature-games-carousal", {
   // Optional parameters
   direction: "horizontal",
   loop: true,
@@ -223,6 +320,28 @@ const swiper = new Swiper(".swiper", {
   scrollbar: {
     el: ".swiper-scrollbar",
   },
+});
+
+const swiperHighlights = new Swiper(".highlights-swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: false,
+
+  // If we need pagination
+  // pagination: {
+  //   el: ".swiper-pagination",
+  // },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".hightlight-change-next",
+    prevEl: ".hightlight-change-prev",
+  },
+
+  // And if we need scrollbar
+  // scrollbar: {
+  //   el: ".swiper-scrollbar",
+  // },
 });
 
 function changeSwiperSlide() {
@@ -245,28 +364,10 @@ function logCurrentSlideId() {
   // const loader_sliders = document.getElementsByClassName("loader-slide");
   for (let i = 0; i < icons.length; i++) {
     icons[i].style.backgroundColor = "rgb(24, 24, 28)";
-    // const loader =
-    //   icons[i].querySelector(".loader-slide") ||
-    //   icons[i].querySelector(".loader-slide-active");
-    // loader.setAttribute("class", "loader-slide");
   }
   const icon = document.getElementById(activeSlideId + "-icon");
   // const loader = icon.querySelector(".loader-slide");
   icon.style.backgroundColor = "#3b3b3b";
-  // loader.setAttribute("class", "loader-slide-active");
-  // const loaderSlides = document.querySelectorAll(".loader-slide");
-
-  // // Iterate through loader slides
-  // loaderSlides.forEach((loaderSlide) => {
-  //   // Check if the loader slide has the same ID as the active slide
-  //   if (loaderSlide.id === activeSlideId) {
-  //     // Move the loader slide in the x direction by 12rem
-  //     loaderSlide.classList.add("loader-slide-active");
-  //   } else {
-  //     // Reset the position for other loader slides
-  //     loaderSlide.classList.remove("loader-slide-active");
-  //   }
-  // });
 }
 
 // Listen for the slideChange event to log the current slide ID
@@ -315,7 +416,9 @@ const populateSwiper = async () => {
             </div>
           </div>`;
 
-  const swiperContainer = document.querySelector(".swiper-wrapper");
+  const swiperContainer = document.querySelector(
+    ".feature-games-carousal .swiper-wrapper"
+  );
   const swipperArray = swiperContainer.getElementsByClassName("swiper-slide");
   const caraousalIconArray = document.querySelectorAll(".carousal-icon-card");
   try {
@@ -356,9 +459,6 @@ const populateSwiper = async () => {
 populateSwiper();
 
 bestGamesOf2023();
-// reecentlyUpadatedList();
-// recentlyReleasedList();
-// appedSalesHighlights("recentlyReleased-highlights");
 
 populateSalesHighlights("Top Rated", "topRated-highlights", [
   ["platforms", "4"],
