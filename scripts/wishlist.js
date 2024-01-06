@@ -41,16 +41,17 @@ const removeWishlistInFirebase = async (game) => {
       (singlegame) => singlegame != game
     );
     await updateDoc(dbref, { Wishlist: updatedWishlistArray });
+    displayWishlist(updatedWishlistArray);
   }
 };
 
 let obj = {
   id: "3",
-  title: "Z Ghostrunner 2",
+  title: "B Ghostrunner 2",
   slug: "ghostrunner-2",
   releaseDate: "2024-01-01",
   actualPrice: 2599,
-  offerPrice: 609.15,
+  offerPrice: 709.15,
   offerPercentage: "-15%",
   image: "../assets/wishlist_images/wishlist1.PNG",
   salesEndDate: "01/10/24",
@@ -162,14 +163,14 @@ const wishListTemplate = (wishlistItem) => {
 };
 //<div class="remove-button"><a id="remove" href="#">Remove</a></div>
 const displayWishlist = (games) => {
-  for (let i = tempWishlistArray.length - 1; i > 0; i--) {
-    console.log(tempWishlistArray[i]);
-  }
+  // for (let i = tempWishlistArray.length - 1; i > 0; i--) {
+  //   console.log(tempWishlistArray[i]);
+  // }
 
-  console.log("inside wishlist", games);
+  // console.log("inside wishlist", games);
   const wishlistContainer = document.querySelector(".wishlist-container");
   wishlistContainer.innerHTML = "";
-  games.forEach((game, index) => {
+  games.forEach((game) => {
     const wishlistDiv = document.createElement("div");
     wishlistDiv.className = "wishlist";
     wishlistDiv.innerHTML = wishListTemplate(game);
@@ -178,18 +179,14 @@ const displayWishlist = (games) => {
 
     // Add event listener to the "Remove" button
     const removeButton = wishlistDiv.querySelector(".remove");
-    removeButton.addEventListener("click", () => removeWishlistItem(index));
+    removeButton.addEventListener("click", () =>
+      removeWishlistInFirebase(game)
+    );
   });
 };
-// let gamesArrayInFirebase = doc(
-//   database,
-//   "UsersData",
-//   "anlysolly@gmail.com",
-//   "Wishlist"
-// );
+
 document.addEventListener("DOMContentLoaded", function () {
   // Call the function with the array of games
-  console.log("Yaay");
   setTimeout(() => displayWishlist(tempWishlistArray), 1000);
   // displayWishlist(tempWishlistArray);
 });
@@ -213,16 +210,17 @@ const convertDate = (originalDate) => {
   return `${months[parseInt(month, 10) - 1]} ${day}`;
 };
 //remove each wishlist
-const removeWishlistItem = (index) => {
-  const wishlistContainer = document.querySelector(".wishlist-container");
-  const wishlistItems = wishlistContainer.querySelectorAll(".wishlist");
+// const removeWishlistItem = (index) => {
 
-  // Check if the index is valid
-  if (index >= 0 && index < wishlistItems.length) {
-    // Remove the wishlist item
-    wishlistItems[index].remove();
-  }
-};
+//   const wishlistContainer = document.querySelector(".wishlist-container");
+//   const wishlistItems = wishlistContainer.querySelectorAll(".wishlist");
+
+//   // Check if the index is valid
+//   if (index >= 0 && index < wishlistItems.length) {
+//     // Remove the wishlist item
+//     wishlistItems[index].remove();
+//   }
+// };
 
 const sortWishlistPageByAlphabetAsc = () => {
   tempWishlistArray.sort((a, b) => b.title.localeCompare(a.title));
