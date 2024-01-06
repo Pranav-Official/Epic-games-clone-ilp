@@ -17,9 +17,10 @@ const displayPage = async () => {
   try {
     const gameData = await fetchSingleGameData(gameSlug);
     const screenshots = await fetchGameScreenShots(gameSlug);
-    const cheapSharkThumb = await fetchGameThumbImage(gameSlug);
+    // const cheapSharkThumb = await fetchGameThumbImage(gameSlug);
     const achievementsOverview = await fetchGameAchievements(gameSlug, 1);
-    const gamePriceData = await getPrice(gameSlug);
+    const gamePriceData = null;
+    //  await getPrice(gameSlug);
     console.log(gamePriceData);
     const truncatedDescription = limitWords(gameData.description, 150);
     const shortDescription = limitWords(gameData.description, 25);
@@ -88,25 +89,27 @@ const displayPage = async () => {
                 code for discount on new purchases.`;
 
     //thumb image
-    document.querySelector("#game-thumb-image").src = cheapSharkThumb[0].thumb;
+    // document.querySelector("#game-thumb-image").src = cheapSharkThumb[0].thumb;
 
     //game price and discount
-    let discountRounded = parseInt(gamePriceData.calculatedDiscount);
-    document.querySelector(
-      ".discount-percent"
-    ).innerHTML = `${discountRounded}%`;
-    document.querySelector(
-      ".slashed-price"
-    ).innerHTML = `<s>₹${gamePriceData.salePrice}</s>`;
-    document.querySelector(
-      ".price-now"
-    ).innerHTML = `₹${gamePriceData.retailPrice}`;
-    if (discountRounded != 0) {
-      document.querySelector(".sale-end-info").innerHTML = `On Sale now`;
-    } else {
+    if (gamePriceData != null) {
+      let discountRounded = parseInt(gamePriceData.calculatedDiscount);
       document.querySelector(
-        ".sale-end-info"
-      ).innerHTML = `No Discount Available`;
+        ".discount-percent"
+      ).innerHTML = `${discountRounded}%`;
+      document.querySelector(
+        ".slashed-price"
+      ).innerHTML = `<s>₹${gamePriceData.salePrice}</s>`;
+      document.querySelector(
+        ".price-now"
+      ).innerHTML = `₹${gamePriceData.retailPrice}`;
+      if (discountRounded != 0) {
+        document.querySelector(".sale-end-info").innerHTML = `On Sale now`;
+      } else {
+        document.querySelector(
+          ".sale-end-info"
+        ).innerHTML = `No Discount Available`;
+      }
     }
 
     //developer and publisher

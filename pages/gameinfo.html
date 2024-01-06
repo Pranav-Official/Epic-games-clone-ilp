@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>GameInfo</title>
     <link rel="stylesheet" href="/styles/gameinfo.css" />
     <link rel="stylesheet" href="../styles/discover.css" />
     <script src="../node_modules/axios/dist/axios.min.js"></script>
@@ -182,7 +182,7 @@
               <div class="offer-faq-button-enclose">
                 <center>
                   <div class="offer-faq-button">
-                    <a class="offer-faq-buttonbt" href="#">VIEW FAQ</a>
+                    <a class="offer-faq-buttonbt">VIEW FAQ</a>
                   </div>
                 </center>
               </div>
@@ -191,19 +191,22 @@
             <div id="big-game-description" class="game-big-description"></div>
             <div class="show-more-button">
               <div class="show-more-link-partdiv">
-                <a id="show-more-link" class="show-more-linkpart">SHOW MORE </a>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="svgcss-arow"
-                  viewBox="1 "
-                >
-                  <path
-                    stroke="currentColor"
-                    d="M1 1l3 3.5L1 8"
-                    fill="none"
-                    fill-rule="evenodd"
-                  ></path>
-                </svg>
+                <a id="show-more-link" class="show-more-linkpart"
+                  >SHOW MORE<svg
+                    class="svgcss-arow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-chevron-down"
+                    viewBox="0 0 17 10"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -231,10 +234,10 @@
               <div></div>
             </div>
             <div class="buy-now-button">
-              <a class="buy-button-link" href="#">BUY NOW</a>
+              <a class="buy-button-link">BUY NOW</a>
             </div>
             <div class="add-to-cartbutton">
-              <a class="add-to-cartbutton-link" href="#">ADD TO CART</a>
+              <a class="add-to-cartbutton-link">ADD TO CART</a>
             </div>
             <div class="add-to-wishbutton">
               <svg
@@ -254,7 +257,7 @@
                 />
               </svg>
 
-              <a class="add-to-wishbutton-link" href="#"> ADD TO WISHLIST</a>
+              <a class="add-to-wishbutton-link"> ADD TO WISHLIST</a>
             </div>
             <div class="epicrewards-withbr">
               <div class="epicrewards-partwhole">
@@ -350,9 +353,7 @@
             </div>
 
             <div class="editions">
-              <a class="editions-link" href="#"
-                >See All Editions and Add-Owns</a
-              >
+              <a class="editions-link">See All Editions and Add-Owns</a>
             </div>
 
             <div class="share-report-btn">
@@ -371,7 +372,7 @@
                     />
                   </svg>
                 </div>
-                <div><a class="sharelink" href="">SHARE</a></div>
+                <div><a class="sharelink">SHARE</a></div>
               </div>
               <div class="report">
                 <div>
@@ -388,7 +389,7 @@
                     />
                   </svg>
                 </div>
-                <div><a class="report-link" href="">REPORT</a></div>
+                <div><a class="report-link">REPORT</a></div>
               </div>
             </div>
           </div>
@@ -398,9 +399,7 @@
           <div class="achievements-grid-panel"></div>
           <div class="see-all-achievements">
             <div class="see-all-achievements-inner">
-              <a class="see-all-achievements-link" href="#"
-                >SEE ALL 66 ACHIEVEMENTS</a
-              >
+              <a class="see-all-achievements-link">SEE ALL 66 ACHIEVEMENTS</a>
             </div>
           </div>
         </div>
@@ -431,6 +430,42 @@
               </div>
             </div>
             <div class="line-separator"></div>
+            <div class="game-editions-card-price">
+              <div class="price-and-discount-editions">
+                <div class="discount-editions">
+                  <div class="discount-percent-editions">20%</div>
+                </div>
+                <div class="slashed-price-edtions"><s>2748₹</s></div>
+                <div class="price-now-editions">2198.40₹</div>
+              </div>
+              <div class="cart-and-wishlist-buttons">
+                <div class="add-to-cartbutton-editions">
+                  <a class="add-to-cartbutton-link-editions">ADD TO CART</a>
+                </div>
+                <div class="add-to-wishbutton-editions">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="23"
+                    fill="currentColor"
+                    id="plusbtn"
+                    class="bi bi-plus-circle"
+                    viewBox="0 -5 18 21"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                    />
+                    <path
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                    />
+                  </svg>
+
+                  <a class="add-to-wishbutton-link-editions">
+                    ADD TO WISHLIST</a
+                  >
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
