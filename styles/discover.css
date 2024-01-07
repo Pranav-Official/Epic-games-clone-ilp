@@ -153,7 +153,6 @@ header {
 .search-button svg {
   width: 1rem;
   height: 1rem;
-  margin-left: 95px;
 }
 
 #search-field {
@@ -161,13 +160,6 @@ header {
   border: 0;
   height: 1.5rem;
   width: 9rem;
-}
-.search-button {
-  position: absolute;
-  margin-right: 8px;
-  left: 8px;
-  top: 20%;
-  transform: translateY(-50%);
 }
 
 .nav-links {

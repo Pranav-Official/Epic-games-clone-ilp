@@ -79,7 +79,7 @@ a.epic-pages-link {
   flex: 2;
   margin-top: 20px;
   width: 700px;
-  height: 235px;
+  height: 266px;
   background-color: rgb(32, 32, 32);
   border-radius: 4px;
   padding-top: 0.5em;
@@ -92,7 +92,7 @@ a.epic-pages-link {
 .cart-update {
   color: grey;
   margin-left: 19rem;
-  margin-top: -0.3rem;
+  margin-top: 1rem;
 }
 
 .cart-update a {
@@ -114,6 +114,7 @@ a.epic-pages-link {
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100%;
 }
 
 .right {
@@ -216,15 +217,15 @@ a.epic-pages-link {
 .windows-icon {
   color: grey;
   font-size: 0.75rem; /* Adjust the font size of the Windows icon as needed */
-  margin-bottom: 6rem;
+
   padding-left: 1rem;
 }
 
 .game-details img {
   padding: 10px;
   padding-left: 1rem;
-  width: 10em;
-  height: 12em;
+  width: 100%; /* Set width to 100% for responsiveness */
+  height: 200px; /* Set height to 100% for responsiveness */
   border-radius: 0.9rem;
 }
 

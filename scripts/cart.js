@@ -28,7 +28,7 @@ let tempCartArray = [];
 const cartTemplate = (cartItem) => {
   return `  <div class="game-details" slug="${cartItem.slug}">
             <div class="left">
-              <img src="${cartItem.background_image}">
+              <img id="cartGameImage" src="${cartItem.background_image}">
               <div class="windows-icon">
                 <i class="bi bi-windows"></i>
               </div>
@@ -290,3 +290,13 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
 });
 
 await addToCart("grand-theft-auto-v");
+
+// const cartGameImage = document.getElementById("cartGameImage");
+// // Add a click event listener to the cart game image
+// cartGameImage.addEventListener("click", () => {
+//   // Get the slug or other identifier of the game from your cart data
+//   const gameSlug = game.slug; // Assuming 'slug' is used as an identifier
+
+//   // Redirect to the game page with the slug
+//   window.location.href = `pages\gameinfo.html\${gameSlug}`; // Replace with the actual path of your game page
+// });
