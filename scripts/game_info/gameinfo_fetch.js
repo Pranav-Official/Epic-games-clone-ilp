@@ -33,7 +33,7 @@ export const fetchGameScreenShots = async (gameSlug) => {
 export const fetchGameAchievements = async (gameSlug, pageNumber) => {
   try {
     const response = await axios.get(
-      `${baseURL}games/${gameSlug}/achievements?key=${apiKey}&page${pageNumber}`
+      `${baseURL}games/${gameSlug}/achievements?key=${apiKey}&page=${pageNumber}`
     );
     const AchievementsData = response.data;
     console.log(AchievementsData); // Log the data here
