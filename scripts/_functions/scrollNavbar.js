@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       empty.classList.remove("empty-header");
       document.querySelector(".epic-menu ").classList.remove("active");
       document.querySelector(".epic-menu-arrow").classList.remove("active");
+      document.querySelector(".profile-menu").classList.remove("active");
     } else {
       header.classList.remove("fixed-header");
       empty.classList.add("empty-header");
