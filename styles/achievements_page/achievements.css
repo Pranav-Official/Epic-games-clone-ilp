@@ -1,0 +1,168 @@
+.line-div {
+  background-color: #2a2a2a;
+  height: 0.1rem;
+  width: 100%;
+}
+
+.achievements-whole-div {
+  align-content: center;
+  width: 100%;
+}
+
+.achievements-inner-content-div {
+  position: relative;
+  width: 75%;
+}
+.achievements-game-title {
+  position: absolute;
+  top: 1.34rem;
+  color: rgb(245, 245, 245);
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: -0.3px;
+}
+
+.overview-nav {
+  position: absolute;
+  top: 4.5rem;
+  right: 44.5rem;
+}
+
+.overview-nav-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  align-items: center;
+  display: flex;
+  overflow-x: auto;
+}
+.litem {
+  padding-left: 1rem;
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.lilink {
+  display: block;
+  color: rgba(245, 245, 245, 0.6) !important;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.lilink:hover {
+  text-decoration: underline;
+  color: rgba(245, 245, 245, 0.6) !important;
+}
+
+.active {
+  text-decoration: underline !important;
+  color: white;
+}
+.achievements-game-bg {
+  position: absolute;
+  top: 9rem;
+  width: 940px;
+  height: 630px;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+}
+.game-info-right {
+  position: absolute;
+  top: 35rem;
+  right: 47rem;
+}
+
+.achievements-available-title {
+  color: #a4a4a4;
+  font-size: 9px;
+  line-height: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+  padding-left: 0;
+}
+
+.achievements-available-number {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.game-info-left {
+  position: absolute;
+  top: 35rem;
+  right: 30rem;
+}
+
+.achievements-heading-and-exclamation {
+  position: absolute;
+  top: 42rem;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.popup {
+  left: -2rem;
+  top: 36rem;
+  box-shadow: #201e1e;
+  display: none;
+  width: 28%;
+  text-align: left;
+  position: absolute;
+  background-color: rgb(41, 38, 38);
+  border: 1px solid #201e1e;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 2;
+}
+
+.achievements-sort-part {
+  position: absolute;
+  top: 54rem;
+  display: flex;
+}
+
+.sort-part {
+  padding-right: 1rem;
+  color: #9a9a9a;
+  font-size: 14px;
+  padding-top: 0.1rem;
+}
+
+.sort-dropdown {
+  font-size: 14px;
+}
+
+.sorting-drop-up-list {
+  display: none;
+  background-color: rgb(32 32 32);
+  width: 10rem;
+  height: 5rem;
+  position: absolute;
+  top: 58rem;
+  text-align: left;
+  border-radius: 4px;
+}
+.sort-alphabet {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+.sort-alphabet:hover {
+  filter: brightness(1.4);
+}
+
+.sort-rarity {
+  margin-top: 4px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+#arrow-down {
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
