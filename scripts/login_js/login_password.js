@@ -48,7 +48,7 @@ function signIn() {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("Signed in as:", user.email);
-        window.location.href = "../discover.html";
+        window.location.href = "../../pages/discover.html";
       })
       .catch((error) => {
         const errorCode = error.code;
