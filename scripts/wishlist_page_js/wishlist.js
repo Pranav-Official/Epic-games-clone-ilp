@@ -153,7 +153,7 @@ const wishListTemplate = (wishlistItem) => {
              wishlistItem.id
            }">Remove</button></div>
           <div class="addtocart-button">
-            <button id="add2cart">ADD TO CART</button>
+            <button id="add2cart" onclick="">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -252,8 +252,35 @@ document.getElementById("sortingtype").addEventListener("change", () => {
   displayWishlist(tempWishlistArray);
 });
 
+const manageOption = () => {
+  let manageDiv = document.querySelector(".pl2");
+  manageDiv.innerHTML = manageTemplate();
+};
+
+const manageTemplate = () => {
+  return `
+      <a href="#">Manage preferences</a>
+      <i class="bi bi-box-arrow-up-right"></i>
+    `;
+};
+
+// Add an event listener to the toggle button inside .preferences-right
+const preferencesRight = document.querySelector(".preferences-right");
+const toggleButton = preferencesRight.querySelector(".slider");
+const pl1Div = document.querySelector(".pl1");
+
+toggleButton.addEventListener("change", () => {
+  // Set .pl1 class empty
+  pl1Div.innerHTML = "";
+
+  // Check if the toggle button is checked
+  if (toggleButton.checked) {
+    manageOption(); // Change the content of pl2 class to the template
+  }
+});
+
 // document.getElementById("filter_by_action").addEventListener("click", () => {
-//   filterBrowsePageByGenre("action");
+//   filterWishlistPageByGenre("action");
 // });
 // document.getElementById("filter_by_indie").addEventListener("click", () => {
 //   filterWishlistPageByGenre("indie");

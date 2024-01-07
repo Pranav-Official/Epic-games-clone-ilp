@@ -28,9 +28,7 @@ const topNewsTemplate = (newsItem1, newsItem2) => {
               ${newsItem1.title}
             </h4>
             <p class="card-text">${newsItem1.description}</p>
-            <a href="../pages/newsReadmore.html" onclick="navigateToReadMore(${JSON.stringify(
-              newsItem1
-            )})">Read more</a>
+            <a href="${newsItem1.url}">Read more</a>
           </div>
         </div>
         <div class="card-two">
@@ -48,9 +46,7 @@ const topNewsTemplate = (newsItem1, newsItem2) => {
             <p class="card-text">
               ${newsItem2.description}
             </p>
-            <a href="../pages/newsReadmore.html" onclick="navigateToReadMore(${JSON.stringify(
-              newsItem2
-            )})">Read more</a>
+            <a href="${newsItem2.url}">Read more</a>
           </div>
         </div>
       </div>
@@ -62,24 +58,26 @@ const rowNewsTemplate = (newsItem) => {
   return `
   <div class="row">
     <div class="row-left">
-      <img src="${
-        newsItem.urlToImage
-      }" onerror="this.src='../assets/news_images/news_top1.PNG'" alt="newslist${
-    newsItem.id
-  }" />
+      <img src="${newsItem.urlToImage}" onerror="this.src='../assets/news_images/news_top1.PNG'" alt="newslist${newsItem.id}" />
     </div>
     <article class="row-right">
       <p>${formattedTimeAgo}</p>
       <h4 class="card-title">${newsItem.title}</h4>
       <p class="card-text">${newsItem.description}</p>
-      <a href="../pages/newsReadmore.html" onclick="navigateToReadMore(${JSON.stringify(
-        newsItem
-      )})">Read more</a>
+      <a href="${newsItem.url}">Read more</a?
     </article>
   </div>
   <hr>
 `;
 };
+//<a
+// href="../pages/newsReadmore.html"
+// onclick="navigateToReadMore(${JSON.stringify(
+//      newsItem
+//    )})"
+//>
+//  Read more
+//</a>;
 //function to display published time
 const timeAgo = (dateString) => {
   const currentDate = new Date();
