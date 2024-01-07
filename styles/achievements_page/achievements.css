@@ -121,3 +121,48 @@
   padding: 10px;
   z-index: 2;
 }
+
+.achievements-sort-part {
+  position: absolute;
+  top: 54rem;
+  display: flex;
+}
+
+.sort-part {
+  padding-right: 1rem;
+  color: #9a9a9a;
+  font-size: 14px;
+  padding-top: 0.1rem;
+}
+
+.sort-dropdown {
+  font-size: 14px;
+}
+
+.sorting-drop-up-list {
+  display: none;
+  background-color: rgb(32 32 32);
+  width: 10rem;
+  height: 5rem;
+  position: absolute;
+  top: 58rem;
+  text-align: left;
+  border-radius: 4px;
+}
+.sort-alphabet {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+.sort-alphabet:hover {
+  filter: brightness(1.4);
+}
+
+.sort-rarity {
+  margin-top: 4px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+#arrow-down {
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
