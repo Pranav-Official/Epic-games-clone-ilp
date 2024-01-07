@@ -1,4 +1,7 @@
-import { fetchGameAchievements } from "../game_info/gameinfo_fetch.js";
+import {
+  fetchGameAchievements,
+  fetchSingleGameData,
+} from "../game_info/gameinfo_fetch.js";
 
 //function to show the popup box
 function popUp(popid) {
@@ -47,10 +50,22 @@ function rotateSVG() {
     currentRotation === "none" ? "rotate(180deg)" : "none";
 }
 
-const displayAchievements = (achievementsResultList) => {
-  let achievementsHtml = ``;
+//Funtion to load the top part of the page (game background ,title number of achievements etc)
+const displayGameInfo = async (gameSlug, sortFlag) => {
+  let achievementsResultList = await sortAchievements(gameSlug, sortFlag);
+  console.log(achievementsResultList);
+  let gameData = await fetchSingleGameData(gameSlug);
+  document.querySelector(".achievements-game-title").innerHTML = gameData.name;
+  document.querySelector(".achievements-game-background").innerHTML = ` <img
+              width="940"
+              height="530"
+              style="border-radius: 4px"
+              src="${gameData.background_image}"
+              alt=""
+            />`;
+
   document.querySelector(
-    "#no-of-Acievements"
+    "#no-of-achievements"
   ).innerHTML = `${achievementsResultList.length} Achievements`;
   document.querySelector("#xp-achievements").innerHTML = `${
     achievementsResultList.length * 10
@@ -58,9 +73,13 @@ const displayAchievements = (achievementsResultList) => {
   document.querySelector(
     ".achievement-info-pop"
   ).innerHTML = `Achievements ${achievementsResultList.length}`;
+  displayAchievements(achievementsResultList);
+};
+
+const displayAchievements = (achievementsResultList) => {
+  let achievementsHtml = ``;
   for (let achievement of achievementsResultList) {
-    {
-      achievementsHtml += `  <div class="achievement-card">
+    achievementsHtml += `  <div class="achievement-card">
               <div class="achievement-card-inner">
                 <div class="achievement-image">
                   <img
@@ -102,10 +121,9 @@ const displayAchievements = (achievementsResultList) => {
               </div>
               <div class="line-div-achievement-card"></div>
             </div>`;
-    }
-    document.querySelector(".achievement-cards-whole").innerHTML =
-      achievementsHtml;
   }
+  document.querySelector(".achievement-cards-whole").innerHTML =
+    achievementsHtml;
 };
 
 const sortAchievements = async (gameSlug, sortFlag) => {
@@ -132,8 +150,7 @@ const sortAchievements = async (gameSlug, sortFlag) => {
       return 0;
     });
   }
-  console.log(achievementsResultList);
-  displayAchievements(achievementsResultList);
+  return achievementsResultList;
 };
 
-sortAchievements("forza-horizon", true);
+window.onload = displayGameInfo("forza-horizon", true);

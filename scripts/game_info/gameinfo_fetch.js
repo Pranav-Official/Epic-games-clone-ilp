@@ -9,7 +9,7 @@ export const fetchSingleGameData = async (gameSlug) => {
       `${baseURL}games/${gameSlug}?key=${apiKey}`
     );
     const gameData = response.data;
-    console.log(gameData); // Log the data here
+    // console.log(gameData); 
     return gameData;
   } catch (error) {
     throw error;
