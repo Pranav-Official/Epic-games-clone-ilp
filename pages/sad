@@ -1,0 +1,8 @@
+i have created a database in firestore
+the function i need to do is to fetch data and post it in my html page
+the flow is as follows
+in firestore database a collection is created called users data and in that collection the details of the person who has logged in the application that is the email id associated is stored.
+the array stores details such as display_name, email_id,first_name etc
+from that i need to fetch data stored in a field called cart which is an array
+in that array multiple maps can be created base on the number of games the users has added to his cart from that i need to fetch details from each map such as actualPrice, image , offerpercentage and title .
+i need these data to be displayed on the sections,
