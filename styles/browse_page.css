@@ -239,7 +239,7 @@ a.epic-pages-link {
 }
 
 .right #search-fields-2 {
-  padding-left: 28px; /* Adjust the padding as needed */
+  padding-left: 7px; /* Adjust the padding as needed */
   flex: 1; /* Allow the input to take up remaining space */
   color: rgb(187, 187, 187);
   background-color: rgb(32, 32, 32);
@@ -271,12 +271,14 @@ a.epic-pages-link {
   left: 8px;
   top: 50%;
   transform: translateY(-50%);
+  margin-left: 10px;
 }
 
 .search-icon {
   width: 16px; /* Adjust the size of the icon as needed */
   height: 16px;
   fill: currentColor;
+  margin-right: 1px;
 }
 
 .filter-header {
