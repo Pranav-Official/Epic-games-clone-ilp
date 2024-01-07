@@ -1,4 +1,5 @@
 //API url and request
+import NEWS_API_KEY from "../../environment.js";
 const url =
   "https://newsapi.org/v2/everything?" +
   "q=Games&" +
@@ -6,8 +7,8 @@ const url =
 
 const req = new Request(url);
 
-const apiKey = "4bdcb41ba60e45ae98fac6b55ae85c2c";
-const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${apiKey}`;
+// const apiKey = "4bdcb41ba60e45ae98fac6b55ae85c2c";
+const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${NEWS_API_KEY}`;
 
 //Top news
 const topNewsTemplate = (newsItem1, newsItem2) => {

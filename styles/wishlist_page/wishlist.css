@@ -263,11 +263,20 @@ input:checked + .slider:before {
 .filteroptn p {
   margin-left: 16rem;
 }
-.row {
+.list-row {
   display: flex;
   margin-left: 13%;
   margin-right: 10%;
   border-radius: 4px;
+}
+#message-container {
+  flex-direction: row;
+  color: #ccc;
+  background-color: rgb(32, 32, 32);
+}
+#undo-button {
+  color: #ccc;
+  background-color: rgb(32, 32, 32);
 }
 .wishlist {
   background-color: rgb(32, 32, 32);

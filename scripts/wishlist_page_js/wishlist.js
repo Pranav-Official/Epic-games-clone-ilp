@@ -24,6 +24,7 @@ const database = getFirestore(app);
 const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
 let tempWishlistArray = [];
 
+//storing the wishlist to a temporary array
 getDoc(dbref).then((docSnapshot) => {
   if (docSnapshot.exists()) {
     const userData = docSnapshot.data();
@@ -31,26 +32,77 @@ getDoc(dbref).then((docSnapshot) => {
     console.log(tempWishlistArray);
   }
 });
+//updating wishlist items in firebase
+// const updateWishlistInFirebase = async (game) => {
+//   tempWishlistArray.push(game);
+//   await updateDoc(dbref, { Wishlist: tempWishlistArray });
+// };
 const updateWishlistInFirebase = async (game) => {
-  tempWishlistArray.push(game);
-  await updateDoc(dbref, { Wishlist: tempWishlistArray });
+  const gameSlug = game.slug;
+  const isGamePresent = tempWishlistArray.some(
+    (item) => item.slug === gameSlug
+  );
+
+  if (!isGamePresent) {
+    tempWishlistArray.push(game);
+    await updateDoc(dbref, { Wishlist: tempWishlistArray });
+  }
 };
+
+//removing wishlist item from firebase
 const removeWishlistInFirebase = async (game) => {
   {
     let updatedWishlistArray = tempWishlistArray.filter(
       (singlegame) => singlegame != game
     );
     await updateDoc(dbref, { Wishlist: updatedWishlistArray });
-    displayWishlist(updatedWishlistArray);
+    window.location.reload();
   }
 };
+// const removeWishlistInFirebase = async (game) => {
+//   const removedGameTitle = game.title;
+
+//   let updatedWishlistArray = tempWishlistArray.filter(
+//     (singlegame) => singlegame != game
+//   );
+//   await updateDoc(dbref, { Wishlist: updatedWishlistArray });
+//   setTimeout(() => {
+//     displayWishlist(tempWishlistArray);
+//   }, 2000);
+//   // Display a message
+//   setTimeout(() => {
+//     const messageContainer = document.getElementById("message-container");
+//     messageContainer.innerHTML = `<p>${removedGameTitle} is removed.</p><button id="undo-button">Undo</button>`;
+//   }, 3000);
+
+//   // Handle undo button click
+//   const undoButton = document.getElementById("undo-button");
+//   undoButton.addEventListener("click", () => {
+//     // Add the removed game back to the wishlist
+//     tempWishlistArray.push(game);
+//     // Update the document in Firebase
+//     updateDoc(dbref, { Wishlist: tempWishlistArray });
+
+//     // Remove the message
+//     messageContainer.innerHTML = "";
+
+//     // Refresh the wishlist display
+//     displayWishlist(tempWishlistArray);
+//   });
+
+//   // Reload the page after a certain time if undo is not clicked
+//   setTimeout(() => {
+//     messageContainer.innerHTML = "";
+//     window.location.reload();
+//   }, 5000);
+// };
 
 let obj = {
-  id: "3",
-  title: "B Ghostrunner 2",
-  slug: "ghostrunner-2",
+  id: "4",
+  title: "ZGhosdarunner 2",
+  slug: "ghostrunner-4",
   releaseDate: "2024-01-01",
-  actualPrice: 2599,
+  actualPrice: 499,
   offerPrice: 709.15,
   offerPercentage: "-15%",
   image: "../assets/wishlist_images/wishlist1.PNG",
@@ -61,53 +113,8 @@ let obj = {
 // setTimeout(() => {
 //   updateWishlistInFirebase(obj);
 // }, 2000);
-// const removeWishlistInFirebase = async (gameSlug) => {
-//   console.log(tempWishlistArray);
-//   let updatedWishlistArray = tempWishlistArray.filter(
-//     (game) => game != gameSlug
-//   );
-//   await updateDoc(dbref, { Wishlist: updatedWishlistArray });
-// };
-//array model
-// const gamesArray = [
-//   {
-//     id: "0",
-//     title: "Ghostrunner 2",
-//     slug: "ghostrunner-2",
-//     releaseDate: "2024-01-01",
-//     actualPrice: 2599,
-//     offerPrice: 2209.15,
-//     offerPercentage: "-15%",
-//     image: "../assets/wishlist_images/wishlist1.PNG",
-//     salesEndDate: "01/10/24",
-//     salesEndTime: "9:30 PM",
-//   },
-//   {
-//     id: "1",
-//     title: "Ghostrunner 2",
-//     slug: "ghostrunner-2",
-//     releaseDate: "2024-01-01",
-//     actualPrice: 2599,
-//     offerPrice: 2209.15,
-//     offerPercentage: "-15%",
-//     image: "../assets/wishlist_images/wishlist1.PNG",
-//     salesEndDate: "01/10/24",
-//     salesEndTime: "9:30 PM",
-//   },
-//   {
-//     id: "2",
-//     title: "Ghostrunner 2",
-//     slug: "ghostrunner-2",
-//     releaseDate: "2024-01-01",
-//     actualPrice: 2599,
-//     offerPrice: 2209.15,
-//     offerPercentage: "-15%",
-//     image: "../assets/wishlist_images/wishlist1.PNG",
-//     salesEndDate: "01/10/24",
-//     salesEndTime: "9:30 PM",
-//   },
-// ];
 
+//creating template for wishlist
 const wishListTemplate = (wishlistItem) => {
   return `
     <div class="wishlist">
@@ -161,13 +168,9 @@ const wishListTemplate = (wishlistItem) => {
   <br>
   `;
 };
-//<div class="remove-button"><a id="remove" href="#">Remove</a></div>
-const displayWishlist = (games) => {
-  // for (let i = tempWishlistArray.length - 1; i > 0; i--) {
-  //   console.log(tempWishlistArray[i]);
-  // }
 
-  // console.log("inside wishlist", games);
+//function to display wishlist in wishlist page
+const displayWishlist = (games) => {
   const wishlistContainer = document.querySelector(".wishlist-container");
   wishlistContainer.innerHTML = "";
   games.forEach((game) => {
@@ -188,8 +191,8 @@ const displayWishlist = (games) => {
 document.addEventListener("DOMContentLoaded", function () {
   // Call the function with the array of games
   setTimeout(() => displayWishlist(tempWishlistArray), 1000);
-  // displayWishlist(tempWishlistArray);
 });
+
 // Function to convert date format
 const convertDate = (originalDate) => {
   const [month, day, year] = originalDate.split("/");
@@ -209,44 +212,34 @@ const convertDate = (originalDate) => {
   ];
   return `${months[parseInt(month, 10) - 1]} ${day}`;
 };
-//remove each wishlist
-// const removeWishlistItem = (index) => {
 
-//   const wishlistContainer = document.querySelector(".wishlist-container");
-//   const wishlistItems = wishlistContainer.querySelectorAll(".wishlist");
-
-//   // Check if the index is valid
-//   if (index >= 0 && index < wishlistItems.length) {
-//     // Remove the wishlist item
-//     wishlistItems[index].remove();
-//   }
-// };
-
+//sorting the wishlist-Alphabetically:A-Z
 const sortWishlistPageByAlphabetAsc = () => {
   tempWishlistArray.sort((a, b) => b.title.localeCompare(a.title));
   displayWishlist(tempWishlistArray);
 };
-
+//sorting the wishlist-Alphabetically:Z-A
 const sortWishlistPageByAlphabetDesc = () => {
   tempWishlistArray.sort((a, b) => a.title.localeCompare(b.title));
   displayWishlist(tempWishlistArray);
 };
-
+//sorting the wishlist by Price:Low to High
 const sortWishlistPageByPriceLowtoHigh = () => {
   tempWishlistArray.sort((a, b) => a.offerPrice - b.offerPrice);
   displayWishlist(tempWishlistArray);
 };
-
+//sorting the wishlist by Price:High to Low
 const sortWishlistPageByPriceHightoLow = () => {
   tempWishlistArray.sort((a, b) => b.offerPrice - a.offerPrice);
   displayWishlist(tempWishlistArray);
 };
-
+//Sort:Recently added wishlist
 const sortWishlistPageByRecentlyAdded = () => {
   tempWishlistArray.reverse();
   displayWishlist(tempWishlistArray);
 };
 
+//calling wishlist sorting
 document.getElementById("sortingtype").addEventListener("change", () => {
   sortWishlistPageByRecentlyAdded();
   displayWishlist(tempWishlistArray);
