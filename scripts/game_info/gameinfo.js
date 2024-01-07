@@ -4,7 +4,7 @@ import {
   fetchSingleGameData,
   fetchGameAchievements,
 } from "../game_info/gameinfo_fetch.js";
-import getPrice from "../getprice.js";
+import getPrice from "../_functions/getprice.js";
 let gameSlug = "forza-horizon";
 
 // Set a timeout to show the body after 3 seconds

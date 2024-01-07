@@ -1,6 +1,6 @@
-import fetchData from "./rawgfetchGamesdata.js";
-import getPrice from "./getprice.js";
-import { API_KEY } from "../environment.js";
+import fetchData from "../_functions/rawgfetchGamesdata.js";
+import getPrice from "../_functions/getprice.js";
+import { API_KEY } from "../../environment.js";
 
 const loadBrowsePage = async (parameterList = null) => {
   if (parameterList == null) {
