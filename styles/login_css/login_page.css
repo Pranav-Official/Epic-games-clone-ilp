@@ -812,3 +812,19 @@ input::placeholder {
   top: 27.2rem;
   left: 3.8rem;
 }
+
+.invalid-firstname-signup-indicator {
+  position: absolute;
+  color: #de3341;
+  font: 12px Brutal, sans-serif;
+  top: 3.7rem;
+  left: 0rem;
+}
+
+.invalid-lastname-signup-indicator {
+  position: absolute;
+  color: #de3341;
+  font: 12px Brutal, sans-serif;
+  top: 3.7rem;
+  left: 0rem;
+}
