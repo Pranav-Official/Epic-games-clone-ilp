@@ -1,7 +1,7 @@
-import fetchData from "../rawgfetchGamesdata.js";
-import getPrice from "../getprice.js";
+import fetchData from "../_functions/rawgfetchGamesdata.js";
+import getPrice from "../_functions/getprice.js";
 import { API_KEY } from "../../environment.js";
-import fetchCarousalData from "../carousal-data-fetch.js";
+import fetchCarousalData from "../discover/carousal-data-fetch.js";
 
 const logAPidata = async () => {
   let parameterList = [
