@@ -2,6 +2,7 @@ import fetchData from "../_functions/rawgfetchGamesdata.js";
 import getPrice from "../_functions/getprice.js";
 import { API_KEY } from "../../environment.js";
 
+
 const loadBrowsePage = async (parameterList) => {
   if (parameterList == null) {
     parameterList = [
@@ -16,8 +17,11 @@ const loadBrowsePage = async (parameterList) => {
     container.innerHTML = "";
     for (let i = 0; i < data.results.length; i++) {
       const gameData = data.results[i];
-      const prices = await getPrice(gameData.slug);
-      // const prices = null;
+
+      // const prices = await getPrice(gameData.slug);
+      const prices = null;
+  
+
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameInfo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../styles/achievements_page/achievements.css"
+    />
+    <link rel="stylesheet" href="../../styles/discover_page/discover.css" />
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-left-side">
+        <div class="store-options">
+          <div class="epic-logo">
+            <img class="epic-logo-image" src="../../assets/epic-logo.png" />
+            <span aria-hidden="true" class="icon"
+              ><!--?lit$758340424$--><svg
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.53 7.47a.75.75 0 0 0-1.06 0L10 11.94 5.53 7.47a.75.75 0 0 0-1.06 1.06L10 14.06l5.53-5.53a.75.75 0 0 0 0-1.06Z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </span>
+          </div>
+          <div class="h-ruler"></div>
+          <div class="store-logo">
+            <img class="store-logo-image" src="../../assets/store-logo.png" />
+          </div>
+        </div>
+        <div class="epic-pages">
+          <a
+            href="../pages/distribution_page/distribution.html"
+            class="epic-pages-link"
+            >Distribution</a
+          >
+          <a class="epic-pages-link">Support</a>
+          <a class="epic-pages-link">Unreal Engine</a>
+        </div>
+      </div>
+      <div class="header-right-side">
+        <div class="profile">
+          <img src="../assets/profile.png" alt="" />
+        </div>
+        <button class="download-button">Download</button>
+      </div>
+    </header>
+    <div class="body-container">
+      <div class="head-navbar">
+        <div class="left-nav">
+          <div class="search-box">
+            <div class="search-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="search-icon"
+                viewBox="0 0 21 20"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <g
+                  transform="scale(1 -1) rotate(-45 -11.93502884 -2)"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <circle cx="7.70710678" cy="7.70710678" r="7"></circle>
+                  <path
+                    d="M15.2071068 8.62132034h5.6923881"
+                    stroke-linecap="square"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <input id="search-field" type="text" placeholder="Search" />
+          </div>
+          <div class="nav-links">
+            <a href="../pages/discover.html" class="nav-link">Discover</a>
+          </div>
+        </div>
+        <div class="right-nav"></div>
+      </div>
+    </div>
+    <div class="achievements-whole-div">
+      <center>
+        <div class="achievements-inner-content-div">
+          <div class="line-div"></div>
+          <div class="achievements-game-title">Ghostrunner 2</div>
+          <div class="overview-nav">
+            <ul class="overview-nav-list">
+              <li class="litem">
+                <a class="lilink" href="#">Overview</a>
+              </li>
+              <li class="litem"><a class="active" href="#">Achievements</a></li>
+            </ul>
+          </div>
+          <div class="achievements-game-bg">
+            <img
+              width="940"
+              height="530"
+              style="border-radius: 4px"
+              src="../../assets/achievements/ghost_runner.jfif"
+              alt=""
+            />
+            <div class="achievements-game-info">
+              <div class="game-info-right">
+                <div class="achievements-available-title">
+                  AVAILABLE ACHIEVEMENTS
+                </div>
+                <div class="achievements-available-number">34 Achievements</div>
+              </div>
+              <div class="game-info-left">
+                <div class="achievements-available-title">AVAILABLE XP</div>
+                <div class="achievements-available-number">1000 XP</div>
+              </div>
+            </div>
+            <div class="achievements-heading-and-exclamation">
+              <div class="achievement-info-pop">
+                Achievements (34)
+                <a class="achievement-info-pop-link"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-exclamation-circle-fill"
+                    viewBox="0 -4  20  20  "
+                  >
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
+                    /></svg
+                ></a>
+              </div>
+            </div>
+            <div class="popup" id="popupMessage">
+              Each achievement has 10 XP
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="14"
+                fill="currentColor"
+                style="color: rgb(202, 81, 43)"
+                class="bi bi-trophy-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+                /></svg
+              >.Platinum
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="14"
+                fill="currentColor"
+                style="color: #afb4bd"
+                class="bi bi-trophy-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"
+                />
+              </svg>
+              is awarded on completing all the achievements.
+            </div>
+          </div>
+        </div>
+      </center>
+    </div>
+    <script src="../../scripts/achievements_page_js/achievements.js"></script>
+  </body>
+</html>

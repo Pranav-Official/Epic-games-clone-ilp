@@ -5,6 +5,9 @@
 }
 
 body {
+
+  visibility: hidden;
+
   color: rgb(245, 245, 245);
   background: var(--color-main-page);
   position: relative;
@@ -53,33 +56,6 @@ h6 {
   display: flex;
 }
 
-\\star .star-rating {
-  display: inline-block;
-  font-size: 0;
-}
-
-.star-rating input {
-  display: none;
-}
-
-.star-rating label {
-  display: inline-block;
-  width: 10px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-  font-size: 1.3rem;
-  color: #ccc;
-}
-
-.star-rating label:before {
-  content: "★";
-}
-
-.star-rating input:checked ~ label {
-  color: #fcfcfc;
-}
 
 .rating {
   margin: 0.45rem 1rem;
@@ -120,21 +96,26 @@ h6 {
   letter-spacing: -0.2px;
 }
 
-a.lilink {
+
+.lilink {
   display: block;
-  color: rgba(245, 245, 245, 0.6);
+  color: rgba(245, 245, 245, 0.6) !important;
+
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-a.lilink:hover {
+
+.lilink:hover {
   text-decoration: underline;
-  color: rgba(245, 245, 245, 0.6);
+  color: rgba(245, 245, 245, 0.6) !important;
 }
 
 .active {
-  text-decoration: underline;
+  text-decoration: underline !important;
+
+
   color: white;
 }
 
@@ -178,9 +159,17 @@ a.lilink:hover {
 .gametext {
   font-size: 18px;
   line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 7.6rem;
+  letter-spacing: -0.2px;
+  width: 40rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
   letter-spacing: -0.2px;
   width: 68%;
   margin-top: 3rem;
+
 }
 
 .vertical-line {
@@ -202,6 +191,10 @@ a.lilink:hover {
 }
 
 a.genlink {
+
+  white-space: nowrap;
+
+
   text-align: center;
   text-decoration: underline;
   display: block;
@@ -210,10 +203,27 @@ a.genlink {
 
 .gnlitem {
   padding-right: 0.5rem;
+
+  width: fit-content;
+
 }
 
 .genre-features {
   display: flex;
+
+  width: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 3rem;
+  padding-right: 3rem;
+}
+
+.genre-tags {
+  display: flex;
+  width: 19.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   margin-top: 3rem;
   padding-right: 3rem;
 }
@@ -222,6 +232,13 @@ a.genlink {
   display: flex;
 }
 
+
+.stars {
+  margin-top: 0.35rem;
+  font-size: 1.3rem;
+}
+
+
 .offer-faq-text {
   width: 70%;
   color: rgb(245, 245, 245);
@@ -229,17 +246,26 @@ a.genlink {
   font-weight: normal;
   line-height: 20px;
   letter-spacing: 0.2px;
+
+  backdrop-filter: blur(0);
 }
 
 .offer-faq-button {
+  cursor: pointer;
+
   background-color: rgb(32, 32, 32);
   border-radius: 4px;
   margin-top: 0.8rem;
   margin-left: 4rem;
-  width: 50%;
+
   padding: 10px;
   border-style: solid;
   border-width: 1px;
+  transition: all 0.2s ease 0s;
+}
+.offer-faq-button:hover {
+  filter: brightness(1.5);
+
 }
 
 .offer-faq {
@@ -263,6 +289,15 @@ a.genlink {
 
 .game-big-description {
   margin-top: 3rem;
+
+  width: 67%;
+  transition: height 0.5s ease;
+  height: 7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 1rem;
+  color: rgba(245, 245, 245, 0.6);
+
 }
 
 .game-bigparts {
@@ -272,14 +307,25 @@ a.genlink {
 }
 
 .show-more-button {
-  background-color: rgba(245, 245, 245, 0.3);
+
+  background-color: #414141;
+
   width: 41rem;
   height: 3rem;
   border-radius: 4px;
   margin-top: 3rem;
+
+  transition: all 0.2s ease 0s;
+  cursor: default;
+}
+.show-more-button:hover {
+  filter: brightness(1.4);
 }
 
 a.show-more-linkpart {
+  display: flex;
+  width: 100%;
+  height: 100%;
   text-align: center;
   text-decoration: none;
   display: block;
@@ -287,17 +333,15 @@ a.show-more-linkpart {
   padding: 15px;
 }
 
-.svgcss-arow {
-  transform: rotate(90deg);
-  margin-top: 3rem;
-  margin-left: 10rem;
-}
 
 .overview-right-titleimg {
   position: absolute;
-
-  top: 2rem;
+  top: 6rem;
   right: 8rem;
+}
+
+.overview-left {
+
 }
 
 .overview-right {
@@ -323,7 +367,9 @@ a.show-more-linkpart {
 .price-and-discount {
   position: absolute;
   top: 14rem;
-  right: 9.6rem;
+
+  right: 10.5rem;
+
   display: flex;
 }
 .discount {
@@ -339,6 +385,11 @@ a.show-more-linkpart {
 
 .slashed-price {
   margin-right: 0.7rem;
+
+  width: 2;
+}
+
+.pub-who {
 }
 
 .sale-end-info {
@@ -351,6 +402,9 @@ a.show-more-linkpart {
 }
 
 .buy-now-button {
+
+  cursor: pointer;
+
   position: absolute;
   top: 18rem;
   right: 3.6rem;
@@ -362,6 +416,12 @@ a.show-more-linkpart {
   width: 15rem;
   height: 2.4rem;
   padding: 1px 6px;
+
+  transition: all 0.2s ease 0s;
+}
+.buy-now-button:hover {
+  filter: brightness(1.3);
+
 }
 
 a.buy-button-link {
@@ -373,6 +433,9 @@ a.buy-button-link {
 }
 
 .add-to-cartbutton {
+
+  cursor: pointer;
+
   position: absolute;
   top: 21.3rem;
   right: 3.6rem;
@@ -387,6 +450,12 @@ a.buy-button-link {
   width: 15rem;
   height: 2.4rem;
   padding: 1px 6px;
+
+  transition: all 0.2s ease 0s;
+}
+.add-to-cartbutton:hover {
+  filter: brightness(1.5);
+
 }
 
 a.add-to-cartbutton-link {
@@ -398,6 +467,9 @@ a.add-to-cartbutton-link {
 }
 
 .add-to-wishbutton {
+
+  cursor: pointer;
+
   position: absolute;
   top: 24.5rem;
   right: 3.6rem;
@@ -412,6 +484,12 @@ a.add-to-cartbutton-link {
   width: 15rem;
   height: 2rem;
   padding: 1px 6px;
+
+  transition: all 0.2s ease 0s;
+}
+.add-to-wishbutton:hover {
+  filter: brightness(1.5);
+
 }
 
 a.add-to-wishbutton-link {
@@ -499,7 +577,10 @@ a.add-to-wishbutton-link {
   width: 6.5rem;
 }
 .pub-who {
-  width: 11rem;
+
+  overflow: hidden;
+  white-space: nowrap;
+
 }
 
 .release-withbr {
@@ -513,7 +594,9 @@ a.add-to-wishbutton-link {
 }
 .rel-part {
   color: rgba(245, 245, 245, 0.6);
-  width: 12.4rem;
+
+  width: 10.4rem;
+
 }
 
 .platform-withbr {
@@ -554,6 +637,9 @@ a.add-to-wishbutton-link {
 }
 
 .share {
+
+  cursor: default;
+
   align-content: center;
   background-color: rgb(18, 18, 18);
   border-style: solid;
@@ -565,7 +651,14 @@ a.add-to-wishbutton-link {
   display: flex;
   margin-right: 1.5rem;
   padding: 1px 25px;
+
+  transition: all 0.2s ease 0s;
 }
+.share:hover {
+  filter: brightness(1.5);
+}
+
+
 .sharelink {
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -573,6 +666,9 @@ a.add-to-wishbutton-link {
 }
 
 .report {
+
+  cursor: default;
+
   align-content: center;
   background-color: rgb(18, 18, 18);
   border-style: solid;
@@ -583,7 +679,15 @@ a.add-to-wishbutton-link {
   height: 1.5rem;
   padding: 1px 25px;
   display: flex;
+
+  transition: all 0.2s ease 0s;
 }
+
+.report:hover {
+  filter: brightness(1.5);
+}
+
+
 .report-link {
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -628,17 +732,28 @@ a.add-to-wishbutton-link {
 }
 
 .see-all-achievements {
+
+  cursor: default;
   margin-top: 2rem;
   background-color: rgba(245, 245, 245, 0.1);
   border-radius: 4px;
-  text-align: center;
   width: 61rem;
   height: 3rem;
+  transition: all 0.2s ease 0s;
+}
+.see-all-achievements:hover {
+  filter: brightness(2.5);
 }
 
 .see-all-achievements-link {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: rgb(255, 255, 255);
+  display: block;
+
   font-size: 11px;
   font-weight: 500;
   width: 60rem;
@@ -705,6 +820,9 @@ a.add-to-wishbutton-link {
 .edition-card {
   background-color: rgb(32, 32, 32);
   width: 61rem;
+
+  height: 18rem;
+
 }
 
 .line-separator {
@@ -728,3 +846,120 @@ a.add-to-wishbutton-link {
   height: 2.4rem;
   padding: 1px 6px;
 }
+
+
+.swiper {
+  position: absolute;
+  left: -11rem;
+  height: 330px;
+  width: 650px;
+}
+
+.game-editions-card-price {
+  position: relative;
+}
+
+.price-and-discount-editions {
+  position: absolute;
+  top: 14rem;
+  right: 10.5rem;
+  display: flex;
+}
+
+.discount-editions {
+  margin-right: 0.7rem;
+  font-size: 11px;
+  font-weight: bold;
+  align-items: center;
+  background-color: rgb(0, 116, 228);
+  color: rgb(245, 245, 245);
+  border-radius: 4px;
+  padding: 2px 12px;
+}
+
+.slashed-price-edtions {
+  margin-right: 0.7rem;
+  width: 2;
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.price-and-discount-editions {
+  position: absolute;
+  top: 2rem;
+  left: 23rem;
+}
+
+.price-now-editions {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.cart-and-wishlist-buttons {
+  position: absolute;
+  top: 1.5rem;
+  left: 38rem;
+  display: flex;
+  width: 20rem;
+}
+
+.add-to-cartbutton-editions {
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(32, 32, 32);
+  transition: all 0.2s ease 0s;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2.2rem;
+  padding: 1px 6px;
+  margin-right: 1rem;
+}
+
+.add-to-cartbutton-editions:hover {
+  filter: brightness(1.4);
+}
+
+a.add-to-cartbutton-link-editions {
+  padding-top: 0.6rem;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: rgb(255, 255, 255);
+}
+
+.add-to-wishbutton-editions {
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgb(32, 32, 32);
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(158, 158, 158);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2.2rem;
+  padding: 1px 6px;
+  transition: all 0.2s ease 0s;
+}
+
+.add-to-wishbutton-editions:hover {
+  filter: brightness(1.4);
+}
+
+a.add-to-wishbutton-link-editions {
+  padding-bottom: 3%;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
