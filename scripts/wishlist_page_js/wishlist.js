@@ -431,4 +431,4 @@ function manageOption() {
 //   filterWishlistPageByFeatures("co-op");
 // });
 
-await addToWishlist("ghostrunner");
+// await addToWishlist("ghostrunner");
