@@ -13,18 +13,16 @@
 div {
   display: block;
 }
-
 body {
-  width: 100%;
-  height: 100%;
-  display: block;
-  background-color: rgb(21, 21, 21);
   margin: 0;
   padding: 0;
-  line-height: 1;
+  width: 100%;
+  display: block;
   font-family: Inter, sans-serif;
+  height: 2000px; /* Add some height for scrolling */
+  background-color: rgb(21, 21, 21)!important;
+  line-height: 1;
 }
-
 ul {
   margin-top: 0;
   margin-bottom: 10px;
@@ -141,7 +139,7 @@ h1 {
   flex-wrap: wrap;
   align-items: baseline;
 }
-.server-text{
+.server-text {
   font-size: 11.5px;
 }
 
@@ -309,6 +307,21 @@ h1 {
   overflow: hidden;
 }
 
+.CategoriesStickyBar {
+  height: 50px; /* Set the height of your initial sticky bar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.category-sticky-bar {
+  height: 100px;
+  transition: transform 0.3s ease-in-out;
+}
+.category-sticky-bar.visible {
+  transform: translateY(100%);
+}
 .CategoriesStickyBarItem__background {
   position: absolute;
   left: 0;
@@ -350,10 +363,8 @@ h1 {
 .CategoriesStickyBar.CategoriesStickyBar--sticky {
   background: #272727;
   left: 0;
-  position: fixed;
   right: 0;
   top: -60px;
-  transition: -webkit-transform 0.2s ease-out 0.05s;
   transition: transform 0.2s ease-out 0.05s;
   z-index: 11;
 }
@@ -439,8 +450,7 @@ h3 {
   letter-spacing: -0.5px;
 }
 
-.SectionWrapper .SectionWrapper__content,
-GamesSectionTile__wrapper ShowAllButton {
+.SectionWrapper .SectionWrapper__content,.GamesSectionTile__wrapper ShowAllButton {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -454,12 +464,28 @@ GamesSectionTile__wrapper ShowAllButton {
     grid-template-columns: repeat(5, 1fr);
   }
 }
+@media screen and (min-width: 768px) {
+  .GamesSectionList2__wrapper {
+    grid-gap: 20px 30px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 
 .GamesSectionList__wrapper:focus {
   outline: none;
 }
+.GamesSectionList2__wrapper:focus {
+  outline: none;
+}
 
 .GamesSectionList__wrapper {
+  display: flex;
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
+.GamesSectionList2__wrapper {
   display: flex;
   display: grid;
   list-style: none;
@@ -476,23 +502,45 @@ GamesSectionTile__wrapper ShowAllButton {
   align-items: flex-start;
   display: flex;
 }
+.GamesSectionList2__wrapper .GamesSectionList2__item {
+  align-items: flex-start;
+  display: flex;
+}
+
 
 .GamesSectionTile__wrapper:visited {
   outline: none;
   text-decoration: none;
 }
+.GamesSectionTile2__wrapper:visited {
+  outline: none;
+  text-decoration: none;
+}
+
 
 @media screen and (min-width: 1280px) {
   .GamesSectionTile__wrapper {
     grid-auto-rows: 272px auto;
   }
 }
+@media screen and (min-width: 1280px) {
+  .GamesSectionTile2__wrapper {
+    grid-auto-rows: 272px auto;
+  }
+}
+
 
 .GamesSectionTile__wrapper {
   display: grid;
   width: 100%;
   position: relative;
 }
+.GamesSectionTile2__wrapper {
+  display: grid;
+  width: 100%;
+  position: relative;
+}
+
 
 .GamesSectionTile__wrapper:before {
   border: 2px solid transparent;
@@ -506,12 +554,36 @@ GamesSectionTile__wrapper ShowAllButton {
   top: -4px;
   transition: border-color 0.2s ease-in-out;
 }
+.GamesSectionTile2__wrapper:before {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  content: "";
+  pointer-events: none;
+  bottom: -4px;
+  left: -4px;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  transition: border-color 0.2s ease-in-out;
+}
+
 
 :before {
   box-sizing: border-box;
 }
 
+
 .GamesSectionTile__wrapper .GamesSectionTile__image-wrapper {
+  align-items: center;
+  border-radius: 10px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+.GamesSectionTile__wrapper2 .GamesSectionTile2__image-wrapper {
   align-items: center;
   border-radius: 10px;
   display: -webkit-flex;
@@ -525,6 +597,10 @@ GamesSectionTile__wrapper ShowAllButton {
 .GamesSectionTile__image:hover {
   transform: scale(1.1);
 }
+.GamesSectionTile2__image:hover {
+  transform: scale(1.1);
+}
+
 
 .GamesSectionTile__wrapper .GamesSectionTile__image {
   width: 100%;
@@ -532,6 +608,13 @@ GamesSectionTile__wrapper ShowAllButton {
   transition: all 0.4s ease-in-out;
   object-fit: cover;
 }
+.GamesSectionTile2__wrapper .GamesSectionTile2__image {
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+  object-fit: cover;
+}
+
 
 .GamesSectionTile__wrapper .GamesSectionTile__title {
   padding-bottom: 10px;
@@ -543,8 +626,23 @@ GamesSectionTile__wrapper ShowAllButton {
   font-size: 0.875rem;
   line-height: 1.125rem;
 }
+.GamesSectionTile2__wrapper .GamesSectionTile2__title {
+  padding-bottom: 10px;
+  padding-top: 15px;
+  letter-spacing: 0.2px;
+  word-break: break-word;
+  margin: 0;
+  color: white;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
 
 .GamesSectionTile__wrapper:visited {
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+}
+.GamesSectionTile2__wrapper:visited {
   color: #fff;
   outline: none;
   text-decoration: none;
@@ -932,6 +1030,9 @@ img {
     width: 36%;
     max-width: 414px;
   }
+}
+.button-wrapper{
+  width: 18%;
 }
 
 .EnterpriseTile__wrapper .EnterpriseTile__icon-wrapper {
