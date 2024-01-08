@@ -326,40 +326,5 @@ a.epic-pages-link {
   font-size: 20px;
 }
 
-.genres {
-  display: flex;
-  overflow-x: hidden; /* Enable horizontal scrolling if needed */
-  white-space: nowrap;
-}
-
-.genre-item {
-  flex: 0 0 auto;
-  margin-right: 20px; /* Adjust margin between genre items as needed */
-}
-
-.buttons .leftButton,
-.buttons .rightButton {
-  background-color: rgb(32, 32, 32);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 20px; /* Set the width and height to be the same */
-  height: 20px; /* Set the width and height to be the same */
-}
-
-.buttons .leftButton {
-  margin-right: 10px;
-}
-
-.buttons {
-  margin-bottom: 20px;
-  /* padding-left: 890px; */
-  margin-left: auto;
-  /* flex: 1; */
-}
-
-.buttons .active {
-  border: 2px solid white;
+.search-icon {
 }
