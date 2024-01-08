@@ -58,11 +58,11 @@ div {
   border: none;
   right: 10px;
   top: 25px;
-  z-index: 301;
   padding: 10px;
   margin: 0;
+  z-index: 100;
   transition: all 0.3s ease;
-  background: transparent;
+  background: rgb(255, 255, 255);
   border-radius: 6px;
 }
 .payment-purchase-close-icon {
@@ -316,8 +316,6 @@ input {
   width: 60px;
   height: 38px;
   margin: 0 20px;
-  border: 1px solid var(--pmt-ui-color-basic-contrast3);
-  border-radius: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -336,7 +334,7 @@ input {
 .payment-method__title {
   margin: 0;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--pmt-ui-color-text-primary);
   text-overflow: ellipsis;
   overflow-x: hidden;
@@ -606,12 +604,12 @@ p {
 .payment-input {
   width: 100%;
   min-width: 100px;
-  border: 1px solid var(--pmt-ui-color-basic-contrast4);
-  padding: 10px 0 10px 20px;
+  /* border: 1px solid var(--pmt-ui-color-basic-contrast4); */
+  /* padding: 10px 0 10px 20px; */
   box-sizing: border-box;
   position: relative;
   display: inline-block;
-  border-radius: var(--pmt-ui-border-radius);
+  /* border-radius: var(--pmt-ui-border-radius); */
   transition: border-color 0.3s ease;
   height: 60px;
 }
@@ -779,19 +777,18 @@ a {
   font-size: 12px;
   line-height: 14px;
 }
+/* Your existing styles */
 .payment-order-confirm__btn {
   padding: 15px 0;
   width: 100%;
 }
-.payment-btn--disabled {
-  cursor: not-allowed;
-  opacity: 0.5 !important;
-}
+
 .payment-btn--primary {
   color: var(--pmt-ui-color-basic-white);
   background-color: var(--pmt-ui-color-highlight);
   border: 1px solid transparent;
 }
+
 .payment-btn {
   outline: none;
   user-select: none;
@@ -807,13 +804,23 @@ a {
   letter-spacing: 0.5px;
   transition: 0.3s ease;
 }
+
 .payment-loading {
   position: relative;
 }
+
 .payment-loading__container {
   position: relative;
-  transition: opacity 0.3s;
+  transition: opacity;
 }
+
+/* New styles for the disabled state of the button */
+.payment-btn:disabled {
+  background-color: #0062ff;
+  color: #aaaaaa;
+  cursor: not-allowed;
+}
+
 .payment-method__form {
   width: 100%;
   text-align: left;
@@ -949,3 +956,11 @@ fieldset {
   display: block;
   margin-top: 14px;
 }
+.credit-card {
+  width: 50px;
+}
+.paypal {
+  width: 33px;
+  margin-left: 10px;
+}
+

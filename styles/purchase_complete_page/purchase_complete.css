@@ -2,8 +2,7 @@
 * {
   font-family: Inter, sans-serif;
 }
-.modal-container2 {
-  display: none;
+.modal-container-purchase {
   position: fixed;
   position: absolute;
   width: 1200px;
@@ -14,33 +13,32 @@
   background-color: rgb(255, 255, 255);
   padding: 20px;
   z-index: 1000;
-  border: 3px solid rgb(145, 145, 145);
+  border: 1px solid rgb(145, 145, 145);
 }
-#closeButton2 {
-  background-color: transparent;
-  border: none;
-}
-.button-position2 {
-  position: relative;
-  width: 30px;
-  left: 98%;
-  top: -22%;
-}
-.epic-loading-image {
+.epic-purchase-image {
   width: 70px;
   position: relative;
-  top: 40%;
+  top: 30%;
   left: 48%;
   z-index: 2;
 }
-.epic-loading-image img {
+.epic-purchase-image img {
   width: 50px;
   height: 55px;
 }
-.epic-loading-text {
+.epic-purchase-text {
   width: 280px;
   position: relative;
-  top: 40%;
-  left: 41%;
+  top: 35%;
+  left: 45%;
+  font-size: 24px;
   font-weight: 300;
+}
+.epic-purchase-text-description {
+  color: dimgrey;
+  position: relative;
+  top: 40%;
+  left: 30%;
+  font-size: 14px;
+  font-weight: 100;
 }

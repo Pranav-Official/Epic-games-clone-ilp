@@ -1,8 +1,442 @@
-i have created a database in firestore
-the function i need to do is to fetch data and post it in my html page
-the flow is as follows
-in firestore database a collection is created called users data and in that collection the details of the person who has logged in the application that is the email id associated is stored.
-the array stores details such as display_name, email_id,first_name etc
-from that i need to fetch data stored in a field called cart which is an array
-in that array multiple maps can be created base on the number of games the users has added to his cart from that i need to fetch details from each map such as actualPrice, image , offerpercentage and title .
-i need these data to be displayed on the sections,
+{
+    "id": 4248,
+    "slug": "dishonored",
+    "name": "Dishonored",
+    "name_original": "Dishonored",
+    "description": "<p>Dishonored is the game about stealth. Or action and killing people. It is you who will decide what to do with your enemies. You play as Corvo Attano, Empress&#39; bodyguard, a masterful assassin and a combat specialist. All of a sudden, a group of assassins kill the Empress and kidnaps her daughter Emily. Being accused of murder and waiting for execution in a cell, Corvo still manages to escape with the help of the Loyalists and their leader Admiral Havelock. Now it is your duty to return the Empress daughter and restore your name. The main focus of the game is to give the player a choice. You can spare the lives of your enemies by knocking them out or making others do the job for you or brutally murder everyone in the city. Gadgets are given by Piero Joplin, Loyalists engineer and by the Outsider, who gives Corvo magical abilities. The game reacts to your choices - grim atmosphere by itself can be turned even darker by killing people or slightly lighter by not doing so. It is only a player&#39;s choice what to do with his abilities. Basing on these actions the game will give you with two different endings of the story.</p>",
+    "metacritic": 91,
+    "metacritic_platforms": [],
+    "released": "2012-09-25",
+    "tba": false,
+    "updated": "2024-01-07T05:33:52",
+    "background_image": "https://media.rawg.io/media/games/4e6/4e6e8e7f50c237d76f38f3c885dae3d2.jpg",
+    "background_image_additional": "https://media.rawg.io/media/screenshots/a3e/a3e9e8b10a76013a26bc3dbd1b6f5b6d.jpg",
+    "website": "http://www.dishonored.com",
+    "rating": 4.38,
+    "rating_top": 5,
+    "ratings": [
+        {
+            "id": 5,
+            "title": "exceptional",
+            "count": 1343,
+            "percent": 52.07
+        },
+        {
+            "id": 4,
+            "title": "recommended",
+            "count": 979,
+            "percent": 37.96
+        },
+        {
+            "id": 3,
+            "title": "meh",
+            "count": 202,
+            "percent": 7.83
+        },
+        {
+            "id": 1,
+            "title": "skip",
+            "count": 55,
+            "percent": 2.13
+        }
+    ],
+    "reactions": {
+        "1": 6,
+        "2": 1,
+        "3": 4,
+        "4": 4,
+        "5": 1,
+        "9": 2,
+        "10": 1,
+        "11": 2,
+        "12": 2,
+        "16": 1
+    },
+    "added": 9091,
+    "added_by_status": {
+        "yet": 463,
+        "owned": 4748,
+        "beaten": 2895,
+        "toplay": 345,
+        "dropped": 546,
+        "playing": 94
+    },
+    "playtime": 10,
+    "screenshots_count": 26,
+    "movies_count": 0,
+    "creators_count": 10,
+    "achievements_count": 222,
+    "parent_achievements_count": 63,
+    "reddit_url": "https://www.reddit.com/r/dishonored/",
+    "reddit_name": "",
+    "reddit_description": "",
+    "reddit_logo": "",
+    "reddit_count": 1593,
+    "twitch_count": 128,
+    "youtube_count": 1000000,
+    "reviews_text_count": 27,
+    "ratings_count": 2552,
+    "suggestions_count": 684,
+    "alternative_names": [],
+    "metacritic_url": "",
+    "parents_count": 0,
+    "additions_count": 4,
+    "game_series_count": 2,
+    "user_game": null,
+    "reviews_count": 2579,
+    "saturated_color": "0f0f0f",
+    "dominant_color": "0f0f0f",
+    "parent_platforms": [
+        {
+            "platform": {
+                "id": 1,
+                "name": "PC",
+                "slug": "pc"
+            }
+        },
+        {
+            "platform": {
+                "id": 2,
+                "name": "PlayStation",
+                "slug": "playstation"
+            }
+        },
+        {
+            "platform": {
+                "id": 3,
+                "name": "Xbox",
+                "slug": "xbox"
+            }
+        }
+    ],
+    "platforms": [
+        {
+            "platform": {
+                "id": 18,
+                "name": "PlayStation 4",
+                "slug": "playstation4",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 6742,
+                "image_background": "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg"
+            },
+            "released_at": "2012-09-25",
+            "requirements": {}
+        },
+        {
+            "platform": {
+                "id": 16,
+                "name": "PlayStation 3",
+                "slug": "playstation3",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 3160,
+                "image_background": "https://media.rawg.io/media/games/49c/49c3dfa4ce2f6f140cc4825868e858cb.jpg"
+            },
+            "released_at": "2012-09-25",
+            "requirements": {}
+        },
+        {
+            "platform": {
+                "id": 14,
+                "name": "Xbox 360",
+                "slug": "xbox360",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 2786,
+                "image_background": "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg"
+            },
+            "released_at": "2012-09-25",
+            "requirements": {}
+        },
+        {
+            "platform": {
+                "id": 4,
+                "name": "PC",
+                "slug": "pc",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 523749,
+                "image_background": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
+            },
+            "released_at": "2012-09-25",
+            "requirements": {
+                "minimum": "Minimum:\nOS: Windows Vista / Windows 7\nProcessor: 3.0 GHz dual core or better\nMemory: 3 GB system RAM\nHard Disk Space: 9 GB\nVideo Card: DirectX 9 compatible with 512 MB video RAM or better (NVIDIA GeForce GTX 460 / ATI Radeon HD 5850)\nSound: Windows compatible sound card",
+                "recommended": "Recommended:\nOS: Windows Vista / Windows 7 (enhanced for 64-bit OS)\nProcessor: 2.4 GHz quad core or better (enhanced for multi-core processors)\nMemory: 4 GB system RAM\nHard Disk Space: 9 GB\nVideo Card: DirectX 9 compatible with 768 MB video RAM or better (NVIDIA GeForce GTX 460 / ATI Radeon HD 5850)\nSound: Windows compatible sound card"
+            }
+        },
+        {
+            "platform": {
+                "id": 1,
+                "name": "Xbox One",
+                "slug": "xbox-one",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 5569,
+                "image_background": "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg"
+            },
+            "released_at": "2012-09-25",
+            "requirements": {}
+        }
+    ],
+    "stores": [
+        {
+            "id": 4575,
+            "url": "",
+            "store": {
+                "id": 3,
+                "name": "PlayStation Store",
+                "slug": "playstation-store",
+                "domain": "store.playstation.com",
+                "games_count": 7874,
+                "image_background": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"
+            }
+        },
+        {
+            "id": 17138,
+            "url": "",
+            "store": {
+                "id": 1,
+                "name": "Steam",
+                "slug": "steam",
+                "domain": "store.steampowered.com",
+                "games_count": 87099,
+                "image_background": "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg"
+            }
+        },
+        {
+            "id": 33636,
+            "url": "",
+            "store": {
+                "id": 7,
+                "name": "Xbox 360 Store",
+                "slug": "xbox360",
+                "domain": "marketplace.xbox.com",
+                "games_count": 1912,
+                "image_background": "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"
+            }
+        }
+    ],
+    "developers": [
+        {
+            "id": 4,
+            "name": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "games_count": 63,
+            "image_background": "https://media.rawg.io/media/games/b55/b55dc9ad1401dae88843e102936df120.jpg"
+        },
+        {
+            "id": 3897,
+            "name": "Arkane Studios",
+            "slug": "arkane-studios",
+            "games_count": 25,
+            "image_background": "https://media.rawg.io/media/games/683/6834c702c73e28ef2b3b003bb2c54567.jpg"
+        }
+    ],
+    "genres": [
+        {
+            "id": 4,
+            "name": "Action",
+            "slug": "action",
+            "games_count": 177479,
+            "image_background": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Adventure",
+            "slug": "adventure",
+            "games_count": 137116,
+            "image_background": "https://media.rawg.io/media/games/d69/d69810315bd7e226ea2d21f9156af629.jpg"
+        },
+        {
+            "id": 5,
+            "name": "RPG",
+            "slug": "role-playing-games-rpg",
+            "games_count": 54664,
+            "image_background": "https://media.rawg.io/media/games/e6d/e6de699bd788497f4b52e2f41f9698f2.jpg"
+        }
+    ],
+    "tags": [
+        {
+            "id": 31,
+            "name": "Singleplayer",
+            "slug": "singleplayer",
+            "language": "eng",
+            "games_count": 216354,
+            "image_background": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"
+        },
+        {
+            "id": 40847,
+            "name": "Steam Achievements",
+            "slug": "steam-achievements",
+            "language": "eng",
+            "games_count": 35004,
+            "image_background": "https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"
+        },
+        {
+            "id": 40836,
+            "name": "Full controller support",
+            "slug": "full-controller-support",
+            "language": "eng",
+            "games_count": 16378,
+            "image_background": "https://media.rawg.io/media/games/310/3106b0e012271c5ffb16497b070be739.jpg"
+        },
+        {
+            "id": 40849,
+            "name": "Steam Cloud",
+            "slug": "steam-cloud",
+            "language": "eng",
+            "games_count": 16431,
+            "image_background": "https://media.rawg.io/media/games/713/713269608dc8f2f40f5a670a14b2de94.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Atmospheric",
+            "slug": "atmospheric",
+            "language": "eng",
+            "games_count": 31643,
+            "image_background": "https://media.rawg.io/media/games/ee3/ee3e10193aafc3230ba1cae426967d10.jpg"
+        },
+        {
+            "id": 24,
+            "name": "RPG",
+            "slug": "rpg",
+            "language": "eng",
+            "games_count": 19431,
+            "image_background": "https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"
+        },
+        {
+            "id": 118,
+            "name": "Story Rich",
+            "slug": "story-rich",
+            "language": "eng",
+            "games_count": 20176,
+            "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+        },
+        {
+            "id": 36,
+            "name": "Open World",
+            "slug": "open-world",
+            "language": "eng",
+            "games_count": 7002,
+            "image_background": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
+        },
+        {
+            "id": 8,
+            "name": "First-Person",
+            "slug": "first-person",
+            "language": "eng",
+            "games_count": 30284,
+            "image_background": "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg"
+        },
+        {
+            "id": 32,
+            "name": "Sci-fi",
+            "slug": "sci-fi",
+            "language": "eng",
+            "games_count": 18315,
+            "image_background": "https://media.rawg.io/media/games/198/1988a337305e008b41d7f536ce9b73f6.jpg"
+        },
+        {
+            "id": 30,
+            "name": "FPS",
+            "slug": "fps",
+            "language": "eng",
+            "games_count": 12763,
+            "image_background": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"
+        },
+        {
+            "id": 64,
+            "name": "Fantasy",
+            "slug": "fantasy",
+            "language": "eng",
+            "games_count": 26411,
+            "image_background": "https://media.rawg.io/media/games/04a/04a7e7e185fb51493bdcbe1693a8b3dc.jpg"
+        },
+        {
+            "id": 15,
+            "name": "Stealth",
+            "slug": "stealth",
+            "language": "eng",
+            "games_count": 6043,
+            "image_background": "https://media.rawg.io/media/games/62c/62c7c8b28a27b83680b22fb9d33fc619.jpg"
+        },
+        {
+            "id": 41,
+            "name": "Dark",
+            "slug": "dark",
+            "language": "eng",
+            "games_count": 15023,
+            "image_background": "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Replay Value",
+            "slug": "replay-value",
+            "language": "eng",
+            "games_count": 1513,
+            "image_background": "https://media.rawg.io/media/games/476/476178ef18ab0534771d099f51cdc694.jpg"
+        },
+        {
+            "id": 82,
+            "name": "Magic",
+            "slug": "magic",
+            "language": "eng",
+            "games_count": 8864,
+            "image_background": "https://media.rawg.io/media/games/639/639ce7d7fecbb9f0717e9fbc1180f8f8.jpg"
+        },
+        {
+            "id": 119,
+            "name": "Dystopian",
+            "slug": "dystopian",
+            "language": "eng",
+            "games_count": 1967,
+            "image_background": "https://media.rawg.io/media/games/f6b/f6bed028b02369d4cab548f4f9337e81.jpg"
+        },
+        {
+            "id": 218,
+            "name": "Multiple Endings",
+            "slug": "multiple-endings",
+            "language": "eng",
+            "games_count": 8027,
+            "image_background": "https://media.rawg.io/media/games/6cd/6cd653e0aaef5ff8bbd295bf4bcb12eb.jpg"
+        },
+        {
+            "id": 154,
+            "name": "Steampunk",
+            "slug": "steampunk",
+            "language": "eng",
+            "games_count": 1165,
+            "image_background": "https://media.rawg.io/media/games/4e6/4e6e8e7f50c237d76f38f3c885dae3d2.jpg"
+        },
+        {
+            "id": 278,
+            "name": "Assassin",
+            "slug": "assassin",
+            "language": "eng",
+            "games_count": 795,
+            "image_background": "https://media.rawg.io/media/games/233/233cdc08cce0228f6f35222eca3bff92.jpg"
+        }
+    ],
+    "publishers": [
+        {
+            "id": 339,
+            "name": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "games_count": 171,
+            "image_background": "https://media.rawg.io/media/games/e6d/e6de699bd788497f4b52e2f41f9698f2.jpg"
+        }
+    ],
+    "esrb_rating": {
+        "id": 4,
+        "name": "Mature",
+        "slug": "mature"
+    },
+    "clip": null,
+    "description_raw": "Dishonored is the game about stealth. Or action and killing people. It is you who will decide what to do with your enemies. You play as Corvo Attano, Empress' bodyguard, a masterful assassin and a combat specialist. All of a sudden, a group of assassins kill the Empress and kidnaps her daughter Emily. Being accused of murder and waiting for execution in a cell, Corvo still manages to escape with the help of the Loyalists and their leader Admiral Havelock. Now it is your duty to return the Empress daughter and restore your name. The main focus of the game is to give the player a choice. You can spare the lives of your enemies by knocking them out or making others do the job for you or brutally murder everyone in the city. Gadgets are given by Piero Joplin, Loyalists engineer and by the Outsider, who gives Corvo magical abilities. The game reacts to your choices - grim atmosphere by itself can be turned even darker by killing people or slightly lighter by not doing so. It is only a player's choice what to do with his abilities. Basing on these actions the game will give you with two different endings of the story."
+}

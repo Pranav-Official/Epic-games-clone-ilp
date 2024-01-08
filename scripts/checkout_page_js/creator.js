@@ -1,22 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var inputField = document.getElementById("slug");
+  var inputFieldSlug = document.getElementById("slug");
+  var inputFieldCardNum = document.getElementById("cardNum");
+  var inputFieldExpiry = document.getElementById("expiry");
+  var inputFieldCvv = document.getElementById("cvv");
+
+  var cardNumberLabel = document.getElementById("cardNumberLabel");
   var creatorTagLabel = document.getElementById("creatorTagLabel");
+  var expiryLabel = document.getElementById("expiryLabel");
+  var cvvLabel = document.getElementById("cvvLabel");
 
-  // Add focus event listener
-  inputField.addEventListener("focus", function () {
-    // Set placeholder to an empty string when the input field is focused
-    inputField.placeholder = "";
-  });
+  function setPlaceholderOnFocus(inputField, placeholder) {
+    inputField.addEventListener("focus", function () {
+      inputField.placeholder = "";
+    });
 
-  // Add blur event listener (optional: to restore the placeholder when the field loses focus)
-  inputField.addEventListener("blur", function () {
-    // Set placeholder back to its original value when the input field loses focus
-    inputField.placeholder = "ENTER A CREATOR TAG";
-  });
+    inputField.addEventListener("blur", function () {
+      inputField.placeholder = placeholder;
+    });
+  }
 
-  // Add input event listener
-  inputField.addEventListener("input", function () {
-    // Hide the span when there is text in the input field
-    creatorTagLabel.style.display = inputField.value ? "none" : "inline";
-  });
+  function hideLabelOnInput(inputField, label) {
+    inputField.addEventListener("input", function () {
+      label.style.display = inputField.value ? "none" : "inline";
+    });
+  }
+
+  setPlaceholderOnFocus(inputFieldSlug, "ENTER A CREATOR TAG");
+  hideLabelOnInput(inputFieldSlug, creatorTagLabel);
+
+  setPlaceholderOnFocus(inputFieldCardNum, "ENTER CARD NUMBER");
+  hideLabelOnInput(inputFieldCardNum, cardNumberLabel);
+
+  setPlaceholderOnFocus(inputFieldExpiry, "ENTER EXPIRY DATE");
+  hideLabelOnInput(inputFieldExpiry, expiryLabel);
+
+  setPlaceholderOnFocus(inputFieldCvv, "ENTER CVV");
+  hideLabelOnInput(inputFieldCvv, cvvLabel);
 });

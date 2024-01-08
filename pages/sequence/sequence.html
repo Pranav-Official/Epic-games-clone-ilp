@@ -20,8 +20,18 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="../../styles/checkout_css/checkout.css" />
-    <script src="../../scripts/checkout/checkout.js"></script>
-    <script src="../../scripts/checkout/creator.js"></script>
+    <link rel="stylesheet" href="../../styles/sequence_page/sequence.css" />
+    <link
+      rel="stylesheet"
+      href="../../styles/blue_loading_page/blue_loading.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../styles/purchase_complete_page/purchase_complete.css"
+    />
+    <script src="../../scripts/checkout_page_js/checkout.js"></script>
+    <script src="../../scripts/checkout_page_js/creator.js"></script>
+    <script src="../../scripts/sequence/dropdown.js"></script>
   </head>
 
   <body>
@@ -46,17 +56,18 @@
         <div class="epic-loading-image">
           <img src="../../assets/Epic_Games_logo.svg.png" />
         </div>
-        <h2 class="epic-loadging-text">Loading your order...</h2>
+        <h2 class="epic-loading-text">Loading your order...</h2>
         <div class="button-position2">
           <button id="closeButton2">
             <i style="color: rgb(0, 0, 0)" class="bi bi-x-lg"></i>
           </button>
         </div>
       </div>
+
       <script src="../../scripts/epic loading/epicloading.js"></script>
     </div>
     <div class="section" id="section3">
-      <div id="purchase-game" class="purchase-game">
+      <div id="purchase-game" class="purchase-game" style>
         <style>
           :root {
             --pmt-ui-color-highlight: #0074e4;
@@ -65,7 +76,12 @@
         <div class="payment-loading">
           <div class="payment-loading__container">
             <div class="payment">
-              <button class="payment-purchase-close" aria-label="close">
+              <button
+                class="payment-purchase-close"
+                aria-label="close"
+                id="closeButton"
+                onclick="closePage()"
+              >
                 <svg
                   class="payment-icon payment-purchase-close-icon"
                   width="24"
@@ -139,7 +155,12 @@
                                 class="payment-method-icon payment-method-icon--choose payment-method-icon--IN"
                                 aria-label="CHOOSE"
                                 role="img"
-                              ></div>
+                              >
+                                <img
+                                  class="credit-card"
+                                  src="../../assets/checkout/creditcard.svg"
+                                />
+                              </div>
                             </div>
                             <div class="payment-method__name">
                               <h2 class="payment-method__title">
@@ -191,10 +212,6 @@
                                       class="payment-input__name"
                                       for="cardNum"
                                     >
-                                      <span>Card Number</span>
-                                      <span class="payment-input__required"
-                                        >*</span
-                                      >
                                     </label>
                                     <input
                                       id="cardNum"
@@ -204,6 +221,7 @@
                                       autocomplete="new-password"
                                       maxlength="19"
                                       value=""
+                                      placeholder="ENTER CARD NUMBER *"
                                     />
                                   </div>
                                 </div>
@@ -213,19 +231,15 @@
                                       class="payment-input__name"
                                       for="expiry"
                                     >
-                                      <span>Expiration</span>
-                                      <span class="payment-input__required"
-                                        >*</span
-                                      >
                                     </label>
                                     <input
                                       id="expiry"
-                                      placeholder="mm/yy"
                                       class="payment-input__element"
                                       type="tel"
                                       name="expiry"
                                       autocomplete="new-password"
                                       value=""
+                                      placeholder="EXPIRY *"
                                     />
                                   </div>
                                 </div>
@@ -237,14 +251,10 @@
                                       class="payment-input__name"
                                       for="cvv"
                                     >
-                                      <span>CVV</span>
-                                      <span class="payment-input__required"
-                                        >*</span
-                                      >
                                     </label>
                                     <input
-                                      id="expiry"
-                                      placeholder="mm/yy"
+                                      id="cvv"
+                                      placeholder="CVV *"
                                       class="payment-input__element payment-input__element--text-secure"
                                       type="tel"
                                       name="cvv"
@@ -252,7 +262,7 @@
                                       maxlength="4"
                                       value=""
                                     />
-                                    <div class="payment-input__addonAfter">
+                                    <div class="payment-input__addonAfter-cvv">
                                       <svg
                                         class="payment-icon"
                                         width="24"
@@ -291,20 +301,15 @@
                                         class="payment-input__name"
                                         for="state"
                                       >
-                                        <span>State</span>
-                                        <span class="payment-input__required"
-                                          >*</span
-                                        >
                                       </label>
-                                      <input
+                                      <select
                                         id="state"
                                         class="payment-input__element"
-                                        type="text"
                                         name="state"
-                                        autocomplete="new-password"
-                                        value=""
-                                      />
-                                      <div class="payment-input__addonAfter">
+                                      >
+                                        <!-- Dropdown options will be dynamically added here -->
+                                      </select>
+                                      <!-- <div class="payment-input__addonAfter">
                                         <svg
                                           class="payment-icon"
                                           width="24"
@@ -321,7 +326,7 @@
                                             fill="white"
                                           ></path>
                                         </svg>
-                                      </div>
+                                      </div> -->
                                     </div>
                                   </div>
                                 </div>
@@ -420,7 +425,12 @@
                                 class="payment-method-icon payment-method-icon--choose payment-method-icon--IN"
                                 aria-label="CHOOSE"
                                 role="img"
-                              ></div>
+                              >
+                                <img
+                                  class="paypal"
+                                  src="../../assets/checkout/paypal.png"
+                                />
+                              </div>
                             </div>
                             <div class="payment-method__name">
                               <h2 class="payment-method__title">
@@ -513,6 +523,70 @@
                       </div>
                     </div>
                   </div>
+                  <h2 class="payment-title"><span>Epic Rewards</span></h2>
+                  <div
+                    class="payment-method payment-method--disabled"
+                    tabindex="0"
+                  >
+                    <div class="payment-method__trigger" tabindex="-1">
+                      <div class="payment-method__content">
+                        <div class="payment-radio payment-radio--disabled">
+                          <input
+                            name="payment method"
+                            class="payment-radio__input"
+                            type="checkbox"
+                            tabindex="-1"
+                            aria-label="payment method"
+                          />
+                          <span class="payment-radio__inner"></span>
+                        </div>
+                        <div
+                          class="payment-method-icon__wrap payment-method-icon__rewards"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="payment-method-icon--reward"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z"
+                              fill="url(#paint0_radial_10003_176179)"
+                            ></path>
+                            <defs>
+                              <radialGradient
+                                id="paint0_radial_10003_176179"
+                                cx="0"
+                                cy="0"
+                                r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(3.5 2.5) rotate(45) scale(20.5061)"
+                              >
+                                <stop
+                                  offset="0.19015"
+                                  stop-color="#8BAF3B"
+                                ></stop>
+                                <stop offset="1" stop-color="#FFB500"></stop>
+                              </radialGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                        <div class="payment-method__name">
+                          <h2 class="payment-method__title">
+                            <p>
+                              <span>Epic Rewards</span>
+                              <span class="payment-method__price">₹0.00</span>
+                            </p>
+                          </h2>
+                        </div>
+                      </div>
+                      <div class="payment-method__actions"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="payment-summaries">
@@ -535,9 +609,6 @@
                       <h2 class="payment-offer-summary__title">
                         Dead by Daylight
                       </h2>
-                      <p class="payment-offer-summary__author">
-                        Behaviour Interactive
-                      </p>
                     </div>
                   </div>
                   <div class="payment-order-summary payment-summaries__order">
@@ -549,7 +620,7 @@
                         </p>
                       </div>
                       <div class="payment-price">
-                        <p class="payment-price__label">Discounts</p>
+                        <p class="payment-price__label">Discount Price</p>
                         <p class="payment-price__value">
                           -
                           <span>$10.99</span>
@@ -564,7 +635,7 @@
                           </p>
                         </div>
                         <div class="payment-price">
-                          <p class="payment-price__label">Coupn Discount</p>
+                          <p class="payment-price__label">Coupon Discount</p>
                           <p class="payment-price__value">
                             -
                             <span>$3.00</span>
@@ -693,7 +764,8 @@
                       >.
                     </span>
                     <button
-                      class="payment-btn payment-order-confirm__btn payment-btn--disabled payment-btn--primary"
+                      class="payment-btn payment-order-confirm__btn payment-btn--primary"
+                      id="placeOrderButton"
                     >
                       <div class="payment-loading">
                         <div class="payment-loading__container">
@@ -701,6 +773,7 @@
                         </div>
                       </div>
                     </button>
+                    <script src="../../scripts/sequence/sequence.js"></script>
                   </div>
                 </div>
               </div>
@@ -708,8 +781,35 @@
           </div>
         </div>
       </div>
-
-      <script src="../../scripts/sequence/sequence.js"></script>
+    </div>
+    <script>
+      // Function to close the current window
+      function closePage() {
+        // Close the current window
+        window.close();
+      }
+    </script>
+    <!-- <div class="section" id="section4">
+      <div class="modal-container-blue" id="modalContainerblue">
+        <div class="lds-ring-blue">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div> -->
+    <div class="section" id="section4">
+      <div class="modal-container-purchase" id="modalContainerpurhase">
+        <div class="epic-purchase-image">
+          <img src="../../assets/Epic_Games_logo.svg.png" />
+        </div>
+        <h2 class="epic-purchase-text">Thank You!</h2>
+        <h4 class="epic-purchase-text-description">
+          Please do not close the window until we confirm that your purchase is
+          complete.
+        </h4>
+      </div>
     </div>
   </body>
 </html>

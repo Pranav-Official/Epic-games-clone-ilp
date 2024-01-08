@@ -81,10 +81,6 @@ body {
 .social-icon {
   color: rgb(204, 204, 204);
 }
-a {
-  text-decoration: none;
-  transition: color 0.3s ease-out 0s;
-}
 @media (min-width: 600px) {
   .social-icon {
     margin-right: 6px;
@@ -150,11 +146,6 @@ span {
   font-weight: 600;
   text-decoration: none;
 }
-svg {
-  height: 14px;
-  width: 14px;
-}
-
 .link-legal-tags {
   display: flex;
   box-pack: justify;

@@ -5,7 +5,8 @@ import {
   fetchGameAchievements,
 } from "../game_info/gameinfo_fetch.js";
 import getPrice from "../_functions/getprice.js";
-// let gameSlug = "forza-horizon";
+import { addtoTransactionInFirebase } from "../_functions/transaction_function.js";
+let gameSlug = "forza-horizon";
 
 // Set a timeout to show the body after 3 seconds
 setTimeout(function () {
@@ -13,8 +14,8 @@ setTimeout(function () {
 }, 2100);
 
 //function to dynamically load page details
-export const displayPage = async (gameSlug) => {
-  window.location.href = "../pages/gameinfo.html";
+export const displayPage = async () => {
+  // window.location.href = "../pages/gameinfo.html";
   try {
     const gameData = await fetchSingleGameData(gameSlug);
     const screenshots = await fetchGameScreenShots(gameSlug);
@@ -230,4 +231,6 @@ function limitWords(text, n) {
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
 
-// window.onload = displayPage;
+window.onload = displayPage;
+
+addtoTransactionInFirebase("forza-horizon");

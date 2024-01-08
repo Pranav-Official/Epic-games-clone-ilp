@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Epic Games Player Support</title>
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
       rel="icon"
       href="../../assets/Epic_Games_logo.svg.png"
       type="image/png"
@@ -13,11 +17,16 @@
       rel="stylesheet"
       href="../../styles/support_css/epic-games-support.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../../styles/footers/footer-secondary.css" />
     <script src="../../scripts/support/epic-games-support.js"></script>
     <script src="../../scripts/support/supportbuttongames.js"></script>
   </head>
-
   <body>
     <div>
       <div class="eg-support-main-container">
@@ -168,31 +177,57 @@
       <div class="SectionWrapper" id="Games">
         <h3 class="SectionWrapper__heading">Games</h3>
         <div class="SectionWrapper__content">
-          <ul class="GamesSectionList__wrapper" tabindex="-1" id="gamesList1" >            
-          </ul>
-          <div>
-            <button class="GamesSectionTile__wrapper ShowAllButton" aria-expanded="false">
-               <span class="ShowAllButton__inner">
-      <span class="Icon__wrapper ControllerIcon__wrapper ShowAllButton__icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="23" fill="none" >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M14.208 0a.75.75 0 0 0-.75.75V3H6.736C4.29 3 2.206 4.531 1.804 6.62L.272 14.589C.096 15.03 0 17.672 0 18.166 0 20.56 0 22.5 5 22.5c1.91 0 3.571-2.815 4.413-5.342.523-1.572 1.93-2.93 3.587-2.93h4c1.657 0 3.064 1.358 3.587 2.93C21.43 19.685 23.09 22.5 25 22.5c5 0 5-1.94 5-4.333 0-.495-.096-3.137-.272-3.58l-1.532-7.966C27.794 4.53 25.71 3 23.264 3h-6.806V.75a.75.75 0 0 0-.75-.75h-1.5ZM8.25 12a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5ZM24 9.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" fill="#fff" >
-
-          </path>
-        </svg>
-      </span>
-      <span class="ShowAllButton__label">Show all Games</span>
-    </span>
-    <span class="ShowAllButton__triangleWrapper">
-      <span class="Icon__wrapper TileIcon__wrapper ShowAllButton__triangle-arrow">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" >
-          <path d="M13.9999 1.84349C14.0106 0.810127 13.1813 -0.0151916 12.139 0.00021216L3.22439 0.131963C0.724993 0.135528 0.719627 3.87513 3.21902 3.87156C3.21902 3.87156 5.57302 3.86399 6.26707 3.86176C6.96111 3.85952 7.12342 4.25693 6.63551 4.74349L0.548148 10.814C-0.183256 11.5434 -0.182003 12.7272 0.547628 13.4548C1.27875 14.1839 2.46835 14.1797 3.19576 13.4543L9.28312 7.38378C9.77368 6.89458 10.1695 7.05916 10.1672 7.75107L10.157 10.7904C10.1539 13.2833 13.9034 13.2775 13.907 10.785L13.9999 1.84349Z" fill="#fff" >
-          </path>
-        </svg>
-      </span>
-      <span class="ShowAllButton__triangle"></span>
-    </span>
-  </button>
+          <ul
+            class="GamesSectionList__wrapper"
+            tabindex="-1"
+            id="gamesList1"
+          ></ul>
+          <div class="button-wrapper">
+           <button class="GamesSectionTile__wrapper ShowAllButton" aria-expanded="false" id="showAllButton" onclick="handleButtonClick()">
+              <span class="ShowAllButton__inner">
+                <span
+                  class="Icon__wrapper ControllerIcon__wrapper ShowAllButton__icon"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="23"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M14.208 0a.75.75 0 0 0-.75.75V3H6.736C4.29 3 2.206 4.531 1.804 6.62L.272 14.589C.096 15.03 0 17.672 0 18.166 0 20.56 0 22.5 5 22.5c1.91 0 3.571-2.815 4.413-5.342.523-1.572 1.93-2.93 3.587-2.93h4c1.657 0 3.064 1.358 3.587 2.93C21.43 19.685 23.09 22.5 25 22.5c5 0 5-1.94 5-4.333 0-.495-.096-3.137-.272-3.58l-1.532-7.966C27.794 4.53 25.71 3 23.264 3h-6.806V.75a.75.75 0 0 0-.75-.75h-1.5ZM8.25 12a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5ZM24 9.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+                      fill="#fff"
+                    ></path>
+                  </svg>
+                </span>
+                <span class="ShowAllButton__label">Show all Games</span>
+              </span>
+              <span class="ShowAllButton__triangleWrapper">
+                <span
+                  class="Icon__wrapper TileIcon__wrapper ShowAllButton__triangle-arrow"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                  >
+                    <path
+                      d="M13.9999 1.84349C14.0106 0.810127 13.1813 -0.0151916 12.139 0.00021216L3.22439 0.131963C0.724993 0.135528 0.719627 3.87513 3.21902 3.87156C3.21902 3.87156 5.57302 3.86399 6.26707 3.86176C6.96111 3.85952 7.12342 4.25693 6.63551 4.74349L0.548148 10.814C-0.183256 11.5434 -0.182003 12.7272 0.547628 13.4548C1.27875 14.1839 2.46835 14.1797 3.19576 13.4543L9.28312 7.38378C9.77368 6.89458 10.1695 7.05916 10.1672 7.75107L10.157 10.7904C10.1539 13.2833 13.9034 13.2775 13.907 10.785L13.9999 1.84349Z"
+                      fill="#fff"
+                    ></path>
+                  </svg>
+                </span>
+                <span class="ShowAllButton__triangle"></span>
+              </span>
+            </button>
           </div>
+          <ul class="GamesSectionList2__wrapper" tabindex="-1" id="gamesList">
+            <!-- Dynamic content will be added here -->
+          </ul>
           <div class="SectionWrapper" id="Account">
             <h3 class="SectionWrapper__heading">Accounts</h3>
             <div class="SectionWrapper__content">
@@ -552,7 +587,10 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i class="eg-footer-icon"> </i>
+                <i
+                  class="text-color-nonactive accent-color-hover egf-footer-icon bi bi-facebook"
+                >
+                </i>
               </a>
               <a
                 id="twitter"
@@ -561,7 +599,12 @@
                 href="https://www.facebook.com/epicgames"
                 target="_blank"
                 rel="noopener noreferrer"
-              ></a>
+              >
+                <i
+                  class="ttext-color-nonactive accent-color-hover egf-footer-icon bi bi-twitter"
+                >
+                </i>
+              </a>
               <a
                 id="youtube"
                 class="social-icon"
@@ -569,22 +612,18 @@
                 href="https://www.facebook.com/epicgames"
                 target="_blank"
                 rel="noopener noreferrer"
-              ></a>
+              >
+                <i
+                  class="text-color-nonactive accent-color-hover egf-footer-icon bi bi-youtube"
+                >
+                </i>
+              </a>
             </div>
             <button aria-label="Back to Top" class="up-button">
               <span class="arrow-wrap-up">
-                <svg ViewBox="0 0 13 13" fill="none">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6.58376 2.73002L2.37551 6.93827L1.66841 6.23116L6.7102 1.18937L7.06375 0.835814L7.41731 
-                    1.18937L12.6326 6.40469L11.9255 7.11179L7.5846 2.77087L7.73721 11.7916L6.73735 11.8085L6.58376 2.73002Z"
-                  ></path>
-                </svg>
+                <i class="bi bi-arrow-up"></i>
               </span>
-              <a href="#heading-wrapper-heading">
-                <span class="button-label">Back to top</span>
-              </a>
+              <span class="button-label">Back to top</span>
             </button>
           </div>
           <div class="link-legal-tags">

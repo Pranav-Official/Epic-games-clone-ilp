@@ -1,56 +1,49 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const showAllButton = document.getElementById("showAllButton");
+async function handleButtonClick() {
+  const button = document.getElementById("showAllButton");
+  const gamesList = document.getElementById("gamesList");
 
-  showAllButton.addEventListener("click", async () => {
-    const targetGamesList = document.querySelector(
-      ".GamesSectionList__wrapper2"
-    );
+  // Toggle the visibility of the button
+  button.style.display = "none";
 
-    try {
-      const response = await fetch(
-        "https://mocki.io/v1/3141cac6-b85a-41af-91d4-eecbf3e7bed1"
-      );
-      const games = await response.json();
+  // Fetch data from your API
+  const apiUrl = "https://mocki.io/v1/2ea210d2-83a9-41c5-9be9-39ea27cac94d";
+  try {
+    const response = await fetch(apiUrl);
+    const gamesData = await response.json();
 
-      displayGames(games, targetGamesList);
-    } catch (error) {
-      console.error("Error fetching games:", error);
-    }
-  });
-});
+    gamesData.forEach((game) => {
+      const listItem = document.createElement("li");
+      listItem.classList.add("GamesSectionList2__item");
 
-function displayGames(games, listContainer) {
-  listContainer.innerHTML = ""; // Clear existing content
+      const gameLink = document.createElement("a");
+      gameLink.classList.add("GamesSectionTile2__wrapper");
+      gameLink.setAttribute("aria-label", game.label);
+      gameLink.setAttribute("href", game.url);
 
-  games.forEach((game) => {
-    const listItem = document.createElement("li");
-    listItem.classList.add("GamesSectionList__item1");
+      const imageWrapper = document.createElement("div");
+      imageWrapper.classList.add("GamesSectionTile2__image-wrapper");
 
-    const anchor = document.createElement("a");
-    anchor.classList.add("GamesSectionTile2__wrapper");
-    anchor.setAttribute("aria-label", game.label);
-    anchor.href = game.url;
+      const image = document.createElement("img");
+      image.alt = game.label;
+      image.classList.add("GamesSectionTile2__image");
+      image.src = game.image;
+      image.loading = "auto";
+      image.setAttribute("aria-hidden", "true");
 
-    const imageWrapper = document.createElement("div");
-    imageWrapper.classList.add("GamesSectionTile2__image-wrapper");
+      imageWrapper.appendChild(image);
+      gameLink.appendChild(imageWrapper);
 
-    const image = document.createElement("img");
-    image.alt = game.label;
-    image.classList.add("GamesSectionTile2__image");
-    image.src = game.image;
-    image.loading = "auto";
-    image.setAttribute("aria-hidden", "true");
+      const title = document.createElement("span");
+      title.classList.add("GamesSectionTile2__title");
+      title.setAttribute("aria-hidden", "true");
+      title.textContent = game.label;
 
-    const title = document.createElement("span");
-    title.classList.add("GamesSectionTile2__title");
-    title.setAttribute("aria-hidden", "true");
-    title.textContent = game.label;
+      gameLink.appendChild(title);
+      listItem.appendChild(gameLink);
 
-    imageWrapper.appendChild(image);
-    anchor.appendChild(imageWrapper);
-    anchor.appendChild(title);
-    listItem.appendChild(anchor);
-
-    listContainer.appendChild(listItem);
-  });
+      gamesList.appendChild(listItem);
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 }
