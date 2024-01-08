@@ -68,7 +68,7 @@ h1 span {
   padding-left: 20px;
 }
 .card-two img {
-  width: 400px;
+  width: 475px;
   margin-left: 1rem;
   border-radius: 0.5rem;
 }
@@ -105,6 +105,11 @@ h1 span {
   transition: background-color 0.3s;
   text-align: center;
   background-color: var(--color-main-page);
+  border-style: none;
+  border-right: #fff;
+}
+.pagination .bracket {
+  border-style: none;
 }
 /* .pagination button.active {
   background-color: grey;
