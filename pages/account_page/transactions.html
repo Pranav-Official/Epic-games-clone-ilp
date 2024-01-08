@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../styles/discover_page/discover.css" />
+    <link rel="stylesheet" href="../../styles/account_page/account_page.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+      class="bootstrap-styled"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="epic-menu d-flex flex-row">
+        <div class="left">
+          <div class="menu">
+            <h3>Play</h3>
+            <ul>
+              <li>
+                <a href="https://www.fortnite.com/?lang=en-US"
+                  ><i class="bi bi-hexagon-fill"></i> Fortnite</a
+                >
+              </li>
+              <li>
+                <a href="https://www.rocketleague.com?lang=en"
+                  ><i class="bi bi-shield-shaded"></i> Rocket League</a
+                >
+              </li>
+              <li>
+                <a href="https://fallguys.com/?lang=en-US"
+                  ><i class="bi bi-emoji-heart-eyes-fill"></i> Fall Guys</a
+                >
+              </li>
+              <!-- Add the rest of the list items similarly -->
+            </ul>
+          </div>
+          <div class="menu">
+            <h3>Discover</h3>
+            <ul>
+              <li>
+                <a href="https://store.epicgames.com/en-US/"
+                  ><i class="bi bi-dice-5-fill"></i> Epic Games Store</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fab.com?lang=en-US"
+                  ><i class="bi bi-fan"></i> Fab</a
+                >
+              </li>
+              <li>
+                <a href="https://sketchfab.com/">
+                  <i class="bi bi-brush-fill"></i>Sketchfab</a
+                >
+              </li>
+              <li>
+                <a href="https://www.artstation.com/"
+                  ><i class="bi bi-palette-fill"></i> ArtStation</a
+                >
+              </li>
+              <!-- Add the rest of the list items similarly -->
+            </ul>
+          </div>
+        </div>
+        <div class="right">
+          <div class="menu">
+            <h3>Create</h3>
+            <ul>
+              <li>
+                <a href="https://www.unrealengine.com/?lang=en-US"
+                  ><i class="bi bi-type-underline"></i> Unreal Engine</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://create.fortnite.com/welcome?team=personal&amp;lang=en-US"
+                  ><i class="bi bi-tree-fill"></i> Create in Fortnite</a
+                >
+              </li>
+              <li>
+                <a href="https://www.unrealengine.com/metahuman?lang=en-US"
+                  ><i class="bi bi-people-fill"></i> MetaHuman</a
+                >
+              </li>
+              <li>
+                <a href="https://www.twinmotion.com/?lang=en-US"
+                  ><i class="bi bi-circle-fill"></i> Twinmotion</a
+                >
+              </li>
+              <li>
+                <a href="https://www.unrealengine.com/realityscan?lang=en-US"
+                  ><i class="bi bi-upc-scan"></i> RealityScan</a
+                >
+              </li>
+              <li>
+                <a href="https://www.capturingreality.com/realitycapture"
+                  ><i class="bi bi-camera2"></i> RealityCapture</a
+                >
+              </li>
+              <li>
+                <a href="https://dev.epicgames.com/?lang=en-US"
+                  ><i class="bi bi-browser-chrome"></i> Epic Online Services</a
+                >
+              </li>
+              <li>
+                <a href="http://store.epicgames.com/en-US/distribution"
+                  ><i class="bi bi-shop"></i> Publish on Epic Games Store</a
+                >
+              </li>
+              <li>
+                <a href="https://dev.superawesome.com/"
+                  ><i class="bi bi-emoji-smile-fill"></i> Kids Web Services</a
+                >
+              </li>
+              <li>
+                <a href="https://dev.epicgames.com/community?locale=en-us"
+                  ><i class="bi bi-person-vcard-fill"></i> Developer
+                  Community</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="profile-menu position-absolute">
+        <ul>
+          <li>
+            <a href="../pages/account_page/epic_rewards_page.html"
+              >Epic Rewards</a
+            >
+          </li>
+          <li><a href="../pages/account_page/account_page.html">Account</a></li>
+          <li>
+            <a class="navbar-sign-out" href="./discover.html">Sign out</a>
+          </li>
+        </ul>
+      </div>
+      <div class="header-left-side">
+        <div class="store-options">
+          <div class="epic-logo">
+            <img class="epic-logo-image" src="../../assets/epic-logo.png" />
+            <span aria-hidden="true" class="icon epic-menu-arrow"
+              ><!--?lit$758340424$--><svg
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.53 7.47a.75.75 0 0 0-1.06 0L10 11.94 5.53 7.47a.75.75 0 0 0-1.06 1.06L10 14.06l5.53-5.53a.75.75 0 0 0 0-1.06Z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </span>
+          </div>
+          <div class="h-ruler"></div>
+          <div class="store-logo">
+            <img class="store-logo-image" src="../../assets/store-logo.png" />
+          </div>
+        </div>
+        <div class="epic-pages">
+          <a
+            href="../pages/distribution_page/distribution.html"
+            class="epic-pages-link"
+            >Distribution</a
+          >
+          <a
+            href="../pages/support_page/epic-games-support.html"
+            class="epic-pages-link"
+            >Support</a
+          >
+          <a class="epic-pages-link">Unreal Engine</a>
+        </div>
+      </div>
+      <div class="header-right-side">
+        <div class="profile">
+          <a>
+            <img src="../../assets/profile.png" alt="" />
+          </a>
+        </div>
+        <button class="download-button">Download</button>
+      </div>
+    </header>
+    <div class="account-page-body d-flex flex-row">
+      <div class="account-menu">
+        <ul>
+          <li>
+            <i class="bi bi-person-fill"></i
+            ><a href="../account_page/account_page.html">account settings</a>
+          </li>
+          <li class="account-menu-active">
+            <i class="bi bi-clock-fill"></i
+            ><a href="../account_page/transactions.html">transactions</a>
+          </li>
+          <li>
+            <i class="bi bi-coin"></i
+            ><a href="../account_page/epic_rewards.html">Epic Rewards</a>
+          </li>
+          <li>
+            <i class="bi bi-lock-fill"></i
+            ><a href="../account_page/passwords_security.html"
+              >Passwords and Security</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="account-page-content">
+        <div class="account-page-title">
+          <h2>Transactions</h2>
+          <p>View Your Purchace History</p>
+        </div>
+        <div class="purchase-history">
+          <div class="history-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Marketplace</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1/12/2024</th>
+                  <td>Grand Theft Auto V</td>
+                  <td>$59.99</td>
+                  <td>Epic Games</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <th scope="row">1/12/2024</th>
+                  <td>Grand Theft Auto V</td>
+                  <td>$59.99</td>
+                  <td>Epic Games</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <th scope="row">1/12/2024</th>
+                  <td>Grand Theft Auto V</td>
+                  <td>$59.99</td>
+                  <td>Epic Games</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <th scope="row">1/12/2024</th>
+                  <td>Grand Theft Auto V</td>
+                  <td>$59.99</td>
+                  <td>Epic Games</td>
+                  <td>Completed</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../scripts/_functions/scrollNavbar.js" defer></script>
+    <script src="../../scripts/_functions/storePageHome.js" defer></script>
+  </body>
+</html>

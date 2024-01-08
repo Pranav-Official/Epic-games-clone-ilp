@@ -1,3 +1,20 @@
+import fetchData from "../_functions/rawgfetchGamesdata.js";
+import { API_KEY } from "../../environment.js";
+
+const searchSuggestionDOM = (results) => {
+  const suggentionItems = document.querySelectorAll(".search-suggestion-item");
+  try {
+    for (let i = 0; i < 4; i++) {
+      console.log(results[i].name);
+      suggentionItems[i].querySelector("h4").textContent = results[i].name;
+      suggentionItems[i].setAttribute("data-slug", results[i].slug);
+      suggentionItems[i].querySelector("img").src = results[i].background_image;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 document.querySelector(".store-logo").addEventListener("click", () => {
   console.log("store logo");
   window.location.href = "../../../pages/discover.html";
@@ -50,3 +67,26 @@ document.querySelector(".navbar-sign-out").addEventListener("click", () => {
     localStorage.removeItem("userId");
   }
 });
+
+document.querySelector("#search-field").addEventListener("input", () => {
+  let searchValue = document.querySelector("#search-field").value;
+  if (searchValue.length > 2) {
+    document.querySelector(".search-suggestion-box").classList.add("active");
+    searchSuggestionBoxFuction(searchValue);
+  } else {
+    document.querySelector(".search-suggestion-box").classList.remove("active");
+  }
+});
+
+const searchSuggestionBoxFuction = async (searchValue) => {
+  const data = await fetchData(API_KEY, [
+    ["search", searchValue],
+    // ["ordering", "-released"],
+    // ["metacritic", "70", "100"],
+  ]);
+  if (data.count < 4) {
+    document.querySelector(".search-suggestion-box").classList.remove("active");
+  }
+  // console.log(data.results);
+  searchSuggestionDOM(data.results);
+};

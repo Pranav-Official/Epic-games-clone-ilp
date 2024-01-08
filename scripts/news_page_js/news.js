@@ -1,4 +1,5 @@
 //API url and request
+import { NEWS_API_KEY } from "../../environment.js";
 const url =
   "https://newsapi.org/v2/everything?" +
   "q=Games&" +
@@ -6,8 +7,8 @@ const url =
 
 const req = new Request(url);
 
-const apiKey = "4bdcb41ba60e45ae98fac6b55ae85c2c";
-const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${apiKey}`;
+// const apiKey = "4bdcb41ba60e45ae98fac6b55ae85c2c";
+const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${NEWS_API_KEY}`;
 
 //Top news
 const topNewsTemplate = (newsItem1, newsItem2) => {
@@ -19,6 +20,7 @@ const topNewsTemplate = (newsItem1, newsItem2) => {
           <img
             class="card-img-top"
             src="${newsItem1.urlToImage}"
+            onerror="this.src='../assets/news_images/news_top1.PNG'"
             alt="${newsItem1.id}"
           />
           <div class="card-body">
@@ -34,6 +36,7 @@ const topNewsTemplate = (newsItem1, newsItem2) => {
           <img
             class="card-img-top"
             src="${newsItem2.urlToImage}"
+            onerror="this.src='../assets/news_images/news_top1.PNG'"
             alt="${newsItem2.id}"
           />
           <div class="card-body">
@@ -56,18 +59,26 @@ const rowNewsTemplate = (newsItem) => {
   return `
   <div class="row">
     <div class="row-left">
-      <img src="${newsItem.urlToImage}" alt="newslist${newsItem.id}" />
+      <img src="${newsItem.urlToImage}" onerror="this.src='../assets/news_images/news_top1.PNG'" alt="newslist${newsItem.id}" />
     </div>
     <article class="row-right">
       <p>${formattedTimeAgo}</p>
       <h4 class="card-title">${newsItem.title}</h4>
       <p class="card-text">${newsItem.description}</p>
-      <a href="${newsItem.url}">Read more</a>
+      <a href="${newsItem.url}">Read more</a?
     </article>
   </div>
   <hr>
 `;
 };
+//<a
+// href="../pages/newsReadmore.html"
+// onclick="navigateToReadMore(${JSON.stringify(
+//      newsItem
+//    )})"
+//>
+//  Read more
+//</a>;
 //function to display published time
 const timeAgo = (dateString) => {
   const currentDate = new Date();
@@ -108,6 +119,7 @@ async function fetchData(apiUrl) {
     return [];
   }
 }
+
 //to display news from specific number
 const displayNews = (newsData, start) => {
   const newsContainer = document.getElementById("newsContainer");
@@ -136,11 +148,18 @@ const displayNews = (newsData, start) => {
 let newsData;
 async function init() {
   newsData = await fetchData(apiUrl);
+  localStorage.setItem("newsData", JSON.stringify(newsData));
   displayNews(newsData, 0);
 }
 //To display next page news.
 const nextPage = (num) => {
-  displayNews(newsData, num * 10);
+  displayNews(newsData, (num - 1) * 10);
 };
+document.querySelectorAll(".news-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    let buttonNumber = parseInt(button.innerHTML, 10);
+    nextPage(buttonNumber);
+  });
+});
 // Initial load
 init();

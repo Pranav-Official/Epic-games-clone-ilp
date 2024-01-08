@@ -4,6 +4,8 @@ const handleGameCardClick = (event) => {
 
   // Log the value
   console.log("Clicked game card with data-slug:", dataSlug);
+  localStorage.setItem("gameSlug-info", dataSlug);
+  window.location.href = "../../pages/gameinfo.html";
 
   // Add additional logic as needed
 };
@@ -11,6 +13,13 @@ const handleGameCardClick = (event) => {
 // Add the click event listener to each game card
 document.querySelectorAll(".game-card").forEach((gameCard) => {
   gameCard.addEventListener("click", handleGameCardClick);
+});
+
+document.querySelectorAll(".search-suggestion-item").forEach((gameCard) => {
+  gameCard.addEventListener("click", (event) => {
+    console.log("Clicked search suggestion item");
+    handleGameCardClick(event);
+  });
 });
 
 const checkAndAddTrippleItemListener = () => {
