@@ -44,12 +44,19 @@ a.epic-pages-link {
   display: flex;
   align-items: center;
   margin-right: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 0px;
 }
 
-.rewards p {
+.rewards:hover {
+  color: grey !important;
+}
+
+.rewards a {
   color: grey;
-  margin-right: 8px; /* Adjust the spacing between "My Cart" and "Rewards" */
-  margin-top: 20px;
+  margin-right: 8px;
+  margin-top: 4px;
   font-size: 14px;
 }
 
@@ -227,6 +234,7 @@ a.epic-pages-link {
   width: 100%; /* Set width to 100% for responsiveness */
   height: 200px; /* Set height to 100% for responsiveness */
   border-radius: 0.9rem;
+  object-fit: cover;
 }
 
 .bill {

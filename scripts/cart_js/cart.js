@@ -38,7 +38,7 @@ const cartTemplate = (cartItem) => {
             <div class="right">
               <div class="base">
                 <h2><b>BASE GAME</b></h2>
-                <span class="price"><h6>&#8377;${cartItem.actualPrice}</h6> </span>
+                <span class="price"><h6>&#8377;${cartItem.retailPrice}</h6> </span>
               </div>
 
               <h3>${cartItem.title}</h3>
@@ -89,17 +89,20 @@ const displayCartInDOM = (cartItems) => {
     gameHtml += cartTemplate(cartItem);
   });
 
+  
   const calculateTotalPrice = (cartItems) => {
     let totalPrice = 0;
 
     cartItems.forEach((game) => {
-      totalPrice += game.actualPrice;
+      totalPrice += game.retailPrice;
     });
 
     return totalPrice;
   };
   const totalPrice = calculateTotalPrice(cartItems);
-
+  // const totalPriceDisplay = document.getElementById("totalPriceDisplay");
+  // totalPriceDisplay.textContent = totalPrice;
+  // console.log(totalPriceDisplay);
   const gameSummary = `
     <div class="game-card-list" ></div>
   <div class="summary">
@@ -109,7 +112,7 @@ const displayCartInDOM = (cartItems) => {
             <div class="bill">
               <div class="bill-item">
                 <h6>Price</h6>
-                <span class="price">&#8377;${cartItems.actualPrice}</span>
+                <span class="price">&#8377;<span id="totalPriceDisplay">${totalPrice}</span></span>
               </div>
               <div class="bill-item">
                 <h6>Taxes</h6>
@@ -119,7 +122,7 @@ const displayCartInDOM = (cartItems) => {
               <hr />
               <div class="bill-item">
                 <h6><b>Subtotal</b></h6>
-                <span class="price"><b>&#8377;${cartItems.actualPrice}</b></span>
+                <span class="price"><b>&#8377;${totalPrice}</b></span>
               </div>
             </div>
             <button class="checkout-button"><b>CHECK OUT</b></button>
@@ -258,7 +261,7 @@ const removeCartInFirebase = async (slug) => {
 };
 
 let obj1 = {
-  actualPrice: 2599,
+  retailPrice: 2599,
   id: "1",
   image: "../assets/wishlist_images/wishlist1.PNG",
   offerPercentage: "-15%",
@@ -291,7 +294,7 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
   }
 });
 
-await addToCart("grand-theft-auto-v");
+await addToCart("ghostrunner");
 
 // const cartGameImage = document.getElementById("cartGameImage");
 // // Add a click event listener to the cart game image

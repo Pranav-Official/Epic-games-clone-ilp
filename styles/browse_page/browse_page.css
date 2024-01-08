@@ -28,7 +28,7 @@ a.epic-pages-link {
 
 .heading-text h4 {
   color: rgb(245, 245, 245);
-  font-size: 18px;
+  font-size: 18px !important;
   line-height: 25px;
   letter-spacing: -0.2px;
   margin-bottom: 0;
@@ -270,9 +270,12 @@ a.epic-pages-link {
   flex: 1; /* Allow the input to take up remaining space */
   color: rgb(187, 187, 187);
   background-color: rgb(32, 32, 32);
-  border: 0px;
+  border-radius: 5px;
   width: 30px;
   height: 30px;
+  border: 0px;
+  outline: none;
+  position: relative;
 }
 
 .right #search-fields-2:active,
@@ -284,28 +287,13 @@ a.epic-pages-link {
 #search-field::placeholder {
   color: rgb(187, 187, 187);
 }
-/* .search-button {
-  position: absolute;
-  top: 48%;
-  right: 210px; 
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: white;
-} */
-.search-button {
-  position: absolute;
-  margin-right: 8px;
-  left: -2px;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 10px;
-}
 
-.search-icon {
+.search-img {
   width: 16px; /* Adjust the size of the icon as needed */
   height: 16px;
   fill: currentColor;
-  margin-right: 1px;
+  margin-right: 2px;
+  position: absolute;
 }
 
 .filter-header {
@@ -326,5 +314,40 @@ a.epic-pages-link {
   font-size: 20px;
 }
 
-.search-icon {
+.genres {
+  display: flex;
+  overflow-x: hidden; /* Enable horizontal scrolling if needed */
+  white-space: nowrap;
+}
+
+.genre-item {
+  flex: 0 0 auto;
+  margin-right: 20px; /* Adjust margin between genre items as needed */
+}
+
+.buttons .leftButton,
+.buttons .rightButton {
+  background-color: rgb(32, 32, 32);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 20px; /* Set the width and height to be the same */
+  height: 20px; /* Set the width and height to be the same */
+}
+
+.buttons .leftButton {
+  margin-right: 10px;
+}
+
+.buttons {
+  margin-bottom: 20px;
+  /* padding-left: 890px; */
+  margin-left: auto;
+  /* flex: 1; */
+}
+
+.buttons .active {
+  border: 2px solid white;
 }
