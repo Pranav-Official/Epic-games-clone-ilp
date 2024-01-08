@@ -76,6 +76,14 @@ const removeWishlistInFirebase = async (game) => {
     window.location.reload();
   }
 };
+
+const displayRemoveMessage = (item) => {
+  const removeMessage = document.querySelector(".remove-message");
+  return `
+  <p>Removed ${item.title} from wishlist.</p>
+  `;
+  removeMessage.setAttribute("style", "visibility:visible");
+};
 // const removeWishlistInFirebase = async (game) => {
 //   const removedGameTitle = game.title;
 
@@ -294,84 +302,115 @@ function manageOption() {
   console.log("button working");
 }
 
-// document.getElementById("filter_by_action").addEventListener("click", () => {
-//   filterWishlistPageByGenre("action");
-// });
-// document.getElementById("filter_by_indie").addEventListener("click", () => {
-//   filterWishlistPageByGenre("indie");
-// });
+const filterReset = () => {
+  displayWishlist(tempWishlistArray);
+};
+document.getElementById("filter-reset-button").addEventListener("click", () => {
+  filterReset();
+});
 
-// document.getElementById("filter_by_adventure").addEventListener("click", () => {
-//   filterWishlistPageByGenre("adventure");
-// });
+const filterWishlistPageByGenre = async (genre) => {
+  let filteredItems = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
 
-// document.getElementById("filter_by_rpg").addEventListener("click", () => {
-//   filterWishlistPageByGenre("rpg");
-// });
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const tempWishlistArray = userData.Wishlist;
+      tempWishlistArray.forEach((item) => {
+        let genres = item.genres;
+        for (let i = 0; i < genres.length; i++)
+          if (genres[i] === genre) {
+            filteredItems.push(item);
+            break;
+          }
+      });
+    }
+    console.log(filteredItems);
+    displayWishlist(filteredItems);
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+};
 
-// document.getElementById("filter_by_strategy").addEventListener("click", () => {
-//   filterWishlistPageByGenre("strategy");
-// });
+document.getElementById("filter_by_action").addEventListener("click", () => {
+  filterWishlistPageByGenre("action");
+});
+document.getElementById("filter_by_indie").addEventListener("click", () => {
+  filterWishlistPageByGenre("indie");
+});
 
-// document.getElementById("filter_by_shooter").addEventListener("click", () => {
-//   filterWishlistPageByGenre("shooter");
-// });
+document.getElementById("filter_by_adventure").addEventListener("click", () => {
+  filterWishlistPageByGenre("adventure");
+});
 
-// document.getElementById("filter_by_casual").addEventListener("click", () => {
-//   filterWishlistPageByGenre("casual");
-// });
+document.getElementById("filter_by_rpg").addEventListener("click", () => {
+  filterWishlistPageByGenre("rpg");
+});
 
-// document.getElementById("filter_by_puzzle").addEventListener("click", () => {
-//   filterWishlistPageByGenre("puzzle");
-// });
+document.getElementById("filter_by_strategy").addEventListener("click", () => {
+  filterWishlistPageByGenre("strategy");
+});
 
-// document.getElementById("filter_by_arcade").addEventListener("click", () => {
-//   filterWishlistPageByGenre("arcade");
-// });
+document.getElementById("filter_by_shooter").addEventListener("click", () => {
+  filterWishlistPageByGenre("shooter");
+});
 
-// document
-//   .getElementById("filter_by_platformer")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByGenre("platformer");
-//   });
+document.getElementById("filter_by_casual").addEventListener("click", () => {
+  filterWishlistPageByGenre("casual");
+});
 
-// document
-//   .getElementById("filter_by_massive-multiplayer")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByGenre("massive-multiplayer");
-//   });
+document.getElementById("filter_by_puzzle").addEventListener("click", () => {
+  filterWishlistPageByGenre("puzzle");
+});
 
-// document.getElementById("filter_by_racing").addEventListener("click", () => {
-//   filterWishlistPageByGenre("racing");
-// });
+document.getElementById("filter_by_arcade").addEventListener("click", () => {
+  filterWishlistPageByGenre("arcade");
+});
 
-// document.getElementById("filter_by_sports").addEventListener("click", () => {
-//   filterWishlistPageByGenre("sports");
-// });
+document
+  .getElementById("filter_by_platformer")
+  .addEventListener("click", () => {
+    filterWishlistPageByGenre("platformer");
+  });
 
-// document.getElementById("filter_by_fighting").addEventListener("click", () => {
-//   filterWishlistPageByGenre("fighting");
-// });
+document
+  .getElementById("filter_by_massive-multiplayer")
+  .addEventListener("click", () => {
+    filterWishlistPageByGenre("massive-multiplayer");
+  });
 
-// document.getElementById("filter_by_family").addEventListener("click", () => {
-//   filterWishlistPageByGenre("family");
-// });
+document.getElementById("filter_by_racing").addEventListener("click", () => {
+  filterWishlistPageByGenre("racing");
+});
 
-// document
-//   .getElementById("filter_by_board-games")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByGenre("board-games");
-//   });
+document.getElementById("filter_by_sports").addEventListener("click", () => {
+  filterWishlistPageByGenre("sports");
+});
 
-// document
-//   .getElementById("filter_by_educational")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByGenre("educational");
-//   });
+document.getElementById("filter_by_fighting").addEventListener("click", () => {
+  filterWishlistPageByGenre("fighting");
+});
 
-// document.getElementById("filter_by_card").addEventListener("click", () => {
-//   filterWishlistPageByGenre("card");
-// });
+document.getElementById("filter_by_family").addEventListener("click", () => {
+  filterWishlistPageByGenre("family");
+});
+
+document
+  .getElementById("filter_by_board-games")
+  .addEventListener("click", () => {
+    filterWishlistPageByGenre("board-games");
+  });
+
+document
+  .getElementById("filter_by_educational")
+  .addEventListener("click", () => {
+    filterWishlistPageByGenre("educational");
+  });
+
+document.getElementById("filter_by_card").addEventListener("click", () => {
+  filterWishlistPageByGenre("card");
+});
 
 const filterWishlistPageByFeatures = async (feature) => {
   let filteredItems = [];
@@ -438,13 +477,13 @@ document
     filterWishlistPageByFeatures("great-soundtrack");
   });
 
-document.getElementById("filter_by_rpg").addEventListener("click", () => {
-  console.log("rpg");
-  filterWishlistPageByFeatures("rpg");
-});
+// document.getElementById("filter_by_rpg").addEventListener("click", () => {
+//   console.log("rpg");
+//   filterWishlistPageByFeatures("rpg");
+// });
 
 document.getElementById("filter_by_coop").addEventListener("click", () => {
   filterWishlistPageByFeatures("co-op");
 });
 
-// await addToWishlist("diablo-iv");
+// await addToWishlist("");

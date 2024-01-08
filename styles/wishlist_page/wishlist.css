@@ -217,10 +217,11 @@ input:checked + .slider:before {
 }
 #filter-button {
   flex: 1;
+  flex-direction: row;
   color: rgb(245, 245, 245);
   background-color: var(--color-main-page);
   text-align: left;
-  display: flex;
+  /* display: flex; */
   border-radius: 0.25rem;
   border-style: none;
   width: 8rem;
@@ -231,15 +232,27 @@ input:checked + .slider:before {
   height: 40px;
   min-width: 40px;
   padding: 0px 20px;
-  margin-right: 10rem;
+  margin-right: 6rem;
 }
 
 #filterbutton_title {
   flex: 1;
 }
+#filter-reset {
+  flex: 1;
+}
+#filter-reset-button {
+  color: white;
+  border-style: none;
+  /* border: 1px solid;
+  border-radius: 2px; */
+}
+#filter-reset-button:hover {
+  background-color: #504d4d;
+}
 
 #filterbutton_img {
-  flex: 1;
+  /* flex: 1; */
   width: 0.5rem;
   height: 0.8rem;
   margin-left: 0.5rem;
@@ -249,6 +262,7 @@ input:checked + .slider:before {
 @media only screen and (max-width: 1000px) {
   #filterbutton_img {
     visibility: visible;
+    flex: 1;
   }
   #filterbutton {
     margin-right: 0%;
@@ -497,6 +511,9 @@ hr {
   --bs-accordion-btn-focus-border-color: rgb(32, 32, 32);
   --bs-accordion-btn-focus-box-shadow: rgb(32, 32, 32);
   --bs-accordion-border-width: 0px;
+}
+.accordion-body button:hover {
+  background-color: var(--bs-accordion-bg);
 }
 .accordion-button:not(.collapsed)::after {
   background-image: var(--bs-accordion-btn-icon);

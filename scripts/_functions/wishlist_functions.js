@@ -91,6 +91,11 @@ export const addToWishlist = async (gameSlug) => {
   gameTagsArray.forEach((tag) => {
     tempTagArray.push(tag.slug);
   });
+  const gameGenresArray = data.genres;
+  let tempGenreArray = [];
+  gameGenresArray.forEach((genre) => {
+    tempGenreArray.push(genre.slug);
+  });
   //   let prices = await getPrice(gameSlug);
   const prices = {
     retailPrice: 4700,
@@ -105,6 +110,7 @@ export const addToWishlist = async (gameSlug) => {
     actualPrice: prices.retailPrice,
     offerPrice: prices.salePrice,
     tags: tempTagArray,
+    genres: tempGenreArray,
     offerPercentage: "-" + Math.trunc(prices.calculatedDiscount) + "%",
     image: data.background_image,
     salesEndDate: data.updated, //2024-01-04T16:43:18
