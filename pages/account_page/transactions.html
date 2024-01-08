@@ -198,10 +198,11 @@
     <div class="account-page-body d-flex flex-row">
       <div class="account-menu">
         <ul>
-          <li class="account-menu-active">
-            <i class="bi bi-person-fill"></i><a>account settings</a>
-          </li>
           <li>
+            <i class="bi bi-person-fill"></i
+            ><a href="../account_page/account_page.html">account settings</a>
+          </li>
+          <li class="account-menu-active">
             <i class="bi bi-clock-fill"></i
             ><a href="../account_page/transactions.html">transactions</a>
           </li>
@@ -211,7 +212,7 @@
           </li>
           <li>
             <i class="bi bi-lock-fill"></i
-            ><a href="../account_page/passwords_Security.html"
+            ><a href="../account_page/passwords_security.html"
               >Passwords and Security</a
             >
           </li>
@@ -219,97 +220,52 @@
       </div>
       <div class="account-page-content">
         <div class="account-page-title">
-          <h2>Account Settings</h2>
-          <p>Manage your account</p>
+          <h2>Transactions</h2>
+          <p>View Your Purchace History</p>
         </div>
-        <div class="account-info-sectionn">
-          <h4>Account Information</h4>
-          <div class="personal-details-container">
-            <div
-              class="input-field-container d-flex flex-column position-relative"
-            >
-              <label for="" class="form-label position-absolute"
-                >Username</label
-              >
-              <input
-                class="input-fields input-disabled"
-                type="text"
-                placeholder="Username"
-                value="pranav.id"
-              />
-            </div>
-            <div
-              class="input-field-container d-flex flex-column position-relative"
-            >
-              <label for="" class="form-label position-absolute">Email</label>
-              <input
-                class="input-fields input-disabled"
-                type="text"
-                placeholder="Email"
-                value="pranav"
-              />
-            </div>
-
-            <div
-              class="input-field-container d-flex flex-column position-relative"
-            >
-              <label for="" class="form-label position-absolute"
-                >Prefered Language</label
-              >
-              <select
-                class="input-fields form-select form-select-lg"
-                name=""
-                id=""
-              >
-                <option selected>English</option>
-                <option value="">French</option>
-                <option value="">Spanish</option>
-                <option value="">Hindi</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="account-personal-address-section">
-          <h4>Personal Details</h4>
-          <p>
-            Manage your name and contact info. These personal details are
-            private and will not be displayed to other users. View our Privacy
-            Policy
-          </p>
-          <div class="personal-details-container">
-            <div
-              class="input-field-container d-flex flex-column position-relative"
-            >
-              <input
-                class="input-fields"
-                type="text"
-                placeholder="First Name"
-              />
-            </div>
-            <input class="input-fields" type="text" placeholder="Last Name" />
-          </div>
-        </div>
-
-        <div class="account-personal--section">
-          <h4>Address</h4>
-          <div class="personal-details-container">
-            <div
-              class="input-field-container d-flex flex-column position-relative"
-            >
-              <input
-                class="input-fields"
-                type="text"
-                placeholder="Address Line 1"
-              />
-            </div>
-            <input
-              class="input-fields"
-              type="text"
-              placeholder="Address line 2"
-            />
-            <input class="input-fields" type="text" placeholder="City" />
-            <input class="input-fields" type="text" placeholder="State" />
-            <button class="save-address">Save Address</button>
+        <div class="purchase-history">
+          <div class="history-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Marketplace</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1/12/2024</th>
+                  <td>Grand Theft Auto V</td>
+                  <td>$59.99</td>
+                  <td>Epic Games</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <th scope="row">1/12/2024</th>
+                  <td>Grand Theft Auto V</td>
+                  <td>$59.99</td>
+                  <td>Epic Games</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <th scope="row">1/12/2024</th>
+                  <td>Grand Theft Auto V</td>
+                  <td>$59.99</td>
+                  <td>Epic Games</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <th scope="row">1/12/2024</th>
+                  <td>Grand Theft Auto V</td>
+                  <td>$59.99</td>
+                  <td>Epic Games</td>
+                  <td>Completed</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

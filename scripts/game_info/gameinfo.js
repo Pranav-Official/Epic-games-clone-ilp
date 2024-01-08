@@ -13,8 +13,9 @@ setTimeout(function () {
 }, 2100);
 
 //function to dynamically load page details
-export const displayPage = async (gameSlug) => {
-  window.location.href = "../pages/gameinfo.html";
+const displayPage = async () => {
+  const gameSlug = localStorage.getItem("gameSlug-info");
+  // console.log(gameSlug);
   try {
     const gameData = await fetchSingleGameData(gameSlug);
     const screenshots = await fetchGameScreenShots(gameSlug);
@@ -230,4 +231,4 @@ function limitWords(text, n) {
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
 
-// window.onload = displayPage;
+window.onload = displayPage;

@@ -4,6 +4,8 @@ const handleGameCardClick = (event) => {
 
   // Log the value
   console.log("Clicked game card with data-slug:", dataSlug);
+  localStorage.setItem("gameSlug-info", dataSlug);
+  window.location.href = "../../pages/gameinfo.html";
 
   // Add additional logic as needed
 };
