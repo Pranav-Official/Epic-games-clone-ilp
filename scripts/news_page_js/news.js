@@ -153,7 +153,13 @@ async function init() {
 }
 //To display next page news.
 const nextPage = (num) => {
-  displayNews(newsData, num * 10);
+  displayNews(newsData, (num - 1) * 10);
 };
+document.querySelectorAll(".news-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    let buttonNumber = parseInt(button.innerHTML, 10);
+    nextPage(buttonNumber);
+  });
+});
 // Initial load
 init();

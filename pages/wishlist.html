@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles/discover_page/discover.css">
     <link rel="stylesheet" href="../styles/footers/footer-main.css">
     <link rel="stylesheet" href="../styles/footer-main.css">
+    <link rel="stylesheet" href="../styles/discover_page/discover.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link
       rel="stylesheet"
@@ -164,7 +165,7 @@
         </select>
       </div>
       <div class="filteroptn">
-        <button id="filter-button" onclick="displayFilters()"><div id="filterbutton_title">Filters</div><img id="filterbutton_img" src="../assets/wishlist_images/filter.svg" alt="filter" /></button>
+        <button id="filter-button" onclick="displayFilters()"><div id="filterbutton_title">Filters<div id="filter-reset"><button id="filter-reset-button">Reset</button></div><img id="filterbutton_img" src="../assets/wishlist_images/filter.svg" alt="filter" /></button>
         <!-- <div class="filteroptn_flex1"><p>Filters</p></div>
         <div class="filteroptn_flex2">
           <img src="../assets/wishlist_images/filter.svg" alt="filter" />
@@ -172,6 +173,7 @@
       </div>
       <!-- <img src="../assets/wishlist_images/filter.svg" alt="filter"> -->
     </div>
+    
     <div class="list-row">
       <div class="wishlist-container"></div>
       <div id="message-container"></div>
@@ -284,23 +286,23 @@
   <div id="featuresCollapse" class="accordion-collapse collapse">
     <div class="accordion-body">
       <p> 
-        <button>Single Player</button><br><br>
-        <button>Steam Achievements</button><br><br>
-        <button>Multiplayer</button><br><br>
-        <button>Full controller support</button><br><br>
-        <button>Steam Cloud</button><br><br>
-        <button>Atmospheric</button><br><br>
-        <button>Steam-Trading-Cards</button><br><br>
-        <button>Great Soundtrack</button><br><br>
-        <button>RPG</button><br><br>
-        <button>Co-op</button>
+        <button id="filter_by_sp">Single Player</button><br><br>
+        <button id="filter_by_sa">Steam Achievements</button><br><br>
+        <button id="filter_by_mp">Multiplayer</button><br><br>
+        <button id="filter_by_fcsupport">Full controller support</button><br><br>
+        <button id="filter_by_steamcloud">Steam Cloud</button><br><br>
+        <button id="filter_by_atmospheric">Atmospheric</button><br><br>
+        <button id="filter_by_stradingcards">Steam-Trading-Cards</button><br><br>
+        <button id="filter_by_greatsoundtrack">Great Soundtrack</button><br><br>
+        <!-- <button id="filter_by_rpg">RPG</button><br><br> -->
+        <button id="filter_by_coop">Co-op</button>
       </p>
     </div>
   </div>
 </div>
 <hr>
 <!-- Accordion Item #4 -->
-<div class="accordion-item">
+<!-- <div class="accordion-item">
   <h2 class="accordion-header" id="panelsStayOpen-headingFive">
     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#platformCollapse">
       PLATFORM
@@ -309,109 +311,14 @@
   <div id="platformCollapse" class="accordion-collapse collapse">
     <div class="accordion-body">
       <p>
-        <button>Windows</button><br><br>
-        <button>Mac OS</button>
+        <button id="">Windows</button><br><br>
+        <button id="">Mac OS</button>
       </p>
     </div>
   </div>
 </div>
 <hr>
-</div>
-
-        <!-- <div class="accordion" id="accordionPanelsStayOpenExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseTwo"
-                aria-expanded="false"
-                aria-controls="panelsStayOpen-collapseTwo"
-              >
-                EVENTS
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseTwo"
-              class="accordion-collapse collapse"
-              aria-labelledby="panelsStayOpen-headingTwo"
-            >
-              <div class="accordion-body">
-                <strong>Holiday Sale</strong>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseOne"
-                aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseOne"
-              >
-                GENRE
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseOne"
-              class="accordion-collapse collapse show"
-              aria-labelledby="panelsStayOpen-headingOne"
-            >
-              <div class="accordion-body">
-                <strong>Action</strong>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseThree"
-                aria-expanded="false"
-                aria-controls="panelsStayOpen-collapseThree"
-              >
-                FEATURES
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseThree"
-              class="accordion-collapse collapse"
-              aria-labelledby="panelsStayOpen-headingThree"
-            >
-              <div class="accordion-body">
-                <strong>Single Player</strong>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseOne"
-                aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseOne"
-              >
-                PLATFORM
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseOne"
-              class="accordion-collapse collapse show"
-              aria-labelledby="panelsStayOpen-headingOne"
-            >
-              <div class="accordion-body">
-                <strong>Windows</strong>
-              </div>
-            </div>
-          </div>
-        </div> -->
+</div> -->
       </div>
     </div>
     </div>
