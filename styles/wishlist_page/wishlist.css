@@ -90,11 +90,13 @@ body {
   flex-grow: 3;
   text-align: left;
   margin-left: 1%;
+  visibility: visible;
 }
 .pl1 p i {
   margin-left: 0.1875rem;
   margin-bottom: 0.1875rem;
   fill: #ccc;
+  visibility: visible;
 }
 
 .pl2 {
@@ -102,7 +104,13 @@ body {
   text-align: left;
   margin: left 0;
 }
-
+.pl2 p {
+  visibility: hidden;
+}
+.pl2 i,
+a {
+  visibility: hidden;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -204,28 +212,51 @@ input:checked + .slider:before {
   flex: 1;
   flex-direction: row;
   font-weight: 100;
+  align-items: center;
+  justify-content: center;
 }
-.filteroptn {
+#filter-button {
   flex: 1;
-  margin-left: 0.625rem;
   color: rgb(245, 245, 245);
+  background-color: var(--color-main-page);
   text-align: left;
   display: flex;
+  border-radius: 0.25rem;
+  border-style: none;
+  width: 8rem;
+  line-height: 0.9375rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  height: 40px;
+  min-width: 40px;
+  padding: 0px 20px;
+  margin-right: 10rem;
 }
-.filteroptn_flex1 {
+
+#filterbutton_title {
   flex: 1;
 }
-.filteroptn_flex2 {
+
+#filterbutton_img {
   flex: 1;
-}
-.filteroptn_flex2 img {
-  margin-left: 1rem;
-  width: 1.5rem;
+  width: 0.5rem;
+  height: 0.8rem;
+  margin-left: 0.5rem;
   visibility: hidden;
+  margin-top: 0.2rem;
 }
 @media only screen and (max-width: 1000px) {
-  .filteroptn_flex2 img {
+  #filterbutton_img {
     visibility: visible;
+  }
+  #filterbutton {
+    margin-right: 0%;
+  }
+  #filter-button:hover {
+    border-style: visible;
+    border: 0.5px solid;
+    background-color: rgb(32, 32, 32);
   }
   .filtertypes {
     visibility: hidden;
@@ -235,19 +266,27 @@ input:checked + .slider:before {
   }
 }
 .wishlist-footer {
-  margin-top: 10%;
+  margin-top: 8%;
 }
 .filteroptn p {
   margin-left: 16rem;
 }
-.row {
+.list-row {
   display: flex;
   margin-left: 13%;
   margin-right: 10%;
   border-radius: 4px;
 }
+#message-container {
+  flex-direction: row;
+  color: #ccc;
+  background-color: rgb(32, 32, 32);
+}
+#undo-button {
+  color: #ccc;
+  background-color: rgb(32, 32, 32);
+}
 .wishlist {
-  flex: 2;
   background-color: rgb(32, 32, 32);
   width: 37.5rem;
   height: 15.625rem;
@@ -258,10 +297,14 @@ input:checked + .slider:before {
   font-weight: normal;
   line-height: 1.25rem;
   letter-spacing: 0.0125rem;
+  margin-bottom: 5%;
 }
-
+.wishlist-container {
+  flex: 2;
+}
 .filtertypes {
   flex: 1;
+  width: 20%;
   visibility: visible;
 }
 @media only screen and (max-width: 1000px) {
@@ -276,6 +319,11 @@ input:checked + .slider:before {
   padding-right: 0.625rem;
   border-radius: 0.625rem;
   /* padding-bottom: 70px; */
+}
+.wishimg img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
 }
 .wishdetails {
   flex: 2;
@@ -379,16 +427,22 @@ input:checked + .slider:before {
   left: 40%;
   align-items: flex-end;
 }
-.remove-button {
+.remove {
   flex: 1;
+  color: #f5f5f599;
+  border-style: none;
+  text-decoration: underline;
+}
+.remove:hover {
+  text-decoration: none;
 }
 .addtocart-buttton {
   flex: 1;
 }
-#remove {
+/* #remove {
   color: #f5f5f599;
   text-decoration: underline;
-}
+} */
 #add2cart {
   color: rgb(245, 245, 245);
   background-color: rgb(32, 32, 32);
@@ -421,9 +475,18 @@ hr {
   color: #ffffff1a;
   border: 1px solid;
 }
+.accordion {
+  --bs-accordion-bg: rgb(32, 32, 32);
+}
+#accordionStayOpen {
+  border-top: 0ch;
+  border-left: 0ch;
+  border-right: 0ch;
+  border-bottom: 0ch;
+}
 .accordion-button,
 .accordion-body {
-  font-size: 0.6875rem;
+  font-size: 0.688rem;
   background-color: var(--color-main-page);
   border-style: none;
   border: 0rem;
@@ -447,4 +510,17 @@ hr {
   border-right: 0.0625rem;
   border-bottom: 0rem;
   border-top: 0rem;
+}
+.accordion-body button {
+  font-size: 0.8rem;
+  background-color: var(--color-main-page);
+  border-style: none;
+  border: 0rem;
+  color: #ccc;
+  --bs-accordion-active-color: #ccc;
+  --bs-accordion-active-bg: rgb(32, 32, 32);
+  --bs-accordion-border-color: rgb(32, 32, 32);
+  --bs-accordion-btn-focus-border-color: rgb(32, 32, 32);
+  --bs-accordion-btn-focus-box-shadow: rgb(32, 32, 32);
+  --bs-accordion-border-width: 0px;
 }

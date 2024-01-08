@@ -328,6 +328,9 @@ button {
   text-decoration: none;
   color: var(--color-accent);
 }
+.logos{
+  display: flex;
+}
 .logos li:first-child {
   padding-left: 0;
 }
@@ -336,4 +339,9 @@ button {
 }
 .egf .logos li {
   display: inline-block;
+}
+.img-src {
+    width: 35px;
+    height: 40px;
+    margin-left: 550px;    
 }

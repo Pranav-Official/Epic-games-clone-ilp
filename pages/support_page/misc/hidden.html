@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            height: 1500px; /* Just to create some scrollable content */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #hiddenDiv {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            transition: top 0.3s ease-in-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        #hiddenDiv.visible {
+            top: 0;
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hiddenDiv">
+        This is the hidden div. Scroll down to reveal it.
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var hiddenDiv = document.getElementById("hiddenDiv");
+            var triggerSection = document.getElementById("triggerSection");
+            var isDivVisible = false;
+
+            window.addEventListener("scroll", function() {
+                var scrollPosition = window.scrollY;
+                var triggerPosition = triggerSection.offsetTop;
+
+                if (scrollPosition > triggerPosition && !isDivVisible) {
+                    hiddenDiv.classList.add("visible");
+                    isDivVisible = true;
+                } else if (scrollPosition <= triggerPosition && isDivVisible) {
+                    hiddenDiv.classList.remove("visible");
+                    isDivVisible = false;
+                }
+            });
+        });
+    </script>
+
+    <div id="triggerSection" style="height: 500px; background-color: #ddd;">
+        <!-- This is the trigger section -->
+    </div>
+
+</body>
+</html>

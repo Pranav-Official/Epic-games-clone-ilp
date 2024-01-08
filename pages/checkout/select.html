@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Button Form</title>
+  <style>
+    /* Initially hide the additional fields */
+    .additional-fields {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <label>
+      <input type="radio" name="payment-method" value="credit" onclick="showAdditionalFields('credit')">
+      Credit Card
+    </label>
+    
+    <div id="creditFields" class="additional-fields">
+      <!-- Additional fields for Credit Card -->
+      <label for="cardNum">Card Number:</label>
+      <input type="text" id="cardNum" name="cardNum">
+
+      <label for="expiry">Expiration Date:</label>
+      <input type="text" id="expiry" name="expiry" placeholder="mm/yy">
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv">
+    </div>
+
+  <script>
+    function showAdditionalFields(method) {
+      // Hide all additional fields
+      var allFields = document.querySelectorAll('.additional-fields');
+      allFields.forEach(function(field) {
+        field.style.display = 'none';
+      });
+
+      // Show the specific additional fields based on the selected method
+      var specificField = document.getElementById(method + 'Fields');
+      if (specificField) {
+        specificField.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

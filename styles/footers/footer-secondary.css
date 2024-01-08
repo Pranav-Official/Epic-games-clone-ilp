@@ -44,6 +44,8 @@ body {
   font-feature-settings: "kern";
   -webkit-font-smoothing: subpixel-antialiased;
   box-sizing: border-box;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 @media (min-width: 1920px) {
   .egf-container {
@@ -78,10 +80,6 @@ body {
 }
 .social-icon {
   color: rgb(204, 204, 204);
-}
-a {
-  text-decoration: none;
-  transition: color 0.3s ease-out 0s;
 }
 @media (min-width: 600px) {
   .social-icon {
@@ -133,6 +131,13 @@ i {
 .button-label {
   text-transform: uppercase;
 }
+
+.button-label {
+  transition: 0.3s ease-in-out;
+}
+.up-button .button-label:hover {
+  color: #007bff;
+}
 span {
   font-family: OpenSans, sans-serif, arial;
   font-size: 13px;
@@ -141,11 +146,6 @@ span {
   font-weight: 600;
   text-decoration: none;
 }
-svg {
-  height: 14px;
-  width: 14px;
-}
-
 .link-legal-tags {
   display: flex;
   box-pack: justify;
@@ -188,8 +188,19 @@ a {
   text-decoration: none;
   transition: color 0.3s ease-out 0s;
 }
+.link-legal-tags a {
+  color: white !important;
+  text-decoration: none;
+  background-color: transparent;
+}
+
 .footer-link {
   padding: 0px 12px 8px;
+}
+.columns a:hover {
+  color: #007bff;
+  transition: 0.2s ease-in-out;
+  text-decoration: none !important;
 }
 .foot-text {
   line-height: 22px;
@@ -242,4 +253,13 @@ hr {
 
 .footer-texts {
   font-size: 12px;
+}
+a.footer-link .foot-text:hover {
+  color: #007bff;
+  transition: 105ms 0.2s ease-in-out;
+}
+
+a.footer-link .footer-texts:hover {
+  color: #007bff;
+  transition: 105ms 0.2s ease-in-out;
 }

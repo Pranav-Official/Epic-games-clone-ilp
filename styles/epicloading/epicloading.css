@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500wght@200wght@400&display=swap");
+* {
+  font-family: Inter, sans-serif;
+}
+.modal-container2 {
+  display: none;
+  position: fixed;
+  position: absolute;
+  width: 1200px;
+  height: 580px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  z-index: 1000;
+  border: 3px solid rgb(145, 145, 145);
+}
+#closeButton2 {
+  background-color: transparent;
+  border: none;
+}
+.button-position2 {
+  position: relative;
+  width: 30px;
+  left: 98%;
+  top: -22%;
+}
+.epic-loading-image {
+  width: 70px;
+  position: relative;
+  top: 40%;
+  left: 48%;
+  z-index: 2;
+}
+.epic-loading-image img {
+  width: 50px;
+  height: 55px;
+}
+.epic-loading-text {
+  width: 280px;
+  position: relative;
+  top: 40%;
+  left: 41%;
+  font-weight: 300;
+}
