@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wishlist</title>
+    <link rel="icon" href="../../assets/Epic_Games_logo.svg.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/footers/footer-main.css">
-    <link rel="stylesheet" href="../styles/footers/footer-main.css">
+    <link rel="stylesheet" href="../styles/footer-main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link
       rel="stylesheet"
@@ -30,7 +31,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../styles/discover_page/discover.css" />
-    <link rel="stylesheet" href="../styles/wishlist.css" />
+    <link rel="stylesheet" href="../styles/wishlist_page/wishlist.css" />
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -69,7 +71,8 @@
         <button class="download-button">Download</button>
       </div>
     </header>
-    <div class="out-container">
+    <div>
+      <div class="out-container">
       <div class="head-navbar">
         <div class="left-nav">
           <div class="search-box">
@@ -127,22 +130,22 @@
         <img src="../assets/news_images/manage-pref-icon.PNG" alt="pref-icon" />
       </div>
       <div class="preferences-left">
-        <div class="pl1">
+        <div class="pl1" id="pl1">
           <p>
             Receive email notifications about my wishlist.<i
               class="bi bi-question-circle"
             ></i>
           </p>
         </div>
-        <div class="pl2">
-          <!-- <a href="#">Manage preferences</a> -->
-          <!-- <i class="bi bi-box-arrow-up-right"></i> -->
+        <div class="pl2" id="pl2">
+          <a href="#">Manage preferences</a>
+          <i class="bi bi-box-arrow-up-right"></i>
         </div>
       </div>
       <div class="preferences-right">
         <label class="switch">
-          <input type="checkbox" />
-          <span class="slider round"></span>
+          <input type="checkbox" onclick="manageOption()"/>
+          <span class="slider round" ></span>
         </label>
       </div>
     </div>
@@ -152,21 +155,25 @@
         <select name="selectsort" id="sortingtype">
           <option value="On Sale">On Sale</option>
           <option value="Recently Added">Recently Added</option>
-          <option value="Alphabetical">Alphabetical</option>
+          <option value="AlphabeticalA">Alphabetical:A-Z</option>
+          <option value="AlphabeticalZ">Alphabetical:Z-A</option>
           <option value="Price:Low to High">Price:Low to High</option>
           <option value="Price:High to Low">Price:High to Low</option>
         </select>
       </div>
       <div class="filteroptn">
-        <div class="filteroptn_flex1"><p>Filters</p></div>
+        <button id="filter-button" onclick="displayFilters()"><div id="filterbutton_title">Filters</div><img id="filterbutton_img" src="../assets/wishlist_images/filter.svg" alt="filter" /></button>
+        <!-- <div class="filteroptn_flex1"><p>Filters</p></div>
         <div class="filteroptn_flex2">
           <img src="../assets/wishlist_images/filter.svg" alt="filter" />
-        </div>
+        </div> -->
       </div>
       <!-- <img src="../assets/wishlist_images/filter.svg" alt="filter"> -->
     </div>
-    <div class="row">
-      <div class="wishlist">
+    <div class="list-row">
+      <div class="wishlist-container"></div>
+      <div id="message-container"></div>
+      <!-- <div class="wishlist">
         <div class="wishimg">
           <img src="../assets/wishlist_images/wishlist1.PNG" alt="wishlist1" />
           <div>
@@ -207,9 +214,109 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="filtertypes">
-        <div class="accordion" id="accordionPanelsStayOpenExample">
+              <div class="accordion" id="accordionStayOpen">
+        <!-- Accordion Item #1 -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#priceCollapse">
+      PRICE
+    </button>
+  </h2>
+  <div id="priceCollapse" class="accordion-collapse collapse">
+    <div class="accordion-body">
+      <p>
+        <button>Free</button><br><br>
+        <button>Under ₹750.00</button><br><br>
+        <button>Under ₹1,500.00</button><br><br>
+        <button>Under ₹2,250.00</button><br><br>
+        <button>₹1,099.00 and above</button><br><br>
+        <button>Discounted</button>
+      </p>
+    </div>
+  </div>
+
+</div>
+<hr>
+<!-- Accordion Item #2 -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genreCollapse">
+      GENRE
+    </button>
+  </h2>
+  <div id="genreCollapse" class="accordion-collapse collapse">
+    <div class="accordion-body">
+     <p>
+        <button id="filter_by_action">Action</button><br><br>
+        <button id="filter_by_indie">Indie</button><br><br>
+        <button id="filter_by_adventure">Adventure</button><br><br>
+        <button id="filter_by_rpg">RPG</button><br><br>
+        <button id="filter_by_strategy">Strategy</button><br><br>
+        <button id="filter_by_shooter">Shooter</button><br><br>
+        <button id="filter_by_casual">Casual</button><br><br>
+        <button id="filter_by_puzzle">Puzzle</button><br><br>
+        <button id="filter_by_arcade">Arcade</button><br><br>
+        <button id="filter_by_platformer">Platformer</button><br><br>
+        <button id="filter_by_massive-multiplayer">Massively Multiplayer</button><br><br>
+        <button id="filter_by_racing">Racing</button><br><br>
+        <button id="filter_by_sports">Sports</button><br><br>
+        <button id="filter_by_fighting">Fighting</button><br><br>
+        <button id="filter_by_family">Family</button><br><br>
+        <button id="filter_by_board-games">Board Games</button><br><br>
+        <button id="filter_by_educational">Educational</button><br><br>
+        <button id="filter_by_card">Card</button>
+      </p>
+    </div>
+  </div>
+</div>
+<hr>
+<!-- Accordion Item #3 -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#featuresCollapse">
+      FEATURES
+    </button>
+  </h2>
+  <div id="featuresCollapse" class="accordion-collapse collapse">
+    <div class="accordion-body">
+      <p> 
+        <button>Single Player</button><br><br>
+        <button>Steam Achievements</button><br><br>
+        <button>Multiplayer</button><br><br>
+        <button>Full controller support</button><br><br>
+        <button>Steam Cloud</button><br><br>
+        <button>Atmospheric</button><br><br>
+        <button>Steam-Trading-Cards</button><br><br>
+        <button>Great Soundtrack</button><br><br>
+        <button>RPG</button><br><br>
+        <button>Co-op</button>
+      </p>
+    </div>
+  </div>
+</div>
+<hr>
+<!-- Accordion Item #4 -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#platformCollapse">
+      PLATFORM
+    </button>
+  </h2>
+  <div id="platformCollapse" class="accordion-collapse collapse">
+    <div class="accordion-body">
+      <p>
+        <button>Windows</button><br><br>
+        <button>Mac OS</button>
+      </p>
+    </div>
+  </div>
+</div>
+<hr>
+</div>
+
+        <!-- <div class="accordion" id="accordionPanelsStayOpenExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
               <button
@@ -302,10 +409,11 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
-    <div class="wishlist-footer">
+    </div>
+    <!-- <div class="wishlist-footer"> -->
 <div class="footer-main-container">
       <div class="egf-theme epic_games">
         <footer id="egf" class="egf container-fluid bg-color mobile-border-color epic_games egf-footer">
@@ -468,6 +576,8 @@
         </footer>        
       </div>
     </div>
-    </div>
+    <!-- </div> -->
   </body>
+  <script src="../scripts/wishlist_page_js/wishlist.js" type="module"></script>
+  <script src="../scripts/_functions/wishlist_functions.js" type="module" defer></script>
 </html>

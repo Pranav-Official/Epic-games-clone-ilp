@@ -55,6 +55,7 @@ button {
   font-size: 0.8rem;
 }
 
+
 .body-container {
   display: flex;
   flex-direction: column;
@@ -157,7 +158,6 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 6rem;
-  position: relative;
 }
 
 .head-navbar2 {
@@ -180,6 +180,7 @@ header {
   width: 76vw;
   background-color: rgb(18, 18, 18);
 }
+
 
 .left-nav {
   display: flex;
@@ -214,6 +215,7 @@ header {
 #search-field:focus {
   outline: none; /* Removes the default focus outline */
   border: none; /* Removes the border when the input is focused */
+
 }
 
 .nav-links {
@@ -230,6 +232,7 @@ header {
 /* .nav-link:hover {
   color: var(--color-text-default) !important;
 } */
+
 
 .right-nav {
   display: flex;
@@ -252,6 +255,7 @@ header {
   height: 34vw;
 
   margin-bottom: 4vw;
+
 }
 
 .feature-games-carousal {
@@ -285,7 +289,9 @@ header {
 }
 
 .carousal-game-logo img {
+
   object-fit: contain;
+
 }
 
 .carousal-old-price {
@@ -298,6 +304,7 @@ header {
   font-weight: light;
 
   margin-top: 1rem;
+
 }
 
 .carousal-button {
@@ -308,6 +315,7 @@ header {
   border-radius: 0.4rem;
   margin-right: 1.5rem;
   background-color: white;
+
 }
 #add-to-wishlist {
   background-color: rgb(255, 255, 255, 0);
@@ -331,6 +339,7 @@ header {
 }
 
 .carousal-icon-card {
+
   position: relative;
   flex: 1;
   z-index: 0;
@@ -358,11 +367,13 @@ header {
   transform: translate(0%, 0%);
 }
 
+
 .carousal-icon-image {
   flex: 1;
   border-radius: 0.5rem;
   overflow: hidden;
   z-index: 10;
+
 }
 
 .carousal-icon-image img {
@@ -392,10 +403,12 @@ header {
 .sale-title {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
+
 }
 
 .sale-title h1 {
   font-size: 1.2rem !important;
+
 }
 
 .sale-event-container {
@@ -444,6 +457,7 @@ header {
   object-fit: cover;
 }
 
+
 .game-card-hover-effect {
   position: absolute;
   width: 100%;
@@ -467,6 +481,7 @@ header {
   font-size: 1rem !important;
   margin-top: 0rem !important;
   width: 90%;
+
 }
 
 .game-card-footer {
@@ -588,6 +603,7 @@ header {
   width: 100%;
 
   object-fit: cover;
+
 }
 
 .middle-tripple-list {
@@ -601,6 +617,7 @@ header {
   background-color: var(--color-navbar);
   margin-top: 7rem;
 }
+
 
 .hightlight-change-buttons div {
   margin-left: 1rem;
@@ -785,33 +802,3 @@ header {
   background-color: #2b2b2b;
 }
 
-.search-suggestion-box {
-  background-color: var(--color-navbar);
-  padding: 1rem;
-  margin-left: 0rem;
-  border-radius: 0.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 30;
-  top: 5.5rem;
-  /* visibility: hidden; */
-}
-
-.search-suggestion-box.active {
-  visibility: visible;
-}
-
-.search-suggestion-image {
-  border: 1px solid #2b2b2b;
-  height: 3rem;
-  width: 2rem;
-  border-radius: 5px;
-}
-
-.search-suggestion-item {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  align-items: center;
-}

@@ -1,0 +1,43 @@
+.account-page-body {
+  background-color: rgb(245, 245, 245) !important;
+  padding-left: 12vw;
+  padding-right: 12vw;
+  padding-top: 4rem;
+  color: rgb(70, 70, 70);
+}
+.account-menu {
+  flex: 1;
+}
+
+.account-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+.account-menu ul li {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.account-menu-active {
+  background-color: rgb(236, 236, 236);
+}
+
+.account-menu ul li a {
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.account-menu {
+  background-color: white;
+}
+
+.account-page-content {
+  flex: 3;
+  margin-left: 2vw;
+  background-color: white;
+}
