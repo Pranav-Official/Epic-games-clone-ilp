@@ -284,11 +284,11 @@ const formatTime = (timeString) => {
 };
 function manageOption() {
   // Hide element with class 'pl1'
-  const manageDiv = document.getElementById("pl1");
+  let manageDiv = document.getElementById("pl1");
   manageDiv.style.visibility = "hidden";
 
   // Show element with class 'pl2'
-  manageDiv2 = document.getElementById("pl2");
+  let manageDiv2 = document.getElementById("pl2");
   manageDiv2.style.visibility = "visible";
 
   console.log("button working");
