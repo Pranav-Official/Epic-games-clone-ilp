@@ -88,8 +88,8 @@ export const addToWishlist = async (gameSlug) => {
   const data = response.data;
   //   let prices = await getPrice(gameSlug);
   const prices = {
-    retailPrice: 123,
-    salePrice: 46662,
+    retailPrice: 4700,
+    salePrice: 3500,
     calculatedDiscount: 15,
   };
   let obj = {

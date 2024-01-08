@@ -1,5 +1,5 @@
 //API url and request
-import NEWS_API_KEY from "../../environment.js";
+import { NEWS_API_KEY } from "../../environment.js";
 const url =
   "https://newsapi.org/v2/everything?" +
   "q=Games&" +
