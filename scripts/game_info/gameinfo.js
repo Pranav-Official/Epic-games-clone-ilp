@@ -5,7 +5,7 @@ import {
   fetchGameAchievements,
 } from "../game_info/gameinfo_fetch.js";
 import getPrice from "../_functions/getprice.js";
-let gameSlug = "forza-horizon";
+// let gameSlug = "forza-horizon";
 
 // Set a timeout to show the body after 3 seconds
 setTimeout(function () {
@@ -14,8 +14,8 @@ setTimeout(function () {
 
 //function to dynamically load page details
 export const displayPage = async () => {
-
   try {
+    const gameSlug = localStorage.getItem("gameSlug-info");
     const gameData = await fetchSingleGameData(gameSlug);
     const screenshots = await fetchGameScreenShots(gameSlug);
     // const cheapSharkThumb = await fetchGameThumbImage(gameSlug);
@@ -82,7 +82,7 @@ export const displayPage = async () => {
       }
     }
     document.querySelector("#features").innerHTML = featureshtml;
-
+    
     //faq div
     document.querySelector(
       ".offer-faq-text"

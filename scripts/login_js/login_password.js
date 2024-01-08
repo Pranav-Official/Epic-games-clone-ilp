@@ -46,6 +46,7 @@ function signIn() {
   if (validateInput()) {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        localStorage.setItem("userId", email);
         const user = userCredential.user;
         console.log("Signed in as:", user.email);
         window.location.href = "../../pages/discover.html";

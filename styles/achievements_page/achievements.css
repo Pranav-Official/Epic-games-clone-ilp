@@ -1,3 +1,9 @@
+body {
+  /* display: flex;
+  flex-direction: column; */
+  min-height: 100vh;
+  margin: 0;
+}
 .line-div {
   background-color: #2a2a2a;
   height: 0.1rem;
@@ -6,7 +12,6 @@
 
 .achievements-whole-div {
   align-content: center;
-  width: 100%;
 }
 
 .achievements-inner-content-div {
@@ -138,6 +143,9 @@
 .sort-dropdown {
   font-size: 14px;
 }
+.sort-dropdown-link {
+  cursor: pointer;
+}
 
 .sorting-drop-up-list {
   display: none;
@@ -153,15 +161,25 @@
 .sort-alphabet {
   padding-top: 15px;
   padding-left: 15px;
+  transition: all 0.2s ease 0s;
 }
 .sort-alphabet:hover {
   filter: brightness(1.4);
 }
 
+.sort-alphabet-link {
+  cursor: pointer;
+}
+.sort-rarity-link {
+  cursor: pointer;
+}
+
 .sort-rarity {
+  color: grey;
   margin-top: 4px;
   padding-top: 15px;
   padding-left: 15px;
+  transition: all 0.2s ease 0s;
 }
 
 #arrow-down {
