@@ -86,6 +86,11 @@ export const addToWishlist = async (gameSlug) => {
     "https://api.rawg.io/api/games/" + gameSlug + "?key=" + API_KEY;
   const response = await axios.get(baseUrl);
   const data = response.data;
+  const gameTagsArray = data.tags;
+  let tempTagArray = [];
+  gameTagsArray.forEach((tag) => {
+    tempTagArray.push(tag.slug);
+  });
   //   let prices = await getPrice(gameSlug);
   const prices = {
     retailPrice: 4700,
@@ -99,6 +104,7 @@ export const addToWishlist = async (gameSlug) => {
     releaseDate: data.released,
     actualPrice: prices.retailPrice,
     offerPrice: prices.salePrice,
+    tags: tempTagArray,
     offerPercentage: "-" + Math.trunc(prices.calculatedDiscount) + "%",
     image: data.background_image,
     salesEndDate: data.updated, //2024-01-04T16:43:18

@@ -192,7 +192,7 @@ const displayWishlist = (games) => {
   const wishlistContainer = document.querySelector(".wishlist-container");
   wishlistContainer.innerHTML = "";
   games.forEach((game) => {
-    console.log(game);
+    // console.log(game);
     const wishlistDiv = document.createElement("div");
     wishlistDiv.className = "wishlist";
     wishlistDiv.innerHTML = wishListTemplate(game);
@@ -373,62 +373,78 @@ function manageOption() {
 //   filterWishlistPageByGenre("card");
 // });
 
-// const filterWishlistPageByFeatures = (feature) => {
-//   const parameterList = [
-//     ["platforms", "4"],
-//     ["tags", feature],
-//     ["ordering", "-metacritic"],
-//   ];
-//   loadBrowsePage(parameterList);
-//   console.log(feature);
-// };
+const filterWishlistPageByFeatures = async (feature) => {
+  let filteredItems = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
 
-// document.getElementById("filter_by_sp").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("singleplayer");
-// });
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const tempWishlistArray = userData.Wishlist;
+      tempWishlistArray.forEach((item) => {
+        let tags = item.tags;
+        for (let i = 0; i < tags.length; i++)
+          if (tags[i] === feature) {
+            filteredItems.push(item);
+            break;
+          }
+      });
+    }
+    console.log(filteredItems);
+    displayWishlist(filteredItems);
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+};
 
-// document.getElementById("filter_by_sa").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("steam-achievements");
-// });
+document.getElementById("filter_by_sp").addEventListener("click", () => {
+  console.log("working");
+  filterWishlistPageByFeatures("singleplayer");
+});
 
-// document.getElementById("filter_by_mp").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("multiplayer");
-// });
+document.getElementById("filter_by_sa").addEventListener("click", () => {
+  filterWishlistPageByFeatures("steam-achievements");
+});
 
-// document.getElementById("filter_by_fcsupport").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("full-controller-support");
-// });
+document.getElementById("filter_by_mp").addEventListener("click", () => {
+  filterWishlistPageByFeatures("multiplayer");
+});
 
-// document
-//   .getElementById("filter_by_steamcloud")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByFeatures("steam-cloud");
-//   });
+document.getElementById("filter_by_fcsupport").addEventListener("click", () => {
+  filterWishlistPageByFeatures("full-controller-support");
+});
 
-// document
-//   .getElementById("filter_by_atmospheric")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByFeatures("atmospheric");
-//   });
+document
+  .getElementById("filter_by_steamcloud")
+  .addEventListener("click", () => {
+    filterWishlistPageByFeatures("steam-cloud");
+  });
 
-// document
-//   .getElementById("filter_by_stradingcards")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByFeatures("steam-trading-cards");
-//   });
+document
+  .getElementById("filter_by_atmospheric")
+  .addEventListener("click", () => {
+    filterWishlistPageByFeatures("atmospheric");
+  });
 
-// document
-//   .getElementById("filter_by_greatsoundtrack")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByFeatures("great-soundtrack");
-//   });
+document
+  .getElementById("filter_by_stradingcards")
+  .addEventListener("click", () => {
+    filterWishlistPageByFeatures("steam-trading-cards");
+  });
 
-// document.getElementById("filter_by_rpg").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("rpg");
-// });
+document
+  .getElementById("filter_by_greatsoundtrack")
+  .addEventListener("click", () => {
+    filterWishlistPageByFeatures("great-soundtrack");
+  });
 
-// document.getElementById("filter_by_coop").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("co-op");
-// });
+document.getElementById("filter_by_rpg").addEventListener("click", () => {
+  console.log("rpg");
+  filterWishlistPageByFeatures("rpg");
+});
 
-// await addToWishlist("ghostrunner");
+document.getElementById("filter_by_coop").addEventListener("click", () => {
+  filterWishlistPageByFeatures("co-op");
+});
+
+// await addToWishlist("diablo-iv");
