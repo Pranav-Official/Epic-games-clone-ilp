@@ -5,7 +5,8 @@ import {
   fetchGameAchievements,
 } from "../game_info/gameinfo_fetch.js";
 import getPrice from "../_functions/getprice.js";
-// let gameSlug = "forza-horizon";
+import { addtoTransactionInFirebase } from "../_functions/transaction_function.js";
+let gameSlug = "forza-horizon";
 
 // Set a timeout to show the body after 3 seconds
 setTimeout(function () {
