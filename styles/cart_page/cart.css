@@ -13,6 +13,9 @@ a.epic-pages-link {
   padding-left: 10%;
   padding-right: 8%;
 }
+.cart-whole {
+  display: flex;
+}
 
 .cart {
   display: flex;
@@ -41,12 +44,19 @@ a.epic-pages-link {
   display: flex;
   align-items: center;
   margin-right: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 0px;
 }
 
-.rewards p {
+.rewards:hover {
+  color: grey !important;
+}
+
+.rewards a {
   color: grey;
-  margin-right: 8px; /* Adjust the spacing between "My Cart" and "Rewards" */
-  margin-top: 20px;
+  margin-right: 8px;
+  margin-top: 4px;
   font-size: 14px;
 }
 
@@ -75,8 +85,8 @@ a.epic-pages-link {
 .game-details {
   flex: 2;
   margin-top: 20px;
-  width: 1000px;
-  height: 235px;
+  width: 700px;
+  height: 266px;
   background-color: rgb(32, 32, 32);
   border-radius: 4px;
   padding-top: 0.5em;
@@ -88,8 +98,8 @@ a.epic-pages-link {
 
 .cart-update {
   color: grey;
-  margin-left: 14.5rem;
-  margin-top: -0.3rem;
+  margin-left: 19rem;
+  margin-top: 1rem;
 }
 
 .cart-update a {
@@ -111,6 +121,7 @@ a.epic-pages-link {
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100%;
 }
 
 .right {
@@ -137,8 +148,8 @@ a.epic-pages-link {
   font-size: 0.8rem;
   margin-top: 0.1em;
   color: white;
+  margin-left: 300px;
 }
-
 .right h4 {
   font-size: 0.9rem;
   margin-top: -2.3rem;
@@ -177,15 +188,15 @@ a.epic-pages-link {
 .price {
   flex: 2;
   color: white;
-  margin-left: 20rem;
+  margin-left: 4rem;
   font-size: 0.8rem;
   padding-right: 1.5rem;
 }
 
 .icon {
   padding-left: 1rem;
-  width: 2.2rem;
-  height: 1.4rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: white;
   margin-top: -1rem;
 }
@@ -213,16 +224,17 @@ a.epic-pages-link {
 .windows-icon {
   color: grey;
   font-size: 0.75rem; /* Adjust the font size of the Windows icon as needed */
-  margin-bottom: 6rem;
+
   padding-left: 1rem;
 }
 
 .game-details img {
   padding: 10px;
   padding-left: 1rem;
-  width: 10em;
-  height: 12em;
+  width: 100%; /* Set width to 100% for responsiveness */
+  height: 200px; /* Set height to 100% for responsiveness */
   border-radius: 0.9rem;
+  object-fit: cover;
 }
 
 .bill {
@@ -291,4 +303,38 @@ hr {
   color: rgb(245, 245, 245);
   border-radius: 7px;
   display: flex;
+}
+
+.empty-icon {
+  margin-bottom: 30px;
+  display: block;
+  line-height: 0;
+  width: 80px;
+  height: 80px;
+  color: rgb(58, 58, 58);
+  margin-left: 450px;
+}
+
+.empty-cart-message {
+  margin-bottom: 12px;
+}
+.empty-cart-message .message {
+  transition: color 125ms ease-in-out;
+  color: rgb(245, 245, 245);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 35px;
+  letter-spacing: -0.3px;
+  margin-left: 378px;
+}
+.shop-page a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: grey;
+  margin-left: 398px;
+}
+.game-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding-bottom: 20px;
 }
