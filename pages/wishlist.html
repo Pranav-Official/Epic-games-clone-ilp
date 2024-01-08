@@ -32,6 +32,7 @@
     />
     <link rel="stylesheet" href="../styles/discover_page/discover.css" />
     <link rel="stylesheet" href="../styles/wishlist_page/wishlist.css" />
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -129,20 +130,21 @@
         <img src="../assets/news_images/manage-pref-icon.PNG" alt="pref-icon" />
       </div>
       <div class="preferences-left">
-        <div class="pl1">
+        <div class="pl1" id="pl1">
           <p>
             Receive email notifications about my wishlist.<i
               class="bi bi-question-circle"
             ></i>
           </p>
         </div>
-        <div class="pl2">
-          
+        <div class="pl2" id="pl2">
+          <a href="#">Manage preferences</a>
+          <i class="bi bi-box-arrow-up-right"></i>
         </div>
       </div>
       <div class="preferences-right">
         <label class="switch">
-          <input type="checkbox" />
+          <input type="checkbox" onclick="manageOption()"/>
           <span class="slider round" ></span>
         </label>
       </div>
@@ -577,4 +579,5 @@
     <!-- </div> -->
   </body>
   <script src="../scripts/wishlist_page_js/wishlist.js" type="module"></script>
+  <script src="../scripts/_functions/wishlist_functions.js" type="module" defer></script>
 </html>

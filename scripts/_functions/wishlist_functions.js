@@ -1,3 +1,6 @@
+// import fetchSingleGameData from "../game_info/gameinfo_fetch.js";
+import { API_KEY } from "../../environment.js";
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
@@ -6,6 +9,7 @@ import {
   getDoc,
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+// import axios from "axios";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBuDu8PAD0vryP84FEzO-_a-2Tx6_FJRCg",
@@ -30,22 +34,33 @@ const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
 // };
 const updateWishlistInFirebase = async (game) => {
   let tempWishlistArray = [];
-  //storing the wishlist to a temporary array
-  getDoc(dbref).then((docSnapshot) => {
+  let wishlistItems = [];
+
+  try {
+    const docSnapshot = await getDoc(dbref);
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
-      tempWishlistArray = userData.Wishlist;
+      wishlistItems = userData.Wishlist;
       console.log(tempWishlistArray);
+      tempWishlistArray = [...wishlistItems];
     }
-  });
-  const gameSlug = game.slug;
-  const isGamePresent = tempWishlistArray.some(
-    (item) => item.slug === gameSlug
-  );
 
-  if (!isGamePresent) {
-    tempWishlistArray.push(game);
-    await updateDoc(dbref, { Wishlist: tempWishlistArray });
+    let isGamePresent = false;
+    for (let i = 0; i < tempWishlistArray.length; i++) {
+      if (tempWishlistArray[i].slug == game.slug) {
+        isGamePresent = true;
+      }
+    }
+
+    if (!isGamePresent) {
+      tempWishlistArray.push(game);
+      console.log(tempWishlistArray);
+      await updateDoc(dbref, { Wishlist: tempWishlistArray });
+    } else {
+      console.log(`Game with slug ${game.slug} is already in the wishlist.`);
+    }
+  } catch (error) {
+    console.error("Error updating wishlist in Firebase:", error);
   }
 };
 
@@ -66,4 +81,47 @@ const removeWishlistInFirebase = async (gameSlug) => {
   await updateDoc(dbref, { Wishlist: updatedWishlistArray });
 };
 
-const addToWishlist = () => {};
+export const addToWishlist = async (gameSlug) => {
+  const baseUrl =
+    "https://api.rawg.io/api/games/" + gameSlug + "?key=" + API_KEY;
+  const response = await axios.get(baseUrl);
+  const data = response.data;
+  //   let prices = await getPrice(gameSlug);
+  const prices = {
+    retailPrice: 123,
+    salePrice: 46662,
+    calculatedDiscount: 15,
+  };
+  let obj = {
+    id: data.id,
+    title: data.name,
+    slug: data.slug,
+    releaseDate: data.released,
+    actualPrice: prices.retailPrice,
+    offerPrice: prices.salePrice,
+    offerPercentage: "-" + Math.trunc(prices.calculatedDiscount) + "%",
+    image: data.background_image,
+    salesEndDate: data.updated, //2024-01-04T16:43:18
+    salesEndTime: data.updated,
+  };
+  updateWishlistInFirebase(obj);
+};
+
+const wishlistItemCount = async () => {
+  let countWishlist = 0;
+  let wishlistArray = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      wishlistArray = userData.Wishlist;
+      countWishlist = wishlistArray.length;
+    }
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+  console.log(countWishlist);
+  return countWishlist;
+};
+wishlistItemCount();

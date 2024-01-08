@@ -90,11 +90,13 @@ body {
   flex-grow: 3;
   text-align: left;
   margin-left: 1%;
+  visibility: visible;
 }
 .pl1 p i {
   margin-left: 0.1875rem;
   margin-bottom: 0.1875rem;
   fill: #ccc;
+  visibility: visible;
 }
 
 .pl2 {
@@ -102,7 +104,13 @@ body {
   text-align: left;
   margin: left 0;
 }
-
+.pl2 p {
+  visibility: hidden;
+}
+.pl2 i,
+a {
+  visibility: hidden;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -312,6 +320,11 @@ input:checked + .slider:before {
   border-radius: 0.625rem;
   /* padding-bottom: 70px; */
 }
+.wishimg img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+}
 .wishdetails {
   flex: 2;
   position: relative;
@@ -461,6 +474,9 @@ input:checked + .slider:before {
 hr {
   color: #ffffff1a;
   border: 1px solid;
+}
+.accordion {
+  --bs-accordion-bg: rgb(32, 32, 32);
 }
 #accordionStayOpen {
   border-top: 0ch;
