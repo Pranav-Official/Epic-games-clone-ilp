@@ -454,6 +454,9 @@ header {
 .game-card-hover-effect:hover {
   background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  .add-to-wish-list-button {
+    visibility: visible;
+  }
 }
 
 .base-game {
@@ -833,5 +836,9 @@ header {
 }
 
 .add-to-wish-list-button.active {
+  visibility: visible;
+}
+
+.game-card-hover-effect:hover .add-to-wish-list-button {
   visibility: visible;
 }

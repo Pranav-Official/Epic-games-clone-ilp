@@ -82,9 +82,11 @@ const addGameCardsToSwipers = () => {
     for (let j = 0; j < 5; j++) {
       const gameCard = `<div class="game-card">
             <div class="game-card-image">
-              <div class="game-card-hover-effect"></div>
+              <div class="game-card-hover-effect">
               <div class="add-to-wish-list-button">
                 <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              
               </div>
               <img src="../assets/discover-page/null.png.png" alt="" />
             </div>
