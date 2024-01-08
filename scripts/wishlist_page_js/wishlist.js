@@ -1,3 +1,5 @@
+import { addToWishlist } from "../_functions/wishlist_functions.js";
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
@@ -25,13 +27,28 @@ const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
 let tempWishlistArray = [];
 
 //storing the wishlist to a temporary array
-getDoc(dbref).then((docSnapshot) => {
-  if (docSnapshot.exists()) {
-    const userData = docSnapshot.data();
-    tempWishlistArray = userData.Wishlist;
+// getDoc(dbref).then((docSnapshot) => {
+//   if (docSnapshot.exists()) {
+//     const userData = docSnapshot.data();
+//     tempWishlistArray = userData.Wishlist;
+//     console.log(tempWishlistArray);
+//   }
+// });
+
+const wishlistPage = async () => {
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      tempWishlistArray = userData.Wishlist;
+    }
     console.log(tempWishlistArray);
+    displayWishlist(tempWishlistArray);
+  } catch (error) {
+    console.log("error fetching data from user" + error);
   }
-});
+};
 //updating wishlist items in firebase
 // const updateWishlistInFirebase = async (game) => {
 //   tempWishlistArray.push(game);
@@ -138,9 +155,9 @@ const wishListTemplate = (wishlistItem) => {
             <button id="percentbtn">${wishlistItem.offerPercentage}</button>
             <p id="actualprice">₹${wishlistItem.actualPrice}</p>
             <p id="price">₹${wishlistItem.offerPrice}</p>
-            <div><p id="sales">Sale ends ${wishlistItem.salesEndDate} at ${
-    wishlistItem.salesEndTime
-  }</p></div>
+            <div><p id="sales">Sale ends ${formatDate(
+              wishlistItem.salesEndDate
+            )} at ${formatDate(wishlistItem.salesEndTime)}</p></div>
           </div>
         </div>
         <div>
@@ -171,9 +188,11 @@ const wishListTemplate = (wishlistItem) => {
 
 //function to display wishlist in wishlist page
 const displayWishlist = (games) => {
+  // addToWishlist();
   const wishlistContainer = document.querySelector(".wishlist-container");
   wishlistContainer.innerHTML = "";
   games.forEach((game) => {
+    console.log(game);
     const wishlistDiv = document.createElement("div");
     wishlistDiv.className = "wishlist";
     wishlistDiv.innerHTML = wishListTemplate(game);
@@ -190,7 +209,7 @@ const displayWishlist = (games) => {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Call the function with the array of games
-  setTimeout(() => displayWishlist(tempWishlistArray), 1000);
+  setTimeout(() => wishlistPage(), 10);
 });
 
 // Function to convert date format
@@ -240,37 +259,40 @@ const sortWishlistPageByRecentlyAdded = () => {
 };
 
 //calling wishlist sorting
-document.getElementById("sortingtype").addEventListener("change", () => {
-  sortWishlistPageByRecentlyAdded();
-  displayWishlist(tempWishlistArray);
-});
+// document.getElementById("sortingtype").addEventListener("change", () => {
+//   sortWishlistPageByRecentlyAdded();
+//   displayWishlist(tempWishlistArray);
+// });
 
-const manageOption = () => {
-  let manageDiv = document.querySelector(".pl2");
-  manageDiv.innerHTML = manageTemplate();
+// Function to format date as "dd/mm/yyyy"
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Month is zero-indexed
+  const year = date.getFullYear();
+  return `${day}/${month < 10 ? "0" + month : month}/${year}`;
 };
 
-const manageTemplate = () => {
-  return `
-      <a href="#">Manage preferences</a>
-      <i class="bi bi-box-arrow-up-right"></i>
-    `;
+// Function to format time as "HH:MM" (IST)
+const formatTime = (timeString) => {
+  const time = new Date(timeString);
+  const hours = time.getHours() + 5; // IST offset
+  const minutes = time.getMinutes();
+  return `${hours < 10 ? "0" + hours : hours}:${
+    minutes < 10 ? "0" + minutes : minutes
+  }`;
 };
+function manageOption() {
+  // Hide element with class 'pl1'
+  const manageDiv = document.getElementById("pl1");
+  manageDiv.style.visibility = "hidden";
 
-// Add an event listener to the toggle button inside .preferences-right
-const preferencesRight = document.querySelector(".preferences-right");
-const toggleButton = preferencesRight.querySelector(".slider");
-const pl1Div = document.querySelector(".pl1");
+  // Show element with class 'pl2'
+  manageDiv2 = document.getElementById("pl2");
+  manageDiv2.style.visibility = "visible";
 
-toggleButton.addEventListener("change", () => {
-  // Set .pl1 class empty
-  pl1Div.innerHTML = "";
-
-  // Check if the toggle button is checked
-  if (toggleButton.checked) {
-    manageOption(); // Change the content of pl2 class to the template
-  }
-});
+  console.log("button working");
+}
 
 // document.getElementById("filter_by_action").addEventListener("click", () => {
 //   filterWishlistPageByGenre("action");
@@ -408,3 +430,5 @@ toggleButton.addEventListener("change", () => {
 // document.getElementById("filter_by_coop").addEventListener("click", () => {
 //   filterWishlistPageByFeatures("co-op");
 // });
+
+await addToWishlist("ghostrunner");
