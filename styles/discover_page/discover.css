@@ -795,7 +795,9 @@ header {
   gap: 1rem;
   z-index: 30;
   top: 5.5rem;
-  /* visibility: hidden; */
+  visibility: hidden;
+  min-width: 30rem;
+  box-shadow: 0px 20px 20px -3px rgba(0, 0, 0, 0.5);
 }
 
 .search-suggestion-box.active {
@@ -808,10 +810,28 @@ header {
   width: 2rem;
   border-radius: 5px;
 }
+.search-suggestion-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
 .search-suggestion-item {
   display: flex;
   flex-direction: row;
   gap: 1rem;
   align-items: center;
+}
+
+.add-to-wish-list-button {
+  position: absolute;
+  color: black;
+  font-size: 1.8rem;
+  right: 0.5rem;
+  top: 0.2rem;
+  visibility: hidden;
+}
+
+.add-to-wish-list-button.active {
+  visibility: visible;
 }

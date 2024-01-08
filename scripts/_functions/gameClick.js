@@ -15,6 +15,13 @@ document.querySelectorAll(".game-card").forEach((gameCard) => {
   gameCard.addEventListener("click", handleGameCardClick);
 });
 
+document.querySelectorAll(".search-suggestion-item").forEach((gameCard) => {
+  gameCard.addEventListener("click", (event) => {
+    console.log("Clicked search suggestion item");
+    handleGameCardClick(event);
+  });
+});
+
 const checkAndAddTrippleItemListener = () => {
   const trippleItems = document.querySelectorAll(".tripple-item");
 
