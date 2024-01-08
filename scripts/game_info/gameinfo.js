@@ -19,8 +19,9 @@ export const displayPage = async () => {
     const gameData = await fetchSingleGameData(gameSlug);
     const screenshots = await fetchGameScreenShots(gameSlug);
     // const cheapSharkThumb = await fetchGameThumbImage(gameSlug);
+    // console.log(cheapSharkThumb);
     const achievementsOverview = await fetchGameAchievements(gameSlug, 1);
-    const gamePriceData = null;
+    const gamePriceData =null
     //  await getPrice(gameSlug);
     console.log(gamePriceData);
     const truncatedDescription = limitWords(gameData.description, 150);
@@ -82,7 +83,7 @@ export const displayPage = async () => {
       }
     }
     document.querySelector("#features").innerHTML = featureshtml;
-    
+
     //faq div
     document.querySelector(
       ".offer-faq-text"
@@ -160,6 +161,150 @@ export const displayPage = async () => {
     }
     document.querySelector(".achievements-grid-panel").innerHTML =
       achievementInnerHtml;
+
+    //editions for games
+    let gameEditionsHtml = ``;
+    let discountRounded = parseInt(gamePriceData.calculatedDiscount);
+    gameEditionsHtml += ` <div class="editions-heading">${gameData.name} Editions</div>
+        <div class="edition-card">
+            <div class="card-toppart">
+              <div class="cardimg">
+                <img
+                  width="360"
+                  height="200"
+                  src="${gameData.background_image}"
+                  alt=""
+                />
+              </div>
+              <div class="card-content">
+                <div class="tag-and-title">
+                  <div class="tag">BASE GAME</div>
+                  <div class="card-title">${gameData.name}</div>
+                </div>
+                <div class="card-text-part">
+                  ${shortDescription}
+                </div>
+              </div>
+            </div>
+            <div class="line-separator"></div>
+            <div class="game-editions-card-price">
+              <div class="price-and-discount-editions">
+                <div class="discount-editions">
+                  <div class="discount-percent-editions">${discountRounded}%</div>
+                </div>
+                <div class="slashed-price-edtions"><s>₹${gamePriceData.salePrice}</s></div>
+                <div class="price-now-editions">₹${gamePriceData.retailPrice}</div>
+              </div>
+              <div class="cart-and-wishlist-buttons">
+                <div class="add-to-cartbutton-editions">
+                  <a class="add-to-cartbutton-link-editions">ADD TO CART</a>
+                </div>
+                <div class="add-to-wishbutton-editions">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="23"
+                    fill="currentColor"
+                    id="plusbtn"
+                    class="bi bi-plus-circle"
+                    viewBox="0 -5 18 21"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                    />
+                    <path
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                    />
+                  </svg>
+
+                  <a class="add-to-wishbutton-link-editions">
+                    ADD TO WISHLIST</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>`;
+    let highestEdition = 0;
+    for (let edition of cheapSharkThumb) {
+      if (parseInt(edition.cheapest) > highestEdition) {
+        highestEdition = parseInt(edition.cheapest);
+      }
+    }
+    console.log(highestEdition);
+    for (let edition of cheapSharkThumb) {
+      let editionType;
+      let differentEditions = [
+        "STANDARD",
+        "COLLECTORS",
+        "DELUXE",
+        "ULTIMATE",
+        "DEFINITIVE",
+      ];
+      for (editionType of differentEditions) {
+        if (edition.internalName.includes(editionType)) {
+          gameEditionsHtml += `    <div class="edition-card">
+            <div class="card-toppart">
+              <div class="cardimg">
+                <img
+                  width="360"
+                  height="200"
+                  src="${gameData.background_image}"
+                  alt=""
+                />
+              </div>
+              <div class="card-content">
+                <div class="tag-and-title">
+                  <div class="tag">BASE GAME</div>
+                  <div class="card-title">${edition.external}</div>
+                </div>
+                <div class="card-text-part">
+                   ${shortDescription}
+                </div>
+              </div>
+            </div>
+            <div class="line-separator"></div>
+            <div class="game-editions-card-price">
+              <div class="price-and-discount-editions">
+                <div class="discount-editions">
+                  <div class="discount-percent-editions">%</div>
+                </div>
+                <div class="slashed-price-edtions"><s>2748₹</s></div>
+                <div class="price-now-editions">2198.40₹</div>
+              </div>
+              <div class="cart-and-wishlist-buttons">
+                <div class="add-to-cartbutton-editions">
+                  <a class="add-to-cartbutton-link-editions">ADD TO CART</a>
+                </div>
+                <div class="add-to-wishbutton-editions">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="23"
+                    fill="currentColor"
+                    id="plusbtn"
+                    class="bi bi-plus-circle"
+                    viewBox="0 -5 18 21"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                    />
+                    <path
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                    />
+                  </svg>
+
+                  <a class="add-to-wishbutton-link-editions">
+                    ADD TO WISHLIST</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>`;
+        }
+      }
+    }
+
+    document.querySelector(".game-editions").innerHTML = gameEditionsHtml;
   } catch (error) {
     console.error("Error fetching game details:", error);
   }
