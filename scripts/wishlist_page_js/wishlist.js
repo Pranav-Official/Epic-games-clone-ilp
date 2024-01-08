@@ -192,7 +192,7 @@ const displayWishlist = (games) => {
   const wishlistContainer = document.querySelector(".wishlist-container");
   wishlistContainer.innerHTML = "";
   games.forEach((game) => {
-    console.log(game);
+    // console.log(game);
     const wishlistDiv = document.createElement("div");
     wishlistDiv.className = "wishlist";
     wishlistDiv.innerHTML = wishListTemplate(game);
@@ -294,141 +294,188 @@ function manageOption() {
   console.log("button working");
 }
 
-// document.getElementById("filter_by_action").addEventListener("click", () => {
-//   filterWishlistPageByGenre("action");
-// });
-// document.getElementById("filter_by_indie").addEventListener("click", () => {
-//   filterWishlistPageByGenre("indie");
-// });
+const filterReset = () => {
+  displayWishlist(tempWishlistArray);
+};
+document.getElementById("filter-reset-button").addEventListener("click", () => {
+  filterReset();
+});
 
-// document.getElementById("filter_by_adventure").addEventListener("click", () => {
-//   filterWishlistPageByGenre("adventure");
-// });
+const filterWishlistPageByGenre = async (genre) => {
+  let filteredItems = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const tempWishlistArray = userData.Wishlist;
+      tempWishlistArray.forEach((item) => {
+        let genres = item.genres;
+        for (let i = 0; i < genres.length; i++)
+          if (genres[i] === genre) {
+            filteredItems.push(item);
+            break;
+          }
+      });
+    }
+    console.log(filteredItems);
+    displayWishlist(filteredItems);
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+};
+
+document.getElementById("filter_by_action").addEventListener("click", () => {
+  filterWishlistPageByGenre("action");
+});
+document.getElementById("filter_by_indie").addEventListener("click", () => {
+  filterWishlistPageByGenre("indie");
+});
+
+document.getElementById("filter_by_adventure").addEventListener("click", () => {
+  filterWishlistPageByGenre("adventure");
+});
+
+document.getElementById("filter_by_rpg").addEventListener("click", () => {
+  filterWishlistPageByGenre("rpg");
+});
+
+document.getElementById("filter_by_strategy").addEventListener("click", () => {
+  filterWishlistPageByGenre("strategy");
+});
+
+document.getElementById("filter_by_shooter").addEventListener("click", () => {
+  filterWishlistPageByGenre("shooter");
+});
+
+document.getElementById("filter_by_casual").addEventListener("click", () => {
+  filterWishlistPageByGenre("casual");
+});
+
+document.getElementById("filter_by_puzzle").addEventListener("click", () => {
+  filterWishlistPageByGenre("puzzle");
+});
+
+document.getElementById("filter_by_arcade").addEventListener("click", () => {
+  filterWishlistPageByGenre("arcade");
+});
+
+document
+  .getElementById("filter_by_platformer")
+  .addEventListener("click", () => {
+    filterWishlistPageByGenre("platformer");
+  });
+
+document
+  .getElementById("filter_by_massive-multiplayer")
+  .addEventListener("click", () => {
+    filterWishlistPageByGenre("massive-multiplayer");
+  });
+
+document.getElementById("filter_by_racing").addEventListener("click", () => {
+  filterWishlistPageByGenre("racing");
+});
+
+document.getElementById("filter_by_sports").addEventListener("click", () => {
+  filterWishlistPageByGenre("sports");
+});
+
+document.getElementById("filter_by_fighting").addEventListener("click", () => {
+  filterWishlistPageByGenre("fighting");
+});
+
+document.getElementById("filter_by_family").addEventListener("click", () => {
+  filterWishlistPageByGenre("family");
+});
+
+document
+  .getElementById("filter_by_board-games")
+  .addEventListener("click", () => {
+    filterWishlistPageByGenre("board-games");
+  });
+
+document
+  .getElementById("filter_by_educational")
+  .addEventListener("click", () => {
+    filterWishlistPageByGenre("educational");
+  });
+
+document.getElementById("filter_by_card").addEventListener("click", () => {
+  filterWishlistPageByGenre("card");
+});
+
+const filterWishlistPageByFeatures = async (feature) => {
+  let filteredItems = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const tempWishlistArray = userData.Wishlist;
+      tempWishlistArray.forEach((item) => {
+        let tags = item.tags;
+        for (let i = 0; i < tags.length; i++)
+          if (tags[i] === feature) {
+            filteredItems.push(item);
+            break;
+          }
+      });
+    }
+    console.log(filteredItems);
+    displayWishlist(filteredItems);
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+};
+
+document.getElementById("filter_by_sp").addEventListener("click", () => {
+  console.log("working");
+  filterWishlistPageByFeatures("singleplayer");
+});
+
+document.getElementById("filter_by_sa").addEventListener("click", () => {
+  filterWishlistPageByFeatures("steam-achievements");
+});
+
+document.getElementById("filter_by_mp").addEventListener("click", () => {
+  filterWishlistPageByFeatures("multiplayer");
+});
+
+document.getElementById("filter_by_fcsupport").addEventListener("click", () => {
+  filterWishlistPageByFeatures("full-controller-support");
+});
+
+document
+  .getElementById("filter_by_steamcloud")
+  .addEventListener("click", () => {
+    filterWishlistPageByFeatures("steam-cloud");
+  });
+
+document
+  .getElementById("filter_by_atmospheric")
+  .addEventListener("click", () => {
+    filterWishlistPageByFeatures("atmospheric");
+  });
+
+document
+  .getElementById("filter_by_stradingcards")
+  .addEventListener("click", () => {
+    filterWishlistPageByFeatures("steam-trading-cards");
+  });
+
+document
+  .getElementById("filter_by_greatsoundtrack")
+  .addEventListener("click", () => {
+    filterWishlistPageByFeatures("great-soundtrack");
+  });
 
 // document.getElementById("filter_by_rpg").addEventListener("click", () => {
-//   filterWishlistPageByGenre("rpg");
-// });
-
-// document.getElementById("filter_by_strategy").addEventListener("click", () => {
-//   filterWishlistPageByGenre("strategy");
-// });
-
-// document.getElementById("filter_by_shooter").addEventListener("click", () => {
-//   filterWishlistPageByGenre("shooter");
-// });
-
-// document.getElementById("filter_by_casual").addEventListener("click", () => {
-//   filterWishlistPageByGenre("casual");
-// });
-
-// document.getElementById("filter_by_puzzle").addEventListener("click", () => {
-//   filterWishlistPageByGenre("puzzle");
-// });
-
-// document.getElementById("filter_by_arcade").addEventListener("click", () => {
-//   filterWishlistPageByGenre("arcade");
-// });
-
-// document
-//   .getElementById("filter_by_platformer")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByGenre("platformer");
-//   });
-
-// document
-//   .getElementById("filter_by_massive-multiplayer")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByGenre("massive-multiplayer");
-//   });
-
-// document.getElementById("filter_by_racing").addEventListener("click", () => {
-//   filterWishlistPageByGenre("racing");
-// });
-
-// document.getElementById("filter_by_sports").addEventListener("click", () => {
-//   filterWishlistPageByGenre("sports");
-// });
-
-// document.getElementById("filter_by_fighting").addEventListener("click", () => {
-//   filterWishlistPageByGenre("fighting");
-// });
-
-// document.getElementById("filter_by_family").addEventListener("click", () => {
-//   filterWishlistPageByGenre("family");
-// });
-
-// document
-//   .getElementById("filter_by_board-games")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByGenre("board-games");
-//   });
-
-// document
-//   .getElementById("filter_by_educational")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByGenre("educational");
-//   });
-
-// document.getElementById("filter_by_card").addEventListener("click", () => {
-//   filterWishlistPageByGenre("card");
-// });
-
-// const filterWishlistPageByFeatures = (feature) => {
-//   const parameterList = [
-//     ["platforms", "4"],
-//     ["tags", feature],
-//     ["ordering", "-metacritic"],
-//   ];
-//   loadBrowsePage(parameterList);
-//   console.log(feature);
-// };
-
-// document.getElementById("filter_by_sp").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("singleplayer");
-// });
-
-// document.getElementById("filter_by_sa").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("steam-achievements");
-// });
-
-// document.getElementById("filter_by_mp").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("multiplayer");
-// });
-
-// document.getElementById("filter_by_fcsupport").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("full-controller-support");
-// });
-
-// document
-//   .getElementById("filter_by_steamcloud")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByFeatures("steam-cloud");
-//   });
-
-// document
-//   .getElementById("filter_by_atmospheric")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByFeatures("atmospheric");
-//   });
-
-// document
-//   .getElementById("filter_by_stradingcards")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByFeatures("steam-trading-cards");
-//   });
-
-// document
-//   .getElementById("filter_by_greatsoundtrack")
-//   .addEventListener("click", () => {
-//     filterWishlistPageByFeatures("great-soundtrack");
-//   });
-
-// document.getElementById("filter_by_rpg").addEventListener("click", () => {
+//   console.log("rpg");
 //   filterWishlistPageByFeatures("rpg");
 // });
 
-// document.getElementById("filter_by_coop").addEventListener("click", () => {
-//   filterWishlistPageByFeatures("co-op");
-// });
+document.getElementById("filter_by_coop").addEventListener("click", () => {
+  filterWishlistPageByFeatures("co-op");
+});
 
-// await addToWishlist("ghostrunner");
+// await addToWishlist("");

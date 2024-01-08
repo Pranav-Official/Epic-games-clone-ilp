@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <link
+      rel="icon"
+      href="../../assets/Epic_Games_logo.svg.png"
+      type="image/png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,7 +29,8 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../styles/browse_page/browse_page.css">
     <link rel="stylesheet" href="../styles/discover_page/discover.css" />
-    <link rel="stylesheet" href="../styles/footers/footer-main.css">
+<link rel="stylesheet" href="../styles/footers/footer-main.css">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
@@ -77,7 +82,7 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
     </header>
 
     <div class="main-class">
-      <div class="head-navbar">
+     <div class="head-navbar">
         <div class="left-nav">
           <div class="search-box">
             <div class="search-button">
@@ -105,42 +110,45 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
             <input id="search-field" type="text" placeholder="Search" />
           </div>
           <div class="nav-links">
-            <a class="nav-link" href="../pages/discover.html">Discover</a>
-            <a class="nav-link" href="../pages/browse_page.html">Browse</a>
-            <a class="nav-link" href="../pages/news.html">News</a>
+            <a href="../pages/discover.html" class="nav-link">Discover</a>
+            <a href="../pages/browse_page.html" class="nav-link">Browse</a>
+            <a href="../pages/news.html" class="nav-link">News</a>
           </div>
         </div>
         <div class="right-nav">
           <div class="list-button">
-            <p class="list-test">Wish List</p>
+            <a href="../pages/wishlist.html" class="list-test">Wish List</a>
             <span class="list-count" id="wish-list-count"></span>
           </div>
           <div class="list-button">
-            <p class="list-text">Cart</p>
+            <a href="../pages/cart.html" class="list-text">Cart</a>
             <span class="list-count" id="cart-count"></span>
           </div>
         </div>
       </div>
-      <div class="heading">
-        <div class="heading-text">
-          <br />
-          <h4>Popular Genres</h4>
-        </div>
-        <div class="buttons">
-          <button class="left">&lt;</button>
-          <button class="right">&gt;</button>
-        </div>
-      </div>
-      <div class="genres">
+  <div class="genre-container">
+  <div class="heading-text">
+    <br />
+    <h4>Popular Genres</h4>
+  
+  <div class="buttons">
+    <button class="leftButton">&lt;</button>
+    <button class="rightButton">&gt;</button>
+
+  </div>
+  </div>
+  <div class="genres" id="genres-container">
+    <!-- Genre items will be added dynamically here -->
+    <div class="action-games">
+  <div class="images-container">
+    <div class="img1">
+    <img src="https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg"></div>
+  </div>
+  <p class="actgame-text">Action Games</p>
+</div>
         <div class="action-games">
           <div class="img1">
           <img src="/assets/9lives.png" />
-          </div>
-          <div class="img2">
-          <img src="/assets/banban.png"/>
-          </div>
-          <div class="img3">
-          <img src="/assets/galaxytrek.png"/>
           </div>
           <p class="actgame-text">Action Games</p>
         </div>
@@ -149,44 +157,30 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
           <div class="img1">
           <img src="/assets/9lives.png" />
           </div>
-          <div class="img2">
-          <img src="/assets/banban.png"/>
-          </div>
-          <div class="img3">
-          <img src="/assets/galaxytrek.png"/>
-          </div>
+  
           <p class="actgame-text">Action Games</p>
         </div>
 
-        <div class="action-games">
+         <div class="action-games">
           <div class="img1">
           <img src="/assets/9lives.png" />
           </div>
-          <div class="img2">
-          <img src="/assets/banban.png"/>
-          </div>
-          <div class="img3">
-          <img src="/assets/galaxytrek.png"/>
-          </div>
           <p class="actgame-text">Action Games</p>
         </div>
+  </div>
+</div>
 
-        <div class="action-games">
-          <div class="img1">
-          <img src="/assets/9lives.png" />
-          </div>
-          <div class="img2">
-          <img src="/assets/banban.png"/>
-          </div>
-          <div class="img3">
-          <img src="/assets/galaxytrek.png"/>
-          </div>
-          <p class="actgame-text">Action Games</p>
-        </div>
+
         
-        </div>
       <br />
       <br />
+   <div class="filter-header">
+  <h5>Filters</h5>
+  <p>
+    <button id="resetButton">Reset</button>
+  </p>
+</div>
+
       <div class="new-release">
         <div class="left">
           <div class="browse_games_card_container">
@@ -198,14 +192,32 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
           </div>
 
             </div>
-             <div class="pagination">
-        <button href="#">&lsaquo;</a>
-        <button onclick="nextPage(0)"class="active" >1</a>
-        <button >&rsaquo;</button>
-      </div>
+    <!-- Updated pagination buttons with proper class names -->
+<div class="pagination">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <button id="prev_Page" class="pagination-button">&lsaquo; Previous</button>
+  <button id="currentPageButton" class="pagination-button">1</button>
+  <!-- Add more buttons as needed -->
+  <button id="next_Page" class="pagination-button">Next &rsaquo;</button>
+  
+</div>
+
+
+
         </div>
+        
     <div class="right">
-      <div class="search-button">
+      
+    <div class="search-box">
+            <div class="search-button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="search-icon"
@@ -228,7 +240,8 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
               </svg>
             </div>
             <input id="search-field" type="text" placeholder="Search" />
-          
+          </div>
+
       <div class="accordion" id="accordionStayOpen">
         <!-- Accordion Item #1 -->
 <div class="accordion-item">
@@ -295,16 +308,16 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
   <div id="featuresCollapse" class="accordion-collapse collapse">
     <div class="accordion-body">
       <p> 
-        <button>Single Player</button><br><br>
-        <button>Steam Achievements</button><br><br>
-        <button>Multiplayer</button><br><br>
-        <button>Full controller support</button><br><br>
-        <button>Steam Cloud</button><br><br>
-        <button>Atmospheric</button><br><br>
-        <button>Steam-Trading-Cards</button><br><br>
-        <button>Great Soundtrack</button><br><br>
-        <button>RPG</button><br><br>
-        <button>Co-op</button>
+        <button id="filter_by_sp">Single Player</button><br><br>
+        <button id="filter_by_sa">Steam Achievements</button><br><br>
+        <button id="filter_by_mp">Multiplayer</button><br><br>
+        <button id="filter_by_fcsupport">Full controller support</button><br><br>
+        <button id="filter_by_steamcloud">Steam Cloud</button><br><br>
+        <button id="filter_by_atmospheric">Atmospheric</button><br><br>
+        <button id="filter_by_stradingcards">Steam-Trading-Cards</button><br><br>
+        <button id="filter_by_greatsoundtrack">Great Soundtrack</button><br><br>
+        <button id="filter_by_rpg">RPG</button><br><br>
+        <button id="filter_by_coop">Co-op</button>
       </p>
     </div>
   </div>
@@ -320,10 +333,11 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
   <div id="platformCollapse" class="accordion-collapse collapse">
     <div class="accordion-body">
       <p>
-        <button>Windows</button><br><br>
-        <button>Mac OS</button>
+        <button id="filter_by_windows">Windows</button><br><br>
+        <button id="filter_by_macos">Mac OS</button>
       </p>
     </div>
+  </div>
   </div>
 </div>
 </div>
@@ -357,7 +371,7 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
                   </a>
                 </li> 
                 <li data-component="Social">
-                  <a id=youtube" class="focus" aria-label="Follow Us on Youtube" href="" data-index="2" target="_blank" rel="noopener noreferrer">
+                  <a id="youtube" class="focus" aria-label="Follow Us on Youtube" href="" data-index="2" target="_blank" rel="noopener noreferrer">
                     <div data-component="Icon">
                       <i class="text-color-nonactive accent-color-hover egf-footer-icon bi bi-youtube"">
                         &nbsp;
@@ -497,9 +511,10 @@ https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css
     </div>
     </div>
   
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../scripts/_functions/filterSearch.js"></script>
 
 </body>
 </html>

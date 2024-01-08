@@ -4,6 +4,7 @@
   padding-right: 12vw;
   padding-top: 4rem;
   color: rgb(70, 70, 70);
+  min-height: 100vh;
 }
 .account-menu {
   flex: 1;
@@ -31,6 +32,11 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+a:hover,
+a:active,
+a:visited {
+  color: rgb(70, 70, 70);
+}
 
 .account-menu {
   background-color: white;
@@ -39,5 +45,64 @@
 .account-page-content {
   flex: 3;
   margin-left: 2vw;
+  background-color: white;
+  padding: 2rem;
+}
+
+.personal-details-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+  gap: 20px;
+}
+
+.input-fields {
+  height: 3rem;
+  padding-left: 2rem;
+  border: 2px solid rgb(124, 124, 124);
+  border-radius: 0.2rem;
+}
+
+.form-label {
+  font-weight: lighter;
+  font-size: 0.8rem;
+  margin-left: 0.6rem;
+}
+
+.input-disabled {
+  background-color: rgb(212, 212, 212);
+  color: rgb(94, 94, 94);
+  border: 0px;
+}
+
+.account-page-content div h4 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+.account-page-content div p {
+  font-size: 0.8rem;
+}
+
+.save-address {
+  height: 3rem;
+  border: 0;
+  background-color: rgb(54, 111, 218);
+  color: white;
+}
+
+.table tr th {
+  color: rgb(31, 31, 31) !important;
+  font-weight: lighter !important;
+  font-size: 0.8rem !important;
+}
+
+.history-table {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgb(230, 230, 230);
+}
+
+tbody tr {
   background-color: white;
 }

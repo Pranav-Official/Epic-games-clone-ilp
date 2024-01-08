@@ -14,7 +14,9 @@ setTimeout(function () {
 }, 2100);
 
 //function to dynamically load page details
+
 export const displayPage = async () => {
+
   try {
     const gameSlug = localStorage.getItem("gameSlug-info");
     const gameData = await fetchSingleGameData(gameSlug);
