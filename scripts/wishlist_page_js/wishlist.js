@@ -76,14 +76,6 @@ const removeWishlistInFirebase = async (game) => {
     window.location.reload();
   }
 };
-
-const displayRemoveMessage = (item) => {
-  const removeMessage = document.querySelector(".remove-message");
-  return `
-  <p>Removed ${item.title} from wishlist.</p>
-  `;
-  removeMessage.setAttribute("style", "visibility:visible");
-};
 // const removeWishlistInFirebase = async (game) => {
 //   const removedGameTitle = game.title;
 
