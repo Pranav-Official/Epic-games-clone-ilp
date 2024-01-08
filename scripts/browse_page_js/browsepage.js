@@ -1,11 +1,11 @@
-import fetchData from "./rawgfetchGamesdata.js";
-import getPrice from "./getprice.js";
-import fetchGenre from "./rawgfetchGamesGenre.js";
-import { API_KEY } from "../environment.js";
+import fetchData from "../_functions/rawgfetchGamesdata.js";
+import getPrice from "../_functions/getprice.js";
+import fetchGenre from "../_functions/rawgfetchGamesGenre.js";
+import { API_KEY } from "../../environment.js";
 let next_page, prev_page;
 
 const loadBrowsePage = async (parameterList = []) => {
-  console.log("testing", parameterList);
+  // console.log("testing", parameterList);
   if (parameterList == null || undefined) {
     parameterList = [
       ["platforms", "4"],

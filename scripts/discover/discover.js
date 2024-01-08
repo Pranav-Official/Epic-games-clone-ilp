@@ -1,5 +1,5 @@
-import fetchData from "../rawgfetchGamesdata.js";
-import getPrice from "../getprice.js";
+import fetchData from "../_functions/rawgfetchGamesdata.js";
+import getPrice from "../_functions/getprice.js";
 import { API_KEY } from "../../environment.js";
 
 const logAPidata = async () => {

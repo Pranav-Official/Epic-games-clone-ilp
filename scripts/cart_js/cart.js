@@ -1,4 +1,5 @@
-import { addToCart } from "./_functions/cartfunctions.js";
+import { addToCart } from "../_functions/cartfunctions.js";
+import getPrice from "../_functions/getprice.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
@@ -7,6 +8,7 @@ import {
   getDoc,
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
 let userData, cartItems;
 const firebaseConfig = {
   apiKey: "AIzaSyBuDu8PAD0vryP84FEzO-_a-2Tx6_FJRCg",
