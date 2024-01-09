@@ -75,9 +75,9 @@ const wishListTemplate = (wishlistItem) => {
             <button id="percentbtn">${wishlistItem.offerPercentage}</button>
             <p id="actualprice">₹${wishlistItem.actualPrice}</p>
             <p id="price">₹${wishlistItem.offerPrice}</p>
-            <div><p id="sales">Game updated ${formatDate(
+            <div><p id="sales">Game updated on ${formatDate(
               wishlistItem.salesEndDate
-            )} at ${formatTime(wishlistItem.salesEndTime)}pm</p></div>
+            )} at ${formatTime(wishlistItem.salesEndTime)} PM</p></div>
           </div>
         </div>
         <div>
@@ -192,7 +192,7 @@ document.querySelector("#sortingtype").addEventListener("change", (event) => {
   }
 });
 
-// Function to format date as "dd/mm/yyyy"
+// Function to format date as dd/mm/yyyy
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const day = date.getDate();
@@ -201,10 +201,10 @@ const formatDate = (dateString) => {
   return `${day}/${month < 10 ? "0" + month : month}/${year}`;
 };
 
-// Function to format time as "HH:MM" (IST)
+// Function to format time as HH:MM
 const formatTime = (timeString) => {
   const time = new Date(timeString);
-  const hours = time.getHours() + 5; // IST offset
+  const hours = time.getHours() + 5;
   const minutes = time.getMinutes();
   return `${hours < 10 ? "0" + hours : hours}:${
     minutes < 10 ? "0" + minutes : minutes
