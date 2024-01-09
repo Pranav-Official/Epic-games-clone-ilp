@@ -238,6 +238,7 @@ input:checked + .slider:before {
 #filter-reset-button {
   color: white;
   border-style: none;
+  font-size: 12px;
 }
 #filter-reset-button:hover {
   background-color: #504d4d;
