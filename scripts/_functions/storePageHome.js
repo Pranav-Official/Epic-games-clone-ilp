@@ -128,3 +128,12 @@ const upadateCartCount = async () => {
 };
 
 upadateCartCount();
+
+const enterPage = async () => {
+  const userId = localStorage.getItem("userId");
+  if (!userId) {
+    document.querySelector(".right-nav").setAttribute("style", "display:none");
+  }
+};
+
+enterPage();

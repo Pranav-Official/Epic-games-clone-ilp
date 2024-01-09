@@ -29,7 +29,7 @@ const loadBrowsePage = async (parameterList = []) => {
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -41,7 +41,7 @@ const loadBrowsePage = async (parameterList = []) => {
     `;
       } else {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -57,6 +57,14 @@ const loadBrowsePage = async (parameterList = []) => {
       }
       container.innerHTML += gameCardHTML;
     }
+    document.querySelectorAll(".game-card").forEach((element) => {
+      element.addEventListener("click", () => {
+        const slug = element.getAttribute("dataSlug");
+        console.log(slug);
+        localStorage.setItem("gameSlug-info", slug);
+        window.location.href = "../../pages/gameinfo.html";
+      });
+    });
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -170,7 +178,7 @@ const updateGameCardsByGenre = async (selectedGenre) => {
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -182,7 +190,7 @@ const updateGameCardsByGenre = async (selectedGenre) => {
     `;
       } else {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -221,7 +229,7 @@ const refreshData = async (gameDataUrl) => {
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -233,7 +241,7 @@ const refreshData = async (gameDataUrl) => {
     `;
       } else {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>

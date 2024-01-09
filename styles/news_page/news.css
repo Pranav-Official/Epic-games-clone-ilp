@@ -178,3 +178,7 @@ hr {
   margin-left: 12vw;
   margin-right: 11vw;
 }
+
+.nav-link {
+  padding: 0;
+}

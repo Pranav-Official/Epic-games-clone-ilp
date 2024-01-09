@@ -111,7 +111,7 @@ export const addToWishlist = async (gameSlug) => {
     genres: tempGenreArray,
     offerPercentage: "-" + Math.trunc(prices.calculatedDiscount) + "%",
     image: data.background_image,
-    updatedDate: data.updated,
+    updatedDate: data.released,
     updatedTime: data.updated,
   };
   const result = await updateWishlistInFirebase(obj);
