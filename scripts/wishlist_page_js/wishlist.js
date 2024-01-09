@@ -1,4 +1,5 @@
 import { firebaseConfig } from "../../environment.js";
+import { addToCart } from "../_functions/cartfunctions.js";
 import {
   addToWishlist,
   removeWishlistInFirebase,
@@ -122,8 +123,18 @@ const displayWishlist = (games) => {
       await removeWishlistInFirebase(dataSlug);
       window.location.reload();
     });
+
+    const addToCartButton = wishlistDiv.querySelector("#add2cart");
+    addToCartButton.addEventListener("click", async (event) => {
+      const wishlist_box = event.target.closest(".wishlist-box");
+      const dataSlug = wishlist_box.getAttribute("dataSlug");
+      console.log(dataSlug);
+      addToCart(dataSlug);
+      addToCartButton.textContent = "ADDED TO CART";
+    });
   });
 };
+
 //callimg page load
 document.addEventListener("DOMContentLoaded", function () {
   // Call the function with the array of games
@@ -167,7 +178,6 @@ document.querySelector("#sortingtype").addEventListener("change", (event) => {
       sortWishlistPageByRecentlyAdded();
       break;
     case 2:
-      console.log(tempWishlistArray);
       sortWishlistPageByAlphabetAsc();
       break;
     case 3:
@@ -200,17 +210,6 @@ const formatTime = (timeString) => {
     minutes < 10 ? "0" + minutes : minutes
   }`;
 };
-// function manageOption() {
-//   // Hide element with class 'pl1'
-//   let manageDiv = document.getElementById("pl1");
-//   manageDiv.style.visibility = "hidden";
-
-//   // Show element with class 'pl2'
-//   let manageDiv2 = document.getElementById("pl2");
-//   manageDiv2.style.visibility = "visible";
-
-//   console.log("button working");
-// }
 
 //reset filter
 const filterReset = () => {
@@ -390,11 +389,6 @@ document
     filterWishlistPageByFeatures("great-soundtrack");
   });
 
-// document.getElementById("filter_by_rpg").addEventListener("click", () => {
-//   console.log("rpg");
-//   filterWishlistPageByFeatures("rpg");
-// });
-
 document.getElementById("filter_by_coop").addEventListener("click", () => {
   filterWishlistPageByFeatures("co-op");
 });
@@ -435,5 +429,6 @@ document.querySelectorAll(".price-buttons").forEach((button) => {
     filterWishlistPageByPrice(priceOnButton);
   });
 });
-// await addToWishlist("diablo-iv");
+
+// await addToWishlist("grand-theft-auto-vice-city");
 // await displayWishlistSlugs();
