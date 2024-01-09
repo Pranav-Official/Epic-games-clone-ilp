@@ -91,10 +91,14 @@ export const displayPage = async () => {
                 code for discount on new purchases.`;
 
     // thumb image
-    document.querySelector("#game-thumb-image").src = cheapSharkThumb[0].thumb;
-
+    try {
+      document.querySelector("#game-thumb-image").src =
+        cheapSharkThumb[0].thumb;
+    } catch (error) {
+      console.log("error fetching");
+    }
     //game price and discount
-    if (gamePriceData != null) {
+    if (gamePriceData != null && gamePriceData.retailPrice != 0) {
       let discountRounded = parseInt(gamePriceData.calculatedDiscount);
       document.querySelector(
         ".discount-percent"
@@ -112,11 +116,22 @@ export const displayPage = async () => {
           ".sale-end-info"
         ).innerHTML = `No Discount Available`;
       }
+    } else {
+      console.log("jddj");
+
+      document.querySelector(".sale-end-info").remove();
+      document.querySelector(".price-and-discount").remove();
     }
 
     //developer and publisher
-    document.querySelector(".dev-who").innerHTML = gameData.developers[0].name;
-    document.querySelector(".pub-who").innerHTML = gameData.publishers[0].name;
+    try {
+      document.querySelector(".dev-who").innerHTML =
+        gameData.developers[0].name;
+      document.querySelector(".pub-who").innerHTML =
+        gameData.publishers[0].name;
+    } catch (error) {
+      console.log("fetch error");
+    }
     //release date
     document.querySelector(".rel-who").innerHTML = gameData.released;
 
@@ -464,8 +479,7 @@ document
         (await checkIfInCart()) == false
       ) {
         addToCart(gameSlug);
-         document.querySelector(".add-to-cartbutton-link").innerHTML =
-           "IN CART";
+        document.querySelector(".add-to-cartbutton-link").innerHTML = "IN CART";
       }
     }
   });
@@ -483,10 +497,10 @@ document
         (await checkIfInWishList()) == false
       ) {
         addToWishlist(gameSlug);
-          document.querySelector(".add-to-wishbutton-link").innerHTML =
-        "IN WISHLIST";
-    }
+        document.querySelector(".add-to-wishbutton-link").innerHTML =
+          "IN WISHLIST";
       }
-    });
+    }
+  });
 
 window.onload = displayPage;
