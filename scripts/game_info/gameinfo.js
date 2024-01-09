@@ -6,12 +6,6 @@ import {
   fetchGameAchievements,
 } from "../game_info/gameinfo_fetch.js";
 import getPrice from "../_functions/getprice.js";
-import { addtoTransactionInFirebase } from "../_functions/transaction_function.js";
-
-// Set a timeout to show the body after 3 seconds
-setTimeout(function () {
-  document.body.style.visibility = "visible";
-}, 2500);
 
 //function to dynamically load page details
 export const displayPage = async () => {
@@ -20,7 +14,7 @@ export const displayPage = async () => {
     const gameData = await fetchSingleGameData(gameSlug);
     const screenshots = await fetchGameScreenShots(gameSlug);
     const cheapSharkThumb = await fetchGameThumbImage(gameSlug);
-    // console.log(cheapSharkThumb);
+    console.log(cheapSharkThumb);
     const achievementsOverview = await fetchGameAchievements(gameSlug, 1);
     const gamePriceData = await getPrice(gameSlug);
     console.log(gamePriceData);
@@ -322,11 +316,17 @@ export const displayPage = async () => {
     document.querySelector(".game-editions").innerHTML = gameEditionsHtml;
     let wholeDivHeight = document.querySelector(".game-editions").offsetHeight;
     console.log(wholeDivHeight);
-    wholeDiv.style.height = `${wholeDivHeight + 1800}px`;
+    wholeDiv.style.height = `${wholeDivHeight + 2000}px`;
+    document.querySelector(".footer-main-container").style.display = "block";
   } catch (error) {
     console.error("Error fetching game details:", error);
   }
 };
+
+// Set a timeout to show the body after 3 seconds
+setTimeout(function () {
+  document.body.style.visibility = "visible";
+}, 2500);
 
 // swiper for game screen shot carousal
 const swiper = new Swiper(".swiper", {
@@ -388,6 +388,8 @@ function limitWords(text, n) {
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
 
-document.getElementById("add-to-cartbutton-link").addEventListener("click")
+// document.getElementById("add-to-cartbutton-link").addEventListener("click",()=>{
+
+// })
 
 window.onload = displayPage;

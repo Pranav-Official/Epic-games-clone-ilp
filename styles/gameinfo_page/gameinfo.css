@@ -38,8 +38,8 @@ h6 {
   height: 100rem;
 }
 .headnavsizer {
-  position: absolute;
-  top: 9rem;
+  position: relative;
+  top: 10rem;
   left: 7.9rem;
 }
 
@@ -107,7 +107,7 @@ h6 {
   color: rgba(245, 245, 245, 0.6) !important;
 }
 
-.active {
+.overview_active {
   text-decoration: underline !important;
   color: white;
 }
@@ -762,6 +762,10 @@ a.add-to-wishbutton-link {
   width: 61rem;
   height: 18rem;
   margin-bottom: 3rem;
+}
+
+.img1 {
+  border-color: #007aff;
 }
 
 .line-separator {
