@@ -3,33 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAYMENT</title>
+    <link rel="stylesheet" href="../../styles/loading/loading.css" />
+    <link rel="stylesheet" href="../../styles/epicloading/epicloading.css" />
     <link
-      rel="icon"
-      href="../../assets/Epic_Games_logo.svg.png"
-      type="image/png"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="../../styles/checkout_css/checkout.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="../../styles/sequence_page/sequence.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../../scripts/checkout_page_js/checkout.js"></script>
     <script src="../../scripts/checkout_page_js/creator.js"></script>
-    <title>Checkout</title>
+    <script src="../../scripts/sequence/dropdown.js"></script>
   </head>
   <body>
     <div id="purchase-game" class="purchase-game" style>
-      <style>
-        :root {
-          --pmt-ui-color-highlight: #0074e4;
-        }
-      </style>
       <div class="payment-loading">
         <div class="payment-loading__container">
           <div class="payment">
@@ -101,7 +90,6 @@
                               type="checkbox"
                               tabindex="-1"
                               aria-label="payment method"
-                              onchange="togglePaymentForm()"
                             />
                             <span class="payment-check__inner"></span>
                           </div>
@@ -169,7 +157,6 @@
                                     class="payment-input__name"
                                     for="cardNum"
                                   >
-                                    
                                   </label>
                                   <input
                                     id="cardNum"
@@ -179,7 +166,7 @@
                                     autocomplete="new-password"
                                     maxlength="19"
                                     value=""
-                                    placeholder="ENTER CARD NUMBER *" 
+                                    placeholder="ENTER CARD NUMBER *"
                                   />
                                 </div>
                               </div>
@@ -189,7 +176,6 @@
                                     class="payment-input__name"
                                     for="expiry"
                                   >
-                                    
                                   </label>
                                   <input
                                     id="expiry"
@@ -218,7 +204,7 @@
                                     maxlength="4"
                                     value=""
                                   />
-                                  <div class="payment-input__addonAfter">
+                                  <div class="payment-input__addonAfter-cvv">
                                     <svg
                                       class="payment-icon"
                                       width="24"
@@ -257,37 +243,12 @@
                                       class="payment-input__name"
                                       for="state"
                                     >
-                                      <span>State</span>
-                                      <span class="payment-input__required"
-                                        >*</span
-                                      >
                                     </label>
-                                    <input
+                                    <select
                                       id="state"
                                       class="payment-input__element"
-                                      type="text"
                                       name="state"
-                                      autocomplete="new-password"
-                                      value=""
-                                    />
-                                    <div class="payment-input__addonAfter">
-                                      <svg
-                                        class="payment-icon"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        aria-label="cvv tooltip"
-                                      >
-                                        <path
-                                          fill-rule="evenodd"
-                                          clip-rule="evenodd"
-                                          d="M12 16L6 10H18L12 16Z"
-                                          fill="white"
-                                        ></path>
-                                      </svg>
-                                    </div>
+                                    ></select>
                                   </div>
                                 </div>
                               </div>
@@ -375,7 +336,6 @@
                               type="checkbox"
                               tabindex="-1"
                               aria-label="payment method"
-                              onclick="togglePaymentForm2()"
                             />
                             <span class="payment-check__inner"></span>
                           </div>
@@ -564,10 +524,11 @@
                       alt="Selected Game Thumbnail"
                       src="../../assets/dbydl.png"
                       class="payment-offer-summary__thumbnail"
+                      id="cart-game-image"
                     />
                   </div>
                   <div class="payment-offer-summary__content">
-                    <h2 class="payment-offer-summary__title">
+                    <h2 class="payment-offer-summary__title" id="cart-title">
                       Dead by Daylight
                     </h2>
                   </div>
@@ -577,14 +538,14 @@
                     <div class="payment-price">
                       <p class="payment-price__label">Price</p>
                       <p class="payment-price__value">
-                        <span>$69.99</span>
+                        <span id="retail-price">$69.99</span>
                       </p>
                     </div>
                     <div class="payment-price">
                       <p class="payment-price__label">Discount Price</p>
                       <p class="payment-price__value">
                         -
-                        <span>$10.99</span>
+                        <span id="discount-price">$10.99</span>
                       </p>
                     </div>
                     <div class="payment-order-summary__discounts">
@@ -616,7 +577,7 @@
                       <p
                         class="payment-price__value payment-price__value--UPAY"
                       >
-                        <span>$59</span>
+                        <span id="Total-price">$59</span>
                       </p>
                     </div>
                   </div>
@@ -724,7 +685,7 @@
                     >.
                   </span>
                   <button
-                    class="payment-btn payment-order-confirm__btn payment-btn--disabled payment-btn--primary"
+                    class="payment-btn payment-order-confirm__btn payment-btn--primary"
                     id="placeOrderButton"
                   >
                     <div class="payment-loading">
@@ -733,7 +694,6 @@
                       </div>
                     </div>
                   </button>
-                  <script src="../../scripts/sequence/sequence.js"></script>
                 </div>
               </div>
             </div>
@@ -741,5 +701,15 @@
         </div>
       </div>
     </div>
+    <script>
+      function closePage() {
+        window.close();
+      }
+    </script>
   </body>
+  <script type="module" src="../../scripts/sequence/sequence.js"></script>
+  <script
+    type="module"
+    src="../../scripts/_functions/buy_single_game.js"
+  ></script>
 </html>

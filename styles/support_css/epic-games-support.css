@@ -5,9 +5,9 @@
   --color-main-page: rgb(18, 18, 18);
   --color-accent: #007aff;
 }
-
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 div {
@@ -20,7 +20,7 @@ body {
   display: block;
   font-family: Inter, sans-serif;
   height: 2000px; /* Add some height for scrolling */
-  background-color: rgb(21, 21, 21)!important;
+  background-color: rgb(21, 21, 21) !important;
   line-height: 1;
 }
 ul {
@@ -450,7 +450,8 @@ h3 {
   letter-spacing: -0.5px;
 }
 
-.SectionWrapper .SectionWrapper__content,.GamesSectionTile__wrapper ShowAllButton {
+.SectionWrapper .SectionWrapper__content,
+.GamesSectionTile__wrapper ShowAllButton {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -470,7 +471,6 @@ h3 {
     grid-template-columns: repeat(5, 1fr);
   }
 }
-
 
 .GamesSectionList__wrapper:focus {
   outline: none;
@@ -507,7 +507,6 @@ h3 {
   display: flex;
 }
 
-
 .GamesSectionTile__wrapper:visited {
   outline: none;
   text-decoration: none;
@@ -516,7 +515,6 @@ h3 {
   outline: none;
   text-decoration: none;
 }
-
 
 @media screen and (min-width: 1280px) {
   .GamesSectionTile__wrapper {
@@ -529,7 +527,6 @@ h3 {
   }
 }
 
-
 .GamesSectionTile__wrapper {
   display: grid;
   width: 100%;
@@ -540,7 +537,6 @@ h3 {
   width: 100%;
   position: relative;
 }
-
 
 .GamesSectionTile__wrapper:before {
   border: 2px solid transparent;
@@ -567,11 +563,9 @@ h3 {
   transition: border-color 0.2s ease-in-out;
 }
 
-
 :before {
   box-sizing: border-box;
 }
-
 
 .GamesSectionTile__wrapper .GamesSectionTile__image-wrapper {
   align-items: center;
@@ -601,7 +595,6 @@ h3 {
   transform: scale(1.1);
 }
 
-
 .GamesSectionTile__wrapper .GamesSectionTile__image {
   width: 100%;
   height: 100%;
@@ -614,7 +607,6 @@ h3 {
   transition: all 0.4s ease-in-out;
   object-fit: cover;
 }
-
 
 .GamesSectionTile__wrapper .GamesSectionTile__title {
   padding-bottom: 10px;
@@ -1031,7 +1023,7 @@ img {
     max-width: 414px;
   }
 }
-.button-wrapper{
+.button-wrapper {
   width: 18%;
 }
 

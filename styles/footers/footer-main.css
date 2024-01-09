@@ -272,7 +272,7 @@ button {
 }
 .footer-links li a:hover {
   text-decoration: none;
-  color: var(--color-accent);
+  color: #007aff !important;
 }
 #egf hr {
   margin: 1em 0;
@@ -326,9 +326,9 @@ button {
 }
 .legal .links li a:hover {
   text-decoration: none;
-  color: var(--color-accent);
+  color: var(--color-accent) !important;
 }
-.logos{
+.logos {
   display: flex;
 }
 .logos li:first-child {
@@ -341,7 +341,7 @@ button {
   display: inline-block;
 }
 .img-src {
-    width: 35px;
-    height: 40px;
-    margin-left: 550px;    
+  width: 35px;
+  height: 40px;
+  margin-left: 550px;
 }
