@@ -289,6 +289,18 @@ a.epic-pages-link {
   padding-left: 0.6rem;
 }
 
+a {
+  color: white;
+}
+
+a:hover {
+  color: rgb(70, 70, 70);
+}
+
+.nav-links a:hover {
+  color: rgb(70, 70, 70);
+}
+
 .right #search-fields-2 {
   padding-left: 7px; /* Adjust the padding as needed */
   flex: 1; /* Allow the input to take up remaining space */
