@@ -1,5 +1,6 @@
 import { addToWishlist, wishlistItemCount } from "./wishlist_functions.js";
 
+//fuction to handle click to game info
 const handleGameCardClick = (event) => {
   // Get the value of the "data-slug" attribute
   const dataSlug = event.currentTarget.getAttribute("data-slug");
@@ -12,6 +13,7 @@ const handleGameCardClick = (event) => {
   // Add additional logic as needed
 };
 
+//fuction to handle click to add to wishlist
 const handleAddToWishListClick = async (event) => {
   // Log the value
   event.stopPropagation();
@@ -43,11 +45,12 @@ const handleAddToWishListClick = async (event) => {
 document.querySelectorAll(".game-card").forEach((gameCard) => {
   gameCard.addEventListener("click", handleGameCardClick);
 });
-
+// Add the click event listener to each game card
 document.querySelectorAll(".add-to-wish-list-button").forEach((gameCard) => {
   gameCard.addEventListener("click", handleAddToWishListClick);
 });
 
+// Add the click event listener to each search suggestion
 document.querySelectorAll(".search-suggestion-item").forEach((gameCard) => {
   gameCard.addEventListener("click", (event) => {
     console.log("Clicked search suggestion item");
@@ -68,7 +71,7 @@ const checkAndAddTrippleItemListener = () => {
 // Check and add event listener initially
 checkAndAddTrippleItemListener();
 
-// You can also use mutation observer to watch for changes in the DOM and add the listener dynamically.
+// Add mutation observer
 const observer = new MutationObserver(() => {
   checkAndAddTrippleItemListener();
 });
