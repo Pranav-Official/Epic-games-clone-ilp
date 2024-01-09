@@ -1,4 +1,6 @@
-import { addToCart } from "../_functions/cartfunctions.js";
+import { API_KEY, firebaseConfig } from "../../environment.js";
+
+import { addToCart, fetchFullCart } from "../_functions/cartfunctions.js";
 import getPrice from "../_functions/getprice.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -10,15 +12,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 let userData, cartItems;
-const firebaseConfig = {
-  apiKey: "AIzaSyBuDu8PAD0vryP84FEzO-_a-2Tx6_FJRCg",
-  authDomain: "epic-games-clone-c0009.firebaseapp.com",
-  projectId: "epic-games-clone-c0009",
-  storageBucket: "epic-games-clone-c0009.appspot.com",
-  messagingSenderId: "96371749246",
-  appId: "1:96371749246:web:8de6e1806dea62dab5c32f",
-  measurementId: "G-L9RY8WEZQ7",
-};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -27,51 +20,101 @@ const database = getFirestore(app);
 const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
 let tempCartArray = [];
 
-const cartTemplate = (cartItem) => {
-  return `  <div class="game-details" slug="${cartItem.slug}">
-            <div class="left">
-              <img id="cartGameImage" src="${cartItem.background_image}">
-              <div class="windows-icon">
-                <i class="bi bi-windows"></i>
-              </div>
-            </div>
-            <div class="right">
-              <div class="base">
-                <h2><b>BASE GAME</b></h2>
-                <span class="price"><h6>&#8377;${cartItem.retailPrice}</h6> </span>
-              </div>
+// const cartTemplate = (cartItem) => {
+//   return `
+//   <div class="message-box">
+//   <p>Earn 10% back in Epic Rewards for any amount you spend on eligible purchases which can then be used to make future eligible purchases.</p>
+// </div>
+//   <div class="game-details" slug="${cartItem.slug}">
+//             <div class="left">
+//               <img id="cartGameImage" src="${cartItem.background_image}">
+//               <div class="windows-icon">
+//                 <i class="bi bi-windows"></i>
+//               </div>
+//             </div>
+//             <div class="right">
+//               <div class="base">
+//                 <h2><b>BASE GAME</b></h2>
+//                 <span class="price"><h6>&#8377;${cartItem.retailPrice}</h6> </span>
+//               </div>
 
-              <h3>${cartItem.title}</h3>
-              <br />
-              <br />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-              <h4>
-                Earn a boosted 10% back in Epic Rewards, offer ends Jan<br />
-                10.
-              </h4>
-              <br />
-              <p>Self-refundable</p>
-              <div class="qmark">
-                <i class="bi bi-question-circle"></i>
-              </div>
-              <div class="cart-update">
-                <i class="bi bi-plus-circle"></i>
-                <a href="">Move to wishlist</a>
-                <a class="remove-from-cart-button">Remove</a>
-              </div>
-            </div>
-          </div>
+//               <h3 class="game-title" data-slug="${cartItem.slug}">${cartItem.title}</h3>
+//               <br />
+//               <br />
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 class="icon"
+//                 viewBox="0 0 20 20"
+//               >
+//                 <path
+//                   fill-rule="evenodd"
+//                   clip-rule="evenodd"
+//                   d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z"
+//                   fill="currentColor"
+//                 ></path>
+//               </svg>
+//               <h4 class="hoverable">
+//                 Earn a boosted 10% back in Epic Rewards, offer ends Jan<br />
+//                 10.
+//               </h4>
+//               <br />
+//               <p>Self-refundable</p>
+//               <div class="qmark">
+//                 <i class="bi bi-question-circle"></i>
+//               </div>
+//               <div class="cart-update">
+//                 <i class="bi bi-plus-circle"></i>
+//                 <a href="">Move to wishlist</a>
+//                 <a class="remove-from-cart-button">Remove</a>
+//               </div>
+//             </div>
+//           </div>
+//           `;
+// };
+
+const cartTemplate = (cartItem) => {
+  return `  
+  <div class="game-details" slug="${cartItem.slug}">
+  <div class="left">
+    <img id="cartGameImage" src="${cartItem.background_image}">
+    <div class="windows-icon">
+      <i class="bi bi-windows"></i>
+    </div>
+  </div>
+  <div class="right">
+    <div class="base">
+      <h2><b>BASE GAME</b></h2>
+      <span class="price"><h6>&#8377;${cartItem.retailPrice}</h6></span>
+    </div>
+
+    <h3 class="game-title" data-slug="${cartItem.slug}">${cartItem.title}</h3>
+    <br />
+    <br />
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z"
+        fill="currentColor"></path>
+    </svg>
+    <h4 class="hoverable">
+      Earn a boosted 10% back in Epic Rewards, offer ends Jan<br />
+      10.
+    </h4>
+    <div class="message-box">
+      <p>Earn 10% back in Epic Rewards for any amount you spend on eligible purchases which can then be used to make future eligible purchases.</p>
+    </div>
+    <br />
+    <p>Self-refundable</p>
+    <div class="qmark">
+      <i class="bi bi-question-circle"></i>
+    </div>
+    <div class="cart-update">
+      <i class="bi bi-plus-circle"></i>
+      <a href="">Move to wishlist</a>
+      <a class="remove-from-cart-button">Remove</a>
+    </div>
+  </div>
+</div>
+
           `;
 };
 
@@ -89,7 +132,6 @@ const displayCartInDOM = (cartItems) => {
     gameHtml += cartTemplate(cartItem);
   });
 
-  
   const calculateTotalPrice = (cartItems) => {
     let totalPrice = 0;
 
@@ -294,7 +336,7 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
   }
 });
 
-await addToCart("ghostrunner");
+await addToCart("diablo-iv");
 
 // const cartGameImage = document.getElementById("cartGameImage");
 // // Add a click event listener to the cart game image
@@ -305,3 +347,129 @@ await addToCart("ghostrunner");
 //   // Redirect to the game page with the slug
 //   window.location.href = `pages\gameinfo.html\${gameSlug}`; // Replace with the actual path of your game page
 // });
+
+const getNumberOfGamesInCart = async () => {
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const cartItems = userData.Cart;
+
+      // Return the length of cartItems
+      return cartItems.length;
+    } else {
+      return 0;
+    }
+  } catch (error) {
+    console.error("Error fetching data from Firestore:", error);
+
+    return 0;
+  }
+};
+
+const numberOfGamesInCart = await getNumberOfGamesInCart();
+console.log(numberOfGamesInCart);
+
+const getGameSlugFromCart = async () => {
+  try {
+    const docSnapshot = await getDoc(dbref);
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const cartItems = userData.Cart;
+
+      // checking if cart has games in it
+      if (cartItems.length > 0) {
+        const slugArray = [];
+
+        // each game is iterated,and slug is returned
+        for (let i = 0; i < cartItems.length; i++) {
+          slugArray.push(cartItems[i].slug);
+        }
+
+        return slugArray;
+      }
+    }
+    // if the cart has no games,then an empty array is returned
+    return [];
+  } catch (error) {
+    console.error("Error fetching data from Firestore:", error);
+  }
+};
+
+const slugArray = await getGameSlugFromCart();
+
+if (slugArray.length > 0) {
+  console.log(`Slugs: ${slugArray.join(", ")}`);
+} else {
+  console.log("Cart is empty or an error occurred while fetching data.");
+}
+
+const handleGameCardClick = (event) => {
+  // Get the value of the "data-slug" attribute
+  // const dataSlug = event.currentTarget.getAttribute("slug");
+
+  // Log the slug value for debugging
+
+  // Check if cartGameCard is null
+  const cartGameCard = event.currentTarget.closest(".game-details");
+  const dataSlug = cartGameCard.getAttribute("slug");
+
+  console.log("Clicked game slug:", dataSlug);
+
+  if (!cartGameCard) {
+    console.error("Ancestor with class 'game-details' not found.");
+    return;
+  }
+
+  // Log the value
+  console.log("click to game info", event.currentTarget);
+  localStorage.setItem("gameSlug-info", dataSlug);
+  window.location.href = "../../pages/gameinfo.html";
+
+  // Add additional logic as needed
+};
+
+// Assuming newGameCards is a NodeList or an array of elements representing game cards
+// const newGameCards = document.querySelectorAll(".game-details img");
+
+// // Iterate over each new game card and add a click event listener
+// newGameCards.forEach((newCard) => {
+//   newCard.addEventListener("click", handleGameCardClick);
+// });
+
+const newGameCards = document.querySelectorAll(".game-details");
+newGameCards.forEach((newCard) => {
+  // Assuming .game-title is the class for the title element
+  const gameTitle = newCard.querySelector(".game-title");
+
+  // Assuming .cartGameImage is the class for the image element
+  const cartGameImage = newCard.querySelector("#cartGameImage");
+
+  // Add a click event listener to the title element
+  gameTitle.addEventListener("click", handleGameCardClick);
+
+  // Add a click event listener to the image element
+  cartGameImage.addEventListener("click", handleGameCardClick);
+});
+
+function setupHoverable() {
+  // Assuming you have elements with the class "hoverable" and "message-box" for each cart item
+  const hoverableElements = document.querySelectorAll(".hoverable");
+  const messageBoxes = document.querySelectorAll(".message-box");
+
+  hoverableElements.forEach((hoverableElement, index) => {
+    // Assuming each .message-box corresponds to a .hoverable at the same index
+    const messageBox = messageBoxes[index];
+
+    hoverableElement.addEventListener("mouseenter", () => {
+      messageBox.classList.add("show-message");
+    });
+
+    hoverableElement.addEventListener("mouseleave", () => {
+      messageBox.classList.remove("show-message");
+    });
+  });
+}
+
+setupHoverable();
