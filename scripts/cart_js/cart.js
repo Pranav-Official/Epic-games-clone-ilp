@@ -17,7 +17,7 @@ let userData, cartItems;
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+const dbref = doc(database, "UsersData", "josin@gmail.com");
 let tempCartArray = [];
 
 // const cartTemplate = (cartItem) => {
@@ -336,9 +336,7 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
   }
 });
 
-
 // await addToCart("grand-theft-auto-v");
-
 
 // const cartGameImage = document.getElementById("cartGameImage");
 // // Add a click event listener to the cart game image

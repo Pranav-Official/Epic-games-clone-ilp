@@ -11,10 +11,38 @@ body {
   background-color: var(--color-background-default) !important;
   overflow-x: hidden;
 }
+.nav-links {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0 !important;
+  margin: 0 !important;
+  text-decoration: none;
+  color: rgb(161 161 161) !important;
+}
+a.nav-links:hover {
+  color: whitesmoke !important
+  ;
+}
+
+.epic-pages-link {
+  text-decoration: none !important;
+}
+.epic-pages-link:hover {
+  text-decoration: none !important;
+  color: white;
+}
+.list-test:hover {
+  text-decoration: none;
+}
+.list-text:hover {
+  text-decoration: none;
+}
 
 .distribution-page-body {
-  padding-left: 10%;
-  padding-right: 10%;
+  margin-left: 12%;
+  margin-right: 12%;
 }
 
 #distribution-section-one {
@@ -219,9 +247,7 @@ a {
   }
 }
 
-.section-two-div-data-content:hover {
-  transform: scale(1.2);
-  animation: gradientAnimation 3s infinite linear;
+.section-two-div-data:hover {
   transition: transform 0.3s ease-in-out;
   background: linear-gradient(to right, #0057b4, #007bff);
   background-size: 200% 100%;
@@ -300,6 +326,7 @@ a {
       rgba(22, 39, 49, 0.1) 82%
     )
     rgba(22, 39, 49, 0);
+  margin-bottom: 20px;
 }
 
 .section-four-div-data-content {

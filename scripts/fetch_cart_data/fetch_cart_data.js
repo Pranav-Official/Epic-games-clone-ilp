@@ -16,7 +16,7 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+const dbref = doc(database, "UsersData", "josin@gmail.com");
 
 async function generateCheckout() {
   try {
