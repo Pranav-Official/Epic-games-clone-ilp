@@ -17,7 +17,7 @@ let userData, cartItems;
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+let dbref = null;
 let tempCartArray = [];
 
 // const cartTemplate = (cartItem) => {
@@ -179,6 +179,8 @@ const displayCartInDOM = (cartItems) => {
 // Fetch data from Firestore
 const fetchFirestoreData = async () => {
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -336,10 +338,6 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
   }
 });
 
-
-// await addToCart("grand-theft-auto-v");
-
-
 // const cartGameImage = document.getElementById("cartGameImage");
 // // Add a click event listener to the cart game image
 // cartGameImage.addEventListener("click", () => {
@@ -475,3 +473,5 @@ function setupHoverable() {
 }
 
 setupHoverable();
+
+// await addToCart("diablo-iv");
