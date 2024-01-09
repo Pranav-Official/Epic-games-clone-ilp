@@ -1,4 +1,5 @@
 import { firebaseConfig } from "../../environment.js";
+import { addToCart } from "../_functions/cartfunctions.js";
 import {
   addToWishlist,
   removeWishlistInFirebase,
@@ -18,12 +19,14 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+let dbref = null;
 let tempWishlistArray = [];
 
 //function for loading wishlist items from firebase
 const wishlistPage = async () => {
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -74,9 +77,7 @@ const wishListTemplate = (wishlistItem) => {
             <button id="percentbtn">${wishlistItem.offerPercentage}</button>
             <p id="actualprice">₹${wishlistItem.actualPrice}</p>
             <p id="price">₹${wishlistItem.offerPrice}</p>
-            <div><p id="sales">Game updated ${formatDate(
-              wishlistItem.salesEndDate
-            )} at ${formatTime(wishlistItem.salesEndTime)}pm</p></div>
+            <div></div>
           </div>
         </div>
         <div>
@@ -90,9 +91,7 @@ const wishListTemplate = (wishlistItem) => {
             </p>
         </div>
         <div class="button-row">
-           <div class="remove-button"><button class="remove" data-index="${
-             wishlistItem.id
-           }">Remove</button></div>
+           <div class="remove-button"><button class="remove" data-index="${wishlistItem.id}">Remove</button></div>
           <div class="addtocart-button">
             <button id="add2cart">ADD TO CART</button>
           </div>
@@ -122,8 +121,18 @@ const displayWishlist = (games) => {
       await removeWishlistInFirebase(dataSlug);
       window.location.reload();
     });
+
+    const addToCartButton = wishlistDiv.querySelector("#add2cart");
+    addToCartButton.addEventListener("click", async (event) => {
+      const wishlist_box = event.target.closest(".wishlist-box");
+      const dataSlug = wishlist_box.getAttribute("dataSlug");
+      console.log(dataSlug);
+      addToCart(dataSlug);
+      addToCartButton.textContent = "ADDED TO CART";
+    });
   });
 };
+
 //callimg page load
 document.addEventListener("DOMContentLoaded", function () {
   // Call the function with the array of games
@@ -167,7 +176,6 @@ document.querySelector("#sortingtype").addEventListener("change", (event) => {
       sortWishlistPageByRecentlyAdded();
       break;
     case 2:
-      console.log(tempWishlistArray);
       sortWishlistPageByAlphabetAsc();
       break;
     case 3:
@@ -200,17 +208,6 @@ const formatTime = (timeString) => {
     minutes < 10 ? "0" + minutes : minutes
   }`;
 };
-// function manageOption() {
-//   // Hide element with class 'pl1'
-//   let manageDiv = document.getElementById("pl1");
-//   manageDiv.style.visibility = "hidden";
-
-//   // Show element with class 'pl2'
-//   let manageDiv2 = document.getElementById("pl2");
-//   manageDiv2.style.visibility = "visible";
-
-//   console.log("button working");
-// }
 
 //reset filter
 const filterReset = () => {
@@ -390,11 +387,6 @@ document
     filterWishlistPageByFeatures("great-soundtrack");
   });
 
-// document.getElementById("filter_by_rpg").addEventListener("click", () => {
-//   console.log("rpg");
-//   filterWishlistPageByFeatures("rpg");
-// });
-
 document.getElementById("filter_by_coop").addEventListener("click", () => {
   filterWishlistPageByFeatures("co-op");
 });
@@ -435,5 +427,6 @@ document.querySelectorAll(".price-buttons").forEach((button) => {
     filterWishlistPageByPrice(priceOnButton);
   });
 });
-// await addToWishlist("diablo-iv");
+
+// await addToWishlist("grand-theft-auto-vice-city");
 // await displayWishlistSlugs();

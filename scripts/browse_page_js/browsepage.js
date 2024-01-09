@@ -29,7 +29,7 @@ const loadBrowsePage = async (parameterList = []) => {
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -41,7 +41,7 @@ const loadBrowsePage = async (parameterList = []) => {
     `;
       } else {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -57,6 +57,14 @@ const loadBrowsePage = async (parameterList = []) => {
       }
       container.innerHTML += gameCardHTML;
     }
+    document.querySelectorAll(".game-card").forEach((element) => {
+      element.addEventListener("click", () => {
+        const slug = element.getAttribute("dataSlug");
+        console.log(slug);
+        localStorage.setItem("gameSlug-info", slug);
+        window.location.href = "../../pages/gameinfo.html";
+      });
+    });
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -165,12 +173,12 @@ const updateGameCardsByGenre = async (selectedGenre) => {
 
     for (let i = 0; i < data.results.length; i++) {
       const gameData = data.results[i];
-      const prices = await getPrice(gameData.slug);
-      // const prices = null;
+      // const prices = await getPrice(gameData.slug);
+      const prices = null;
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -182,7 +190,7 @@ const updateGameCardsByGenre = async (selectedGenre) => {
     `;
       } else {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -221,7 +229,7 @@ const refreshData = async (gameDataUrl) => {
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -233,7 +241,7 @@ const refreshData = async (gameDataUrl) => {
     `;
       } else {
         gameCardHTML = `
-      <div class="game-card">
+      <div class="game-card" dataSlug="${gameData.slug}">
         <div class="game-card-image">
           <img src="${gameData.background_image}" alt="${gameData.name}" />
         </div>
@@ -383,11 +391,20 @@ const filterBrowsePageByPlatform = (platform) => {
   loadBrowsePage(parameterList);
 };
 
-  document.getElementById("filter_by_windows").addEventListener("click", () => {
-    console.log("4");
-    filterBrowsePageByPlatform("4");
-  });
+document.getElementById("filter_by_windows").addEventListener("click", () => {
+  console.log("4");
+  filterBrowsePageByPlatform("4");
+});
 
 document.getElementById("filter_by_macos").addEventListener("click", () => {
   filterBrowsePageByPlatform("5");
 });
+
+document
+  .querySelector("#browsepage-game-cards")
+  .addEventListener("click", (event) => {
+    if (event.target.matches(".game-card")) {
+      // Retrieve the slug from the data attribute of the parent game card
+      console.log("card-press");
+    }
+  });

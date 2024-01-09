@@ -1,6 +1,9 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: black;
+  padding-left: 0%;
+  padding-right: 0%;
+  box-sizing: border-box;
 }
 
 a.epic-pages-link {
@@ -10,8 +13,8 @@ a.epic-pages-link {
 .cart-body-page {
   display: flex;
   flex-direction: column;
-  padding-left: 12%;
-  padding-right: 12%;
+  padding-left: 10%;
+  padding-right: 13%;
 }
 
 .game-title:hover {
@@ -35,18 +38,19 @@ a.epic-pages-link {
 
 * {
   box-sizing: border-box;
+  /*! width: 00px; */
 }
 
 .cart-whole {
   display: flex;
+  /*! width: 182px; */
 }
 
 .cart {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Adjust the padding as needed */
-  /* margin-right: 20px; */
+  margin-right: 24px;
 }
 
 .cart-title {
@@ -67,7 +71,7 @@ a.epic-pages-link {
 .rewards {
   display: flex;
   align-items: center;
-  margin-right: 0px;
+  margin-right: -24px;
   background-color: rgba(0, 0, 0, 0);
   outline: none;
   border: 0px;
@@ -109,7 +113,7 @@ a.epic-pages-link {
 .game-details {
   flex: 2;
   margin-top: 20px;
-  width: 700px;
+  width: 645px;
   /* max-width: 700px; */
   height: 266px;
   background-color: rgb(32, 32, 32);
@@ -123,7 +127,7 @@ a.epic-pages-link {
 
 .cart-update {
   color: grey;
-  margin-left: 19rem;
+  margin-left: 17rem;
   margin-top: 1rem;
 }
 
@@ -199,7 +203,7 @@ a.epic-pages-link {
   font-size: 0.8rem;
   margin-top: 0.1em;
   color: white;
-  margin-left: 300px;
+  margin-left: 267px;
 }
 .right h4 {
   font-size: 0.9rem;
@@ -264,9 +268,11 @@ a.epic-pages-link {
 
 .summary {
   flex: 1;
-  margin-top: 0.5rem; /* Adjust the margin-top as needed */
-  padding-top: 0.5em; /* Adjust the padding-top as needed */
-  padding-left: 2em;
+  margin-top: 0.5rem;
+  padding-top: 0.5em;
+  padding-left: 2em; /* Adjust the padding-left as needed */
+  max-width: 345px; /* Adjust the max-width to account for padding */
+  box-sizing: border-box;
 }
 
 .summary h2 {
@@ -274,6 +280,7 @@ a.epic-pages-link {
   color: white;
   font-size: 26px;
   white-space: nowrap;
+  margin-left: -1rem;
 }
 
 .summary h6 {
@@ -284,8 +291,8 @@ a.epic-pages-link {
 
 .game-details img {
   padding: 10px;
-  padding-left: 1rem;
-  width: 100%; /* Set width to 100% for responsiveness */
+  /*! padding-left: 1rem; */
+  width: 140px; /* Set width to 100% for responsiveness */
   height: 200px; /* Set height to 100% for responsiveness */
   border-radius: 0.9rem;
   object-fit: cover;
