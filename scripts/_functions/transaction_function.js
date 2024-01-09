@@ -1,28 +1,21 @@
-import { API_KEY } from "../../environment.js";
-// import axios from "https://cdn.skypack.dev/axios";
-
+import { API_KEY, FIRE_BASE_KEY, firebaseConfig } from "../../environment.js";
+import { removeCartInFirebase } from "./cartfunctions.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
   getFirestore,
   doc,
   getDoc,
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-// import getPrice from "./getprice"; // Adjust the path accordingly
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBuDu8PAD0vryP84FEzO-_a-2Tx6_FJRCg",
-  authDomain: "epic-games-clone-c0009.firebaseapp.com",
-  projectId: "epic-games-clone-c0009",
-  storageBucket: "epic-games-clone-c0009.appspot.com",
-  messagingSenderId: "96371749246",
-  appId: "1:96371749246:web:8de6e1806dea62dab5c32f",
-  measurementId: "G-L9RY8WEZQ7",
-};
+// import axios from "https://cdn.skypack.dev/axios";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
+const auth = getAuth(app);
+
 let dbref = null;
 
 export const addtoTransactionInFirebase = async (obj) => {
@@ -33,8 +26,8 @@ export const addtoTransactionInFirebase = async (obj) => {
     // const response = await axios.get(baseUrl);
     // const data = response.data;
 
-    // // Fetch pricing information using the getPrice function
-    // // const prices = await getPrice(data.name);
+    // Fetch pricing information using the getPrice function
+    // const prices = await getPrice(data.name);
     // const prices = {
     //   salePrice: 1000,
     //   retailPrice: 1500,
@@ -49,6 +42,7 @@ export const addtoTransactionInFirebase = async (obj) => {
     // };
 
     await updateTransactionInFirebase(obj);
+    await removeCartInFirebase(obj.slug);
   } catch (error) {
     console.error("Error adding to Transaction in Firebase:", error);
   }
@@ -62,25 +56,41 @@ const updateTransactionInFirebase = async (game) => {
 
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
-      tempTransactionArray = [...userData.Transactions];
-    }
 
-    let isGamePresent = false;
-    for (let i = 0; i < tempTransactionArray.length; i++) {
-      if (tempTransactionArray[i].slug === game.slug) {
-        isGamePresent = true;
-        break;
+      // Check if userData.Transactions is defined and is an array
+      if (
+        userData &&
+        userData.Transactions &&
+        Array.isArray(userData.Transactions)
+      ) {
+        tempTransactionArray = [...userData.Transactions];
+      } else {
+        // If not defined or not an array, initialize it as an empty array
+        userData.Transactions = [];
       }
-    }
 
-    if (!isGamePresent) {
-      tempTransactionArray.push(game);
-      await updateDoc(dbref, { Transactions: tempTransactionArray });
-      console.log(`Game with slug ${game.slug} added to the TransactionList.`);
+      let isGamePresent = false;
+      for (let i = 0; i < tempTransactionArray.length; i++) {
+        if (tempTransactionArray[i].slug === game.slug) {
+          isGamePresent = true;
+          break;
+        }
+      }
+
+      if (!isGamePresent) {
+        tempTransactionArray.push(game);
+        await updateDoc(dbref, { Transactions: tempTransactionArray });
+        console.log(
+          `Game with slug ${game.slug} added to the TransactionList.`
+        );
+      } else {
+        console.log(
+          `Game with slug ${game.slug} is already in the TransactionList.`
+        );
+      }
     } else {
-      console.log(
-        `Game with slug ${game.slug} is already in the TransactionList.`
-      );
+      console.error("User document does not exist");
+      // Handle the situation where the user document does not exist
     }
   } catch (error) {
     console.error("Error updating Transaction in Firebase:", error);
@@ -100,5 +110,5 @@ export const getTransactionList = async () => {
 };
 
 // Example usage
-// const gameSlug = "dishonored"; // Replace with the actual game slug
+// const gameSlug = "baldurs-gate-3"; // Replace with the actual game slug
 // addtoTransactionInFirebase(gameSlug);

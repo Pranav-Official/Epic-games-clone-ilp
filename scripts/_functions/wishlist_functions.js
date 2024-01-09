@@ -16,6 +16,7 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
+
 let dbref = null;
 
 //update wishlist in firebase

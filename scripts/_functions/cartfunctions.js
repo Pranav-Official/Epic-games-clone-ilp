@@ -14,7 +14,9 @@ let userData, cartItems;
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
+
 let dbref = null;
+
 
 const addtoCartInFirebase = async (game) => {
   let tempCartArray = [];
@@ -131,6 +133,30 @@ export const cartItemCount = async () => {
   // console.log(countWishlist);
   return countCartlist;
 };
+
+export const removeCartInFirebase = async (slug) => {
+  let tempCartArray = [];
+  try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const cartItems = userData.Cart;
+      console.log(cartItems);
+
+      cartItems.forEach((games) => {
+        tempCartArray.push(games);
+      });
+    }
+    let updatedCartArray = tempCartArray.filter(
+      (singlegame) => singlegame.slug != slug
+    );
+
+    await updateDoc(dbref, { Cart: updatedCartArray });
+  } catch (error) {
+    console.error("Error updating cart in Firebase:", error);
 
 export const getGameSlugFromCart = async () => {
   try {
