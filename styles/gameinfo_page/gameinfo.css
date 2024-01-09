@@ -6,14 +6,14 @@
 
 body {
   visibility: hidden;
-  color: rgb(245, 245, 245);
+  color: rgb(245, 245, 245) !important;
   background: var(--color-main-page);
   position: relative;
-  font-family: Inter, sans-serif;
-  font-size: 14px;
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
   font-weight: normal;
-  line-height: 20px;
-  letter-spacing: 0.2px;
+  line-height: 20px !important;
+  letter-spacing: 0.2px !important;
   width: 100%;
   overflow-x: hidden;
 }
@@ -35,10 +35,11 @@ h6 {
 
 .wholpage {
   position: relative;
+  height: 100rem;
 }
 .headnavsizer {
-  position: absolute;
-  top: 9rem;
+  position: relative;
+  top: 10rem;
   left: 7.9rem;
 }
 
@@ -106,7 +107,7 @@ h6 {
   color: rgba(245, 245, 245, 0.6) !important;
 }
 
-.active {
+.overview_active {
   text-decoration: underline !important;
   color: white;
 }
@@ -157,7 +158,7 @@ h6 {
   letter-spacing: -0.2px;
   width: 40rem;
   margin-top: 1rem;
-  margin-left: 1rem;
+  margin-left: 0rem;
 }
 
 .vertical-line {
@@ -329,14 +330,14 @@ a.show-more-linkpart {
   display: inline;
   text-align: center;
   width: 4rem;
-  height: 1rem;
+  height: 1.5rem;
   border-radius: 4px;
 }
 
 .price-and-discount {
   position: absolute;
   top: 14rem;
-  right: 10.5rem;
+  right: 11rem;
   display: flex;
 }
 .discount {
@@ -362,7 +363,7 @@ a.show-more-linkpart {
   width: 10rem;
   font-size: 9px;
   top: 16rem;
-  right: 9.3rem;
+  right: 8.9rem;
   font-weight: 500;
 }
 
@@ -376,7 +377,7 @@ a.show-more-linkpart {
   text-align: center;
   background-color: rgb(0, 116, 228);
   border-radius: 4px;
-  width: 15rem;
+  width: 15.4rem;
   height: 2.4rem;
   padding: 1px 6px;
   transition: all 0.2s ease 0s;
@@ -406,7 +407,7 @@ a.buy-button-link {
   border-width: 0.1px;
   border-color: rgb(158, 158, 158);
   border-radius: 4px;
-  width: 15rem;
+  width: 15.4rem;
   height: 2.4rem;
   padding: 1px 6px;
   transition: all 0.2s ease 0s;
@@ -436,8 +437,8 @@ a.add-to-cartbutton-link {
   border-width: 0.1px;
   border-color: rgb(158, 158, 158);
   border-radius: 4px;
-  width: 15rem;
-  height: 2rem;
+  width: 15.4rem;
+  height: 2.1rem;
   padding: 1px 6px;
   transition: all 0.2s ease 0s;
 }
@@ -618,7 +619,7 @@ a.add-to-wishbutton-link {
   border-width: 0.1px;
   border-color: rgb(158, 158, 158);
   border-radius: 4px;
-  width: 5rem;
+  width: 7.3rem;
   height: 1.5rem;
   padding: 1px 25px;
   display: flex;
@@ -760,6 +761,11 @@ a.add-to-wishbutton-link {
   background-color: rgb(32, 32, 32);
   width: 61rem;
   height: 18rem;
+  margin-bottom: 3rem;
+}
+
+.img1 {
+  border-color: #007aff;
 }
 
 .line-separator {
@@ -893,7 +899,7 @@ a.add-to-cartbutton-link-editions {
 }
 
 a.add-to-wishbutton-link-editions {
-  padding-bottom: 3%;
+  margin-top: 1rem;
   text-align: center;
   text-decoration: none;
   color: rgb(255, 255, 255);

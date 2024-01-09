@@ -81,7 +81,7 @@ const displayGameInfo = async (sortFlag) => {
                     height="16"
                     fill="currentColor"
                     class="bi bi-exclamation-circle-fill"
-                    viewBox="0 -4  20  20  "
+                    viewBox="0  0 20  20  "
                   >
                     <path
                       d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
@@ -121,7 +121,7 @@ const displayAchievements = (achievementsResultList) => {
                         height="14"
                         style="color: rgb(202, 81, 43)"
                         fill="currentColor"
-                        class="bi bi-trophy-fill"
+                        class="bi-bi-trophy-fill"
                         viewBox="0 0 16 9"
                       >
                         <path
