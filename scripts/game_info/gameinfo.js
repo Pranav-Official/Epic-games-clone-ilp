@@ -1,3 +1,4 @@
+import { addToCart } from "../_functions/cartfunctions.js";
 import {
   fetchGameScreenShots,
   fetchGameThumbImage,
@@ -13,7 +14,6 @@ setTimeout(function () {
 }, 2500);
 
 //function to dynamically load page details
-
 export const displayPage = async () => {
   try {
     const gameSlug = localStorage.getItem("gameSlug-info");
@@ -330,24 +330,18 @@ export const displayPage = async () => {
 
 // swiper for game screen shot carousal
 const swiper = new Swiper(".swiper", {
-  // Optional parameters
   direction: "horizontal",
-  slidesPerView: 1, // Number of slides per view
-  spaceBetween: 15, // Space between slides
+  slidesPerView: 1,
+  spaceBetween: 15,
   loop: true,
 
-  // If we need pagination
   pagination: {
     el: ".swiper-pagination",
   },
-
-  // Navigation arrows
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-
-  // And if we need scrollbar
   scrollbar: {
     el: ".swiper-scrollbar",
   },
@@ -373,6 +367,7 @@ function updateStarRating(rating) {
   document.querySelector(".rating").innerHTML = `${numStarsFilled}.0`;
 }
 
+//function to limit words
 function limitWords(text, n) {
   // Split the text into an array of words
   const words = text.split(" ");
@@ -392,5 +387,7 @@ function limitWords(text, n) {
 }
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
+
+document.getElementById("add-to-cartbutton-link").addEventListener("click")
 
 window.onload = displayPage;

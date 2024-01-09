@@ -176,8 +176,8 @@ body {
 
 .sort-rarity {
   color: grey;
-  margin-top: 4px;
-  padding-top: 15px;
+  margin-top: 0;
+  padding-top: 8px;
   padding-left: 15px;
   transition: all 0.2s ease 0s;
 }
@@ -187,6 +187,7 @@ body {
   transform-origin: center;
   width: 14px; /* Adjust the width to your needs */
   height: 14px;
+  margin-top: -7px;
 }
 
 .achievement-cards-whole {
@@ -229,6 +230,10 @@ body {
   letter-spacing: 0.2px;
   white-space: nowrap;
 }
+.bi-bi-trophy-fill {
+  margin-bottom: 0.3rem;
+}
+
 .achievement-xp-rarity {
   display: flex;
   position: absolute;
@@ -256,7 +261,7 @@ body {
   white-space: nowrap;
   color: rgba(245, 245, 245, 0.6);
   left: 3.5rem;
-  top: 0.25rem;
+  top: 0.125rem;
   font-size: 10px;
 }
 
