@@ -85,6 +85,7 @@ export const addToCart = async (gameSlug) => {
   }
 };
 
+
 export const fetchFullCart = async () => {
   try {
     const docSnapshot = await getDoc(dbref); // Fetch the document snapshot
@@ -99,4 +100,21 @@ export const fetchFullCart = async () => {
   } catch (error) {
     console.error("Error in fetching Cart:", error);
   }
+
+export const cartItemCount = async () => {
+  let countCartlist = 0;
+  let cartlistArray = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      cartlistArray = userData.Cart;
+      countCartlist = cartlistArray.length;
+    }
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+  // console.log(countWishlist);
+  return countCartlist;
 };

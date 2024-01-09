@@ -1,3 +1,4 @@
+import { addToCart } from "../_functions/cartfunctions.js";
 import {
   fetchGameScreenShots,
   fetchGameThumbImage,
@@ -5,29 +6,19 @@ import {
   fetchGameAchievements,
 } from "../game_info/gameinfo_fetch.js";
 import getPrice from "../_functions/getprice.js";
-import { addtoTransactionInFirebase } from "../_functions/transaction_function.js";
-let gameSlug = "forza-horizon";
-
-// Set a timeout to show the body after 3 seconds
-setTimeout(function () {
-  document.body.style.visibility = "visible";
-}, 2100);
 
 //function to dynamically load page details
-
 export const displayPage = async () => {
-
   try {
     const gameSlug = localStorage.getItem("gameSlug-info");
     const gameData = await fetchSingleGameData(gameSlug);
     const screenshots = await fetchGameScreenShots(gameSlug);
-    // const cheapSharkThumb = await fetchGameThumbImage(gameSlug);
-    // console.log(cheapSharkThumb);
+    const cheapSharkThumb = await fetchGameThumbImage(gameSlug);
+    console.log(cheapSharkThumb);
     const achievementsOverview = await fetchGameAchievements(gameSlug, 1);
-    const gamePriceData =null
-    //  await getPrice(gameSlug);
+    const gamePriceData = await getPrice(gameSlug);
     console.log(gamePriceData);
-    const truncatedDescription = limitWords(gameData.description, 150);
+    const truncatedDescription = limitWords(gameData.description, 200);
     const shortDescription = limitWords(gameData.description, 25);
 
     let screenshothtml = ``;
@@ -93,8 +84,8 @@ export const displayPage = async () => {
     ).innerHTML = `Buy ${gameData.name} from our Store and we’ll email a digital voucher
                 code for discount on new purchases.`;
 
-    //thumb image
-    // document.querySelector("#game-thumb-image").src = cheapSharkThumb[0].thumb;
+    // thumb image
+    document.querySelector("#game-thumb-image").src = cheapSharkThumb[0].thumb;
 
     //game price and discount
     if (gamePriceData != null) {
@@ -104,10 +95,10 @@ export const displayPage = async () => {
       ).innerHTML = `${discountRounded}%`;
       document.querySelector(
         ".slashed-price"
-      ).innerHTML = `<s>₹${gamePriceData.salePrice}</s>`;
+      ).innerHTML = `<s>₹${gamePriceData.retailPrice}</s>`;
       document.querySelector(
         ".price-now"
-      ).innerHTML = `₹${gamePriceData.retailPrice}`;
+      ).innerHTML = `₹${gamePriceData.salePrice}`;
       if (discountRounded != 0) {
         document.querySelector(".sale-end-info").innerHTML = `On Sale now`;
       } else {
@@ -195,8 +186,8 @@ export const displayPage = async () => {
                 <div class="discount-editions">
                   <div class="discount-percent-editions">${discountRounded}%</div>
                 </div>
-                <div class="slashed-price-edtions"><s>₹${gamePriceData.salePrice}</s></div>
-                <div class="price-now-editions">₹${gamePriceData.retailPrice}</div>
+                <div class="slashed-price-edtions"><s>₹${gamePriceData.retailPrice}</s></div>
+                <div class="price-now-editions">₹${gamePriceData.salePrice}</div>
               </div>
               <div class="cart-and-wishlist-buttons">
                 <div class="add-to-cartbutton-editions">
@@ -210,7 +201,7 @@ export const displayPage = async () => {
                     fill="currentColor"
                     id="plusbtn"
                     class="bi bi-plus-circle"
-                    viewBox="0 -5 18 21"
+                    viewBox="0 0 18 21"
                   >
                     <path
                       d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
@@ -228,6 +219,7 @@ export const displayPage = async () => {
             </div>
           </div>`;
     let highestEdition = 0;
+    let editionLimit = 5;
     for (let edition of cheapSharkThumb) {
       if (parseInt(edition.cheapest) > highestEdition) {
         highestEdition = parseInt(edition.cheapest);
@@ -236,13 +228,22 @@ export const displayPage = async () => {
     console.log(highestEdition);
     for (let edition of cheapSharkThumb) {
       let editionType;
+      let editionDiscountPercent =
+        100 -
+        Math.floor(((edition.cheapest * 83) / (highestEdition * 83)) * 100);
       let differentEditions = [
         "STANDARD",
         "COLLECTORS",
         "DELUXE",
         "ULTIMATE",
         "DEFINITIVE",
+        "GOLD",
+        "PREMIUM",
       ];
+      console.log(editionLimit);
+      if (editionLimit == 0) {
+        break;
+      }
       for (editionType of differentEditions) {
         if (edition.internalName.includes(editionType)) {
           gameEditionsHtml += `    <div class="edition-card">
@@ -269,10 +270,14 @@ export const displayPage = async () => {
             <div class="game-editions-card-price">
               <div class="price-and-discount-editions">
                 <div class="discount-editions">
-                  <div class="discount-percent-editions">%</div>
+                  <div class="discount-percent-editions">${editionDiscountPercent}%</div>
                 </div>
-                <div class="slashed-price-edtions"><s>2748₹</s></div>
-                <div class="price-now-editions">2198.40₹</div>
+                <div class="slashed-price-edtions"><s>₹${Math.floor(
+                  highestEdition * 83
+                )}</s></div>
+                <div class="price-now-editions"> ₹${Math.floor(
+                  edition.cheapest * 83
+                )}</div>
               </div>
               <div class="cart-and-wishlist-buttons">
                 <div class="add-to-cartbutton-editions">
@@ -286,7 +291,7 @@ export const displayPage = async () => {
                     fill="currentColor"
                     id="plusbtn"
                     class="bi bi-plus-circle"
-                    viewBox="0 -5 18 21"
+                    viewBox="0 0 18 21"
                   >
                     <path
                       d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
@@ -305,34 +310,38 @@ export const displayPage = async () => {
           </div>`;
         }
       }
+      editionLimit--;
     }
-
+    let wholeDiv = document.querySelector(".wholepage");
     document.querySelector(".game-editions").innerHTML = gameEditionsHtml;
+    let wholeDivHeight = document.querySelector(".game-editions").offsetHeight;
+    console.log(wholeDivHeight);
+    wholeDiv.style.height = `${wholeDivHeight + 2000}px`;
+    document.querySelector(".footer-main-container").style.display = "block";
   } catch (error) {
     console.error("Error fetching game details:", error);
   }
 };
 
+// Set a timeout to show the body after 3 seconds
+setTimeout(function () {
+  document.body.style.visibility = "visible";
+}, 2500);
+
 // swiper for game screen shot carousal
 const swiper = new Swiper(".swiper", {
-  // Optional parameters
   direction: "horizontal",
-  slidesPerView: 1, // Number of slides per view
-  spaceBetween: 15, // Space between slides
+  slidesPerView: 1,
+  spaceBetween: 15,
   loop: true,
 
-  // If we need pagination
   pagination: {
     el: ".swiper-pagination",
   },
-
-  // Navigation arrows
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-
-  // And if we need scrollbar
   scrollbar: {
     el: ".swiper-scrollbar",
   },
@@ -358,6 +367,7 @@ function updateStarRating(rating) {
   document.querySelector(".rating").innerHTML = `${numStarsFilled}.0`;
 }
 
+//function to limit words
 function limitWords(text, n) {
   // Split the text into an array of words
   const words = text.split(" ");
@@ -377,5 +387,9 @@ function limitWords(text, n) {
 }
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
+
+// document.getElementById("add-to-cartbutton-link").addEventListener("click",()=>{
+
+// })
 
 window.onload = displayPage;

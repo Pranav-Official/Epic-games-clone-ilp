@@ -3,12 +3,7 @@
   --color-main-page: rgb(18, 18, 18);
   --color-accent: #007aff;
 }
-/* font-size: 14px;
-font-weight: normal;
-line-height: 20px;
-letter-spacing: 0.2px;
-width: 100%;
-overflow-x: hidden; */
+
 body {
   font-family: Inter, sans-serif;
   background-color: var(--color-main-page);
@@ -19,9 +14,6 @@ body {
   line-height: 1.4;
   color: rgb(255, 255, 255);
   margin-bottom: 10px;
-  /* width: 100%; */
-  /* margin-left: 5%;
-  margin-right: 5%; */
 }
 .search-container {
   margin-left: 12%;
@@ -33,6 +25,7 @@ h4 {
   font-weight: normal;
   margin: 0;
 }
+
 h1 span {
   font-size: 18px;
   line-height: 1.4;
@@ -45,9 +38,13 @@ h1 span {
 .out-container {
   padding-top: 0;
 }
+.container h1 {
+  margin-left: 22px;
+}
 .news-top {
   display: flex;
-  margin-left: 10px;
+  margin-left: 2.5rem;
+  margin-right: 1.2rem;
 }
 .card-one {
   flex: 1;
@@ -111,17 +108,6 @@ h1 span {
 .pagination .bracket {
   border-style: none;
 }
-/* .pagination button.active {
-  background-color: grey;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-} */
-/* .pagination button:hover:not(.active) {
-  background-color: #ddd;
-  text-align: center;
-  text-decoration: none;
-} */
 hr {
   height: 1px;
   border-width: 0;
@@ -186,4 +172,9 @@ hr {
 }
 .news-footer {
   margin-top: 2rem;
+}
+
+.head-navbar {
+  margin-left: 12vw;
+  margin-right: 11vw;
 }

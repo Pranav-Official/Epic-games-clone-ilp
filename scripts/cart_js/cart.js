@@ -336,7 +336,9 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
   }
 });
 
-await addToCart("diablo-iv");
+
+// await addToCart("grand-theft-auto-v");
+
 
 // const cartGameImage = document.getElementById("cartGameImage");
 // // Add a click event listener to the cart game image

@@ -173,16 +173,8 @@
           </div>
         </div>
         <div class="epic-pages">
-          <a
-            href="../pages/distribution_page/distribution.html"
-            class="epic-pages-link"
-            >Distribution</a
-          >
-          <a
-            href="../pages/support_page/epic-games-support.html"
-            class="epic-pages-link"
-            >Support</a
-          >
+          <a class="epic-pages-link" id="distribution-link">Distribution</a>
+          <a class="epic-pages-link" id="support-link">Support</a>
           <a class="epic-pages-link">Unreal Engine</a>
         </div>
       </div>
@@ -195,7 +187,7 @@
         <button class="download-button">Download</button>
       </div>
     </header>
-    <div class="body-container">
+    <div class="body-container" id="discover-page-body">
       <div class="head-navbar2 empty-header"></div>
       <div class="head-navbar">
         <div class="search-suggestion-box position-absolute">
@@ -224,6 +216,9 @@
             <h4>‎</h4>
           </div>
         </div>
+        <div class="wishlist-message">
+          <h3>This game has been already been added to your wishlist</h3>
+        </div>
         <div class="left-nav">
           <div class="search-box">
             <div class="search-button">
@@ -251,18 +246,20 @@
             <input id="search-field" type="text" placeholder="Search" />
           </div>
           <div class="nav-links">
-            <a href="../pages/discover.html" class="nav-link">Discover</a>
-            <a href="../pages/browse_page.html" class="nav-link">Browse</a>
-            <a href="../pages/news.html" class="nav-link">News</a>
+            <a class="nav-link" id="discover-link">Discover</a>
+            <a class="nav-link" id="browse-link">Browse</a>
+            <a href="../pages/news.html" class="nav-link" id="news-link"
+              >News</a
+            >
           </div>
         </div>
         <div class="right-nav">
           <div class="list-button">
-            <a href="../pages/wishlist.html" class="list-test">Wish List</a>
+            <a class="list-test" id="wishlist-link">Wish List</a>
             <span class="list-count" id="wish-list-count"></span>
           </div>
-          <div class="list-button">
-            <a href="../pages/cart.html" class="list-text">Cart</a>
+          <div class="list-button" id="cart-link">
+            <a class="list-text">Cart</a>
             <span class="list-count" id="cart-count"></span>
           </div>
         </div>
@@ -292,49 +289,6 @@
         </div>
       </div>
       <div class="feature-games-carousal-container">
-        <!-- <div class="feature-games-carousal">
-          <img
-            src="../assets/discover-page/carousal-page-front-alanwake.jpg"
-            alt=""
-          />
-          <div class="feature-games-carousal-text">
-            <div class="feature-games-carousal-info">
-              <div class="carousal-game-logo">
-                <img
-                  src="../assets/discover-page/carousal images/alanwake2-logo.webp"
-                  alt=""
-                />
-              </div>
-              <div class="carousal-game-text">
-                <h4>SAVE DURING HOLIDAY SALE!</h4>
-                <p>
-                  Buy Alan Wake 2 and get Alan Wake Remastered, our gift to you.
-                  Offer ends January 10, 2024, see page for details.
-                </p>
-              </div>
-              <div class="carousal-price">
-                <p>
-                  Starting at <span class="carousal-old-price">₹1,029 </span>
-                  <span class="carousal-new-price">₹1,429 </span>
-                </p>
-              </div>
-              <div class="carousal-buttons">
-                <a href="../pages/gameinfo.html">
-                  <button class="carousal-button save-now-button">
-                    SAVE NOW
-                  </button>
-                </a>
-                <button
-                  onclick="logAPidata()"
-                  class="carousal-button"
-                  id="add-to-wishlist"
-                >
-                  <i class="bi bi-plus-circle"></i> ADD TO WISHLIST
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> -->
         <div class="swiper feature-games-carousal">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
@@ -486,10 +440,12 @@
           <!-- sale-highlights-game-cards -->
           <div class="game-card">
             <div class="game-card-image">
-              <div class="game-card-hover-effect"></div>
-              <div class="add-to-wish-list-button">
-                <i class="bi bi-plus-circle-fill"></i>
+              <div class="game-card-hover-effect">
+                <div class="add-to-wish-list-button">
+                  <i class="bi bi-plus-circle-fill"></i>
+                </div>
               </div>
+
               <img src="../assets/discover-page/null.png.png" alt="" />
             </div>
             <p class="base-game">BASE GAME</p>
@@ -502,10 +458,12 @@
           </div>
           <div class="game-card">
             <div class="game-card-image">
-              <div class="game-card-hover-effect"></div>
-              <div class="add-to-wish-list-button">
-                <i class="bi bi-plus-circle-fill"></i>
+              <div class="game-card-hover-effect">
+                <div class="add-to-wish-list-button">
+                  <i class="bi bi-plus-circle-fill"></i>
+                </div>
               </div>
+
               <img src="../assets/discover-page/null.png.png" alt="" />
             </div>
             <p class="base-game">BASE GAME</p>
@@ -518,10 +476,12 @@
           </div>
           <div class="game-card">
             <div class="game-card-image">
-              <div class="game-card-hover-effect"></div>
-              <div class="add-to-wish-list-button">
-                <i class="bi bi-plus-circle-fill"></i>
+              <div class="game-card-hover-effect">
+                <div class="add-to-wish-list-button">
+                  <i class="bi bi-plus-circle-fill"></i>
+                </div>
               </div>
+
               <img src="../assets/discover-page/null.png.png" alt="" />
             </div>
             <p class="base-game">BASE GAME</p>
@@ -534,10 +494,12 @@
           </div>
           <div class="game-card">
             <div class="game-card-image">
-              <div class="game-card-hover-effect"></div>
-              <div class="add-to-wish-list-button">
-                <i class="bi bi-plus-circle-fill"></i>
+              <div class="game-card-hover-effect">
+                <div class="add-to-wish-list-button">
+                  <i class="bi bi-plus-circle-fill"></i>
+                </div>
               </div>
+
               <img src="../assets/discover-page/null.png.png" alt="" />
             </div>
             <p class="base-game">BASE GAME</p>
@@ -550,10 +512,12 @@
           </div>
           <div class="game-card">
             <div class="game-card-image">
-              <div class="game-card-hover-effect"></div>
-              <div class="add-to-wish-list-button">
-                <i class="bi bi-plus-circle-fill"></i>
+              <div class="game-card-hover-effect">
+                <div class="add-to-wish-list-button">
+                  <i class="bi bi-plus-circle-fill"></i>
+                </div>
               </div>
+
               <img src="../assets/discover-page/null.png.png" alt="" />
             </div>
             <p class="base-game">BASE GAME</p>
@@ -1111,5 +1075,9 @@
       defer
     ></script>
     <script src="../scripts/game_info/gameinfo.js"></script>
+    <script
+      type="module"
+      src="../scripts/_functions/wishlist_functions.js"
+    ></script>
   </body>
 </html>

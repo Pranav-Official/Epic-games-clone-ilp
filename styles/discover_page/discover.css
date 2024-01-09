@@ -24,7 +24,7 @@ a:visited {
   color: var(--color-text-default);
 }
 
-a:hover {
+#discover-page-body a:hover {
   text-decoration: none !important;
   color: var(--color-text-default) !important;
 }
@@ -36,23 +36,31 @@ body {
   margin: 0;
 }
 
-.h1,
-h1 {
-  font-size: 1.8rem !important;
-}
-
-.h3,
-h3 {
+#discover-page-body .h1,
+#discover-page-body h1 {
   font-size: 1.2rem !important;
 }
 
-.h4,
-h4 {
+/* #discover-page-body .h3,
+#discover-page-body h3 {
+  font-size: 1.2rem !important;
+} */
+
+#discover-page-body .h4,
+#discover-page-body h4 {
   font-size: 1rem !important;
 }
 
-button {
+#discover-page-body button {
   font-size: 0.8rem;
+}
+
+.sale-title {
+  font-size: 1rem !important;
+}
+
+.tripple-list-title h3 {
+  font-size: 1.2rem !important;
 }
 
 .body-container {
@@ -224,7 +232,7 @@ header {
   gap: 1.5rem;
 }
 
-.nav-link {
+#discover-page-body .nav-link {
   padding: 0 !important;
 }
 /* .nav-link:hover {
@@ -454,6 +462,9 @@ header {
 .game-card-hover-effect:hover {
   background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  .add-to-wish-list-button {
+    visibility: visible;
+  }
 }
 
 .base-game {
@@ -833,5 +844,54 @@ header {
 }
 
 .add-to-wish-list-button.active {
+  visibility: visible;
+}
+
+.game-card-hover-effect:hover .add-to-wish-list-button {
+  visibility: visible;
+}
+
+#cart-count {
+  margin-left: 0.6rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  background-color: white;
+  color: #18181c;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+.wishlist-message {
+  z-index: 50;
+  position: absolute;
+  top: 36rem;
+  right: 18vw;
+  margin-left: auto;
+  padding: 2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  background-color: #18181c;
+  border: 1px solid #007aff;
+  border-radius: 0.5rem;
+}
+
+.wishlist-message {
+  z-index: 50;
+  position: absolute;
+  top: 42rem;
+  right: 18vw;
+  margin-left: auto;
+  padding: 2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  background-color: #18181c;
+  border: 1px solid #007aff;
+  border-radius: 0.5rem;
+  visibility: hidden;
+  transition: all 0.8s ease 0s;
+}
+
+.wishlist-message.active {
+  top: 36rem;
   visibility: visible;
 }
