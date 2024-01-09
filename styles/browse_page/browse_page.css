@@ -269,6 +269,7 @@ a.epic-pages-link {
 
 .game-card {
   height: 30rem;
+  position: relative;
 }
 
 .search-container {
@@ -387,4 +388,12 @@ a:hover {
 
 .buttons .active {
   border: 2px solid white;
+}
+
+.list-button a {
+  color: var(--color-text-default);
+}
+
+.nav-link {
+  font-size: 1rem;
 }

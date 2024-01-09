@@ -60,12 +60,19 @@ export const addToCart = async (gameSlug) => {
       "https://api.rawg.io/api/games/" + gameSlug + "?key=" + API_KEY;
     const response = await axios.get(baseUrl);
     const data = response.data;
-    // let prices = await getPrice(gameSlug);
-    let prices = {
-      salePrice: 1599,
-      retailPrice: 2599,
-      calculatedDiscount: 15,
-    };
+    let prices = await getPrice(gameSlug);
+    if (!prices) {
+      prices = {
+        salePrice: 1599,
+        retailPrice: 2599,
+        calculatedDiscount: 15,
+      };
+    }
+    // let prices = {
+    //   salePrice: 1599,
+    //   retailPrice: 2599,
+    //   calculatedDiscount: 15,
+    // };
     // Add the game to the cart in Firebase
     const game = {
       // Customize properties based on your game data structure

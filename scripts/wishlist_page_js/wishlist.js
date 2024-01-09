@@ -77,9 +77,7 @@ const wishListTemplate = (wishlistItem) => {
             <button id="percentbtn">${wishlistItem.offerPercentage}</button>
             <p id="actualprice">₹${wishlistItem.actualPrice}</p>
             <p id="price">₹${wishlistItem.offerPrice}</p>
-            <div><p id="sales">Game updated ${formatDate(
-              wishlistItem.salesEndDate
-            )} at ${formatTime(wishlistItem.salesEndTime)}pm</p></div>
+            <div></div>
           </div>
         </div>
         <div>
@@ -93,9 +91,7 @@ const wishListTemplate = (wishlistItem) => {
             </p>
         </div>
         <div class="button-row">
-           <div class="remove-button"><button class="remove" data-index="${
-             wishlistItem.id
-           }">Remove</button></div>
+           <div class="remove-button"><button class="remove" data-index="${wishlistItem.id}">Remove</button></div>
           <div class="addtocart-button">
             <button id="add2cart">ADD TO CART</button>
           </div>
