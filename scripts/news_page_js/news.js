@@ -1,4 +1,3 @@
-//API url and request
 import { NEWS_API_KEY } from "../../environment.js";
 const url =
   "https://newsapi.org/v2/everything?" +
@@ -6,8 +5,6 @@ const url =
   "apiKey=4bdcb41ba60e45ae98fac6b55ae85c2c";
 
 const req = new Request(url);
-
-// const apiKey = "4bdcb41ba60e45ae98fac6b55ae85c2c";
 const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${NEWS_API_KEY}`;
 
 //Top news
@@ -71,14 +68,6 @@ const rowNewsTemplate = (newsItem) => {
   <hr>
 `;
 };
-//<a
-// href="../pages/newsReadmore.html"
-// onclick="navigateToReadMore(${JSON.stringify(
-//      newsItem
-//    )})"
-//>
-//  Read more
-//</a>;
 //function to display published time
 const timeAgo = (dateString) => {
   const currentDate = new Date();
@@ -89,7 +78,7 @@ const timeAgo = (dateString) => {
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
-  const months = Math.floor(days / 30); // Assuming a month is 30 days
+  const months = Math.floor(days / 30);
 
   if (months > 0) {
     return `${months}M AGO`;

@@ -20,11 +20,134 @@
   </head>
   <body>
     <header class="header">
+      <div class="epic-menu d-flex flex-row">
+        <div class="left">
+          <div class="menu">
+            <h3>Play</h3>
+            <ul>
+              <li>
+                <a href="https://www.fortnite.com/?lang=en-US"
+                  ><i class="bi bi-hexagon-fill"></i> Fortnite</a
+                >
+              </li>
+              <li>
+                <a href="https://www.rocketleague.com?lang=en"
+                  ><i class="bi bi-shield-shaded"></i> Rocket League</a
+                >
+              </li>
+              <li>
+                <a href="https://fallguys.com/?lang=en-US"
+                  ><i class="bi bi-emoji-heart-eyes-fill"></i> Fall Guys</a
+                >
+              </li>
+              <!-- Add the rest of the list items similarly -->
+            </ul>
+          </div>
+          <div class="menu">
+            <h3>Discover</h3>
+            <ul>
+              <li>
+                <a href="https://store.epicgames.com/en-US/"
+                  ><i class="bi bi-dice-5-fill"></i> Epic Games Store</a
+                >
+              </li>
+              <li>
+                <a href="https://www.fab.com?lang=en-US"
+                  ><i class="bi bi-fan"></i> Fab</a
+                >
+              </li>
+              <li>
+                <a href="https://sketchfab.com/">
+                  <i class="bi bi-brush-fill"></i>Sketchfab</a
+                >
+              </li>
+              <li>
+                <a href="https://www.artstation.com/"
+                  ><i class="bi bi-palette-fill"></i> ArtStation</a
+                >
+              </li>
+              <!-- Add the rest of the list items similarly -->
+            </ul>
+          </div>
+        </div>
+        <div class="right">
+          <div class="menu">
+            <h3>Create</h3>
+            <ul>
+              <li>
+                <a href="https://www.unrealengine.com/?lang=en-US"
+                  ><i class="bi bi-type-underline"></i> Unreal Engine</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://create.fortnite.com/welcome?team=personal&amp;lang=en-US"
+                  ><i class="bi bi-tree-fill"></i> Create in Fortnite</a
+                >
+              </li>
+              <li>
+                <a href="https://www.unrealengine.com/metahuman?lang=en-US"
+                  ><i class="bi bi-people-fill"></i> MetaHuman</a
+                >
+              </li>
+              <li>
+                <a href="https://www.twinmotion.com/?lang=en-US"
+                  ><i class="bi bi-circle-fill"></i> Twinmotion</a
+                >
+              </li>
+              <li>
+                <a href="https://www.unrealengine.com/realityscan?lang=en-US"
+                  ><i class="bi bi-upc-scan"></i> RealityScan</a
+                >
+              </li>
+              <li>
+                <a href="https://www.capturingreality.com/realitycapture"
+                  ><i class="bi bi-camera2"></i> RealityCapture</a
+                >
+              </li>
+              <li>
+                <a href="https://dev.epicgames.com/?lang=en-US"
+                  ><i class="bi bi-browser-chrome"></i> Epic Online Services</a
+                >
+              </li>
+              <li>
+                <a href="http://store.epicgames.com/en-US/distribution"
+                  ><i class="bi bi-shop"></i> Publish on Epic Games Store</a
+                >
+              </li>
+              <li>
+                <a href="https://dev.superawesome.com/"
+                  ><i class="bi bi-emoji-smile-fill"></i> Kids Web Services</a
+                >
+              </li>
+              <li>
+                <a href="https://dev.epicgames.com/community?locale=en-us"
+                  ><i class="bi bi-person-vcard-fill"></i> Developer
+                  Community</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="profile-menu position-absolute">
+        <ul>
+          <li>
+            <a href="../pages/account_page/epic_rewards_page.html"
+              >Epic Rewards</a
+            >
+          </li>
+          <li><a href="../pages/account_page/account_page.html">Account</a></li>
+          <li>
+            <a class="navbar-sign-out" href="./discover.html">Sign out</a>
+          </li>
+        </ul>
+      </div>
       <div class="header-left-side">
         <div class="store-options">
           <div class="epic-logo">
             <img class="epic-logo-image" src="../assets/epic-logo.png" />
-            <span aria-hidden="true" class="icon"
+            <span aria-hidden="true" class="icon epic-menu-arrow"
               ><!--?lit$758340424$--><svg
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,19 +171,52 @@
             class="epic-pages-link"
             >Distribution</a
           >
-          <a class="epic-pages-link">Support</a>
+          <a
+            href="../pages/support_page/epic-games-support.html"
+            class="epic-pages-link"
+            >Support</a
+          >
           <a class="epic-pages-link">Unreal Engine</a>
         </div>
       </div>
       <div class="header-right-side">
         <div class="profile">
-          <img src="../assets/profile.png" alt="" />
+          <a>
+            <img src="../assets/profile.png" alt="" />
+          </a>
         </div>
         <button class="download-button">Download</button>
       </div>
     </header>
-    <div class="search-container">
+    <div class="out-container">
+      <div class="head-navbar2 empty-header"></div>
       <div class="head-navbar">
+        <div class="search-suggestion-box position-absolute">
+          <div class="search-suggestion-item">
+            <div class="search-suggestion-image">
+              <img src="../assets/discover-page/null.png.png" alt="" />
+            </div>
+            <h4>‎ ‎ ‎ ‎ ‎ ‎ ‎</h4>
+          </div>
+          <div class="search-suggestion-item">
+            <div class="search-suggestion-image">
+              <img src="../assets/discover-page/null.png.png" alt="" />
+            </div>
+            <h4>‎</h4>
+          </div>
+          <div class="search-suggestion-item">
+            <div class="search-suggestion-image">
+              <img src="../assets/discover-page/null.png.png" alt="" />
+            </div>
+            <h4>‎</h4>
+          </div>
+          <div class="search-suggestion-item">
+            <div class="search-suggestion-image">
+              <img src="../assets/discover-page/null.png.png" alt="" />
+            </div>
+            <h4>‎</h4>
+          </div>
+        </div>
         <div class="left-nav">
           <div class="search-box">
             <div class="search-button">
@@ -88,256 +244,28 @@
             <input id="search-field" type="text" placeholder="Search" />
           </div>
           <div class="nav-links">
-            <a href="../../pages/discover.html" class="nav-link">Discover</a>
-            <a href="../../pages/browse_page.html" class="nav-link">Browse</a>
-            <a href="../../pages/news.html" class="nav-link">News</a>
+            <a href="../pages/discover.html" class="nav-link">Discover</a>
+            <a href="../pages/browse_page.html" class="nav-link">Browse</a>
+            <a href="../pages/news.html" class="nav-link">News</a>
           </div>
         </div>
         <div class="right-nav">
           <div class="list-button">
-            <a href="../../pages/wishlist.html" class="list-test">Wish List</a>
+            <a href="../pages/wishlist.html" class="list-test">Wish List</a>
             <span class="list-count" id="wish-list-count"></span>
           </div>
           <div class="list-button">
-            <a href="../../pages/cart.html" class="list-text">Cart</a>
+            <a href="../pages/cart.html" class="list-text">Cart</a>
             <span class="list-count" id="cart-count"></span>
           </div>
         </div>
       </div>
-    </div>
-    <div class="out-container">
       <div class="container">
         <h1><span>Epic Games News</span></h1>
       </div>
       <div id="news-top"></div>
-      <!-- <div class="news-top">
-        <div class="card-one">
-          <img
-            class="card-img-top"
-            src="../assets/news_images/news_top1.PNG"
-            alt="top1-img"
-          />
-          <div class="card-body">
-            <p>4D AGO</p>
-            <h4 class="card-title">
-              Alan Wake 2, Baldur’s Gate 3 neck and neck in BAFTA longlist noms
-            </h4>
-            <p class="card-text">BAFTA announces the best games of 2023</p>
-            <a href="#">Read more</a>
-          </div>
-        </div>
-        <div class="card-two">
-          <img
-            class="card-img-top"
-            src="../assets/news_images/news_top2.PNG"
-            alt="top2-img"
-          />
-          <div class="card-body">
-            <p>5D AGO</p>
-            <h4 class="card-title">
-              Unwrap the Epic Games Store Holiday Sale 2023!
-            </h4>
-            <p class="card-text">
-              The Epic Games Store Holiday Sale 2023 has deep discounts,
-              limitless 33% Epic Coupons, a boost to 10% for Epic Rewards, 17
-              free games, and free cosmetics!
-            </p>
-            <a href="#">Read more</a>
-          </div>
-        </div>
-      </div> -->
-      <hr />
       <div id="newsContainer" class="news-container"></div>
-      <!-- <div id="pagination" class="pagination"></div> -->
-      <!-- <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr /> -->
-      <!-- <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="row-left">
-          <img src="../assets/news_images/newslist1.PNG" alt="newslist1" />
-        </div>
-        <article class="row-right">
-          <p>
-            6M AGO</p>
-            <h4 class="card-title">
-              South Park: The Stick of Truth is a rare RPG parody that hasn’t
-              aged a day</h4></b
-            >
-            <p class="card-text">Obsidian Entertainment brought the RPG know-how, South Park’s Trey
-            Parker and Matt Stone brought the jokes</p><a href="#"
-              >Read more</a
-            >
-          </p>
-        </article>
-      </div> -->
+      
       <div class="pagination">
         <button class="bracket">&laquo;</button>
         <button class="news-button" >1</button>
@@ -514,6 +442,22 @@
       </div>
     </div>
     </div>
+    <script
+      type="module"
+      src="../scripts/_functions/scrollNavbar.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../scripts/_functions/gameClick.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../scripts/_functions/storePageHome.js"
+      defer
+    ></script>
     <script type="module" src="../scripts/news_page_js/news.js"></script>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
   </body>
 </html>
