@@ -10,6 +10,7 @@ import {
   getDoc,
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { addToWishlist } from "../_functions/wishlist_functions.js";
 
 let userData, cartItems;
 
@@ -109,7 +110,7 @@ const cartTemplate = (cartItem) => {
     </div>
     <div class="cart-update">
       <i class="bi bi-plus-circle"></i>
-      <a href="">Move to wishlist</a>
+      <a class="move-to-wishlist-button">Move to wishlist</a>
       <a class="remove-from-cart-button">Remove</a>
     </div>
   </div>
@@ -334,6 +335,13 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
     const cardSlug = cartGameCard.getAttribute("slug");
     console.log("button-press");
     // Call the removeFromCartClicked function with the slug
+    removeFromCartClicked(cardSlug);
+  } else if (event.target.matches(".move-to-wishlist-button")) {
+    const cartGameCard = event.target.closest(".game-details");
+    const cardSlug = cartGameCard.getAttribute("slug");
+    console.log("button-press");
+    // Call the removeFromCartClicked function with the slug
+    addToWishlist(cardSlug);
     removeFromCartClicked(cardSlug);
   }
 });
