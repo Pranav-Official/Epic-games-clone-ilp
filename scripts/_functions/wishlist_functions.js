@@ -1,4 +1,5 @@
 // import fetchSingleGameData from "../game_info/gameinfo_fetch.js";
+import { firebaseConfig } from "../../environment.js";
 import { API_KEY } from "../../environment.js";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -11,27 +12,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 // import axios from "axios";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBuDu8PAD0vryP84FEzO-_a-2Tx6_FJRCg",
-  authDomain: "epic-games-clone-c0009.firebaseapp.com",
-  projectId: "epic-games-clone-c0009",
-  storageBucket: "epic-games-clone-c0009.appspot.com",
-  messagingSenderId: "96371749246",
-  appId: "1:96371749246:web:8de6e1806dea62dab5c32f",
-  measurementId: "G-L9RY8WEZQ7",
-};
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
 const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
 
-//updating wishlist items in firebase
-// const updateWishlistInFirebase = async (game) => {
-//   tempWishlistArray.push(game);
-//   await updateDoc(dbref, { Wishlist: tempWishlistArray });
-// };
+//update wishlist in firebase
 const updateWishlistInFirebase = async (game) => {
   let tempWishlistArray = [];
   let wishlistItems = [];
@@ -65,22 +52,27 @@ const updateWishlistInFirebase = async (game) => {
 };
 
 //removing wishlist item from firebase
-const removeWishlistInFirebase = async (gameSlug) => {
+export const removeWishlistInFirebase = async (dataSlug) => {
   let tempWishlistArray = [];
-  //storing the wishlist to a temporary array
-  getDoc(dbref).then((docSnapshot) => {
+  let updatedWishlistArray = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
-      tempWishlistArray = userData.Wishlist;
-      console.log(tempWishlistArray);
+      let wishlistItems = userData.Wishlist;
+      // console.log(tempWishlistArray);
+      tempWishlistArray = [...wishlistItems];
     }
-  });
-  let updatedWishlistArray = tempWishlistArray.filter(
-    (singlegame) => singlegame != gameSlug
-  );
-  await updateDoc(dbref, { Wishlist: updatedWishlistArray });
+    updatedWishlistArray = tempWishlistArray.filter(
+      (singlegame) => singlegame.slug != dataSlug
+    );
+    await updateDoc(dbref, { Wishlist: updatedWishlistArray });
+    // window.location.reload();
+  } catch (error) {
+    console.log("error removeing");
+  }
 };
-
+//add to wishlist
 export const addToWishlist = async (gameSlug) => {
   const baseUrl =
     "https://api.rawg.io/api/games/" + gameSlug + "?key=" + API_KEY;
@@ -98,8 +90,8 @@ export const addToWishlist = async (gameSlug) => {
   });
   //   let prices = await getPrice(gameSlug);
   const prices = {
-    retailPrice: 4700,
-    salePrice: 3500,
+    retailPrice: 3000,
+    salePrice: 650,
     calculatedDiscount: 15,
   };
   let obj = {
@@ -113,13 +105,14 @@ export const addToWishlist = async (gameSlug) => {
     genres: tempGenreArray,
     offerPercentage: "-" + Math.trunc(prices.calculatedDiscount) + "%",
     image: data.background_image,
-    salesEndDate: data.updated, //2024-01-04T16:43:18
-    salesEndTime: data.updated,
+    updatedDate: data.updated,
+    updatedTime: data.updated,
   };
   updateWishlistInFirebase(obj);
 };
 
-const wishlistItemCount = async () => {
+//count wishlist items
+export const wishlistItemCount = async () => {
   let countWishlist = 0;
   let wishlistArray = [];
   try {
@@ -137,3 +130,24 @@ const wishlistItemCount = async () => {
   return countWishlist;
 };
 wishlistItemCount();
+
+export const displayWishlistSlugs = async () => {
+  let wishlistArray = [];
+  let wishlistSlugArray = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      wishlistArray = userData.Wishlist;
+
+      wishlistSlugArray.forEach((item) => {
+        wishlistSlugArray.push(item.slug);
+        console.log(wishlistSlugArray);
+        return wishlistSlugArray;
+      });
+    }
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+};

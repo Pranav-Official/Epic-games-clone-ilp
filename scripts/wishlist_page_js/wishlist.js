@@ -1,4 +1,9 @@
-import { addToWishlist } from "../_functions/wishlist_functions.js";
+import { firebaseConfig } from "../../environment.js";
+import {
+  addToWishlist,
+  removeWishlistInFirebase,
+} from "../_functions/wishlist_functions.js";
+import { displayWishlistSlugs } from "../_functions/wishlist_functions.js";
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -9,16 +14,6 @@ import {
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBuDu8PAD0vryP84FEzO-_a-2Tx6_FJRCg",
-  authDomain: "epic-games-clone-c0009.firebaseapp.com",
-  projectId: "epic-games-clone-c0009",
-  storageBucket: "epic-games-clone-c0009.appspot.com",
-  messagingSenderId: "96371749246",
-  appId: "1:96371749246:web:8de6e1806dea62dab5c32f",
-  measurementId: "G-L9RY8WEZQ7",
-};
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -26,15 +21,7 @@ const database = getFirestore(app);
 const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
 let tempWishlistArray = [];
 
-//storing the wishlist to a temporary array
-// getDoc(dbref).then((docSnapshot) => {
-//   if (docSnapshot.exists()) {
-//     const userData = docSnapshot.data();
-//     tempWishlistArray = userData.Wishlist;
-//     console.log(tempWishlistArray);
-//   }
-// });
-
+//function for loading wishlist items from firebase
 const wishlistPage = async () => {
   try {
     const docSnapshot = await getDoc(dbref);
@@ -44,16 +31,13 @@ const wishlistPage = async () => {
       tempWishlistArray = userData.Wishlist;
     }
     console.log(tempWishlistArray);
-    displayWishlist(tempWishlistArray);
+    sortWishlistPageByRecentlyAdded();
   } catch (error) {
     console.log("error fetching data from user" + error);
   }
 };
+
 //updating wishlist items in firebase
-// const updateWishlistInFirebase = async (game) => {
-//   tempWishlistArray.push(game);
-//   await updateDoc(dbref, { Wishlist: tempWishlistArray });
-// };
 const updateWishlistInFirebase = async (game) => {
   const gameSlug = game.slug;
   const isGamePresent = tempWishlistArray.some(
@@ -66,75 +50,10 @@ const updateWishlistInFirebase = async (game) => {
   }
 };
 
-//removing wishlist item from firebase
-const removeWishlistInFirebase = async (game) => {
-  {
-    let updatedWishlistArray = tempWishlistArray.filter(
-      (singlegame) => singlegame != game
-    );
-    await updateDoc(dbref, { Wishlist: updatedWishlistArray });
-    window.location.reload();
-  }
-};
-// const removeWishlistInFirebase = async (game) => {
-//   const removedGameTitle = game.title;
-
-//   let updatedWishlistArray = tempWishlistArray.filter(
-//     (singlegame) => singlegame != game
-//   );
-//   await updateDoc(dbref, { Wishlist: updatedWishlistArray });
-//   setTimeout(() => {
-//     displayWishlist(tempWishlistArray);
-//   }, 2000);
-//   // Display a message
-//   setTimeout(() => {
-//     const messageContainer = document.getElementById("message-container");
-//     messageContainer.innerHTML = `<p>${removedGameTitle} is removed.</p><button id="undo-button">Undo</button>`;
-//   }, 3000);
-
-//   // Handle undo button click
-//   const undoButton = document.getElementById("undo-button");
-//   undoButton.addEventListener("click", () => {
-//     // Add the removed game back to the wishlist
-//     tempWishlistArray.push(game);
-//     // Update the document in Firebase
-//     updateDoc(dbref, { Wishlist: tempWishlistArray });
-
-//     // Remove the message
-//     messageContainer.innerHTML = "";
-
-//     // Refresh the wishlist display
-//     displayWishlist(tempWishlistArray);
-//   });
-
-//   // Reload the page after a certain time if undo is not clicked
-//   setTimeout(() => {
-//     messageContainer.innerHTML = "";
-//     window.location.reload();
-//   }, 5000);
-// };
-
-let obj = {
-  id: "4",
-  title: "ZGhosdarunner 2",
-  slug: "ghostrunner-4",
-  releaseDate: "2024-01-01",
-  actualPrice: 499,
-  offerPrice: 709.15,
-  offerPercentage: "-15%",
-  image: "../assets/wishlist_images/wishlist1.PNG",
-  salesEndDate: "01/10/24",
-  salesEndTime: "9:30 PM",
-};
-
-// setTimeout(() => {
-//   updateWishlistInFirebase(obj);
-// }, 2000);
-
 //creating template for wishlist
 const wishListTemplate = (wishlistItem) => {
   return `
-    <div class="wishlist">
+    <div class="wishlist-box" dataSlug=${wishlistItem.slug}>
       <div class="wishimg">
         <img src="${wishlistItem.image}" alt="wishlist1" />
         <div>
@@ -155,9 +74,9 @@ const wishListTemplate = (wishlistItem) => {
             <button id="percentbtn">${wishlistItem.offerPercentage}</button>
             <p id="actualprice">₹${wishlistItem.actualPrice}</p>
             <p id="price">₹${wishlistItem.offerPrice}</p>
-            <div><p id="sales">Sale ends ${formatDate(
+            <div><p id="sales">Game updated ${formatDate(
               wishlistItem.salesEndDate
-            )} at ${formatDate(wishlistItem.salesEndTime)}</p></div>
+            )} at ${formatTime(wishlistItem.salesEndTime)}pm</p></div>
           </div>
         </div>
         <div>
@@ -167,9 +86,7 @@ const wishListTemplate = (wishlistItem) => {
             alt="earn icon"
           />
            <p id="des">
-              Earn a boosted 10% back in Epic Rewards,offer ends in ${convertDate(
-                wishlistItem.salesEndDate
-              )}.
+              Earn a boosted 10% back in Epic Rewards. 
             </p>
         </div>
         <div class="button-row">
@@ -177,7 +94,7 @@ const wishListTemplate = (wishlistItem) => {
              wishlistItem.id
            }">Remove</button></div>
           <div class="addtocart-button">
-            <button id="add2cart" onclick="">ADD TO CART</button>
+            <button id="add2cart">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -186,51 +103,32 @@ const wishListTemplate = (wishlistItem) => {
   `;
 };
 
-//function to display wishlist in wishlist page
+//function to display wishlist
 const displayWishlist = (games) => {
-  // addToWishlist();
   const wishlistContainer = document.querySelector(".wishlist-container");
   wishlistContainer.innerHTML = "";
   games.forEach((game) => {
-    // console.log(game);
     const wishlistDiv = document.createElement("div");
     wishlistDiv.className = "wishlist";
     wishlistDiv.innerHTML = wishListTemplate(game);
-
     wishlistContainer.appendChild(wishlistDiv);
 
     // Add event listener to the "Remove" button
     const removeButton = wishlistDiv.querySelector(".remove");
-    removeButton.addEventListener("click", () =>
-      removeWishlistInFirebase(game)
-    );
+    removeButton.addEventListener("click", async (event) => {
+      const wishlist_box = event.target.closest(".wishlist-box");
+      const dataSlug = wishlist_box.getAttribute("dataSlug");
+      console.log(dataSlug);
+      await removeWishlistInFirebase(dataSlug);
+      window.location.reload();
+    });
   });
 };
-
+//callimg page load
 document.addEventListener("DOMContentLoaded", function () {
   // Call the function with the array of games
   setTimeout(() => wishlistPage(), 10);
 });
-
-// Function to convert date format
-const convertDate = (originalDate) => {
-  const [month, day, year] = originalDate.split("/");
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  return `${months[parseInt(month, 10) - 1]} ${day}`;
-};
 
 //sorting the wishlist-Alphabetically:A-Z
 const sortWishlistPageByAlphabetAsc = () => {
@@ -254,15 +152,35 @@ const sortWishlistPageByPriceHightoLow = () => {
 };
 //Sort:Recently added wishlist
 const sortWishlistPageByRecentlyAdded = () => {
+  console.log("sorting by asc");
   tempWishlistArray.reverse();
   displayWishlist(tempWishlistArray);
 };
 
 //calling wishlist sorting
-// document.getElementById("sortingtype").addEventListener("change", () => {
-//   sortWishlistPageByRecentlyAdded();
-//   displayWishlist(tempWishlistArray);
-// });
+
+document.querySelector("#sortingtype").addEventListener("change", (event) => {
+  // console.log(event.target.value);
+  let sortType = parseInt(event.target.value);
+  switch (sortType) {
+    case 1:
+      sortWishlistPageByRecentlyAdded();
+      break;
+    case 2:
+      console.log(tempWishlistArray);
+      sortWishlistPageByAlphabetAsc();
+      break;
+    case 3:
+      sortWishlistPageByAlphabetDesc();
+      break;
+    case 4:
+      sortWishlistPageByPriceLowtoHigh();
+      break;
+    case 5:
+      sortWishlistPageByPriceHightoLow();
+      break;
+  }
+});
 
 // Function to format date as "dd/mm/yyyy"
 const formatDate = (dateString) => {
@@ -282,18 +200,19 @@ const formatTime = (timeString) => {
     minutes < 10 ? "0" + minutes : minutes
   }`;
 };
-function manageOption() {
-  // Hide element with class 'pl1'
-  let manageDiv = document.getElementById("pl1");
-  manageDiv.style.visibility = "hidden";
+// function manageOption() {
+//   // Hide element with class 'pl1'
+//   let manageDiv = document.getElementById("pl1");
+//   manageDiv.style.visibility = "hidden";
 
-  // Show element with class 'pl2'
-  let manageDiv2 = document.getElementById("pl2");
-  manageDiv2.style.visibility = "visible";
+//   // Show element with class 'pl2'
+//   let manageDiv2 = document.getElementById("pl2");
+//   manageDiv2.style.visibility = "visible";
 
-  console.log("button working");
-}
+//   console.log("button working");
+// }
 
+//reset filter
 const filterReset = () => {
   displayWishlist(tempWishlistArray);
 };
@@ -301,6 +220,7 @@ document.getElementById("filter-reset-button").addEventListener("click", () => {
   filterReset();
 });
 
+//filter wishlist by genre
 const filterWishlistPageByGenre = async (genre) => {
   let filteredItems = [];
   try {
@@ -404,6 +324,7 @@ document.getElementById("filter_by_card").addEventListener("click", () => {
   filterWishlistPageByGenre("card");
 });
 
+//filter wishlist by features
 const filterWishlistPageByFeatures = async (feature) => {
   let filteredItems = [];
   try {
@@ -478,4 +399,41 @@ document.getElementById("filter_by_coop").addEventListener("click", () => {
   filterWishlistPageByFeatures("co-op");
 });
 
-// await addToWishlist("");
+//filter wishlist by price
+const filterWishlistPageByPrice = async (price) => {
+  let filteredItems = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const tempWishlistArray = userData.Wishlist;
+      tempWishlistArray.forEach((item) => {
+        let itemPrice = item.offerPrice;
+        if (price == 1099) {
+          if (itemPrice > price) {
+            filteredItems.push(item);
+          }
+        } else if (price == -1) {
+          if (item.offerPrice != item.actualPrice) {
+            filteredItems.push(item);
+          }
+        } else if (itemPrice < price) {
+          filteredItems.push(item);
+        }
+      });
+    }
+    displayWishlist(filteredItems);
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+};
+
+document.querySelectorAll(".price-buttons").forEach((button) => {
+  button.addEventListener("click", () => {
+    let priceOnButton = button.value;
+    filterWishlistPageByPrice(priceOnButton);
+  });
+});
+// await addToWishlist("diablo-iv");
+// await displayWishlistSlugs();
