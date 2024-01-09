@@ -111,8 +111,10 @@ export const getTransactionList = async () => {
 };
 
 //check if game is  bought
-export const checkIfBought = async () => {
-  const gameSlug = localStorage.getItem("gameSlug-info");
+export const checkIfBought = async (gameSlug) => {
+  if (gameSlug == null) {
+    gameSlug = localStorage.getItem("gameSlug-info");
+  }
   let transactionList = await getTransactionList();
   console.log(transactionList);
   if (transactionList != null) {
