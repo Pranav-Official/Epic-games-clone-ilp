@@ -928,3 +928,19 @@ forgotpassword */
   justify-content: center;
   align-items: center;
 }
+
+.go-back-remember-pass {
+  display: flex;
+  position: absolute;
+  left: 8.7rem;
+  top: 28rem;
+}
+
+.go-back-rmb {
+  padding-right: 0.3rem;
+}
+
+.remember-link-part {
+  text-decoration: underline;
+  color: white;
+}
