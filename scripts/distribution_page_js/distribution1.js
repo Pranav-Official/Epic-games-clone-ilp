@@ -25,13 +25,13 @@ async function createDynamicContent() {
 
   data.forEach((item) => {
     const sectionTwo = document.createElement("div");
-    sectionTwo.className = "section-two-1-1";
+    sectionTwo.className = "section-two-div-data";
 
-    const sec2111 = document.createElement("div");
-    sec2111.className = "sec-2-1-1-1";
+    const sectioncontent = document.createElement("div");
+    sectioncontent.className = "section-two-div-data-content";
 
     const divImage = document.createElement("div");
-    divImage.className = "sec-2-1-1-1-image";
+    divImage.className = "section-two-div-data-content-image";
 
     const image = document.createElement("img");
     image.src = item.imageSrc;
@@ -39,17 +39,17 @@ async function createDynamicContent() {
     image.className = "sec-2-img-1";
 
     const divDesc = document.createElement("div");
-    divDesc.className = "sec-2-1-1-1-desc";
+    divDesc.className = "section-two-div-data-content-desc";
 
     const header = document.createElement("h2");
-    header.className = "sec-2-1-1-1-header";
+    header.className = "section-two-div-data-content-header";
     header.textContent = item.header;
 
     const marketCard = document.createElement("div");
     marketCard.className = "market-card";
 
     const description = document.createElement("h3");
-    description.className = "market-card-1";
+    description.className = "market-card-one";
     description.textContent = item.description;
 
     divImage.appendChild(image);
@@ -57,9 +57,9 @@ async function createDynamicContent() {
     marketCard.appendChild(description);
     divDesc.appendChild(marketCard);
 
-    sec2111.appendChild(divImage);
-    sec2111.appendChild(divDesc);
-    sectionTwo.appendChild(sec2111);
+    sectioncontent.appendChild(divImage);
+    sectioncontent.appendChild(divDesc);
+    sectionTwo.appendChild(sectioncontent);
 
     dynamicContentContainer.appendChild(sectionTwo);
   });

@@ -1,3 +1,9 @@
+body {
+  /* display: flex;
+  flex-direction: column; */
+  min-height: 100vh;
+  margin: 0;
+}
 .line-div {
   background-color: #2a2a2a;
   height: 0.1rem;
@@ -6,7 +12,6 @@
 
 .achievements-whole-div {
   align-content: center;
-  width: 100%;
 }
 
 .achievements-inner-content-div {
@@ -138,6 +143,9 @@
 .sort-dropdown {
   font-size: 14px;
 }
+.sort-dropdown-link {
+  cursor: pointer;
+}
 
 .sorting-drop-up-list {
   display: none;
@@ -145,24 +153,117 @@
   width: 10rem;
   height: 5rem;
   position: absolute;
-  top: 58rem;
+  top: 56rem;
   text-align: left;
   border-radius: 4px;
+  z-index: 2;
 }
 .sort-alphabet {
   padding-top: 15px;
   padding-left: 15px;
+  transition: all 0.2s ease 0s;
 }
 .sort-alphabet:hover {
   filter: brightness(1.4);
 }
 
+.sort-alphabet-link {
+  cursor: pointer;
+}
+.sort-rarity-link {
+  cursor: pointer;
+}
+
 .sort-rarity {
+  color: grey;
   margin-top: 4px;
   padding-top: 15px;
   padding-left: 15px;
+  transition: all 0.2s ease 0s;
 }
 
 #arrow-down {
-  transition: transform 0.3s ease; /* Add a smooth transition effect */
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  width: 14px; /* Adjust the width to your needs */
+  height: 14px;
+}
+
+.achievement-cards-whole {
+  position: absolute;
+  top: 56.5rem;
+}
+
+.achievement-card-inner {
+  display: flex;
+  position: relative;
+}
+
+.achievement-details {
+  position: absolute;
+  left: 10rem;
+}
+
+.achievement-title-description {
+  position: absolute;
+  top: 1.45rem;
+  left: -1.7rem;
+  display: flex;
+}
+
+.achievement-title {
+  padding-right: 1rem;
+  white-space: nowrap;
+  color: rgb(245, 245, 245);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+.achievement-description {
+  width: 100%;
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.achievement-xp-rarity {
+  display: flex;
+  position: absolute;
+  top: 3.4rem;
+  left: -1.6rem;
+}
+.xp {
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+.xpspan {
+  margin-bottom: 1rem;
+}
+
+.vertical-line {
+  position: absolute;
+  left: 3.2rem;
+  width: 0.01rem;
+  height: 1rem;
+  background-color: #9a9a9a;
+}
+.rarity {
+  position: absolute;
+  white-space: nowrap;
+  color: rgba(245, 245, 245, 0.6);
+  left: 3.5rem;
+  top: 0.25rem;
+  font-size: 10px;
+}
+
+.line-div-achievement-card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #2a2a2a;
+  height: 1px;
+  width: 45rem;
 }

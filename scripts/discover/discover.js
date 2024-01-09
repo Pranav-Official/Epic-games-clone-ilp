@@ -83,6 +83,9 @@ const addGameCardsToSwipers = () => {
       const gameCard = `<div class="game-card">
             <div class="game-card-image">
               <div class="game-card-hover-effect"></div>
+              <div class="add-to-wish-list-button">
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
               <img src="../assets/discover-page/null.png.png" alt="" />
             </div>
             <p class="base-game">BASE GAME</p>
@@ -492,3 +495,9 @@ populateTrippleList("Best Platformers", "right-tripple-list", [
 ]);
 
 // Define the click event listener function
+// document.querySelector(".game-card-image").addEventListener("mouseover", () => {
+//   document.querySelector(".add-to-wish-list-button").classList.add("active");
+// });
+// document.querySelector(".game-card-image").addEventListener("mouseout", () => {
+//   document.querySelector(".add-to-wish-list-button").classList.remove("active");
+// });

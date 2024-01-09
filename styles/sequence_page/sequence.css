@@ -1,0 +1,48 @@
+/* Add this CSS to your stylesheet or in a style tag in your HTML document */
+
+.payment-input__element {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.payment-input__element:focus {
+  outline: none;
+  border-color: #007bff; /* Change this color to your preferred focus color */
+}
+
+.payment-input__addonAfter svg {
+  fill: #333; /* Color of the dropdown icon */
+}
+/* Style for dropdown arrow icon */
+.payment-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style for the dropdown options */
+.payment-input__element + .payment-input__element {
+  margin-top: 10px;
+}
+
+.payment-input__name span {
+  display: inline-block;
+  margin-left: 10px;
+  color: #333; /* Color of the label text */
+  font-size: 14px;
+}
+
+/* Style for hiding the label when an option is selected */
+.payment-input__element:not(:placeholder-shown) + .payment-input__name span {
+  display: none;
+}
+.payment-input__addonAfter-cvv {
+  position: absolute;
+  top: 60%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+}

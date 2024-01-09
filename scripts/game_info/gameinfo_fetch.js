@@ -9,7 +9,7 @@ export const fetchSingleGameData = async (gameSlug) => {
       `${baseURL}games/${gameSlug}?key=${apiKey}`
     );
     const gameData = response.data;
-    console.log(gameData); // Log the data here
+    // console.log(gameData); 
     return gameData;
   } catch (error) {
     throw error;
@@ -33,7 +33,7 @@ export const fetchGameScreenShots = async (gameSlug) => {
 export const fetchGameAchievements = async (gameSlug, pageNumber) => {
   try {
     const response = await axios.get(
-      `${baseURL}games/${gameSlug}/achievements?key=${apiKey}&page${pageNumber}`
+      `${baseURL}games/${gameSlug}/achievements?key=${apiKey}&page=${pageNumber}`
     );
     const AchievementsData = response.data;
     console.log(AchievementsData); // Log the data here
