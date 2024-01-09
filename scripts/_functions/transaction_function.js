@@ -23,7 +23,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+let dbref = null;
 
 export const addtoTransactionInFirebase = async (obj) => {
   try {
@@ -56,6 +56,7 @@ export const addtoTransactionInFirebase = async (obj) => {
 
 const updateTransactionInFirebase = async (game) => {
   try {
+    dbref = doc(database, "UsersData", localStorage.getItem("userId"));
     const docSnapshot = await getDoc(dbref);
     let tempTransactionArray = [];
 
@@ -84,6 +85,18 @@ const updateTransactionInFirebase = async (game) => {
   } catch (error) {
     console.error("Error updating Transaction in Firebase:", error);
   }
+};
+
+export const getTransactionList = async () => {
+  dbref = doc(database, "UsersData", localStorage.getItem("userId"));
+  const docSnapshot = await getDoc(dbref);
+  let tempTransactionArray = [];
+
+  if (docSnapshot.exists()) {
+    const userData = docSnapshot.data();
+    tempTransactionArray = userData.Transactions;
+  }
+  return tempTransactionArray;
 };
 
 // Example usage

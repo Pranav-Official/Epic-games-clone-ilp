@@ -153,11 +153,11 @@ export const displayWishlistSlugs = async () => {
       const userData = docSnapshot.data();
       wishlistArray = userData.Wishlist;
 
-      wishlistSlugArray.forEach((item) => {
+      wishlistArray.forEach((item) => {
         wishlistSlugArray.push(item.slug);
         console.log(wishlistSlugArray);
-        return wishlistSlugArray;
       });
+      return wishlistSlugArray;
     }
   } catch (error) {
     console.log("error fetching data from user" + error);
