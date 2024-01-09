@@ -388,6 +388,50 @@ function limitWords(text, n) {
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
 
+//check if game is  bought
+const checkIfBought = async () => {
+  const gameSlug = localStorage.getItem("gameSlug-info");
+  let transactionList = await getTransactionList();
+  console.log(transactionList);
+  if (transactionList != null) {
+    for (let transaction of transactionList) {
+      if (transaction.slug == gameSlug) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+//check if game is in cart
+const checkIfInCart = async () => {
+  console.log("Enter");
+  const gameSlug = localStorage.getItem("gameSlug-info");
+  let cartSlugList = await getGameSlugFromCart();
+  if (cartSlugList != null) {
+    for (let slug of cartSlugList) {
+      if (slug == gameSlug) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+//check if game is in  wishlist
+const checkIfInWishList = async () => {
+  const gameSlug = localStorage.getItem("gameSlug-info");
+  let wishlistArray = await displayWishlistSlugs();
+  if (wishlistArray != null) {
+    for (let wishitem of wishlistArray) {
+      if (wishitem.slug == gameSlug) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
 // document.getElementById("add-to-cartbutton-link").addEventListener("click",()=>{
 
 // })
