@@ -1,68 +1,49 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll(".section");
-  const placeOrderButton = document.getElementById("placeOrderButton");
+import { placeOrder } from "../_functions/buy_single_game.js";
 
-  function toggleSections(currentIndex) {
-    sections.forEach((section, index) => {
-      section.classList.toggle("visible", index === currentIndex);
-    });
-  }
-
-  let currentIndex = 0;
-  let intervalId;
-
-  function showNextSection() {
-    toggleSections(currentIndex);
-
-    if (currentIndex === 2) {
-      clearInterval(intervalId);
-    }
-
-    currentIndex = (currentIndex + 1) % sections.length;
-  }
-
-  function handleButtonClick() {
-    showNextSection();
-
-    if (!intervalId && currentIndex !== sections.length) {
-      intervalId = setInterval(() => {
-        showNextSection();
-      }, 2000);
-    }
-  }
-
-  placeOrderButton.addEventListener("click", handleButtonClick);
-
-  intervalId = setInterval(() => {
-    showNextSection();
-  }, 2000);
+document.getElementById("cardNum").addEventListener("input", function (event) {
+  const input = event.target;
+  const inputValue = input.value.replace(/\D/g, ""); // Remove non-numeric characters
+  const formattedValue = formatCardNumber(inputValue);
+  input.value = formattedValue;
 });
 
-// Function to toggle the "Place Order" button state
-function togglePlaceOrderButton() {
-  const checkbox1 = document.querySelector(".payment-radio__input2");
-  const checkbox2 = document.querySelector(".payment-radio__input");
-  const checkbox3 = document.querySelector(".payment-check-box__input");
-  const placeOrderButton = document.getElementById("placeOrderButton");
+document.getElementById("cardNum").addEventListener("input", function (event) {
+  const input = event.target;
+  const inputValue = input.value.replace(/\D/g, ""); // Remove non-numeric characters
+  const formattedValue = formatCardNumber(inputValue);
+  input.value = formattedValue;
+});
 
-  if ((checkbox1.checked || checkbox2.checked) && checkbox3.checked) {
-    placeOrderButton.disabled = false;
+document.getElementById("expiry").addEventListener("input", function (event) {
+  const input = event.target;
+  const inputValue = input.value.replace(/\D/g, ""); // Remove non-numeric characters
+  const formattedValue = formatExpiry(inputValue);
+  input.value = formattedValue;
+});
+
+function formatCardNumber(value) {
+  const groups = value.match(/(\d{1,4})/g) || [];
+  return groups.join("-");
+}
+
+function formatExpiry(value) {
+  if (value.length <= 2) {
+    // Format as "mm"
+    return value;
   } else {
-    placeOrderButton.disabled = true;
+    // Format as "mm/yy"
+    const month = Math.min(parseInt(value.slice(0, 2), 10), 12); // Ensure month is between 1 and 12
+    return month.toString().padStart(2, "0") + "/" + value.slice(2, 4);
   }
 }
 
-// Function to handle the click event for checkbox1
-function togglePaymentForm2() {
-  togglePlaceOrderButton();
-}
+// document.getElementById("placeOrderButton").disabled = true;
 
-// Function to handle the change event for checkbox2
-function togglePaymentForm() {
-  togglePlaceOrderButton();
-}
-
-// Function to handle the change event for checkbox3
-function toggleCheckBox3() {
-  togglePlaceOrderButton();
-}
+document.getElementById("placeOrderButton").addEventListener("click", () => {
+  const result = placeOrder();
+  if (result == true) {
+    window.location.href = "../../pages/gameinfo.html";
+  } else {
+    window.location.href = "../../pages/gameinfo.html";
+  }
+});

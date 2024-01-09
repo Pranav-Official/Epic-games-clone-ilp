@@ -25,28 +25,28 @@ const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
 const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
 
-export const addtoTransactionInFirebase = async (gameSlug) => {
+export const addtoTransactionInFirebase = async (obj) => {
   try {
-    console.log(API_KEY);
-    const baseUrl =
-      "https://api.rawg.io/api/games/" + gameSlug + "?key=" + API_KEY;
-    const response = await axios.get(baseUrl);
-    const data = response.data;
+    // console.log(API_KEY);
+    // const baseUrl =
+    //   "https://api.rawg.io/api/games/" + gameSlug + "?key=" + API_KEY;
+    // const response = await axios.get(baseUrl);
+    // const data = response.data;
 
-    // Fetch pricing information using the getPrice function
-    // const prices = await getPrice(data.name);
-    const prices = {
-      salePrice: 1000,
-      retailPrice: 1500,
-      calculatedDiscount: 15,
-    };
+    // // Fetch pricing information using the getPrice function
+    // // const prices = await getPrice(data.name);
+    // const prices = {
+    //   salePrice: 1000,
+    //   retailPrice: 1500,
+    //   calculatedDiscount: 15,
+    // };
 
-    let obj = {
-      id: data.id,
-      title: data.name,
-      slug: data.slug,
-      actualPrice: prices.salePrice,
-    };
+    // let obj = {
+    //   id: data.id,
+    //   title: data.name,
+    //   slug: data.slug,
+    //   actualPrice: prices.salePrice,
+    // };
 
     await updateTransactionInFirebase(obj);
   } catch (error) {

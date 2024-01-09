@@ -1,11 +1,42 @@
+import { addToWishlist, wishlistItemCount } from "./wishlist_functions.js";
+
+//fuction to handle click to game info
 const handleGameCardClick = (event) => {
   // Get the value of the "data-slug" attribute
   const dataSlug = event.currentTarget.getAttribute("data-slug");
 
   // Log the value
-  console.log("Clicked game card with data-slug:", dataSlug);
+  // console.log("click to game info", event.currentTarget);
   localStorage.setItem("gameSlug-info", dataSlug);
   window.location.href = "../../pages/gameinfo.html";
+
+  // Add additional logic as needed
+};
+
+//fuction to handle click to add to wishlist
+const handleAddToWishListClick = async (event) => {
+  // Log the value
+  event.stopPropagation();
+  console.log("Click to add to wishlist");
+  const nearestGameCard = event.target.closest(".game-card");
+  const gameSlug = nearestGameCard.getAttribute("data-slug");
+  const result = await addToWishlist(gameSlug);
+  // console.log(result);
+  if (result == false) {
+    document.querySelector(".wishlist-message h3").innerHTML =
+      "This game has been added in your wishlist";
+    document.querySelector(".wishlist-message").classList.add("active");
+    setTimeout(() => {
+      document.querySelector(".wishlist-message").classList.remove("active");
+    }, 3000);
+  } else if (result == true) {
+    document.querySelector(".wishlist-message h3").innerHTML =
+      "This game has been added in your wishlist";
+    document.querySelector(".wishlist-message").classList.add("active");
+    setTimeout(() => {
+      document.querySelector(".wishlist-message").classList.remove("active");
+    }, 3000);
+  }
 
   // Add additional logic as needed
 };
@@ -14,7 +45,12 @@ const handleGameCardClick = (event) => {
 document.querySelectorAll(".game-card").forEach((gameCard) => {
   gameCard.addEventListener("click", handleGameCardClick);
 });
+// Add the click event listener to each game card
+document.querySelectorAll(".add-to-wish-list-button").forEach((gameCard) => {
+  gameCard.addEventListener("click", handleAddToWishListClick);
+});
 
+// Add the click event listener to each search suggestion
 document.querySelectorAll(".search-suggestion-item").forEach((gameCard) => {
   gameCard.addEventListener("click", (event) => {
     console.log("Clicked search suggestion item");
@@ -35,7 +71,7 @@ const checkAndAddTrippleItemListener = () => {
 // Check and add event listener initially
 checkAndAddTrippleItemListener();
 
-// You can also use mutation observer to watch for changes in the DOM and add the listener dynamically.
+// Add mutation observer
 const observer = new MutationObserver(() => {
   checkAndAddTrippleItemListener();
 });

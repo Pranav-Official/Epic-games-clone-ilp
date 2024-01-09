@@ -91,3 +91,21 @@ export const addToCart = async (gameSlug) => {
     console.error("Error adding game to the cart:", error);
   }
 };
+
+export const cartItemCount = async () => {
+  let countCartlist = 0;
+  let cartlistArray = [];
+  try {
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      cartlistArray = userData.Cart;
+      countCartlist = cartlistArray.length;
+    }
+  } catch (error) {
+    console.log("error fetching data from user" + error);
+  }
+  // console.log(countWishlist);
+  return countCartlist;
+};
