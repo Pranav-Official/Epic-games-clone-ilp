@@ -24,8 +24,8 @@ const loadBrowsePage = async (parameterList = []) => {
 
     for (let i = 0; i < data.results.length; i++) {
       const gameData = data.results[i];
-      const prices = await getPrice(gameData.slug);
-      // const prices = null;
+      // const prices = await getPrice(gameData.slug);
+      const prices = null;
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
@@ -165,8 +165,8 @@ const updateGameCardsByGenre = async (selectedGenre) => {
 
     for (let i = 0; i < data.results.length; i++) {
       const gameData = data.results[i];
-      const prices = await getPrice(gameData.slug);
-      // const prices = null;
+      // const prices = await getPrice(gameData.slug);
+      const prices = null;
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
@@ -391,3 +391,12 @@ document.getElementById("filter_by_windows").addEventListener("click", () => {
 document.getElementById("filter_by_macos").addEventListener("click", () => {
   filterBrowsePageByPlatform("5");
 });
+
+document
+  .querySelector("#browsepage-game-cards")
+  .addEventListener("click", (event) => {
+    if (event.target.matches(".game-card")) {
+      // Retrieve the slug from the data attribute of the parent game card
+      console.log("card-press");
+    }
+  });

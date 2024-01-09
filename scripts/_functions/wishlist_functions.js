@@ -16,7 +16,7 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+let dbref = null;
 
 //update wishlist in firebase
 const updateWishlistInFirebase = async (game) => {
@@ -24,6 +24,8 @@ const updateWishlistInFirebase = async (game) => {
   let wishlistItems = [];
 
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
@@ -58,6 +60,8 @@ export const removeWishlistInFirebase = async (dataSlug) => {
   let tempWishlistArray = [];
   let updatedWishlistArray = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
@@ -114,13 +118,14 @@ export const addToWishlist = async (gameSlug) => {
   return result;
 };
 
-
 //count wishlist items
 
 export const wishlistItemCount = async () => {
   let countWishlist = 0;
   let wishlistArray = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -140,6 +145,8 @@ export const displayWishlistSlugs = async () => {
   let wishlistArray = [];
   let wishlistSlugArray = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {

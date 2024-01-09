@@ -10,6 +10,7 @@ import {
   getDoc,
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { addToWishlist } from "../_functions/wishlist_functions.js";
 
 let userData, cartItems;
 
@@ -17,7 +18,7 @@ let userData, cartItems;
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+let dbref = null;
 let tempCartArray = [];
 
 // const cartTemplate = (cartItem) => {
@@ -109,7 +110,7 @@ const cartTemplate = (cartItem) => {
     </div>
     <div class="cart-update">
       <i class="bi bi-plus-circle"></i>
-      <a href="">Move to wishlist</a>
+      <a class="move-to-wishlist-button">Move to wishlist</a>
       <a class="remove-from-cart-button">Remove</a>
     </div>
   </div>
@@ -179,6 +180,8 @@ const displayCartInDOM = (cartItems) => {
 // Fetch data from Firestore
 const fetchFirestoreData = async () => {
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -333,12 +336,15 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
     console.log("button-press");
     // Call the removeFromCartClicked function with the slug
     removeFromCartClicked(cardSlug);
+  } else if (event.target.matches(".move-to-wishlist-button")) {
+    const cartGameCard = event.target.closest(".game-details");
+    const cardSlug = cartGameCard.getAttribute("slug");
+    console.log("button-press");
+    // Call the removeFromCartClicked function with the slug
+    addToWishlist(cardSlug);
+    removeFromCartClicked(cardSlug);
   }
 });
-
-
-// await addToCart("grand-theft-auto-v");
-
 
 // const cartGameImage = document.getElementById("cartGameImage");
 // // Add a click event listener to the cart game image
@@ -475,3 +481,5 @@ function setupHoverable() {
 }
 
 setupHoverable();
+
+// await addToCart("diablo-iv");

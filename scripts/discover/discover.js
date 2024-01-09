@@ -46,14 +46,14 @@ const bestGamesOf2023 = async () => {
         gameCard.querySelector(".base-game").textContent = "BASE GAME";
         gameCard.querySelector(".game-card-title").textContent =
           data["results"][i].name;
-        let prices = await getRandomPrice();
-        // let prices = null;
+        // let prices = await getRandomPrice();
+        let prices = null;
         if (prices === null) {
           gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
           gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
           gameCard.querySelector(".game-card-current-price").remove(); // You may need to update this value
         } else {
-          console.log(prices);
+          // console.log(prices);
           gameCard.querySelector(".game-card-discount").textContent =
             "-" + Math.trunc(prices.calculatedDiscount) + "%"; // You may need to update this value
           gameCard.querySelector(".game-card-previous-price").textContent =
@@ -138,14 +138,14 @@ const swiperHighlightsPopulator = async () => {
           gameCard.querySelector(".game-card-title").textContent =
             data["results"][i * 5 + j].name;
           // // let prices = await getPrice(data["results"][i * 5 + j].slug);
-          // let prices = null;
-          let prices = await getRandomPrice();
+          let prices = null;
+          // let prices = await getRandomPrice();
           if (prices === null) {
             gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
             gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
             gameCard.querySelector(".game-card-current-price").remove(); // You may need to update this value
           } else {
-            console.log(prices);
+            // console.log(prices);
             gameCard.querySelector(".game-card-discount").textContent =
               "-" + Math.trunc(prices.calculatedDiscount) + "%"; // You may need to update this value
             gameCard.querySelector(".game-card-previous-price").textContent =
@@ -215,14 +215,15 @@ const populateSalesHighlights = async (title, id, parameterList) => {
             data["results"][i].name;
         }
         // // let prices = await getPrice(data["results"][i].slug);
-        // let prices = null;
-        let prices = await getRandomPrice();
-        if (prices === null) {
+        let prices = null;
+        // let prices = await getRandomPrice();
+        // console.log(prices);
+        if (!prices) {
           gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
           gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
           gameCard.querySelector(".game-card-current-price").remove(); // You may need to update this value
         } else {
-          console.log(prices);
+          // console.log(prices);
           gameCard.querySelector(".game-card-discount").textContent =
             "-" + Math.trunc(prices.calculatedDiscount) + "%"; // You may need to update this value
           gameCard.querySelector(".game-card-previous-price").textContent =
@@ -286,8 +287,8 @@ const populateTrippleList = async (title, id, parameterList) => {
 
       // Fetch prices
       // let prices = await getPrice(data["results"][i].slug);
-      let prices = await getRandomPrice();
-      // let prices = null;
+      // let prices = await getRandomPrice();
+      let prices = null;
 
       // Check if prices are available
       if (prices !== null) {
