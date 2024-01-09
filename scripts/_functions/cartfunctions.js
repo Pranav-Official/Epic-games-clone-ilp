@@ -17,7 +17,6 @@ const database = getFirestore(app);
 
 let dbref = null;
 
-
 const addtoCartInFirebase = async (game) => {
   let tempCartArray = [];
   let cartItems = [];
@@ -157,6 +156,8 @@ export const removeCartInFirebase = async (slug) => {
     await updateDoc(dbref, { Cart: updatedCartArray });
   } catch (error) {
     console.error("Error updating cart in Firebase:", error);
+  }
+};
 
 export const getGameSlugFromCart = async () => {
   try {
