@@ -225,7 +225,8 @@
         </div>
         <div class="purchase-history">
           <div class="history-table">
-            <table class="table">
+            <div id="transactionTableContainer"></div>
+            <!-- <table class="table">
               <thead>
                 <tr>
                   <th scope="col">Date</th>
@@ -265,12 +266,26 @@
                   <td>Completed</td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
           </div>
         </div>
       </div>
     </div>
-    <script src="../../scripts/_functions/scrollNavbar.js" defer></script>
-    <script src="../../scripts/_functions/storePageHome.js" defer></script>
+    <script
+      type="module"
+      src="../../scripts/_functions/scrollNavbar.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../../scripts/_functions/storePageHome.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../../scripts/transaction_table_generator/generatetabletransaction.js"
+    ></script>
+    <script src="https://cdn.skypack.dev/axios"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
   </body>
 </html>

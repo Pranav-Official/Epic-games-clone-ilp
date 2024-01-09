@@ -10,9 +10,33 @@ a.epic-pages-link {
 .cart-body-page {
   display: flex;
   flex-direction: column;
-  padding-left: 10%;
-  padding-right: 8%;
+  padding-left: 12%;
+  padding-right: 12%;
 }
+
+.game-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .game-details {
+    width: 100%; /* Set width to 100% for responsiveness */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    padding: 0.5em; /* Adjust padding as needed */
+  }
+}
+
+.game-details {
+  width: 100%; /* Set width to 100% for responsiveness */
+  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+  padding: 0.5em; /* Adjust padding as needed */
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .cart-whole {
   display: flex;
 }
@@ -86,6 +110,7 @@ a.epic-pages-link {
   flex: 2;
   margin-top: 20px;
   width: 700px;
+  /* max-width: 700px; */
   height: 266px;
   background-color: rgb(32, 32, 32);
   border-radius: 4px;
@@ -110,6 +135,7 @@ a.epic-pages-link {
 
 .cart-update a:hover {
   color: white;
+  cursor: pointer;
 }
 .wishlist {
   margin-left: 2rem;
@@ -117,11 +143,36 @@ a.epic-pages-link {
 .wishlist:hover {
   color: white;
 }
-.left {
+/* .left {
   display: flex;
   flex-direction: column;
   flex: 1;
   height: 100%;
+} */
+
+.left {
+  position: relative;
+}
+
+.left img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.left:hover img {
+  filter: brightness(80%); /* Adjust the brightness as needed */
+}
+
+/* Reset overlay styles for the windows-icon */
+.windows-icon {
+  position: relative;
+  /* z-index: 1; */
+  color: grey;
+  font-size: 0.75rem;
+
+  padding-left: 1rem;
 }
 
 .right {
@@ -155,6 +206,24 @@ a.epic-pages-link {
   margin-top: -2.3rem;
   margin-left: 3rem;
   color: white;
+}
+
+.message-box {
+  position: absolute;
+  background-color: rgb(32, 32, 32);
+  border: 1px solid black;
+  padding: 10px;
+  width: 310px;
+  height: 120px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  margin-left: 11rem;
+  margin-top: -11rem;
+}
+
+.show-message {
+  opacity: 1 !important;
 }
 
 .right p {
@@ -193,14 +262,6 @@ a.epic-pages-link {
   padding-right: 1.5rem;
 }
 
-.icon {
-  padding-left: 1rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  color: white;
-  margin-top: -1rem;
-}
-
 .summary {
   flex: 1;
   margin-top: 0.5rem; /* Adjust the margin-top as needed */
@@ -219,13 +280,6 @@ a.epic-pages-link {
   color: white;
   font-size: 15px;
   white-space: nowrap;
-}
-
-.windows-icon {
-  color: grey;
-  font-size: 0.75rem; /* Adjust the font size of the Windows icon as needed */
-
-  padding-left: 1rem;
 }
 
 .game-details img {
@@ -337,4 +391,9 @@ hr {
   height: 100%;
   object-fit: cover;
   padding-bottom: 20px;
+}
+
+.list-button a {
+  color: white;
+  text-decoration: none;
 }

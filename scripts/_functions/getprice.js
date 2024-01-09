@@ -30,7 +30,11 @@ const getPrice = async (gameName) => {
     // Check if the deal information retrieval was successful
     if (dealResponse.status !== 200) {
       console.error(`Error getting deal information: ${dealResponse.status}`);
-      return null;
+      return {
+        salePrice: 0,
+        retailPrice: 0,
+        calculatedDiscount: 0,
+      };
     }
 
     const dealData = dealResponse.data.gameInfo;
@@ -50,20 +54,12 @@ const getPrice = async (gameName) => {
     };
   } catch (error) {
     console.error(`An error occurred: ${error.message}`);
-    return null;
+    return {
+      salePrice: 0,
+      retailPrice: 0,
+      calculatedDiscount: 0,
+    };
   }
 };
 
 export default getPrice;
-
-// Example usage:
-// const gameName = "YourGameName";
-// getGameDealInfo(gameName)
-//   .then((dealInfo) => {
-//     if (dealInfo) {
-//       console.log(`Sale Price: $${dealInfo.salePrice}`);
-//       console.log(`Retail Price: $${dealInfo.retailPrice}`);
-//       console.log(`Calculated Discount: ${dealInfo.calculatedDiscount}%`);
-//     }
-//   })
-//   .catch((error) => console.error(`An error occurred: ${error.message}`));

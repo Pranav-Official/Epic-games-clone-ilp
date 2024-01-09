@@ -24,7 +24,9 @@ div {
   display: block;
 }
 .footer-main-container {
+  display: none;
   align-self: flex-end;
+  position: absolute;
 }
 .edf-theme {
   border-color: var(--color-footer-default);
@@ -57,6 +59,7 @@ div {
   content: " ";
   display: table;
 }
+
 @media (min-width: 768px) {
   .col-sm-8 {
     width: 66.66667%;
@@ -272,7 +275,7 @@ button {
 }
 .footer-links li a:hover {
   text-decoration: none;
-  color: #007aff !important;
+  color: var(--color-accent);
 }
 #egf hr {
   margin: 1em 0;
@@ -326,7 +329,7 @@ button {
 }
 .legal .links li a:hover {
   text-decoration: none;
-  color: var(--color-accent) !important;
+  color: var(--color-accent);
 }
 .logos {
   display: flex;
