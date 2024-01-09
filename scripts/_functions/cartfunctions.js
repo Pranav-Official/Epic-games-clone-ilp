@@ -159,6 +159,18 @@ export const removeCartInFirebase = async (slug) => {
   }
 };
 
+export const clearCartInFirebase = async () => {
+  let tempCartArray = [];
+  try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
+
+    await updateDoc(dbref, { Cart: [] });
+  } catch (error) {
+    console.error("Error updating cart in Firebase:", error);
+  }
+};
+
 export const getGameSlugFromCart = async () => {
   try {
     const userId = localStorage.getItem("userId");

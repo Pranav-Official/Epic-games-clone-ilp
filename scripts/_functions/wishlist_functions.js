@@ -79,6 +79,36 @@ export const removeWishlistInFirebase = async (dataSlug) => {
     console.log("error removeing");
   }
 };
+
+export const removeWishlistInFirebaseBulk = async (gamesToRemove) => {
+  try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      let wishlistItems = userData.Wishlist || [];
+
+      // Create a Set of slugs to efficiently check for presence
+      const slugsToRemove = new Set(gamesToRemove.map((game) => game.slug));
+
+      // Filter out wishlist items that have a matching slug
+      const updatedWishlistArray = wishlistItems.filter(
+        (singleGame) => !slugsToRemove.has(singleGame.slug)
+      );
+
+      await updateDoc(dbref, { Wishlist: updatedWishlistArray });
+      console.log("Wishlist updated successfully");
+    } else {
+      console.error("User document does not exist");
+      // Handle the situation where the user document does not exist
+    }
+  } catch (error) {
+    console.error("Error updating Wishlist in Firebase:", error);
+  }
+};
+
 //add to wishlist
 export const addToWishlist = async (gameSlug) => {
   const baseUrl =

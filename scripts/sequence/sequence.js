@@ -37,24 +37,22 @@ function formatExpiry(value) {
 
 // document.getElementById("placeOrderButton").disabled = true;
 
+// document
+//   .getElementById("placeOrderButton")
+//   .addEventListener("click", async () => {
+//     try {
+//       const result = await placeOrder();
 
-
-document
-  .getElementById("placeOrderButton")
-  .addEventListener("click", async () => {
-    try {
-      const result = await placeOrder();
-
-      if (result) {
-        // Order placed successfully
-        window.location.href = "../../pages/gameinfo.html";
-      } else {
-        // Order failed or encountered an error
-        window.location.href = "../../pages/gameinfo.html";
-      }
-    } catch (error) {
-      console.error("Error placing order:", error);
-      // Optionally, you could show an error message to the user
-      // and handle the navigation accordingly.
-    }
-  });
+//       if (result) {
+//         // Order placed successfully
+//         window.location.href = "../../pages/gameinfo.html";
+//       } else {
+//         // Order failed or encountered an error
+//         window.location.href = "../../pages/gameinfo.html";
+//       }
+//     } catch (error) {
+//       console.error("Error placing order:", error);
+//       // Optionally, you could show an error message to the user
+//       // and handle the navigation accordingly.
+//     }
+//   });
