@@ -1,3 +1,9 @@
+import { getTransactionList } from "../_functions/transaction_function.js";
+import {
+  displayWishlistSlugs,
+  addToWishlist,
+} from "../_functions/wishlist_functions.js";
+import { getGameSlugFromCart } from "../_functions/cartfunctions.js";
 import { addToCart } from "../_functions/cartfunctions.js";
 import {
   fetchGameScreenShots,
@@ -317,6 +323,17 @@ export const displayPage = async () => {
     let wholeDivHeight = document.querySelector(".game-editions").offsetHeight;
     console.log(wholeDivHeight);
     wholeDiv.style.height = `${wholeDivHeight + 2000}px`;
+
+    //checking game is in cart , whishlist ,or bought
+    if ((await checkIfBought()) == true) {
+      document.querySelector(".buy-button-link").innerHTML = "In Library";
+    } else if ((await checkIfInCart()) == true) {
+      document.querySelector(".add-to-cartbutton-link").innerHTML = "IN CART";
+    } else if ((await checkIfInWishList()) == true) {
+      document.querySelector(".add-to-wishbutton-link").innerHTML =
+        "IN WISHLIST";
+    }
+
     document.querySelector(".footer-main-container").style.display = "block";
   } catch (error) {
     console.error("Error fetching game details:", error);
@@ -408,6 +425,7 @@ const checkIfInCart = async () => {
   console.log("Enter");
   const gameSlug = localStorage.getItem("gameSlug-info");
   let cartSlugList = await getGameSlugFromCart();
+  console.log(cartSlugList);
   if (cartSlugList != null) {
     for (let slug of cartSlugList) {
       if (slug == gameSlug) {
@@ -422,9 +440,10 @@ const checkIfInCart = async () => {
 const checkIfInWishList = async () => {
   const gameSlug = localStorage.getItem("gameSlug-info");
   let wishlistArray = await displayWishlistSlugs();
+  console.log(wishlistArray);
   if (wishlistArray != null) {
     for (let wishitem of wishlistArray) {
-      if (wishitem.slug == gameSlug) {
+      if (wishitem == gameSlug) {
         return true;
       }
     }
@@ -432,8 +451,42 @@ const checkIfInWishList = async () => {
   return false;
 };
 
-// document.getElementById("add-to-cartbutton-link").addEventListener("click",()=>{
+document
+  .querySelector(".add-to-cartbutton-link")
+  .addEventListener("click", async () => {
+    const gameSlug = localStorage.getItem("gameSlug-info");
+    if (localStorage.getItem("userId") == null) {
+      window.location.href = "../../pages/login_page/login.html";
+    } else {
+      console.log("heheh");
+      if (
+        (await checkIfBought()) == false &&
+        (await checkIfInCart()) == false
+      ) {
+        addToCart(gameSlug);
+         document.querySelector(".add-to-cartbutton-link").innerHTML =
+           "IN CART";
+      }
+    }
+  });
 
-// })
+document
+  .querySelector(".add-to-wishbutton-link")
+  .addEventListener("click", async () => {
+    console.log("click");
+    const gameSlug = localStorage.getItem("gameSlug-info");
+    if (localStorage.getItem("userId") == null) {
+      window.location.href = "../../pages/login_page/login.html";
+    } else {
+      if (
+        (await checkIfBought()) == false &&
+        (await checkIfInWishList()) == false
+      ) {
+        addToWishlist(gameSlug);
+          document.querySelector(".add-to-wishbutton-link").innerHTML =
+        "IN WISHLIST";
+    }
+      }
+    });
 
 window.onload = displayPage;

@@ -124,3 +124,31 @@ export const cartItemCount = async () => {
   // console.log(countWishlist);
   return countCartlist;
 };
+
+export const getGameSlugFromCart = async () => {
+  try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
+    const docSnapshot = await getDoc(dbref);
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const cartItems = userData.Cart;
+
+      // checking if cart has games in it
+      if (cartItems.length > 0) {
+        const slugArray = [];
+
+        // each game is iterated,and slug is returned
+        for (let i = 0; i < cartItems.length; i++) {
+          slugArray.push(cartItems[i].slug);
+        }
+
+        return slugArray;
+      }
+    }
+    // if the cart has no games,then an empty array is returned
+    return [];
+  } catch (error) {
+    console.error("Error fetching data from Firestore:", error);
+  }
+};
