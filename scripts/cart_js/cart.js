@@ -89,7 +89,6 @@ const displayCartInDOM = (cartItems) => {
     gameHtml += cartTemplate(cartItem);
   });
 
-  
   const calculateTotalPrice = (cartItems) => {
     let totalPrice = 0;
 
@@ -236,7 +235,7 @@ const addtoCartInFirebase = async (game) => {
   }
 };
 
-const removeCartInFirebase = async (slug) => {
+export const removeCartInFirebase = async (slug) => {
   let tempCartArray = [];
   try {
     const docSnapshot = await getDoc(dbref);
