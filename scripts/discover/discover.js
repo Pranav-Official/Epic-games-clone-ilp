@@ -1,5 +1,6 @@
 import fetchData from "../_functions/rawgfetchGamesdata.js";
 import getPrice from "../_functions/getprice.js";
+import getRandomPrice from "../_functions/getRandomPrice.js";
 import { API_KEY } from "../../environment.js";
 import fetchCarousalData from "../discover/carousal-data-fetch.js";
 
@@ -45,8 +46,8 @@ const bestGamesOf2023 = async () => {
         gameCard.querySelector(".base-game").textContent = "BASE GAME";
         gameCard.querySelector(".game-card-title").textContent =
           data["results"][i].name;
-        // let prices = await getPrice(data["results"][i].slug);
-        let prices = null;
+        let prices = await getRandomPrice();
+        // let prices = null;
         if (prices === null) {
           gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
           gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
@@ -136,8 +137,9 @@ const swiperHighlightsPopulator = async () => {
           gameCard.querySelector(".base-game").textContent = "BASE GAME";
           gameCard.querySelector(".game-card-title").textContent =
             data["results"][i * 5 + j].name;
-          // let prices = await getPrice(data["results"][i * 5 + j].slug);
-          let prices = null;
+          // // let prices = await getPrice(data["results"][i * 5 + j].slug);
+          // let prices = null;
+          let prices = await getRandomPrice();
           if (prices === null) {
             gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
             gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
@@ -212,8 +214,9 @@ const populateSalesHighlights = async (title, id, parameterList) => {
           gameCard.querySelector(".game-card-title").textContent =
             data["results"][i].name;
         }
-        // let prices = await getPrice(data["results"][i].slug);
-        let prices = null;
+        // // let prices = await getPrice(data["results"][i].slug);
+        // let prices = null;
+        let prices = await getRandomPrice();
         if (prices === null) {
           gameCard.querySelector(".game-card-discount").remove(); // You may need to update this value
           gameCard.querySelector(".game-card-previous-price").remove(); // You may need to update this value
@@ -283,7 +286,8 @@ const populateTrippleList = async (title, id, parameterList) => {
 
       // Fetch prices
       // let prices = await getPrice(data["results"][i].slug);
-      let prices = null;
+      let prices = await getRandomPrice();
+      // let prices = null;
 
       // Check if prices are available
       if (prices !== null) {
@@ -405,7 +409,7 @@ const populateSwiper = async () => {
                 </p>
               </div>
               <div class="carousal-buttons">
-                <a href="../pages/gameinfo.html">
+                <a>
                   <button class="carousal-button save-now-button">
                     SAVE NOW
                   </button>
@@ -503,3 +507,13 @@ populateTrippleList("Best Platformers", "right-tripple-list", [
 // document.querySelector(".game-card-image").addEventListener("mouseout", () => {
 //   document.querySelector(".add-to-wish-list-button").classList.remove("active");
 // });
+
+document.querySelectorAll(".save-now-button").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    // const nearestSlide = event.target.closest(".swiper-slide");
+    // const gameSlug = nearestSlide.getAttribute("id");
+    // localStorage.setItem("gameSlug", gameSlug);
+    // window.location.href = "../../pages/gameinfo.html";
+    console.log("clicked");
+  });
+});

@@ -89,7 +89,6 @@ const displayCartInDOM = (cartItems) => {
     gameHtml += cartTemplate(cartItem);
   });
 
-  
   const calculateTotalPrice = (cartItems) => {
     let totalPrice = 0;
 
@@ -294,7 +293,7 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
   }
 });
 
-await addToCart("ghostrunner");
+await addToCart("grand-theft-auto-v");
 
 // const cartGameImage = document.getElementById("cartGameImage");
 // // Add a click event listener to the cart game image
