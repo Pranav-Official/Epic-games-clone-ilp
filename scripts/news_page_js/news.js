@@ -150,5 +150,44 @@ document.querySelectorAll(".news-button").forEach((button) => {
     nextPage(buttonNumber);
   });
 });
+
+//pagination arrows
+const newsButtons = document.querySelectorAll(".news-button");
+const leftBracket = document.querySelector(".bracket-left");
+const rightBracket = document.querySelector(".bracket-right");
+
+let currentPage = 1;
+
+leftBracket.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    updatePagination();
+  }
+});
+
+rightBracket.addEventListener("click", () => {
+  if (currentPage < 2) {
+    currentPage += 1;
+    updatePagination();
+  }
+});
+
+function updatePagination() {
+  const start = (currentPage - 1) * 5 + 1;
+  const end = currentPage * 5;
+
+  newsButtons.forEach((button, index) => {
+    const buttonValue = start + index;
+    if (buttonValue <= end) {
+      button.textContent = buttonValue;
+    } else {
+      button.textContent = "";
+    }
+  });
+}
+
+// Initial setup
+updatePagination();
+
 // Initial load
 init();

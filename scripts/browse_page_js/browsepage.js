@@ -24,8 +24,8 @@ const loadBrowsePage = async (parameterList = []) => {
 
     for (let i = 0; i < data.results.length; i++) {
       const gameData = data.results[i];
-      // const prices = await getPrice(gameData.slug);
-      const prices = null;
+      const prices = await getPrice(gameData.slug);
+      // const prices = null;
       let gameCardHTML = ``;
       if (prices === null) {
         gameCardHTML = `
@@ -383,10 +383,10 @@ const filterBrowsePageByPlatform = (platform) => {
   loadBrowsePage(parameterList);
 };
 
-  document.getElementById("filter_by_windows").addEventListener("click", () => {
-    console.log("4");
-    filterBrowsePageByPlatform("4");
-  });
+document.getElementById("filter_by_windows").addEventListener("click", () => {
+  console.log("4");
+  filterBrowsePageByPlatform("4");
+});
 
 document.getElementById("filter_by_macos").addEventListener("click", () => {
   filterBrowsePageByPlatform("5");

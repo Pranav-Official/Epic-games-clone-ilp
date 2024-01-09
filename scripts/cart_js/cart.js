@@ -280,7 +280,7 @@ const addtoCartInFirebase = async (game) => {
   }
 };
 
-const removeCartInFirebase = async (slug) => {
+export const removeCartInFirebase = async (slug) => {
   let tempCartArray = [];
   try {
     const docSnapshot = await getDoc(dbref);
