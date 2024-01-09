@@ -367,16 +367,20 @@ swiper.on("transitionEnd", function () {
 });
 
 function logCurrentSlideId() {
-  const activeSlideId = swiper.slides[swiper.activeIndex].id;
-  // console.log("Current Active Slide ID:", activeSlideId);
-  const icons = document.getElementsByClassName("carousal-icon-card");
-  // const loader_sliders = document.getElementsByClassName("loader-slide");
-  for (let i = 0; i < icons.length; i++) {
-    icons[i].style.backgroundColor = "rgb(24, 24, 28)";
+  try {
+    const activeSlideId = swiper.slides[swiper.activeIndex].id;
+    // console.log("Current Active Slide ID:", activeSlideId);
+    const icons = document.getElementsByClassName("carousal-icon-card");
+    // const loader_sliders = document.getElementsByClassName("loader-slide");
+    for (let i = 0; i < icons.length; i++) {
+      icons[i].style.backgroundColor = "rgb(24, 24, 28)";
+    }
+    const icon = document.getElementById(activeSlideId + "-icon");
+    // const loader = icon.querySelector(".loader-slide");
+    icon.style.backgroundColor = "#3b3b3b";
+  } catch (error) {
+    console.log("icon null");
   }
-  const icon = document.getElementById(activeSlideId + "-icon");
-  // const loader = icon.querySelector(".loader-slide");
-  icon.style.backgroundColor = "#3b3b3b";
 }
 
 // Listen for the slideChange event to log the current slide ID
