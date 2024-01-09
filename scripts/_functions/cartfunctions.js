@@ -14,12 +14,14 @@ let userData, cartItems;
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+let dbref = null;
 
 const addtoCartInFirebase = async (game) => {
   let tempCartArray = [];
   let cartItems = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -87,6 +89,8 @@ export const addToCart = async (gameSlug) => {
 
 export const fetchFullCart = async () => {
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref); // Fetch the document snapshot
 
     if (docSnapshot.exists()) {
@@ -105,6 +109,8 @@ export const cartItemCount = async () => {
   let countCartlist = 0;
   let cartlistArray = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
