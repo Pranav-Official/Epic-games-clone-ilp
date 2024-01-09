@@ -1,5 +1,6 @@
 import fetchData from "../_functions/rawgfetchGamesdata.js";
 import { API_KEY } from "../../environment.js";
+import { cartItemCount } from "./cartfunctions.js";
 
 const searchSuggestionDOM = (results) => {
   const suggentionItems = document.querySelectorAll(".search-suggestion-item");
@@ -84,6 +85,30 @@ try {
   console.log("no secondary nav in this page");
 }
 
+//navigation links
+document.querySelector("#distribution-link").addEventListener("click", () => {
+  window.location.href = "../../pages/distribution_page/distribution.html";
+});
+
+document.querySelector("#support-link").addEventListener("click", () => {
+  window.location.href = "../../pages/support_page/epic-games-support.html";
+});
+document.querySelector("#discover-link").addEventListener("click", () => {
+  window.location.href = "../../pages/discover.html";
+});
+document.querySelector("#browse-link").addEventListener("click", () => {
+  window.location.href = "../../pages/browse_page.html";
+});
+document.querySelector("#news-link").addEventListener("click", () => {
+  window.location.href = "../../pages/news.html";
+});
+document.querySelector("#wishlist-link").addEventListener("click", () => {
+  window.location.href = "../../pages/wishlist.html";
+});
+document.querySelector("#cart-link").addEventListener("click", () => {
+  window.location.href = "../../pages/cart.html";
+});
+
 const searchSuggestionBoxFuction = async (searchValue) => {
   const data = await fetchData(API_KEY, [
     ["search", searchValue],
@@ -96,3 +121,10 @@ const searchSuggestionBoxFuction = async (searchValue) => {
   // console.log(data.results);
   searchSuggestionDOM(data.results);
 };
+
+const upadateCartCount = async () => {
+  const cartCount = await cartItemCount();
+  document.querySelector("#cart-count").textContent = cartCount;
+};
+
+upadateCartCount();

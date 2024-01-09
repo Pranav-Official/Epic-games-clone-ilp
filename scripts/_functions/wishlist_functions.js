@@ -56,8 +56,10 @@ const updateWishlistInFirebase = async (game) => {
       tempWishlistArray.push(game);
       console.log(tempWishlistArray);
       await updateDoc(dbref, { Wishlist: tempWishlistArray });
+      return true;
     } else {
       console.log(`Game with slug ${game.slug} is already in the wishlist.`);
+      return false;
     }
   } catch (error) {
     console.error("Error updating wishlist in Firebase:", error);
@@ -116,10 +118,11 @@ export const addToWishlist = async (gameSlug) => {
     salesEndDate: data.updated, //2024-01-04T16:43:18
     salesEndTime: data.updated,
   };
-  updateWishlistInFirebase(obj);
+  const result = await updateWishlistInFirebase(obj);
+  return result;
 };
 
-const wishlistItemCount = async () => {
+export const wishlistItemCount = async () => {
   let countWishlist = 0;
   let wishlistArray = [];
   try {
@@ -133,7 +136,7 @@ const wishlistItemCount = async () => {
   } catch (error) {
     console.log("error fetching data from user" + error);
   }
-  console.log(countWishlist);
+  // console.log(countWishlist);
   return countWishlist;
 };
 wishlistItemCount();
