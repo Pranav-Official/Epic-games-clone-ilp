@@ -85,7 +85,6 @@ export const addToCart = async (gameSlug) => {
   }
 };
 
-
 export const fetchFullCart = async () => {
   try {
     const docSnapshot = await getDoc(dbref); // Fetch the document snapshot
@@ -100,6 +99,7 @@ export const fetchFullCart = async () => {
   } catch (error) {
     console.error("Error in fetching Cart:", error);
   }
+};
 
 export const cartItemCount = async () => {
   let countCartlist = 0;

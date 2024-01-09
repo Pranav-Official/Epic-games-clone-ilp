@@ -10,8 +10,8 @@ a.epic-pages-link {
 .cart-body-page {
   display: flex;
   flex-direction: column;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 12%;
+  padding-right: 12%;
 }
 
 .game-title:hover {
@@ -262,14 +262,6 @@ a.epic-pages-link {
   padding-right: 1.5rem;
 }
 
-.icon {
-  padding-left: 1rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  color: white;
-  margin-top: -1rem;
-}
-
 .summary {
   flex: 1;
   margin-top: 0.5rem; /* Adjust the margin-top as needed */
@@ -399,4 +391,9 @@ hr {
   height: 100%;
   object-fit: cover;
   padding-bottom: 20px;
+}
+
+.list-button a {
+  color: white;
+  text-decoration: none;
 }
