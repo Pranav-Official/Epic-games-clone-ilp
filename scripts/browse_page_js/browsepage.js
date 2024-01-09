@@ -4,9 +4,10 @@ import fetchGenre from "../_functions/rawgfetchGamesGenre.js";
 import { API_KEY } from "../../environment.js";
 let next_page, prev_page;
 
+//Function when browse page is loaded
 const loadBrowsePage = async (parameterList = []) => {
-  // console.log("testing", parameterList);
   if (parameterList == null || undefined) {
+    //Default Sorting
     parameterList = [
       ["platforms", "4"],
       ["ordering", "-metacritic"],
@@ -14,9 +15,9 @@ const loadBrowsePage = async (parameterList = []) => {
   }
 
   try {
-    const container = document.getElementById("browsepage-game-cards"); // Replace 'game-card-container' with the actual ID or selector for your container
+    const container = document.getElementById("browsepage-game-cards");
     const data = await fetchData(API_KEY, parameterList);
-    // console.log(data);
+    console.log(data);
     next_page = data.next;
     prev_page = data.previous;
     container.innerHTML = "";
@@ -54,7 +55,6 @@ const loadBrowsePage = async (parameterList = []) => {
       </div>
     `;
       }
-
       container.innerHTML += gameCardHTML;
     }
   } catch (error) {
@@ -62,6 +62,7 @@ const loadBrowsePage = async (parameterList = []) => {
   }
 };
 
+//Function to filter games by Genre
 const filterBrowsePageByGenre = (genre) => {
   const parameterList = [
     ["platforms", "4"],
@@ -74,86 +75,15 @@ const filterBrowsePageByGenre = (genre) => {
 
 loadBrowsePage();
 
-document.getElementById("filter_by_action").addEventListener("click", () => {
-  filterBrowsePageByGenre("action");
-});
-
-document.getElementById("filter_by_indie").addEventListener("click", () => {
-  filterBrowsePageByGenre("indie");
-});
-
-document.getElementById("filter_by_adventure").addEventListener("click", () => {
-  filterBrowsePageByGenre("adventure");
-});
-
-document.getElementById("filter_by_rpg").addEventListener("click", () => {
-  filterBrowsePageByGenre("rpg");
-});
-
-document.getElementById("filter_by_strategy").addEventListener("click", () => {
-  filterBrowsePageByGenre("strategy");
-});
-
-document.getElementById("filter_by_shooter").addEventListener("click", () => {
-  filterBrowsePageByGenre("shooter");
-});
-
-document.getElementById("filter_by_casual").addEventListener("click", () => {
-  filterBrowsePageByGenre("casual");
-});
-
-document.getElementById("filter_by_puzzle").addEventListener("click", () => {
-  filterBrowsePageByGenre("puzzle");
-});
-
-document.getElementById("filter_by_arcade").addEventListener("click", () => {
-  filterBrowsePageByGenre("arcade");
-});
-
-document
-  .getElementById("filter_by_platformer")
-  .addEventListener("click", () => {
-    filterBrowsePageByGenre("platformer");
+//To filter using Genre
+document.querySelectorAll(".filter-Genre-Button").forEach((element) => {
+  element.addEventListener("click", () => {
+    const filterGenre = element.getAttribute("genre");
+    filterBrowsePageByGenre(filterGenre);
   });
-
-document
-  .getElementById("filter_by_massive-multiplayer")
-  .addEventListener("click", () => {
-    filterBrowsePageByGenre("massive-multiplayer");
-  });
-
-document.getElementById("filter_by_racing").addEventListener("click", () => {
-  filterBrowsePageByGenre("racing");
 });
 
-document.getElementById("filter_by_sports").addEventListener("click", () => {
-  filterBrowsePageByGenre("sports");
-});
-
-document.getElementById("filter_by_fighting").addEventListener("click", () => {
-  filterBrowsePageByGenre("fighting");
-});
-
-document.getElementById("filter_by_family").addEventListener("click", () => {
-  filterBrowsePageByGenre("family");
-});
-
-document
-  .getElementById("filter_by_board-games")
-  .addEventListener("click", () => {
-    filterBrowsePageByGenre("board-games");
-  });
-
-document
-  .getElementById("filter_by_educational")
-  .addEventListener("click", () => {
-    filterBrowsePageByGenre("educational");
-  });
-
-document.getElementById("filter_by_card").addEventListener("click", () => {
-  filterBrowsePageByGenre("card");
-});
-
+//Function to filter by Features
 const filterBrowsePageByFeatures = (feature) => {
   const parameterList = [
     ["platforms", "4"],
@@ -164,52 +94,11 @@ const filterBrowsePageByFeatures = (feature) => {
   console.log(feature);
 };
 
-document.getElementById("filter_by_sp").addEventListener("click", () => {
-  filterBrowsePageByFeatures("singleplayer");
-});
-
-document.getElementById("filter_by_sa").addEventListener("click", () => {
-  filterBrowsePageByFeatures("steam-achievements");
-});
-
-document.getElementById("filter_by_mp").addEventListener("click", () => {
-  filterBrowsePageByFeatures("multiplayer");
-});
-
-document.getElementById("filter_by_fcsupport").addEventListener("click", () => {
-  filterBrowsePageByFeatures("full-controller-support");
-});
-
-document
-  .getElementById("filter_by_steamcloud")
-  .addEventListener("click", () => {
-    filterBrowsePageByFeatures("steam-cloud");
+document.querySelectorAll(".filter-Feature-Button").forEach((element) => {
+  element.addEventListener("click", () => {
+    const filterFeature = element.getAttribute("tags");
+    filterBrowsePageByFeatures(filterFeature);
   });
-
-document
-  .getElementById("filter_by_atmospheric")
-  .addEventListener("click", () => {
-    filterBrowsePageByFeatures("atmospheric");
-  });
-
-document
-  .getElementById("filter_by_stradingcards")
-  .addEventListener("click", () => {
-    filterBrowsePageByFeatures("steam-trading-cards");
-  });
-
-document
-  .getElementById("filter_by_greatsoundtrack")
-  .addEventListener("click", () => {
-    filterBrowsePageByFeatures("great-soundtrack");
-  });
-
-document.getElementById("filter_by_rpg").addEventListener("click", () => {
-  filterBrowsePageByFeatures("rpg");
-});
-
-document.getElementById("filter_by_coop").addEventListener("click", () => {
-  filterBrowsePageByFeatures("co-op");
 });
 
 const genreTemplate = (genreData) => {
@@ -464,13 +353,6 @@ const filterByQuery = () => {
   ];
   loadBrowsePage(parameterList);
 };
-
-// const handleSearch = () => {
-//   console.log("test search");
-// };
-
-// Reset Button Click Event
-
 document.getElementById("resetButton").addEventListener("click", () => {
   loadBrowsePage();
 });
@@ -493,34 +375,18 @@ document
     }
   });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const featureButtons = document.querySelectorAll(".feature-button");
-
-//   featureButtons.forEach((button) => {
-//     button.addEventListener("click", function () {
-//       // Remove the 'selected-button' class from all buttons
-//       featureButtons.forEach((btn) => btn.classList.remove("selected-button"));
-
-//       // Add the 'selected-button' class to the clicked button
-//       button.classList.add("selected-button");
-//     });
-//   });
-// });
-
 const filterBrowsePageByPlatform = (platform) => {
   const parameterList = [
-    ["platforms", platform], // Use the actual value of the 'platform' parameter
+    ["platforms", platform],
     ["ordering", "-metacritic"],
   ];
   loadBrowsePage(parameterList);
-  // console.log(genre);
 };
 
-// Assuming loadBrowsePage is defined somewhere in your code
-
-document.getElementById("filter_by_windows").addEventListener("click", () => {
-  filterBrowsePageByPlatform("4");
-});
+  document.getElementById("filter_by_windows").addEventListener("click", () => {
+    console.log("4");
+    filterBrowsePageByPlatform("4");
+  });
 
 document.getElementById("filter_by_macos").addEventListener("click", () => {
   filterBrowsePageByPlatform("5");

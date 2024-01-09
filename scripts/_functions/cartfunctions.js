@@ -1,4 +1,4 @@
-import { API_KEY } from "../../environment.js";
+import { API_KEY, firebaseConfig } from "../../environment.js";
 import getPrice from "./getprice.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -9,15 +9,6 @@ import {
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 let userData, cartItems;
-const firebaseConfig = {
-  apiKey: "AIzaSyBuDu8PAD0vryP84FEzO-_a-2Tx6_FJRCg",
-  authDomain: "epic-games-clone-c0009.firebaseapp.com",
-  projectId: "epic-games-clone-c0009",
-  storageBucket: "epic-games-clone-c0009.appspot.com",
-  messagingSenderId: "96371749246",
-  appId: "1:96371749246:web:8de6e1806dea62dab5c32f",
-  measurementId: "G-L9RY8WEZQ7",
-};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -80,6 +71,8 @@ export const addToCart = async (gameSlug) => {
       slug: data.slug,
       background_image: data.background_image,
       retailPrice: prices.retailPrice,
+      salePrice: prices.salePrice,
+      calculatedDiscount: prices.calculatedDiscount,
 
       // Add other properties as needed
     };
@@ -91,6 +84,22 @@ export const addToCart = async (gameSlug) => {
     console.error("Error adding game to the cart:", error);
   }
 };
+
+
+export const fetchFullCart = async () => {
+  try {
+    const docSnapshot = await getDoc(dbref); // Fetch the document snapshot
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const cartItems = userData.Cart;
+      return cartItems;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.error("Error in fetching Cart:", error);
+  }
 
 export const cartItemCount = async () => {
   let countCartlist = 0;

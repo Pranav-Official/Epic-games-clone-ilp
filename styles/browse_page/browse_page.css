@@ -19,7 +19,6 @@ a.epic-pages-link {
 .main-class {
   padding-left: 10%;
   padding-right: 10%;
-  background-color: black;
 }
 .heading-text {
   display: flex;
@@ -148,7 +147,6 @@ a.epic-pages-link {
 .right {
   flex: 1;
   padding-left: 20px; /* Adjust padding as needed */
-  background-color: black;
   align-items: center;
 }
 
