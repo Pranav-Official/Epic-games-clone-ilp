@@ -68,15 +68,21 @@ document.querySelector(".navbar-sign-out").addEventListener("click", () => {
   }
 });
 
-document.querySelector("#search-field").addEventListener("input", () => {
-  let searchValue = document.querySelector("#search-field").value;
-  if (searchValue.length > 2) {
-    document.querySelector(".search-suggestion-box").classList.add("active");
-    searchSuggestionBoxFuction(searchValue);
-  } else {
-    document.querySelector(".search-suggestion-box").classList.remove("active");
-  }
-});
+try {
+  document.querySelector("#search-field").addEventListener("input", () => {
+    let searchValue = document.querySelector("#search-field").value;
+    if (searchValue.length > 2) {
+      document.querySelector(".search-suggestion-box").classList.add("active");
+      searchSuggestionBoxFuction(searchValue);
+    } else {
+      document
+        .querySelector(".search-suggestion-box")
+        .classList.remove("active");
+    }
+  });
+} catch (error) {
+  console.log("no secondary nav in this page");
+}
 
 const searchSuggestionBoxFuction = async (searchValue) => {
   const data = await fetchData(API_KEY, [

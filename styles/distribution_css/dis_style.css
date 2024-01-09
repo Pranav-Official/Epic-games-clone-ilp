@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
   background-color: var(--color-background-default) !important;
   overflow-x: hidden;
 }
@@ -110,7 +110,7 @@ body {
   color: black;
   min-width: 120px;
   min-height: 50px;
-  font-size: 12px;
+  font-size: 0.7rem;
   letter-spacing: 0.5px;
 }
 
@@ -460,7 +460,7 @@ a {
   margin-top: 20px;
 }
 
-.section-5-link-a {
+.section-five-link-a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(245, 245, 245, 0.6);
   transition: all 125ms ease-in-out;
@@ -505,7 +505,6 @@ a {
   display: none;
   transition: 2000ms 0.5s ease-out;
 }
-
 
 .faq-section {
   list-style: outside none none;

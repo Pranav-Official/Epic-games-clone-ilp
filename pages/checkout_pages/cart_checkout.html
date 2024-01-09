@@ -8,7 +8,6 @@
       .section {
         display: none;
       }
-
       .visible {
         display: block;
       }
@@ -32,8 +31,8 @@
     <script src="../../scripts/checkout_page_js/checkout.js"></script>
     <script src="../../scripts/checkout_page_js/creator.js"></script>
     <script src="../../scripts/sequence/dropdown.js"></script>
+    <script src="../../scripts/checkout_page_js/buy_multiple_games.js"></script>
   </head>
-
   <body>
     <div class="section" id="section1">
       <div class="modal-container" id="modalContainer">
@@ -63,16 +62,10 @@
           </button>
         </div>
       </div>
-
       <script src="../../scripts/epic loading/epicloading.js"></script>
     </div>
     <div class="section" id="section3">
       <div id="purchase-game" class="purchase-game" style>
-        <style>
-          :root {
-            --pmt-ui-color-highlight: #0074e4;
-          }
-        </style>
         <div class="payment-loading">
           <div class="payment-loading__container">
             <div class="payment">
@@ -326,7 +319,7 @@
                                             fill="white"
                                           ></path>
                                         </svg>
-                                      </div> -->
+                                        </div> -->
                                     </div>
                                   </div>
                                 </div>
@@ -606,7 +599,7 @@
                       />
                     </div>
                     <div class="payment-offer-summary__content">
-                      <h2 class="payment-offer-summary__title">
+                      <h2 class="payment-offer-summary__title game-title" >
                         Dead by Daylight
                       </h2>
                     </div>
@@ -706,7 +699,6 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <h2></h2> -->
                   <div class="payment-developer-privacy">
                     <div class="payment-check-box__container">
                       <div class="payment-check-box">
@@ -789,27 +781,5 @@
         window.close();
       }
     </script>
-    <!-- <div class="section" id="section4">
-      <div class="modal-container-blue" id="modalContainerblue">
-        <div class="lds-ring-blue">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    </div> -->
-    <div class="section" id="section4">
-      <div class="modal-container-purchase" id="modalContainerpurhase">
-        <div class="epic-purchase-image">
-          <img src="../../assets/Epic_Games_logo.svg.png" />
-        </div>
-        <h2 class="epic-purchase-text">Thank You!</h2>
-        <h4 class="epic-purchase-text-description">
-          Please do not close the window until we confirm that your purchase is
-          complete.
-        </h4>
-      </div>
-    </div>
   </body>
 </html>

@@ -6,7 +6,7 @@ async function handleButtonClick() {
   button.style.display = "none";
 
   // Fetch data from your API
-  const apiUrl = "https://mocki.io/v1/2ea210d2-83a9-41c5-9be9-39ea27cac94d";
+  const apiUrl = "https://mocki.io/v1/b703b1a8-a32f-44c3-b064-3a21ada7c24e";
   try {
     const response = await fetch(apiUrl);
     const gamesData = await response.json();
