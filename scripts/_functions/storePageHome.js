@@ -1,4 +1,5 @@
 import fetchData from "../_functions/rawgfetchGamesdata.js";
+
 import { API_KEY } from "../../environment.js";
 import { cartItemCount } from "./cartfunctions.js";
 
@@ -85,29 +86,33 @@ try {
   console.log("no secondary nav in this page");
 }
 
-//navigation links
-document.querySelector("#distribution-link").addEventListener("click", () => {
-  window.location.href = "../../pages/distribution_page/distribution.html";
-});
+try {
+  //navigation links
+  document.querySelector("#distribution-link").addEventListener("click", () => {
+    window.location.href = "../../pages/distribution_page/distribution.html";
+  });
 
-document.querySelector("#support-link").addEventListener("click", () => {
-  window.location.href = "../../pages/support_page/epic-games-support.html";
-});
-document.querySelector("#discover-link").addEventListener("click", () => {
-  window.location.href = "../../pages/discover.html";
-});
-document.querySelector("#browse-link").addEventListener("click", () => {
-  window.location.href = "../../pages/browse_page.html";
-});
-document.querySelector("#news-link").addEventListener("click", () => {
-  window.location.href = "../../pages/news.html";
-});
-document.querySelector("#wishlist-link").addEventListener("click", () => {
-  window.location.href = "../../pages/wishlist.html";
-});
-document.querySelector("#cart-link").addEventListener("click", () => {
-  window.location.href = "../../pages/cart.html";
-});
+  document.querySelector("#support-link").addEventListener("click", () => {
+    window.location.href = "../../pages/support_page/epic-games-support.html";
+  });
+  document.querySelector("#discover-link").addEventListener("click", () => {
+    window.location.href = "../../pages/discover.html";
+  });
+  document.querySelector("#browse-link").addEventListener("click", () => {
+    window.location.href = "../../pages/browse_page.html";
+  });
+  document.querySelector("#news-link").addEventListener("click", () => {
+    window.location.href = "../../pages/news.html";
+  });
+  document.querySelector("#wishlist-link").addEventListener("click", () => {
+    window.location.href = "../../pages/wishlist.html";
+  });
+  document.querySelector("#cart-link").addEventListener("click", () => {
+    window.location.href = "../../pages/cart.html";
+  });
+} catch (error) {
+  console.log("no secondary nav in this page");
+}
 
 const searchSuggestionBoxFuction = async (searchValue) => {
   const data = await fetchData(API_KEY, [
@@ -122,12 +127,20 @@ const searchSuggestionBoxFuction = async (searchValue) => {
   searchSuggestionDOM(data.results);
 };
 
-const upadateCartCount = async () => {
-  const cartCount = await cartItemCount();
-  document.querySelector("#cart-count").textContent = cartCount;
-};
+try {
+  const upadateCartCount = async () => {
+    try {
+      const cartCount = await cartItemCount();
+      document.querySelector("#cart-count").textContent = cartCount;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-upadateCartCount();
+  upadateCartCount();
+} catch (error) {
+  console.log("no secondary nav in this page");
+}
 
 const enterPage = async () => {
   const userId = localStorage.getItem("userId");
