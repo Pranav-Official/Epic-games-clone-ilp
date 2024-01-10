@@ -110,38 +110,6 @@ function createUserData(email, firstName, lastName, displayName) {
     });
 }
 
-//function to animate placeholder text
-function onFocusAnimation(divInQuestion) {
-  let placeholderLabel = document.querySelector(divInQuestion);
-  placeholderLabel.style.top = "30%";
-  placeholderLabel.style.fontSize = "12px";
-}
-
-//Function to revert animated placeholder text
-function onBlurAnimation(divInQuestion, inputField) {
-  let placeholderLabel = document.querySelector(divInQuestion);
-  // Revert the styles when focus is lost and no value in field
-  let inputVal = document.getElementById(inputField).value;
-  if (!inputVal) {
-    placeholderLabel.style.top = "50%";
-    placeholderLabel.style.fontSize = "14px";
-  }
-}
-
-//function to show the popup box for displayname and  password
-function popUp(popid) {
-  const popupMessage = document.getElementById(popid);
-  // Display the popup at position
-  popupMessage.style.display = "block";
-  popupMessage.style.top = 3 + "rem";
-  popupMessage.style.left = 10 + "rem";
-}
-//function to hide the popup box for displayname and password
-function noPopUp(popid) {
-  const popupMessage = document.getElementById(popid);
-  popupMessage.style.display = "none";
-}
-
 //checks if all required fields are filled
 const areAllFieldsFilled = () => {
   let signUpDiv = document.getElementById("sign-up-div");
@@ -387,3 +355,7 @@ document
   .addEventListener("blur", function () {
     onBlurAnimation("#displayname-label", "display-name-inputed");
   });
+
+document
+  .getElementById("eye-button")
+  .addEventListener("click", togglePasswordVisibility);
