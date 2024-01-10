@@ -2,7 +2,6 @@
 import { API_KEY, firebaseConfig } from "../../environment.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getTransactionList } from "../_functions/transaction_function.js";
 import {
   getFirestore,
   doc,
@@ -19,16 +18,7 @@ let dbref = null;
 async function generateTransactionTable() {
   try {
     // Fetch data from Firestore
-    const userId = localStorage.getItem("userId");
-    dbref = doc(database, "Userdata", userId);
-    dbref = doc(database, "Userdata", userId);
-    const docSnapshot = await getDoc(dbref);
-    let transactionData = [];
-
-    if (docSnapshot.exists()) {
-      const userData = docSnapshot.data();
-      transactionData = [...userData.Transactions];
-    }
+    const transactionData = await fetchTransactionData();
 
     console.log(transactionData);
 

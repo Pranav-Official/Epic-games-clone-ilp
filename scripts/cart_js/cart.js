@@ -333,23 +333,25 @@ const removeFromCartClicked = async (slug) => {
 };
 
 // Add event listeners to all remove buttons
-document.querySelector(".cart-container").addEventListener("click", (event) => {
-  if (event.target.matches(".remove-from-cart-button")) {
-    // Retrieve the slug from the data attribute of the parent game card
-    const cartGameCard = event.target.closest(".game-details");
-    const cardSlug = cartGameCard.getAttribute("slug");
-    console.log("button-press");
-    // Call the removeFromCartClicked function with the slug
-    removeFromCartClicked(cardSlug);
-  } else if (event.target.matches(".move-to-wishlist-button")) {
-    const cartGameCard = event.target.closest(".game-details");
-    const cardSlug = cartGameCard.getAttribute("slug");
-    console.log("button-press");
-    // Call the removeFromCartClicked function with the slug
-    addToWishlist(cardSlug);
-    removeFromCartClicked(cardSlug);
-  }
-});
+document
+  .querySelector(".cart-container")
+  .addEventListener("click", async (event) => {
+    if (event.target.matches(".remove-from-cart-button")) {
+      // Retrieve the slug from the data attribute of the parent game card
+      const cartGameCard = event.target.closest(".game-details");
+      const cardSlug = cartGameCard.getAttribute("slug");
+      console.log("button-press");
+      // Call the removeFromCartClicked function with the slug
+      await removeFromCartClicked(cardSlug);
+    } else if (event.target.matches(".move-to-wishlist-button")) {
+      const cartGameCard = event.target.closest(".game-details");
+      const cardSlug = cartGameCard.getAttribute("slug");
+      console.log("button-press");
+      // Call the removeFromCartClicked function with the slug
+      await addToWishlist(cardSlug);
+      await removeFromCartClicked(cardSlug);
+    }
+  });
 
 // await addToCart("grand-theft-auto-v");
 
