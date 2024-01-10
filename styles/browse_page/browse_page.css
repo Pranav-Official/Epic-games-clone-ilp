@@ -1,0 +1,399 @@
+:root {
+  --color-background-default: #18181c;
+  --color-navbar: rgb(24, 24, 28);
+  --color-main-page: rgb(18, 18, 18);
+  --color-accent: #007aff;
+  --color-text-default: rgb(245, 245, 245);
+  --color-text-secondary: rgb(187, 187, 187);
+  --color-grey-fade: rgb(70, 70, 70);
+}
+
+body {
+  background-color: var(--color-main-page) !important;
+  color: var(--color-text-default) !important;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
+a.epic-pages-link {
+  text-decoration: none;
+}
+.main-class {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+.heading-text {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.heading-text h4 {
+  color: rgb(245, 245, 245);
+  font-size: 18px !important;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+  margin-bottom: 0;
+}
+
+.buttons .left {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-color: rgb(32, 32, 32);
+  color: white;
+}
+
+.buttons .right {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-color: rgb(32, 32, 32);
+  color: white;
+}
+
+.genres {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.action-games {
+  background-color: rgb(32, 32, 32);
+  width: 225px;
+  height: 235px;
+  position: relative;
+  display: flex;
+  flex-direction: row; /* Set the direction to row */
+  padding: 0%;
+}
+
+.genres-container {
+  padding: 2px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.game-card-discount {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5;
+  background-color: var(--color-accent);
+
+  border-radius: 0.2rem;
+  margin-left: 0;
+  font-size: 0.7rem !important;
+  padding-inline: 0.3rem;
+}
+
+.game-card-title {
+  font-size: 0.8rem !important;
+}
+
+.game-card h3 {
+  font-size: 15px !important;
+}
+
+.game-card p {
+  font-weight: bold;
+  color: rgb(187, 187, 187);
+  font-size: 10px !important;
+}
+
+.img-container {
+  position: relative;
+  flex: 2;
+}
+
+.game-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+.game-card-previous-price {
+  text-decoration: line-through;
+  color: var(--color-text-secondary);
+  font-size: 1rem !important;
+}
+
+.game-card-current-price {
+  font-size: 1rem !important;
+}
+.img1 img {
+  position: absolute;
+  top: 30px;
+  left: 32px;
+  width: 10rem;
+  height: 10rem;
+  padding-bottom: 2.5rem;
+  object-fit: cover;
+}
+
+.actgame-text {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1rem !important;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.new-release {
+  display: flex;
+}
+
+.left {
+  width: 75%;
+}
+
+.right {
+  flex: 1;
+  padding-left: 20px; /* Adjust padding as needed */
+  align-items: center;
+}
+
+.accordion {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  outline: none;
+  border: none !important;
+}
+
+.accordion-item {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.accordion-item:active {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+.accordion-button {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(187, 187, 187);
+  border: 0px;
+  outline: none;
+  font-size: 12px !important;
+  letter-spacing: 0.5px;
+  line-height: 1.625;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.accordion .accordion-button:focus {
+  box-shadow: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: none;
+  text-decoration: none;
+  border: 0px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: rgb(187, 187, 187);
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  text-decoration: none;
+  border: 0px;
+  box-shadow: none;
+}
+
+.accordion-button:hover {
+  color: white;
+  border: solid 1px white;
+}
+
+.accordion-body button {
+  color: rgb(187, 187, 187);
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  outline: none;
+  font-size: 13px !important;
+  letter-spacing: 0.5px;
+  line-height: 1.625;
+}
+
+.accordion-body button:hover {
+  color: white;
+}
+
+.filter-image {
+  top: 0;
+  left: 0;
+  width: 14rem;
+  height: 16rem;
+  padding: 2rem;
+  border-radius: 18%;
+  padding-bottom: 2.5rem;
+}
+
+.filter-games {
+  background-color: rgba(0, 0, 0, 0);
+  width: 200px;
+  height: 270px;
+  position: relative;
+}
+
+#browsepage-game-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 25vw;
+  gap: 2rem;
+}
+
+.pagination button {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(187, 187, 187);
+  cursor: pointer;
+  /* padding: 8px; */
+  border: none;
+  margin-left: 150px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  padding-top: 35px;
+}
+
+.game-card {
+  height: 30rem;
+  position: relative;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  /* background-color: rgb(32, 32, 32); */
+  border-radius: 0.8rem;
+  flex-direction: row;
+  overflow: hidden;
+  height: 2rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.6rem;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: rgb(70, 70, 70);
+}
+
+.nav-links a:hover {
+  color: rgb(70, 70, 70);
+}
+
+.right #search-fields-2 {
+  padding-left: 7px; /* Adjust the padding as needed */
+  flex: 1; /* Allow the input to take up remaining space */
+  color: rgb(187, 187, 187);
+  background-color: rgb(32, 32, 32);
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  outline: none;
+  position: relative;
+}
+
+.right #search-fields-2:active,
+.right #search-fields-2:focus {
+  border: 0;
+  outline: none;
+}
+
+#search-field::placeholder {
+  color: rgb(187, 187, 187);
+}
+
+.search-img {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  margin-right: 2px;
+  position: absolute;
+  background-color: rgb(32, 32, 32);
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filter-header #resetButton {
+  color: rgb(187, 187, 187);
+  background-color: none;
+  text-decoration: none;
+  border: 0px;
+  font-size: 15px !important;
+  margin-top: 10px;
+}
+.filter-header h5 {
+  margin-left: 747px;
+  font-size: 20px !important;
+}
+
+.genres {
+  display: flex;
+  overflow-x: hidden; /* Enable horizontal scrolling if needed */
+  white-space: nowrap;
+}
+
+.genre-item {
+  flex: 0 0 auto;
+  margin-right: 20px; /* Adjust margin between genre items as needed */
+}
+
+.buttons .leftButton,
+.buttons .rightButton {
+  background-color: rgb(32, 32, 32);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 20px; /* Set the width and height to be the same */
+  height: 20px; /* Set the width and height to be the same */
+}
+
+.buttons .leftButton {
+  margin-right: 10px;
+}
+
+.buttons {
+  margin-bottom: 20px;
+  /* padding-left: 890px; */
+  margin-left: auto;
+  /* flex: 1; */
+}
+
+.buttons .active {
+  border: 2px solid white;
+}
+
+.list-button a {
+  color: var(--color-text-default);
+}
+
+.nav-link {
+  font-size: 1rem;
+}

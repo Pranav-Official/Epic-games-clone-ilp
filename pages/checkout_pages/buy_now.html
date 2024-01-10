@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAYMENT</title>
+    <link rel="stylesheet" href="../../styles/loading/loading.css" />
+    <link rel="stylesheet" href="../../styles/epicloading/epicloading.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../styles/checkout_css/checkout.css" />
+    <link rel="stylesheet" href="../../styles/sequence_page/sequence.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../../scripts/checkout_page_js/checkout.js"></script>
+    <script src="../../scripts/checkout_page_js/creator.js"></script>
+    <script src="../../scripts/sequence/dropdown.js"></script>
+  </head>
+  <body>
+    <div id="purchase-game" class="purchase-game" style>
+      <div class="payment-loading">
+        <div class="payment-loading__container">
+          <div class="payment">
+            <button
+              class="payment-purchase-close"
+              aria-label="close"
+              id="closeButton"
+              onclick="closePage()"
+            >
+              <svg
+                class="payment-icon payment-purchase-close-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 6.02369L17.9763 5L12 10.9835L6.02369 5L5 6.02369L10.9835 12L5 17.9763L6.02369 19L12 13.0165L17.9763 19L19 17.9763L13.0165 12L19 6.02369Z"
+                  fill="white"
+                ></path>
+              </svg>
+            </button>
+            <div class="payment__content">
+              <div class="payment-heading-bar">
+                <h1
+                  class="payment-heading-bar__element payment-heading-bar__element--active"
+                >
+                  <span>Checkout</span>
+                </h1>
+                <div
+                  class="epic-account-name payment-heading-bar__element payment-heading-bar__epic-account-name"
+                >
+                  <div class="epic-account-name__avatar">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="payment-icon"
+                    >
+                      <path
+                        d="M8.25205 24C9.39178 24 10.6411 24 11.4082 24C11.6712 24 11.8904 24 12 24C12.1096 24 12.3288 24 12.5918 24C13.3589 24 14.6082 24 15.7479 24C19.0795 24 20 22.7872 20 21.5277C20 19.7551 15.0904 17.4694 15.0904 15.8601C15.0904 12.9213 18.3562 11.6851 18.3562 7.23032C18.4 3.24198 15.6384 0 12.2411 0C12.1534 0 11.8466 0 11.7589 0C8.38356 0 5.62192 3.24198 5.62192 7.25364C5.62192 11.7318 8.88767 12.9446 8.88767 15.8834C8.90959 17.4927 4 19.7551 4 21.551C4 22.7872 4.94247 24 8.25205 24Z"
+                        fill="white"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="account-name">
+                    <span class="epic-account-name__name">account.name</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="payment__scroll-container"
+                id="payment-scroll-container"
+              >
+                <div class="payment-error"></div>
+                <div class="payment-methods">
+                  <div class="payment-methods__container">
+                    <h2 class="payment-title payment-methods__title">
+                      <span>Payment Methods</span>
+                    </h2>
+                    <div class="payment-method" tabindex="0">
+                      <div class="payment-method__trigger" tabindex="-1">
+                        <div class="payment-method__content">
+                          <div class="payment-radio">
+                            <input
+                              name="payment method"
+                              class="payment-radio__input"
+                              type="checkbox"
+                              tabindex="-1"
+                              aria-label="payment method"
+                            />
+                            <span class="payment-check__inner"></span>
+                          </div>
+                          <div
+                            class="payment-method-icon__wrap payment-method-icon--IN"
+                          >
+                            <div
+                              class="payment-method-icon payment-method-icon--choose payment-method-icon--IN"
+                              aria-label="CHOOSE"
+                              role="img"
+                            >
+                              <img
+                                class="credit-card"
+                                src="../../assets/checkout/creditcard.svg"
+                              />
+                            </div>
+                          </div>
+                          <div class="payment-method__name">
+                            <h2 class="payment-method__title">
+                              <p>
+                                <span>Credit Card</span>
+                              </p>
+                            </h2>
+                          </div>
+                        </div>
+                        <div class="payment-method__actions"></div>
+                      </div>
+                      <div class="payment-method__form">
+                        <div class="payment-chase-form">
+                          <div class="payment-chase-form__title-container">
+                            <h2 class="payment-title">
+                              <span>card details</span>
+                            </h2>
+                            <div
+                              class="payment-bank-icon__container payment-chase-form__card-icons"
+                            >
+                              <span
+                                class="payment-bank-icon payment-bank-icon__jcb"
+                                aria-label="bank-jcb"
+                                role="img"
+                              ></span>
+                              <span
+                                class="payment-bank-icon payment-bank-icon__master"
+                                aria-label="bank-master"
+                                role="img"
+                              ></span>
+                              <span
+                                class="payment-bank-icon payment-bank-icon__amex"
+                                aria-label="bank-amex"
+                                role="img"
+                              ></span>
+                              <span
+                                class="payment-bank-icon payment-bank-icon__visa"
+                                aria-label="bank-visa"
+                                role="img"
+                              ></span>
+                            </div>
+                          </div>
+                          <form>
+                            <fieldset class="payment-chase-form__container">
+                              <legend class="hidden">Card Details</legend>
+                              <div class="payment-form-item--full">
+                                <div class="payment-input">
+                                  <label
+                                    class="payment-input__name"
+                                    for="cardNum"
+                                  >
+                                  </label>
+                                  <input
+                                    id="cardNum"
+                                    class="payment-input__element"
+                                    type="tel"
+                                    name="cardNum"
+                                    autocomplete="new-password"
+                                    maxlength="19"
+                                    value=""
+                                    placeholder="ENTER CARD NUMBER *"
+                                  />
+                                </div>
+                              </div>
+                              <div class="payment-form-item--half">
+                                <div class="payment-input">
+                                  <label
+                                    class="payment-input__name"
+                                    for="expiry"
+                                  >
+                                  </label>
+                                  <input
+                                    id="expiry"
+                                    class="payment-input__element"
+                                    type="tel"
+                                    name="expiry"
+                                    autocomplete="new-password"
+                                    value=""
+                                    placeholder="EXPIRY *"
+                                  />
+                                </div>
+                              </div>
+                              <div class="payment-form-item--half">
+                                <div
+                                  class="payment-input payment-input--with-addonAfter"
+                                >
+                                  <label class="payment-input__name" for="cvv">
+                                  </label>
+                                  <input
+                                    id="cvv"
+                                    placeholder="CVV *"
+                                    class="payment-input__element payment-input__element--text-secure"
+                                    type="tel"
+                                    name="cvv"
+                                    autocomplete="new-password"
+                                    maxlength="4"
+                                    value=""
+                                  />
+                                  <div class="payment-input__addonAfter-cvv">
+                                    <svg
+                                      class="payment-icon"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      aria-label="cvv tooltip"
+                                    >
+                                      <path
+                                        d="M12.7386 13.7308H11.0392V12.2832L12.3464 11.3895C12.9346 10.9867 13.3007 10.7098 13.3007 10.0552C13.3007 9.45105 12.8693 8.98532 12.0719 8.98532C11.1438 8.98532 10.6209 9.57692 10.6209 10.4832H9C9 8.55734 10.3464 7.5 12.085 7.5C14.0458 7.5 15 8.72098 15 10.0175C15 11.3742 14.0016 12.0188 13.2137 12.5275C13.1902 12.5427 13.1669 12.5578 13.1438 12.5727L12.7386 12.8371V13.7308Z"
+                                        fill="white"
+                                      ></path>
+                                      <path
+                                        d="M12.7386 16.5H11.0392V14.8636H12.7386V16.5Z"
+                                        fill="white"
+                                      ></path>
+                                      <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM12 20.5C7.30558 20.5 3.5 16.6944 3.5 12C3.5 7.30558 7.30558 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5Z"
+                                        fill="white"
+                                      ></path>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="payment-form-item payment-form-item--full payment-form-item--mobile-full"
+                              >
+                                <div class="payment-select">
+                                  <div
+                                    class="payment-input payment-input--with-addonAfter"
+                                  >
+                                    <label
+                                      class="payment-input__name"
+                                      for="state"
+                                    >
+                                    </label>
+                                    <select
+                                      id="state"
+                                      class="payment-input__element"
+                                      name="state"
+                                    ></select>
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </form>
+                          <fieldset
+                            class="payment-saving-trigger payment-chase-form__saving-trigger"
+                          >
+                            <legend>
+                              <span class="payment-saving-trigger__required"
+                                >*</span
+                              >
+                              <span style="font-size: 15px"
+                                >Required: Save this payment method for future
+                                purchases?</span
+                              >
+                            </legend>
+                            <div class="payment-saving-trigger__radio-group">
+                              <div class="payment-saving-trigger__radio">
+                                <div class="payment-radio__container">
+                                  <div class="payment-radio">
+                                    <input
+                                      name="saving"
+                                      tabindex="0"
+                                      class="payment-radio__input"
+                                      type="radio"
+                                      aria-label="Yes"
+                                    />
+                                    <span class="payment-radio__inner"></span>
+                                  </div>
+                                  <p class="payment-radio__label">
+                                    <span class="payment-saving-trigger__tip"
+                                      >Yes</span
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="payment-saving-trigger__radio">
+                                <div class="payment-radio__container">
+                                  <div class="payment-radio">
+                                    <input
+                                      name="saving"
+                                      tabindex="0"
+                                      class="payment-radio__input"
+                                      type="radio"
+                                      aria-label="No"
+                                    />
+                                    <span class="payment-radio__inner"></span>
+                                  </div>
+                                  <p class="payment-radio__label">
+                                    <span class="payment-saving-trigger__tip"
+                                      >No</span
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <span class="payment-saving-trigger__note">
+                              By choosing to save your payment information, this
+                              payment method will be selected as the default for
+                              all purchases made using Epic Games payment,
+                              including purchases in Fortnite, Rocket League,
+                              Fall Guys and the Epic Games Store. You can delete
+                              your saved payment information anytime on this
+                              payment screen or by logging in to your Epic Games
+                              account, and selecting payment management in your
+                              account settings.<br /><a
+                                href="https://www.epicgames.com/help/billing-support-c5719364845851/general-support-c5719348744091/how-do-i-delete-my-payment-method-from-my-epic-games-account-a5720332186523"
+                                target="_blank"
+                              >
+                                Learn more</a
+                              >
+                            </span>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="payment-method" tabindex="0">
+                      <div class="payment-method__trigger" tabindex="-1">
+                        <div class="payment-method__content">
+                          <div class="payment-radio">
+                            <input
+                              name="payment method"
+                              class="payment-radio__input2"
+                              type="checkbox"
+                              tabindex="-1"
+                              aria-label="payment method"
+                            />
+                            <span class="payment-check__inner"></span>
+                          </div>
+                          <div
+                            class="payment-method-icon__wrap payment-method-icon--IN"
+                          >
+                            <div
+                              class="payment-method-icon payment-method-icon--choose payment-method-icon--IN"
+                              aria-label="CHOOSE"
+                              role="img"
+                            >
+                              <img
+                                class="paypal"
+                                src="../../assets/checkout/paypal.png"
+                              />
+                            </div>
+                          </div>
+                          <div class="payment-method__name">
+                            <h2 class="payment-method__title">
+                              <p>
+                                <span>Pay Pal</span>
+                              </p>
+                            </h2>
+                          </div>
+                        </div>
+                        <div class="payment-method__actions"></div>
+                      </div>
+                      <div class="payment-method__form2">
+                        <div class="payment-paypal-form">
+                          <fieldset
+                            class="payment-saving-trigger payment-chase-form__saving-trigger"
+                          >
+                            <legend>
+                              <span class="payment-saving-trigger__required"
+                                >*</span
+                              >
+                              <span style="font-size: 15px"
+                                >Required: Save this payment method for future
+                                purchases?</span
+                              >
+                            </legend>
+                            <div class="payment-saving-trigger__radio-group">
+                              <div class="payment-saving-trigger__radio">
+                                <div class="payment-radio__container">
+                                  <div class="payment-radio">
+                                    <input
+                                      name="saving"
+                                      tabindex="0"
+                                      class="payment-radio__input"
+                                      type="radio"
+                                      aria-label="Yes"
+                                    />
+                                    <span class="payment-radio__inner"></span>
+                                  </div>
+                                  <p class="payment-radio__label">
+                                    <span class="payment-saving-trigger__tip"
+                                      >Yes</span
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="payment-saving-trigger__radio">
+                                <div class="payment-radio__container">
+                                  <div class="payment-radio">
+                                    <input
+                                      name="saving"
+                                      tabindex="0"
+                                      class="payment-radio__input"
+                                      type="radio"
+                                      aria-label="Yes"
+                                    />
+                                    <span class="payment-radio__inner"></span>
+                                  </div>
+                                  <p class="payment-radio__label">
+                                    <span class="payment-saving-trigger__tip"
+                                      >No</span
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <span class="payment-saving-trigger__note">
+                              By choosing to save your payment information, this
+                              payment method will be selected as the default for
+                              all purchases made using Epic Games payment,
+                              including purchases in Fortnite, Rocket League,
+                              Fall Guys and the Epic Games Store. You can delete
+                              your saved payment information anytime on this
+                              payment screen or by logging in to your Epic Games
+                              account, and selecting payment management in your
+                              account settings.<br /><a
+                                href="https://www.epicgames.com/help/billing-support-c5719364845851/general-support-c5719348744091/how-do-i-delete-my-payment-method-from-my-epic-games-account-a5720332186523"
+                                target="_blank"
+                              >
+                                Learn more</a
+                              >
+                            </span>
+                          </fieldset>
+                          <span class="payment-paypal-form__message"
+                            >You will be directed to PayPal to authorize your
+                            payment method, then you will be returned to Epic
+                            Games to complete this purchase.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h2 class="payment-title"><span>Epic Rewards</span></h2>
+                <div
+                  class="payment-method payment-method--disabled"
+                  tabindex="0"
+                >
+                  <div class="payment-method__trigger" tabindex="-1">
+                    <div class="payment-method__content">
+                      <div class="payment-radio payment-radio--disabled">
+                        <input
+                          name="payment method"
+                          class="payment-radio__input"
+                          type="checkbox"
+                          tabindex="-1"
+                          aria-label="payment method"
+                        />
+                        <span class="payment-radio__inner"></span>
+                      </div>
+                      <div
+                        class="payment-method-icon__wrap payment-method-icon__rewards"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="payment-method-icon--reward"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z"
+                            fill="url(#paint0_radial_10003_176179)"
+                          ></path>
+                          <defs>
+                            <radialGradient
+                              id="paint0_radial_10003_176179"
+                              cx="0"
+                              cy="0"
+                              r="1"
+                              gradientUnits="userSpaceOnUse"
+                              gradientTransform="translate(3.5 2.5) rotate(45) scale(20.5061)"
+                            >
+                              <stop
+                                offset="0.19015"
+                                stop-color="#8BAF3B"
+                              ></stop>
+                              <stop offset="1" stop-color="#FFB500"></stop>
+                            </radialGradient>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="payment-method__name">
+                        <h2 class="payment-method__title">
+                          <p>
+                            <span>Epic Rewards</span>
+                            <span class="payment-method__price">₹0.00</span>
+                          </p>
+                        </h2>
+                      </div>
+                    </div>
+                    <div class="payment-method__actions"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="payment-summaries">
+              <h2 class="payment-title payment-summaries__title">
+                <span>Order Summary</span>
+              </h2>
+              <div
+                class="payment-summaries__scroll-container"
+                id="payment-summaries_scroll-container"
+              >
+                <div class="payment-offer-summary">
+                  <div class="payment-offer-summary__thumbnail-image">
+                    <img
+                      alt="Selected Game Thumbnail"
+                      src="../../assets/dbydl.png"
+                      class="payment-offer-summary__thumbnail"
+                      id="cart-game-image"
+                    />
+                  </div>
+                  <div class="payment-offer-summary__content">
+                    <h2 class="payment-offer-summary__title" id="cart-title">
+                      Dead by Daylight
+                    </h2>
+                  </div>
+                </div>
+                <div class="payment-order-summary payment-summaries__order">
+                  <div class="payment-order-summary__prices">
+                    <div class="payment-price">
+                      <p class="payment-price__label">Price</p>
+                      <p class="payment-price__value">
+                        <span id="retail-price">$69.99</span>
+                      </p>
+                    </div>
+                    <div class="payment-price">
+                      <p class="payment-price__label">Discount Price</p>
+                      <p class="payment-price__value">
+                        -
+                        <span id="discount-price">$10.99</span>
+                      </p>
+                    </div>
+                    <span class="payment-price__label"
+                      >VAT included if applicable</span
+                    >
+                    <hr class="payment-order-summary__divider" />
+                    <div class="payment-price">
+                      <p
+                        class="payment-price__label payment-price__label--UPAY"
+                      >
+                        <span>Total</span>
+                      </p>
+                      <p
+                        class="payment-price__value payment-price__value--UPAY"
+                      >
+                        <span id="Total-price">$59</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="payment-affiliation">
+                  <div class="payment-form-item payment-form-item--full">
+                    <div class="payment-select">
+                      <div
+                        class="payment-input payment-input--densed payment-input--with-addonAfter"
+                      >
+                        <label class="payment-input__name" for="slug"> </label>
+                        <input
+                          id="slug"
+                          placeholder="ENTER A CREATOR TAG"
+                          class="payment-input__element"
+                          type="text"
+                          name="slug"
+                          autocomplete="new-password"
+                          value=""
+                        />
+                        <div class="payment-input__addonAfter">
+                          <a
+                            aria-label="learn more"
+                            href="https://www.epicgames.com/affiliate/overview"
+                            class="payment-affiliation__help"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="payment-icon"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12.7733 17H11.2333V9.72H12.7733V17ZM12.7733 8.67H11.2333V7.13H12.7733V8.67Z"
+                                fill="white"
+                              ></path>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <h2></h2> -->
+                <div class="payment-developer-privacy">
+                  <div class="payment-check-box__container">
+                    <div class="payment-check-box">
+                      <input
+                        tabindex="0"
+                        class="payment-check-box__input"
+                        type="checkbox"
+                      />
+                      <span class="payment-check-box__inner"></span>
+                    </div>
+                    <p class="payment-check-box__label">
+                      <span
+                        >Click here to share your email with<strong>
+                          the respective game studios.
+                        </strong>
+                        They will use your email address for marketing and
+                        otherwise in accordance with its
+                        <a
+                          target="_blank"
+                          class="highlight"
+                          href=" "
+                          onclick="sendLinkClickEvent('DevEmailOptInPrivacyLinkClicked')"
+                          >privacy policy</a
+                        >, so we encourage you to read it.</span
+                      >
+                    </p>
+                  </div>
+                </div>
+                <footer class="payment-contact-us">
+                  <p>
+                    <span>Need Help?</span>
+                    &nbsp;
+                    <a
+                      href="https://www.epicgames.com/help/billing-support-c99"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>Contact Us</span>
+                    </a>
+                  </p>
+                </footer>
+              </div>
+              <div class="payment-confirm-container">
+                <div class="payment-order-confirm">
+                  <span class="payment-order-confirm__EULA">
+                    By clicking "Place Order" below, I represent that I am over
+                    18 and an authorized user of this payment method, I agree to
+                    the
+                    <a
+                      target="_blank"
+                      class="highlight"
+                      onclick="sendLinkClickEvent('carbinedEulaClicked')"
+                      href="https://www.epicgames.com/store/eula?lang=en_US"
+                      >End User License Agreement</a
+                    >.
+                  </span>
+                  <button
+                    class="payment-btn payment-order-confirm__btn payment-btn--primary"
+                    id="placeOrderButton"
+                  >
+                    <div class="payment-loading">
+                      <div class="payment-loading__container">
+                        <span>Place Order</span>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script>  
+      function closePage() {
+        window.close();
+      }
+    </script> -->
+  </body>
+  <script type="module" src="../../scripts/sequence/sequence.js"></script>
+  <script
+    type="module"
+    src="../../scripts/_functions/buy_single_game.js"
+  ></script>
+
+  <!-- <script
+    type="module"
+    src="../../scripts/_functions/transaction_function.js"
+  ></script> -->
+</html>

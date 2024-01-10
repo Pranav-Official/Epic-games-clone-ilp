@@ -1,0 +1,274 @@
+body {
+  /* display: flex;
+  flex-direction: column; */
+  min-height: 100vh;
+  margin: 0;
+}
+.line-div {
+  background-color: #2a2a2a;
+  height: 0.1rem;
+  width: 100%;
+}
+
+.achievements-whole-div {
+  align-content: center;
+}
+
+.achievements-inner-content-div {
+  position: relative;
+  width: 75%;
+}
+.achievements-game-title {
+  position: absolute;
+  top: 1.34rem;
+  color: rgb(245, 245, 245);
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: -0.3px;
+}
+
+.overview-nav {
+  position: absolute;
+  top: 4.5rem;
+  right: 45.5rem;
+}
+
+.overview-nav-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  align-items: center;
+  display: flex;
+  overflow-x: auto;
+}
+.litem {
+  padding-left: 1rem;
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.lilink {
+  display: block;
+  color: rgba(245, 245, 245, 0.6) !important;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.lilink:hover {
+  text-decoration: underline;
+  color: rgba(245, 245, 245, 0.6) !important;
+}
+
+.active {
+  text-decoration: underline !important;
+  color: white;
+}
+.achievements-game-bg {
+  position: absolute;
+  top: 9rem;
+  width: 940px;
+  height: 630px;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+}
+.game-info-right {
+  position: absolute;
+  top: 35rem;
+  right: 47rem;
+}
+
+.achievements-available-title {
+  color: #a4a4a4;
+  font-size: 9px;
+  line-height: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+  padding-left: 0;
+}
+
+.achievements-available-number {
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.game-info-left {
+  position: absolute;
+  top: 35rem;
+  right: 30rem;
+}
+
+.achievements-heading-and-exclamation {
+  position: absolute;
+  top: 42rem;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: -0.2px;
+}
+
+.popup {
+  left: -2rem;
+  top: 36rem;
+  box-shadow: #201e1e;
+  display: none;
+  width: 28%;
+  text-align: left;
+  position: absolute;
+  background-color: rgb(41, 38, 38);
+  border: 1px solid #201e1e;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 2;
+}
+
+.achievements-sort-part {
+  position: absolute;
+  top: 54rem;
+  display: flex;
+}
+
+.sort-part {
+  padding-right: 1rem;
+  color: #9a9a9a;
+  font-size: 14px;
+  padding-top: 0.1rem;
+}
+
+.sort-dropdown {
+  font-size: 14px;
+}
+.sort-dropdown-link {
+  cursor: pointer;
+}
+
+.sorting-drop-up-list {
+  display: none;
+  background-color: rgb(32 32 32);
+  width: 10rem;
+  height: 5rem;
+  position: absolute;
+  top: 56rem;
+  text-align: left;
+  border-radius: 4px;
+  z-index: 2;
+}
+.sort-alphabet {
+  padding-top: 15px;
+  padding-left: 15px;
+  transition: all 0.2s ease 0s;
+}
+.sort-alphabet:hover {
+  filter: brightness(1.4);
+}
+
+.sort-alphabet-link {
+  cursor: pointer;
+}
+.sort-rarity-link {
+  cursor: pointer;
+}
+
+.sort-rarity {
+  color: grey;
+  margin-top: 0;
+  padding-top: 8px;
+  padding-left: 15px;
+  transition: all 0.2s ease 0s;
+}
+
+#arrow-down {
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  width: 14px; /* Adjust the width to your needs */
+  height: 14px;
+  margin-top: -7px;
+}
+
+.achievement-cards-whole {
+  position: absolute;
+  top: 56.5rem;
+}
+
+.achievement-card-inner {
+  display: flex;
+  position: relative;
+}
+
+.achievement-details {
+  position: absolute;
+  left: 10rem;
+}
+
+.achievement-title-description {
+  position: absolute;
+  top: 1.45rem;
+  left: -1.7rem;
+  display: flex;
+}
+
+.achievement-title {
+  padding-right: 1rem;
+  white-space: nowrap;
+  color: rgb(245, 245, 245);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+.achievement-description {
+  width: 100%;
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.bi-bi-trophy-fill {
+  margin-bottom: 0.3rem;
+}
+
+.achievement-xp-rarity {
+  display: flex;
+  position: absolute;
+  top: 3.4rem;
+  left: -1.6rem;
+}
+.xp {
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+.xpspan {
+  margin-bottom: 1rem;
+}
+
+.vertical-line {
+  position: absolute;
+  left: 3.2rem;
+  width: 0.01rem;
+  height: 1rem;
+  background-color: #9a9a9a;
+}
+.rarity {
+  position: absolute;
+  white-space: nowrap;
+  color: rgba(245, 245, 245, 0.6);
+  left: 3.5rem;
+  top: 0.125rem;
+  font-size: 10px;
+}
+
+.line-div-achievement-card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #2a2a2a;
+  height: 1px;
+  width: 45rem;
+}

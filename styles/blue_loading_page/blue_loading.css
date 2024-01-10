@@ -1,0 +1,51 @@
+.modal-container-blue {
+  position: fixed;
+  position: absolute;
+  width: 1200px;
+  height: 580px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:transparent;
+  padding: 20px;
+  z-index: 1000;
+  border: 3px solid rgb(255, 255, 255);
+}
+.lds-ring-blue {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  left: 48%;
+  top: 43%;
+  transition: 100ms 0.3s ease-in-out;
+}
+.lds-ring-blue div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  border: 8px solid #007ca5;
+  border-radius: 100%;
+  animation: lds-ring-blue 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #007ca5 transparent transparent transparent;
+}
+.lds-ring-blue div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring-blue div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring-blue div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring-blue {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

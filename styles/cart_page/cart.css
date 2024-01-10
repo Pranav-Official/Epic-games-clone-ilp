@@ -1,0 +1,406 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: black;
+  padding-left: 0%;
+  padding-right: 0%;
+  box-sizing: border-box;
+}
+
+a.epic-pages-link {
+  text-decoration: none;
+}
+
+.cart-body-page {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 13%;
+}
+
+.game-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .game-details {
+    width: 100%; /* Set width to 100% for responsiveness */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    padding: 0.5em; /* Adjust padding as needed */
+  }
+}
+
+.game-details {
+  width: 100%; /* Set width to 100% for responsiveness */
+  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+  padding: 0.5em; /* Adjust padding as needed */
+}
+
+* {
+  box-sizing: border-box;
+  /*! width: 00px; */
+}
+
+.cart-whole {
+  display: flex;
+  /*! width: 182px; */
+}
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.cart-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cart-title h1 {
+  color: white;
+  font-size: 35px;
+  line-height: 35px;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+.rewards {
+  display: flex;
+  align-items: center;
+  margin-right: -24px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 0px;
+}
+
+.rewards:hover {
+  color: grey !important;
+}
+
+.rewards a {
+  color: grey;
+  margin-right: 8px;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.rewards i {
+  color: grey;
+  font-size: 14px; /* Adjust the icon size as needed */
+  margin-right: 16px;
+}
+
+.rounded-box {
+  background-color: rgb(32, 32, 32);
+  color: rgb(245, 245, 245);
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: 1px solid rgba(245, 245, 245, 0.6);
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-details {
+  flex: 2;
+  margin-top: 20px;
+  width: 645px;
+  /* max-width: 700px; */
+  height: 266px;
+  background-color: rgb(32, 32, 32);
+  border-radius: 4px;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-update {
+  color: grey;
+  margin-left: 17rem;
+  margin-top: 1rem;
+}
+
+.cart-update a {
+  color: rgb(253, 253, 253, 0.6);
+  font-size: 0.9rem;
+  padding-right: 1rem;
+}
+
+.cart-update a:hover {
+  color: white;
+  cursor: pointer;
+}
+.wishlist {
+  margin-left: 2rem;
+}
+.wishlist:hover {
+  color: white;
+}
+/* .left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+} */
+
+.left {
+  position: relative;
+}
+
+.left img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.left:hover img {
+  filter: brightness(80%); /* Adjust the brightness as needed */
+}
+
+/* Reset overlay styles for the windows-icon */
+.windows-icon {
+  position: relative;
+  /* z-index: 1; */
+  color: grey;
+  font-size: 0.75rem;
+
+  padding-left: 1rem;
+}
+
+.right {
+  flex: 4;
+  margin-top: 1rem;
+}
+
+.right h2 {
+  color: white;
+  padding-left: 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.1rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+.right h3 {
+  color: white;
+  font-size: 1rem;
+  margin-left: 0.7rem;
+}
+
+.right h6 {
+  font-size: 0.8rem;
+  margin-top: 0.1em;
+  color: white;
+  margin-left: 267px;
+}
+.right h4 {
+  font-size: 0.9rem;
+  margin-top: -2.3rem;
+  margin-left: 3rem;
+  color: white;
+}
+
+.message-box {
+  position: absolute;
+  background-color: rgb(32, 32, 32);
+  border: 1px solid black;
+  padding: 10px;
+  width: 310px;
+  height: 120px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  margin-left: 11rem;
+  margin-top: -11rem;
+}
+
+.show-message {
+  opacity: 1 !important;
+}
+
+.right p {
+  color: white;
+  padding-left: 1rem;
+}
+
+.qmark {
+  margin-left: 9em;
+  margin-top: -2.5rem;
+  color: rgb(253, 253, 253, 0.7);
+}
+.base {
+  display: flex;
+  flex-direction: row;
+}
+
+.base h2 {
+  color: rgb(245, 245, 245);
+  border-radius: 4px;
+  padding: 4px 8px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.base p {
+  flex: 1;
+  margin-top: 0.2rem;
+  white-space: nowrap;
+}
+.price {
+  flex: 2;
+  color: white;
+  margin-left: 4rem;
+  font-size: 0.8rem;
+  padding-right: 1.5rem;
+}
+
+.summary {
+  flex: 1;
+  margin-top: 0.5rem;
+  padding-top: 0.5em;
+  padding-left: 2em; /* Adjust the padding-left as needed */
+  max-width: 345px; /* Adjust the max-width to account for padding */
+  box-sizing: border-box;
+}
+
+.summary h2 {
+  margin-top: 8px;
+  color: white;
+  font-size: 26px;
+  white-space: nowrap;
+  margin-left: -1rem;
+}
+
+.summary h6 {
+  color: white;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.game-details img {
+  padding: 10px;
+  /*! padding-left: 1rem; */
+  width: 140px; /* Set width to 100% for responsiveness */
+  height: 200px; /* Set height to 100% for responsiveness */
+  border-radius: 0.9rem;
+  object-fit: cover;
+}
+
+.bill {
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* Remove padding */
+  margin-right: 0 auto; /* Center the element */
+  width: 100%;
+  text-align: right;
+}
+
+.bill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bill h6 {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  padding-right: 9rem;
+
+  /* margin: 0;
+  color: white;
+  font-size: 0.875rem;
+  letter-spacing: 0.2px;
+  line-height: 1.25rem;
+   */
+}
+.bill-item p {
+  margin: 0;
+  color: rgba(245, 245, 245, 0.6);
+  font-size: 0.875rem;
+  margin-left: -7rem;
+  line-height: 1.25rem;
+  white-space: nowrap;
+}
+
+.bill span.price {
+  color: white;
+  font-size: 1rem;
+  margin-left: auto;
+  margin-right: -1.2rem;
+}
+
+hr {
+  color: white;
+  height: 1px;
+}
+
+.checkout-button {
+  outline: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  justify-content: center;
+  line-height: 15px;
+  padding: 1rem;
+  background-color: rgb(0, 116, 228);
+  color: rgb(245, 245, 245);
+  border-radius: 7px;
+  display: flex;
+}
+
+.empty-icon {
+  margin-bottom: 30px;
+  display: block;
+  line-height: 0;
+  width: 80px;
+  height: 80px;
+  color: rgb(58, 58, 58);
+  margin-left: 450px;
+}
+
+.empty-cart-message {
+  margin-bottom: 12px;
+}
+.empty-cart-message .message {
+  transition: color 125ms ease-in-out;
+  color: rgb(245, 245, 245);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 35px;
+  letter-spacing: -0.3px;
+  margin-left: 378px;
+}
+.shop-page a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: grey;
+  margin-left: 398px;
+}
+.game-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding-bottom: 20px;
+}
+
+.list-button a {
+  color: white;
+  text-decoration: none;
+}

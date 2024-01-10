@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameInfo</title>
+    <link
+      rel="icon"
+      href="../../assets/Epic_Games_logo.svg.png"
+      type="image/png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../styles/footers/footer-gameinfo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../styles/discover_page/discover.css" />
+    <link rel="stylesheet" href="/styles/gameinfo_page/gameinfo.css" />
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <header class="header">
+        <div class="epic-menu d-flex flex-row">
+          <div class="left">
+            <div class="menu">
+              <h3>Play</h3>
+              <ul>
+                <li>
+                  <a href="https://www.fortnite.com/?lang=en-US"
+                    ><i class="bi bi-hexagon-fill"></i> Fortnite</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.rocketleague.com?lang=en"
+                    ><i class="bi bi-shield-shaded"></i> Rocket League</a
+                  >
+                </li>
+                <li>
+                  <a href="https://fallguys.com/?lang=en-US"
+                    ><i class="bi bi-emoji-heart-eyes-fill"></i> Fall Guys</a
+                  >
+                </li>
+                <!-- Add the rest of the list items similarly -->
+              </ul>
+            </div>
+            <div class="menu">
+              <h3>Discover</h3>
+              <ul>
+                <li>
+                  <a href="https://store.epicgames.com/en-US/"
+                    ><i class="bi bi-dice-5-fill"></i> Epic Games Store</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.fab.com?lang=en-US"
+                    ><i class="bi bi-fan"></i> Fab</a
+                  >
+                </li>
+                <li>
+                  <a href="https://sketchfab.com/">
+                    <i class="bi bi-brush-fill"></i>Sketchfab</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.artstation.com/"
+                    ><i class="bi bi-palette-fill"></i> ArtStation</a
+                  >
+                </li>
+                <!-- Add the rest of the list items similarly -->
+              </ul>
+            </div>
+          </div>
+          <div class="right">
+            <div class="menu">
+              <h3>Create</h3>
+              <ul>
+                <li>
+                  <a href="https://www.unrealengine.com/?lang=en-US"
+                    ><i class="bi bi-type-underline"></i> Unreal Engine</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://create.fortnite.com/welcome?team=personal&amp;lang=en-US"
+                    ><i class="bi bi-tree-fill"></i> Create in Fortnite</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.unrealengine.com/metahuman?lang=en-US"
+                    ><i class="bi bi-people-fill"></i> MetaHuman</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.twinmotion.com/?lang=en-US"
+                    ><i class="bi bi-circle-fill"></i> Twinmotion</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.unrealengine.com/realityscan?lang=en-US"
+                    ><i class="bi bi-upc-scan"></i> RealityScan</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.capturingreality.com/realitycapture"
+                    ><i class="bi bi-camera2"></i> RealityCapture</a
+                  >
+                </li>
+                <li>
+                  <a href="https://dev.epicgames.com/?lang=en-US"
+                    ><i class="bi bi-browser-chrome"></i> Epic Online
+                    Services</a
+                  >
+                </li>
+                <li>
+                  <a href="http://store.epicgames.com/en-US/distribution"
+                    ><i class="bi bi-shop"></i> Publish on Epic Games Store</a
+                  >
+                </li>
+                <li>
+                  <a href="https://dev.superawesome.com/"
+                    ><i class="bi bi-emoji-smile-fill"></i> Kids Web Services</a
+                  >
+                </li>
+                <li>
+                  <a href="https://dev.epicgames.com/community?locale=en-us"
+                    ><i class="bi bi-person-vcard-fill"></i> Developer
+                    Community</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="profile-menu position-absolute">
+          <ul>
+            <li>
+              <a href="../pages/account_page/epic_rewards_page.html"
+                >Epic Rewards</a
+              >
+            </li>
+            <li>
+              <a href="../pages/account_page/account_page.html">Account</a>
+            </li>
+            <li>
+              <a class="navbar-sign-out" href="./discover.html">Sign out</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-left-side">
+          <div class="store-options">
+            <div class="epic-logo">
+              <img class="epic-logo-image" src="../assets/epic-logo.png" />
+              <span aria-hidden="true" class="icon epic-menu-arrow"
+                ><!--?lit$758340424$--><svg
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M15.53 7.47a.75.75 0 0 0-1.06 0L10 11.94 5.53 7.47a.75.75 0 0 0-1.06 1.06L10 14.06l5.53-5.53a.75.75 0 0 0 0-1.06Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+            <div class="h-ruler"></div>
+            <div class="store-logo">
+              <img class="store-logo-image" src="../assets/store-logo.png" />
+            </div>
+          </div>
+          <div class="epic-pages">
+            <a
+              href="../pages/distribution_page/distribution.html"
+              class="epic-pages-link"
+              >Distribution</a
+            >
+            <a
+              href="../pages/support_page/epic-games-support.html"
+              class="epic-pages-link"
+              >Support</a
+            >
+            <a class="epic-pages-link">Unreal Engine</a>
+          </div>
+        </div>
+        <div class="header-right-side">
+          <div class="profile">
+            <a>
+              <img src="../assets/profile.png" alt="" />
+            </a>
+          </div>
+          <button class="download-button">Download</button>
+        </div>
+      </header>
+    </div>
+
+    <div class="wholepage">
+      <div class="headnavsizer">
+        <div class="head-navbar2 empty-header"></div>
+        <div class="head-navbar">
+          <div class="search-suggestion-box position-absolute">
+            <div class="search-suggestion-item">
+              <div class="search-suggestion-image">
+                <img src="../assets/discover-page/null.png.png" alt="" />
+              </div>
+              <h4>‎ ‎ ‎ ‎ ‎ ‎ ‎</h4>
+            </div>
+            <div class="search-suggestion-item">
+              <div class="search-suggestion-image">
+                <img src="../assets/discover-page/null.png.png" alt="" />
+              </div>
+              <h4>‎</h4>
+            </div>
+            <div class="search-suggestion-item">
+              <div class="search-suggestion-image">
+                <img src="../assets/discover-page/null.png.png" alt="" />
+              </div>
+              <h4>‎</h4>
+            </div>
+            <div class="search-suggestion-item">
+              <div class="search-suggestion-image">
+                <img src="../assets/discover-page/null.png.png" alt="" />
+              </div>
+              <h4>‎</h4>
+            </div>
+          </div>
+          <div class="left-nav">
+            <div class="search-box">
+              <div class="search-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="search-icon"
+                  viewBox="0 0 21 20"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <g
+                    transform="scale(1 -1) rotate(-45 -11.93502884 -2)"
+                    stroke="currentColor"
+                    stroke-width="1.65"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <circle cx="7.70710678" cy="7.70710678" r="7"></circle>
+                    <path
+                      d="M15.2071068 8.62132034h5.6923881"
+                      stroke-linecap="square"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <input id="search-field" type="text" placeholder="Search" />
+            </div>
+            <div class="nav-links">
+              <a href="../pages/discover.html" class="nav-link">Discover</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="game-page">
+        <div class="game-heading">
+          <h1 id="game-main-title"></h1>
+        </div>
+        <div class="game-heading-more">
+          <div class="stars" id="starRating"></div>
+
+          <div class="rating"></div>
+          <div class="globeimg">
+            <img
+              src="/assets/gameinfo/globe.svg"
+              height="20"
+              width="20"
+              alt=""
+            />
+          </div>
+          <div class="game-heading-text">
+            <span>Diverse Characters</span>
+          </div>
+          <div class="globeimg">
+            <img
+              src="/assets/gameinfo/mouse.svg"
+              height="20"
+              width="20"
+              alt=""
+            />
+          </div>
+          <div class="game-heading-text">
+            <span>Quickly Understand the Controls</span>
+          </div>
+        </div>
+
+        <div class="overview-nav">
+          <ul class="overview-nav-list">
+            <li class="litem">
+              <a class="overview_active" href="#">Overview</a>
+            </li>
+            <li class="litem">
+              <a
+                class="lilink"
+                href="../pages/achievements_page/achievements.html"
+                >Achievements</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="overview">
+          <div class="overview-left">
+            <!-- Slider main container -->
+            <div class="swiper main-swiper" loop="true">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+              </div>
+              <!-- If we need pagination -->
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <div class="swiper-scrollbar"></div>
+            </div>
+
+            <div class="gametext"></div>
+            <div class="genre-whole">
+              <div class="genre-features">
+                <div class="vertical-line"></div>
+                <div class="genres">
+                  <div class="genre-heading">Genres</div>
+                  <div class="genre-in-question">
+                    <ul id="genre" class="genre-in-questionlist"></ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="genre-tags">
+                <div class="vertical-line"></div>
+                <div class="genres">
+                  <div class="genre-heading">Features</div>
+                  <div class="genre-in-question">
+                    <ul id="features" class="genre-in-questionlist"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="offer-faq">
+              <div class="offer-faq-text"></div>
+              <div class="offer-faq-button-enclose">
+                <center>
+                  <div class="offer-faq-button">
+                    <a
+                      href="../pages/faq_page/frequently_asked_questions.html"
+                      class="offer-faq-buttonbt"
+                      >VIEW FAQ</a
+                    >
+                  </div>
+                </center>
+              </div>
+            </div>
+            <div id="big-game-description" class="game-big-description"></div>
+            <div class="show-more-button">
+              <div class="show-more-link-partdiv">
+                <a id="show-more-link" class="show-more-linkpart"
+                  >SHOW MORE<svg
+                    class="svgcss-arow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-chevron-down"
+                    viewBox="0 0 17 17"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="overview-right">
+            <div class="overview-right-titleimg">
+              <img
+                id="game-thumb-image"
+                width="130"
+                height="65"
+                src="/assets/gameinfo/no-image.jfif"
+                alt=""
+              />
+            </div>
+            <div class="base-game-element">
+              <div>BASE GAME</div>
+            </div>
+            <div class="price-and-discount">
+              <div class="discount">
+                <div class="discount-percent"></div>
+              </div>
+              <div class="slashed-price"><s>2748₹</s></div>
+              <div class="price-now">2198.40₹</div>
+            </div>
+            <div class="sale-end-info">
+              <div></div>
+            </div>
+            <div class="buy-now-button">
+              <a class="buy-button-link">BUY NOW</a>
+            </div>
+            <div class="add-to-cartbutton">
+              <a class="add-to-cartbutton-link">ADD TO CART</a>
+            </div>
+            <div class="add-to-wishbutton">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="22"
+                fill="currentColor"
+                id="plusbtn"
+                class="bi bi-plus-circle"
+                viewBox="0 0 18 21"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                />
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                />
+              </svg>
+
+              <a class="add-to-wishbutton-link"> ADD TO WISHLIST</a>
+            </div>
+            <div class="epicrewards-withbr">
+              <div class="epicrewards-partwhole">
+                <div class="epicrewards-part">Epic Rewards</div>
+                <div class="epicrewards-pers">Earn 10% Back</div>
+                <div class="epicrewards-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="svg css-uwwqev"
+                    viewBox="1"
+                    style="color: rgb(0, 116, 228)"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20ZM10.3827 3.07523C10.2512 2.71987 9.74862 2.71987 9.61712 3.07523L8.69694 5.562C8.1595 7.01439 7.01439 8.1595 5.562 8.69694L3.07523 9.61712C2.71987 9.74862 2.71987 10.2512 3.07523 10.3827L5.562 11.3029C7.01439 11.8403 8.1595 12.9855 8.69694 14.4378L9.61712 16.9246C9.74862 17.28 10.2512 17.28 10.3827 16.9246L11.3029 14.4378C11.8403 12.9855 12.9855 11.8403 14.4378 11.3029L16.9246 10.3827C17.28 10.2512 17.28 9.74862 16.9246 9.61712L14.4378 8.69694C12.9855 8.1595 11.8403 7.01439 11.3029 5.562L10.3827 3.07523Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <hr class="hrline" />
+            </div>
+
+            <div class="refund-withbr">
+              <div class="refund-partwhole">
+                <div class="refund-part">Refund Type</div>
+                <div class="refund-type">Self-Refundable</div>
+                <div class="questionicon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19"
+                    height="19"
+                    fill="currentColor"
+                    class="bi bi-question-circle"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                    />
+                    <path
+                      d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="dev-withbr">
+              <div class="dev-partwhole">
+                <div class="dev-part">Developer</div>
+                <div class="dev-who">Remedy Entertainment</div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="publisher-withbr">
+              <div class="publisher-partwhole">
+                <div class="pub-part">Publisher</div>
+                <div class="pub-who">Epic Games Publishing</div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="release-withbr">
+              <div class="release-partwhole">
+                <div class="rel-part">Release Date</div>
+                <div class="rel-who"></div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="platform-withbr">
+              <div class="platform-partwhole">
+                <div class="pla-part">Platform</div>
+                <div class="winicon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    class="bi bi-windows"
+                    viewBox="1"
+                  >
+                    <path
+                      d="M6.555 1.375 0 2.237v5.45h6.555zM0 13.795l6.555.933V8.313H0v5.482zm7.278-5.4.026 6.378L16 16V8.395H7.278zM16 0 7.33 1.244v6.414H16z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <hr class="hrline1" />
+            </div>
+
+            <div class="editions">
+              <a class="editions-link">See All Editions and Add-Owns</a>
+            </div>
+
+            <div class="share-report-btn">
+              <div class="share">
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="11"
+                    fill="currentColor"
+                    class="bi bi-share-fill"
+                    viewBox="0 0 17 16"
+                  >
+                    <path
+                      d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"
+                    />
+                  </svg>
+                </div>
+                <div><a class="sharelink">SHARE</a></div>
+              </div>
+              <div class="report">
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="11"
+                    fill="currentColor"
+                    class="bi bi-flag-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001"
+                    />
+                  </svg>
+                </div>
+                <div><a class="report-link">REPORT</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="achievements">
+          <div class="achievement-heading">Available Achievements</div>
+          <div class="achievements-grid-panel"></div>
+          <div class="see-all-achievements">
+            <div class="see-all-achievements-inner">
+              <a
+                href="../pages/achievements_page/achievements.html"
+                class="see-all-achievements-link"
+                >SEE ALL 66 ACHIEVEMENTS</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="game-editions">
+          <div class="editions-heading">Alan Wake 2 Editions</div>
+          <div class="edition-card">
+            <div class="card-toppart">
+              <div class="cardimg">
+                <img
+                  width="360"
+                  height="200"
+                  src="/assets/gameinfo/no-image.jfif"
+                  alt=""
+                />
+              </div>
+              <div class="card-content">
+                <div class="tag-and-title">
+                  <div class="tag">BASE GAME</div>
+                  <div class="card-title">Alan Wake 2</div>
+                </div>
+                <div class="card-text-part">
+                  Saga Anderson arrives to investigate ritualistic murders in a
+                  small town. Alan Wake pens a dark story to shape the reality
+                  around him. These two heroes are somehow connected. Can they
+                  become the heroes they need
+                </div>
+              </div>
+            </div>
+            <div class="line-separator"></div>
+            <div class="game-editions-card-price">
+              <div class="price-and-discount-editions">
+                <div class="discount-editions">
+                  <div class="discount-percent-editions">20%</div>
+                </div>
+                <div class="slashed-price-edtions"><s>2748₹</s></div>
+                <div class="price-now-editions">2198.40₹</div>
+              </div>
+              <div class="cart-and-wishlist-buttons">
+                <div class="add-to-cartbutton-editions">
+                  <a class="add-to-cartbutton-link-editions">ADD TO CART</a>
+                </div>
+                <div class="add-to-wishbutton-editions">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="23"
+                    fill="currentColor"
+                    id="plusbtn"
+                    class="bi bi-plus-circle"
+                    viewBox="0 -5 18 21"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                    />
+                    <path
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                    />
+                  </svg>
+
+                  <a class="add-to-wishbutton-link-editions">
+                    ADD TO WISHLIST</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-main-container">
+      <div class="egf-theme epic_games">
+        <footer
+          id="egf"
+          class="egf container-fluid bg-color mobile-border-color epic_games egf-footer"
+        >
+          <div>
+            <div class="row footer-social-container">
+              <div class="col-xs-10 col-sm-8" data-component="Social">
+                <ul class="social">
+                  <li data-component="Social">
+                    <a
+                      id="facebook"
+                      class="focus"
+                      aria-label="Follow Us on Facebook"
+                      href=""
+                      data-index="0"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div data-component="Icon">
+                        <i
+                          class="text-color-nonactive accent-color-hover egf-footer-icon bi bi-facebook"
+                        >
+                          &nbsp;
+                        </i>
+                      </div>
+                    </a>
+                  </li>
+                  <li data-component="Social">
+                    <a
+                      id="twitter"
+                      class="focus"
+                      aria-label="Follow Us on Twitter"
+                      href=""
+                      data-index="1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div data-component="Icon">
+                        <i
+                          class="text-color-nonactive accent-color-hover egf-footer-icon bi bi-twitter"
+                        >
+                          &nbsp;
+                        </i>
+                      </div>
+                    </a>
+                  </li>
+                  <li data-component="Social">
+                    <a
+                      id="youtube"
+                      class="focus"
+                      aria-label="Follow Us on Youtube"
+                      href=""
+                      data-index="2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div data-component="Icon">
+                        <i
+                          class="text-color-nonactive accent-color-hover egf-footer-icon bi bi-youtube"
+                        >
+                          &nbsp;
+                        </i>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="col-xs-2 col-sm-4 pull-right"
+                data-component="UpButton"
+              >
+                <button
+                  aria-label="Return to Top"
+                  class="focus up-button text-color-nonactive-border accent-color-hover-border"
+                >
+                  <i
+                    class="bi bi-chevron-up text-color-nonactive accent-color-hover"
+                  ></i>
+                </button>
+              </div>
+            </div>
+            <div class="row footer-link-container">
+              <div class="col-xs-12 col-sm-8 col-md-7 col-lg-6">
+                <div class="footer-link-wrapper" data-component="footerlink">
+                  <div class="inner-heading-wrapper">
+                    <div class="subtitle text-color mobile-border-color">
+                      <span>Resources</span>
+                    </div>
+                    <ul class="footer-links first-column">
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/affiliate/en-US/overview"
+                          data-index="0"
+                          class="focus text-color accent-color-hover"
+                          target=""
+                          rel="noopener noreferrer"
+                          >Support-A-Creator</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="/en-US/about"
+                          data-index="1"
+                          class="focus text-color accent-color-hover"
+                          rel=""
+                          >Distribute on Epic Games</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/site/careers"
+                          data-index="2"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Careers</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/site/about"
+                          data-index="3"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Company</a
+                        >
+                      </li>
+                    </ul>
+                    <ul class="footer-links second-column">
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/site/fan-art-policy"
+                          data-index="4"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Fan Art Policy</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/site/ux"
+                          data-index="5"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >UX Research</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="/en-US/eula"
+                          data-index="6"
+                          class="focus text-color accent-color-hover"
+                          rel=""
+                          >Store EULA</a
+                        >
+                      </li>
+                    </ul>
+                    <ul class="footer-links third-column">
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://dev.epicgames.com"
+                          data-index="7"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Online Services</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/site/community-rules"
+                          data-index="8"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Community Rules</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/site/news"
+                          data-index="9"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Epic Newsroom</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row footer-link-container">
+              <div class="col-xs-12 col-sm-8 col-md-7 col-lg-6">
+                <div class="footer-link-wrapper" data-component="footerlink">
+                  <div class="inner-heading-wrapper">
+                    <div class="subtitle text-color mobile-border-color">
+                      <span>Made by Epic Games</span>
+                    </div>
+                    <ul class="footer-links first-column">
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/battlebreakers"
+                          data-index="0"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Battle Breakers</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/fortnite"
+                          data-index="1"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Fortnite</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/infinityblade"
+                          data-index="2"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Infinity Blade</a
+                        >
+                      </li>
+                    </ul>
+                    <ul class="footer-links second-column">
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/roborecall"
+                          data-index="3"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Robo Recall</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/shadowcomplex"
+                          data-index="4"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Shadow Complex</a
+                        >
+                      </li>
+                      <li data-component="footerlinks">
+                        <a
+                          href="https://www.epicgames.com/unrealtournament"
+                          data-index="5"
+                          class="focus text-color accent-color-hover"
+                          rel="noopener noreferrer"
+                          >Unreal Tournament</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="mobile-border-color" />
+          <div class="row copyright">
+            <div
+              class="col-xs-12 col-md-12 col-lg-6 no-padding"
+              data-component="Copyright"
+            >
+              <div class="copyright-paragraph">
+                <span class="text-color-nonactive" data-component="Copyright">
+                  © 2023, Epic Games, Inc. All rights reserved. Epic, Epic
+                  Games, the Epic Games logo, Fortnite, the Fortnite logo,
+                  Unreal, Unreal Engine, the Unreal Engine logo, Unreal
+                  Tournament, and the Unreal Tournament logo are trademarks or
+                  registered trademarks of Epic Games, Inc. in the United States
+                  of America and elsewhere. Other brands or product names are
+                  the trademarks of their respective owners. &nbsp;&nbsp;
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row footer-legal">
+            <div class="col-xs-12 col-sm-6 legal" data-component="Legal">
+              <ul class="links">
+                <li class="legal-links" data-component="legal">
+                  <a
+                    class="focus text-color accent-color-hover"
+                    data-index="0"
+                    rel="noopener noreferrer"
+                    href="https://www.epicgames.com/site/en-US/tos"
+                    >Terms of Service</a
+                  >
+                </li>
+                <li class="legal-links" data-component="legal">
+                  <a
+                    class="focusable text-color accent-color-hover"
+                    data-index="1"
+                    rel="noopener noreferrer"
+                    href="https://www.epicgames.com/site/en-US/privacypolicy"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li class="legal-links" data-component="legal">
+                  <a
+                    class="focusable text-color accent-color-hover"
+                    data-index="2"
+                    rel="noopener noreferrer"
+                    href="https://www.epicgames.com/site/en-US/store-refund-policy"
+                    >Store Refund Policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 legal" data-component="Legal">
+              <ul class="logos">
+                <li data-component="legal">
+                  <a
+                    class="focusable"
+                    href="https://www.epicgames.com"
+                    title="Epic Games"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i
+                      title="Epic Games"
+                      class="text-color-nonactive eg-footer-icon-eg"
+                    ></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="../scripts/_functions/gameClick.js"></script>
+
+    <script
+      type="module"
+      src="../scripts/_functions/storePageHome.js"
+      defer
+    ></script>
+    <script type="module" src="../scripts/game_info/gameinfo.js"></script>
+  </body>
+</html>
