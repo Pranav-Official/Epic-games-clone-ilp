@@ -12,7 +12,7 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly");
+let dbref = null;
 
 // Function to generate the table
 async function generateTransactionTable() {
@@ -34,7 +34,9 @@ async function generateTransactionTable() {
     transactionData.forEach((row) => {
       tableHTML += "<tr>";
       tableHTML += `<td scope="row">${row["date"]}</td>`;
-      tableHTML += `<td class="table-game-title" scope="row">${row["name"]}</td>`;
+      tableHTML += `<td class="table-game-title" scope="row">${
+        row["name"] || row["title"]
+      }</td>`;
       tableHTML += `<td scope="row">${row["slug"]}</td>`;
       tableHTML += `<td scope="row">${row["retailPrice"]}</td>`;
       tableHTML += "</tr>";
@@ -48,6 +50,7 @@ async function generateTransactionTable() {
 // Function to fetch data from Firestore
 async function fetchTransactionData() {
   try {
+    dbref = doc(database, "UsersData", localStorage.getItem("userId"));
     const docSnapshot = await getDoc(dbref);
     let tempTransactionArray = [];
 
@@ -62,63 +65,6 @@ async function fetchTransactionData() {
 }
 
 // Function to add a game to the transaction list
-async function addGameToTransactionList(gameSlug) {
-  try {
-    const gameData = await fetchGameData(gameSlug);
-    let game = {
-      id: gameData.id,
-      title: gameData.name,
-      slug: gameData.slug,
-      actualPrice: prices.salePrice,
-    };
 
-    await updateTransactionInFirebase(game);
-    generateTransactionTable(); // Regenerate the table after adding the game
-  } catch (error) {
-    console.error("Error adding game to transaction list:", error);
-  }
-}
-
-// Function to fetch game data from the Rawg API
-async function fetchGameData(gameSlug) {
-  // Replace this placeholder with your actual Rawg API key
-  const baseUrl =
-    "https://api.rawg.io/api/games/" + gameSlug + "?key=" + API_KEY;
-  const response = await axios.get(baseUrl);
-  return response.data;
-}
-
-// Function to update transaction in Firebase
-async function updateTransactionInFirebase(game) {
-  try {
-    const docSnapshot = await getDoc(dbref);
-    let tempTransactionArray = [];
-
-    if (docSnapshot.exists()) {
-      const userData = docSnapshot.data();
-      tempTransactionArray = [...userData.Transactions];
-    }
-
-    let isGamePresent = false;
-    for (let i = 0; i < tempTransactionArray.length; i++) {
-      if (tempTransactionArray[i].slug === game.slug) {
-        isGamePresent = true;
-        break;
-      }
-    }
-
-    if (!isGamePresent) {
-      tempTransactionArray.push(game);
-      await dbref.update({ Transactions: tempTransactionArray });
-      console.log(`Game with slug ${game.slug} added to the TransactionList.`);
-    } else {
-      console.log(
-        `Game with slug ${game.slug} is already in the TransactionList.`
-      );
-    }
-  } catch (error) {
-    console.error("Error updating Transaction in Firebase:", error);
-  }
-}
 // Call the function to generate the initial table
 generateTransactionTable();
