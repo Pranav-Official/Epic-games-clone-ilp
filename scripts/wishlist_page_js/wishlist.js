@@ -26,6 +26,9 @@ let tempWishlistArray = [];
 const wishlistPage = async () => {
   try {
     const userId = localStorage.getItem("userId");
+    if (!userId) {
+      window.location.href = "../../pages/login_page/login.html";
+    }
     dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 

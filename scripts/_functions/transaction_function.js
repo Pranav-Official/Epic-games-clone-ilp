@@ -1,6 +1,8 @@
+
 import { API_KEY, FIRE_BASE_KEY, firebaseConfig } from "../../environment.js";
 import { removeCartInFirebase, clearCartInFirebase } from "./cartfunctions.js";
 import { removeWishlistInFirebaseBulk } from "./wishlist_functions.js";
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
@@ -140,6 +142,7 @@ const updateTransactionInFirebaseBulk = async (games) => {
   }
 };
 
+//get the transaction list from fireabase
 export const getTransactionList = async () => {
   dbref = doc(database, "UsersData", localStorage.getItem("userId"));
   const docSnapshot = await getDoc(dbref);
@@ -150,6 +153,23 @@ export const getTransactionList = async () => {
     tempTransactionArray = userData.Transactions;
   }
   return tempTransactionArray;
+};
+
+//check if game is  bought
+export const checkIfBought = async (gameSlug) => {
+  if (gameSlug == null) {
+    gameSlug = localStorage.getItem("gameSlug-info");
+  }
+  let transactionList = await getTransactionList();
+  console.log(transactionList);
+  if (transactionList != null) {
+    for (let transaction of transactionList) {
+      if (transaction.slug == gameSlug) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
 
 // Example usage

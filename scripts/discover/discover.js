@@ -3,6 +3,8 @@ import getPrice from "../_functions/getprice.js";
 import getRandomPrice from "../_functions/getRandomPrice.js";
 import { API_KEY } from "../../environment.js";
 import fetchCarousalData from "../discover/carousal-data-fetch.js";
+import { checkIfBought } from "../_functions/transaction_function.js";
+import { addToWishlist } from "../_functions/wishlist_functions.js";
 
 const logAPidata = async () => {
   let parameterList = [
@@ -370,20 +372,19 @@ swiper.on("transitionEnd", function () {
 function logCurrentSlideId() {
   try {
     const activeSlideId = swiper.slides[swiper.activeIndex].id;
+
     // console.log("Current Active Slide ID:", activeSlideId);
     const icons = document.getElementsByClassName("carousal-icon-card");
-    // const loader_sliders = document.getElementsByClassName("loader-slide");
+
     for (let i = 0; i < icons.length; i++) {
       icons[i].style.backgroundColor = "rgb(24, 24, 28)";
     }
     const icon = document.getElementById(activeSlideId + "-icon");
-    // const loader = icon.querySelector(".loader-slide");
     icon.style.backgroundColor = "#3b3b3b";
   } catch (error) {
-    console.log("icon null");
+    console.log(error);
   }
 }
-
 // Listen for the slideChange event to log the current slide ID
 swiper.on("slideChange", logCurrentSlideId);
 
@@ -420,7 +421,7 @@ const populateSwiper = async () => {
                   </button>
                 </a>
                 <button
-                  onclick="logAPidata()"
+                  onclick=""
                   class="carousal-button"
                   id="add-to-wishlist"
                 >
@@ -440,7 +441,55 @@ const populateSwiper = async () => {
     // console.log(data);
     for (let i = 0; i < 6; i++) {
       swipperArray[i].innerHTML = carousalTempalate;
+      swipperArray[i]
+        .querySelector(".save-now-button")
+        .setAttribute("id", data[i].gameSlug);
       swipperArray[i].setAttribute("id", data[i].gameSlug);
+
+      swipperArray[i]
+        .querySelector(".save-now-button")
+        .addEventListener("click", (event) => {
+          event.preventDefault();
+          localStorage.setItem("gameSlug-info", data[i].gameSlug);
+          window.location.href = "../../pages/gameinfo.html";
+        });
+      swipperArray[i]
+        .querySelector("#add-to-wishlist")
+        .addEventListener("click", async (event) => {
+          event.preventDefault();
+          const isBought = checkIfBought(data[i].gameSlug);
+          if (isBought == true) {
+            document.querySelector(".wishlist-message h3").innerHTML =
+              "You have already bought this game";
+            document.querySelector(".wishlist-message").classList.add("active");
+            setTimeout(() => {
+              document
+                .querySelector(".wishlist-message")
+                .classList.remove("active");
+            }, 2500);
+          }
+          const result = await addToWishlist(data[i].gameSlug);
+          // console.log(result);
+          if (result == false) {
+            document.querySelector(".wishlist-message h3").innerHTML =
+              "This game has been added in your wishlist";
+            document.querySelector(".wishlist-message").classList.add("active");
+            setTimeout(() => {
+              document
+                .querySelector(".wishlist-message")
+                .classList.remove("active");
+            }, 2500);
+          } else if (result == true) {
+            document.querySelector(".wishlist-message h3").innerHTML =
+              "This game has been added in your wishlist";
+            document.querySelector(".wishlist-message").classList.add("active");
+            setTimeout(() => {
+              document
+                .querySelector(".wishlist-message")
+                .classList.remove("active");
+            }, 2500);
+          }
+        });
       caraousalIconArray[i].setAttribute("id", data[i].gameSlug + "-icon");
       caraousalIconArray[i].querySelector(".carousal-icon-image img").src =
         data[i].image_url;

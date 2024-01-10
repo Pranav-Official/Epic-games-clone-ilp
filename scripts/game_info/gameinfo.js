@@ -1,4 +1,7 @@
-import { getTransactionList } from "../_functions/transaction_function.js";
+import {
+  getTransactionList,
+  checkIfBought,
+} from "../_functions/transaction_function.js";
 import {
   displayWishlistSlugs,
   addToWishlist,
@@ -399,41 +402,17 @@ function updateStarRating(rating) {
   document.querySelector(".rating").innerHTML = `${numStarsFilled}.0`;
 }
 
-//function to limit words
 function limitWords(text, n) {
-  // Split the text into an array of words
   const words = text.split(" ");
-
-  // Take the first n words
   const limitedWords = words.slice(0, n);
-
-  // Join the limited words into a string
   let limitedText = limitedWords.join(" ");
-
-  // Ensure the result ends with a period
   if (!limitedText.endsWith(".")) {
     limitedText += "....";
   }
-
   return limitedText;
 }
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
-
-//check if game is  bought
-const checkIfBought = async () => {
-  const gameSlug = localStorage.getItem("gameSlug-info");
-  let transactionList = await getTransactionList();
-  console.log(transactionList);
-  if (transactionList != null) {
-    for (let transaction of transactionList) {
-      if (transaction.slug == gameSlug) {
-        return true;
-      }
-    }
-  }
-  return false;
-};
 
 //check if game is in cart
 const checkIfInCart = async () => {
@@ -466,6 +445,7 @@ const checkIfInWishList = async () => {
   return false;
 };
 
+//adding to cart
 document
   .querySelector(".add-to-cartbutton-link")
   .addEventListener("click", async () => {
@@ -484,6 +464,7 @@ document
     }
   });
 
+//adding to wishlist
 document
   .querySelector(".add-to-wishbutton-link")
   .addEventListener("click", async () => {
@@ -499,6 +480,19 @@ document
         addToWishlist(gameSlug);
         document.querySelector(".add-to-wishbutton-link").innerHTML =
           "IN WISHLIST";
+      }
+    }
+  });
+
+//buy game
+document
+  .querySelector(".buy-button-link")
+  .addEventListener("click", async () => {
+    if (localStorage.getItem("userId") == null) {
+      window.location.href = "../../pages/login_page/login.html";
+    } else {
+      if ((await checkIfBought()) == false) {
+        window.location.href = "../../pages/checkout_pages/buy_now.html";
       }
     }
   });

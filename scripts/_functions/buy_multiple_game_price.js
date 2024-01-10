@@ -79,6 +79,9 @@ const displayPriceInDOM = async (cartItems) => {
 
     // Append game div to gamesDiv
     gamesDiv.appendChild(gameDiv);
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString();
+    cartItem.date = formattedDate;
     globalCartItems.push(cartItem);
   });
 
@@ -142,6 +145,8 @@ const fetchAndDisplayCartItems = async () => {
 
 const placeOrderButton = async () => {
   await addtoTransactionInFirebaseBulk(globalCartItems);
+  window.location.href =
+    "../../pages/purchase_complete_page/purchase_page_complete.html";
 };
 
 document
