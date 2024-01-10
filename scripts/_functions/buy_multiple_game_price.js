@@ -79,6 +79,9 @@ const displayPriceInDOM = async (cartItems) => {
 
     // Append game div to gamesDiv
     gamesDiv.appendChild(gameDiv);
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString();
+    cartItem.date = formattedDate;
     globalCartItems.push(cartItem);
   });
 

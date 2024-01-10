@@ -16,6 +16,7 @@ export const placeOrder = async () => {
   gameData.date = formattedDate;
   try {
     await addtoTransactionInFirebase(gameData);
+
     return true;
   } catch (error) {
     return false;
@@ -78,8 +79,6 @@ document
   .querySelector("#placeOrderButton")
   .addEventListener("click", handlePlaceOrderButtonClick);
 
-
-
 document
   .getElementById("placeOrderButton")
   .addEventListener("click", async () => {
@@ -87,9 +86,9 @@ document
       const result = await placeOrder();
 
       if (result) {
-        window.location.href = "../../pages/gameinfo.html";
+        window.location.href =
+          "../../pages/purchase_complete_page/purchase_page_complete.html";
       } else {
-
         window.location.href = "../../pages/gameinfo.html";
       }
     } catch (error) {
