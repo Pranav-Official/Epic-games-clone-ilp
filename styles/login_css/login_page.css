@@ -870,7 +870,7 @@ forgotpassword */
   padding-left: 20px;
   color: white;
   position: absolute;
-  width: 7rem;
+  width: 18rem;
   background-color: #202020;
   border: none;
   outline: none;
@@ -943,4 +943,12 @@ forgotpassword */
 .remember-link-part {
   text-decoration: underline;
   color: white;
+}
+
+.invalid-mail-indicator-forgotpass {
+  position: absolute;
+  color: #de3341;
+  font: 12px Brutal, sans-serif;
+  top: 18.4rem;
+  left: 3.8rem;
 }
