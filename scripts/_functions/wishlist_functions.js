@@ -16,7 +16,8 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+
+let dbref = null;
 
 //update wishlist in firebase
 const updateWishlistInFirebase = async (game) => {
@@ -24,6 +25,8 @@ const updateWishlistInFirebase = async (game) => {
   let wishlistItems = [];
 
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
@@ -58,6 +61,8 @@ export const removeWishlistInFirebase = async (dataSlug) => {
   let tempWishlistArray = [];
   let updatedWishlistArray = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
@@ -72,6 +77,36 @@ export const removeWishlistInFirebase = async (dataSlug) => {
     console.log("error in removing");
   }
 };
+
+export const removeWishlistInFirebaseBulk = async (gamesToRemove) => {
+  try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      let wishlistItems = userData.Wishlist || [];
+
+      // Create a Set of slugs to efficiently check for presence
+      const slugsToRemove = new Set(gamesToRemove.map((game) => game.slug));
+
+      // Filter out wishlist items that have a matching slug
+      const updatedWishlistArray = wishlistItems.filter(
+        (singleGame) => !slugsToRemove.has(singleGame.slug)
+      );
+
+      await updateDoc(dbref, { Wishlist: updatedWishlistArray });
+      console.log("Wishlist updated successfully");
+    } else {
+      console.error("User document does not exist");
+      // Handle the situation where the user document does not exist
+    }
+  } catch (error) {
+    console.error("Error updating Wishlist in Firebase:", error);
+  }
+};
+
 //add to wishlist
 export const addToWishlist = async (gameSlug) => {
   const baseUrl =
@@ -105,7 +140,7 @@ export const addToWishlist = async (gameSlug) => {
     genres: tempGenreArray,
     offerPercentage: "-" + Math.trunc(prices.calculatedDiscount) + "%",
     image: data.background_image,
-    updatedDate: data.updated,
+    updatedDate: data.released,
     updatedTime: data.updated,
   };
   const result = await updateWishlistInFirebase(obj);
@@ -118,6 +153,8 @@ export const wishlistItemCount = async () => {
   let countWishlist = 0;
   let wishlistArray = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -137,17 +174,19 @@ export const displayWishlistSlugs = async () => {
   let wishlistArray = [];
   let wishlistSlugArray = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
       wishlistArray = userData.Wishlist;
 
-      wishlistSlugArray.forEach((item) => {
+      wishlistArray.forEach((item) => {
         wishlistSlugArray.push(item.slug);
         console.log(wishlistSlugArray);
-        return wishlistSlugArray;
       });
+      return wishlistSlugArray;
     }
   } catch (error) {
     console.log("error fetching data from user" + error);

@@ -14,12 +14,15 @@ let userData, cartItems;
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+
+let dbref = null;
 
 const addtoCartInFirebase = async (game) => {
   let tempCartArray = [];
   let cartItems = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -58,12 +61,19 @@ export const addToCart = async (gameSlug) => {
       "https://api.rawg.io/api/games/" + gameSlug + "?key=" + API_KEY;
     const response = await axios.get(baseUrl);
     const data = response.data;
-    // let prices = await getPrice(gameSlug);
-    let prices = {
-      salePrice: 1599,
-      retailPrice: 2599,
-      calculatedDiscount: 15,
-    };
+    let prices = await getPrice(gameSlug);
+    if (!prices) {
+      prices = {
+        salePrice: 1599,
+        retailPrice: 2599,
+        calculatedDiscount: 15,
+      };
+    }
+    // let prices = {
+    //   salePrice: 1599,
+    //   retailPrice: 2599,
+    //   calculatedDiscount: 15,
+    // };
     // Add the game to the cart in Firebase
     const game = {
       // Customize properties based on your game data structure
@@ -87,6 +97,8 @@ export const addToCart = async (gameSlug) => {
 
 export const fetchFullCart = async () => {
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref); // Fetch the document snapshot
 
     if (docSnapshot.exists()) {
@@ -105,6 +117,8 @@ export const cartItemCount = async () => {
   let countCartlist = 0;
   let cartlistArray = [];
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -117,4 +131,70 @@ export const cartItemCount = async () => {
   }
   // console.log(countWishlist);
   return countCartlist;
+};
+
+export const removeCartInFirebase = async (slug) => {
+  let tempCartArray = [];
+  try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
+    const docSnapshot = await getDoc(dbref);
+
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const cartItems = userData.Cart;
+      console.log(cartItems);
+
+      cartItems.forEach((games) => {
+        tempCartArray.push(games);
+      });
+    }
+    let updatedCartArray = tempCartArray.filter(
+      (singlegame) => singlegame.slug != slug
+    );
+
+    await updateDoc(dbref, { Cart: updatedCartArray });
+  } catch (error) {
+    console.error("Error updating cart in Firebase:", error);
+  }
+};
+
+export const clearCartInFirebase = async () => {
+  let tempCartArray = [];
+  try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
+
+    await updateDoc(dbref, { Cart: [] });
+  } catch (error) {
+    console.error("Error updating cart in Firebase:", error);
+  }
+};
+
+export const getGameSlugFromCart = async () => {
+  try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
+    const docSnapshot = await getDoc(dbref);
+    if (docSnapshot.exists()) {
+      const userData = docSnapshot.data();
+      const cartItems = userData.Cart;
+
+      // checking if cart has games in it
+      if (cartItems.length > 0) {
+        const slugArray = [];
+
+        // each game is iterated,and slug is returned
+        for (let i = 0; i < cartItems.length; i++) {
+          slugArray.push(cartItems[i].slug);
+        }
+
+        return slugArray;
+      }
+    }
+    // if the cart has no games,then an empty array is returned
+    return [];
+  } catch (error) {
+    console.error("Error fetching data from Firestore:", error);
+  }
 };

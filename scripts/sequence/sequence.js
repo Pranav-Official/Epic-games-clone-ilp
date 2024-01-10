@@ -1,5 +1,3 @@
-import { placeOrder } from "../_functions/buy_single_game.js";
-
 document.getElementById("cardNum").addEventListener("input", function (event) {
   const input = event.target;
   const inputValue = input.value.replace(/\D/g, ""); // Remove non-numeric characters
@@ -39,11 +37,22 @@ function formatExpiry(value) {
 
 // document.getElementById("placeOrderButton").disabled = true;
 
-document.getElementById("placeOrderButton").addEventListener("click", () => {
-  const result = placeOrder();
-  if (result == true) {
-    window.location.href = "../../pages/gameinfo.html";
-  } else {
-    window.location.href = "../../pages/gameinfo.html";
-  }
-});
+// document
+//   .getElementById("placeOrderButton")
+//   .addEventListener("click", async () => {
+//     try {
+//       const result = await placeOrder();
+
+//       if (result) {
+//         // Order placed successfully
+//         window.location.href = "../../pages/gameinfo.html";
+//       } else {
+//         // Order failed or encountered an error
+//         window.location.href = "../../pages/gameinfo.html";
+//       }
+//     } catch (error) {
+//       console.error("Error placing order:", error);
+//       // Optionally, you could show an error message to the user
+//       // and handle the navigation accordingly.
+//     }
+//   });

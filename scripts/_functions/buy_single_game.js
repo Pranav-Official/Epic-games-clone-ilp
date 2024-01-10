@@ -10,6 +10,18 @@ let gameData = {
   retailPrice: 800,
 };
 
+export const placeOrder = async () => {
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString();
+  gameData.date = formattedDate;
+  try {
+    await addtoTransactionInFirebase(gameData);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
 const sigleGameDOMUpdate = (gameData) => {
   document.querySelector("#cart-title").innerHTML = gameData.name;
   document
@@ -25,9 +37,10 @@ const sigleGameDOMUpdate = (gameData) => {
 const buySingleGame = async () => {
   const gameSlug = localStorage.getItem("gameSlug-info");
   const data = await fetchGameData(gameSlug);
+  console.log(data);
   let price = await getPrice(gameSlug);
   if (price == "null") {
-    let price = {
+    price = {
       salePrice: 1000,
       retailPrice: 800,
       calculatedDiscount: 20,
@@ -42,6 +55,7 @@ const buySingleGame = async () => {
     salePrice: price.salePrice,
   };
   console.log(gameData);
+
   setTimeout(() => {
     sigleGameDOMUpdate(gameData);
   }, 0);
@@ -49,14 +63,36 @@ const buySingleGame = async () => {
 
 await buySingleGame();
 
-export const placeOrder = async () => {
-  const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleDateString();
-  gameData.date = formattedDate;
+const handlePlaceOrderButtonClick = async () => {
   try {
-    await addtoTransactionInFirebase(gameData);
-    return true;
-  } catch (error) {
-    return false;
+    await placeOrder();
+  } catch {
+    console.error("error");
   }
+
+  // await placeOrder();
 };
+
+// Add click event listener to the button
+document
+  .querySelector("#placeOrderButton")
+  .addEventListener("click", handlePlaceOrderButtonClick);
+
+
+
+document
+  .getElementById("placeOrderButton")
+  .addEventListener("click", async () => {
+    try {
+      const result = await placeOrder();
+
+      if (result) {
+        window.location.href = "../../pages/gameinfo.html";
+      } else {
+
+        window.location.href = "../../pages/gameinfo.html";
+      }
+    } catch (error) {
+      console.error("Error placing order:", error);
+    }
+  });

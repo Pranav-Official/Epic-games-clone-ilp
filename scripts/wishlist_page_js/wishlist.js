@@ -19,12 +19,14 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+let dbref = null;
 let tempWishlistArray = [];
 
 //function for loading wishlist items from firebase
 const wishlistPage = async () => {
   try {
+    const userId = localStorage.getItem("userId");
+    dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
     if (docSnapshot.exists()) {
@@ -75,9 +77,7 @@ const wishListTemplate = (wishlistItem) => {
             <button id="percentbtn">${wishlistItem.offerPercentage}</button>
             <p id="actualprice">₹${wishlistItem.actualPrice}</p>
             <p id="price">₹${wishlistItem.offerPrice}</p>
-            <div><p id="sales">Game updated on ${formatDate(
-              wishlistItem.salesEndDate
-            )} at ${formatTime(wishlistItem.salesEndTime)} PM</p></div>
+            <div></div>
           </div>
         </div>
         <div>
@@ -91,9 +91,7 @@ const wishListTemplate = (wishlistItem) => {
             </p>
         </div>
         <div class="button-row">
-           <div class="remove-button"><button class="remove" data-index="${
-             wishlistItem.id
-           }">Remove</button></div>
+           <div class="remove-button"><button class="remove" data-index="${wishlistItem.id}">Remove</button></div>
           <div class="addtocart-button">
             <button id="add2cart">ADD TO CART</button>
           </div>

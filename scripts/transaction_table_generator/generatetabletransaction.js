@@ -1,5 +1,5 @@
 // Import necessary modules and libraries
-import { API_KEY,firebaseConfig } from "../../environment.js";
+import { API_KEY, firebaseConfig } from "../../environment.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
@@ -8,16 +8,11 @@ import {
   getDoc,
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-// Uncomment the line below if using npm to install axios
-// import axios from 'axios';
 
-// Firebase configuration
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getFirestore(app);
-const dbref = doc(database, "UsersData", "anlysolly@gmail.com");
+const dbref = doc(database, "UsersData", "anlysolly");
 
 // Function to generate the table
 async function generateTransactionTable() {

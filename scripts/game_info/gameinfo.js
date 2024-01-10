@@ -1,3 +1,12 @@
+import {
+  getTransactionList,
+  checkIfBought,
+} from "../_functions/transaction_function.js";
+import {
+  displayWishlistSlugs,
+  addToWishlist,
+} from "../_functions/wishlist_functions.js";
+import { getGameSlugFromCart } from "../_functions/cartfunctions.js";
 import { addToCart } from "../_functions/cartfunctions.js";
 import {
   fetchGameScreenShots,
@@ -85,10 +94,14 @@ export const displayPage = async () => {
                 code for discount on new purchases.`;
 
     // thumb image
-    document.querySelector("#game-thumb-image").src = cheapSharkThumb[0].thumb;
-
+    try {
+      document.querySelector("#game-thumb-image").src =
+        cheapSharkThumb[0].thumb;
+    } catch (error) {
+      console.log("error fetching");
+    }
     //game price and discount
-    if (gamePriceData != null) {
+    if (gamePriceData != null && gamePriceData.retailPrice != 0) {
       let discountRounded = parseInt(gamePriceData.calculatedDiscount);
       document.querySelector(
         ".discount-percent"
@@ -106,11 +119,22 @@ export const displayPage = async () => {
           ".sale-end-info"
         ).innerHTML = `No Discount Available`;
       }
+    } else {
+      console.log("jddj");
+
+      document.querySelector(".sale-end-info").remove();
+      document.querySelector(".price-and-discount").remove();
     }
 
     //developer and publisher
-    document.querySelector(".dev-who").innerHTML = gameData.developers[0].name;
-    document.querySelector(".pub-who").innerHTML = gameData.publishers[0].name;
+    try {
+      document.querySelector(".dev-who").innerHTML =
+        gameData.developers[0].name;
+      document.querySelector(".pub-who").innerHTML =
+        gameData.publishers[0].name;
+    } catch (error) {
+      console.log("fetch error");
+    }
     //release date
     document.querySelector(".rel-who").innerHTML = gameData.released;
 
@@ -317,6 +341,17 @@ export const displayPage = async () => {
     let wholeDivHeight = document.querySelector(".game-editions").offsetHeight;
     console.log(wholeDivHeight);
     wholeDiv.style.height = `${wholeDivHeight + 2000}px`;
+
+    //checking game is in cart , whishlist ,or bought
+    if ((await checkIfBought()) == true) {
+      document.querySelector(".buy-button-link").innerHTML = "In Library";
+    } else if ((await checkIfInCart()) == true) {
+      document.querySelector(".add-to-cartbutton-link").innerHTML = "IN CART";
+    } else if ((await checkIfInWishList()) == true) {
+      document.querySelector(".add-to-wishbutton-link").innerHTML =
+        "IN WISHLIST";
+    }
+
     document.querySelector(".footer-main-container").style.display = "block";
   } catch (error) {
     console.error("Error fetching game details:", error);
@@ -367,29 +402,99 @@ function updateStarRating(rating) {
   document.querySelector(".rating").innerHTML = `${numStarsFilled}.0`;
 }
 
-//function to limit words
 function limitWords(text, n) {
-  // Split the text into an array of words
   const words = text.split(" ");
-
-  // Take the first n words
   const limitedWords = words.slice(0, n);
-
-  // Join the limited words into a string
   let limitedText = limitedWords.join(" ");
-
-  // Ensure the result ends with a period
   if (!limitedText.endsWith(".")) {
     limitedText += "....";
   }
-
   return limitedText;
 }
 
 document.getElementById("show-more-link").addEventListener("click", expandDiv);
 
-// document.getElementById("add-to-cartbutton-link").addEventListener("click",()=>{
+//check if game is in cart
+const checkIfInCart = async () => {
+  console.log("Enter");
+  const gameSlug = localStorage.getItem("gameSlug-info");
+  let cartSlugList = await getGameSlugFromCart();
+  console.log(cartSlugList);
+  if (cartSlugList != null) {
+    for (let slug of cartSlugList) {
+      if (slug == gameSlug) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
 
-// })
+//check if game is in  wishlist
+const checkIfInWishList = async () => {
+  const gameSlug = localStorage.getItem("gameSlug-info");
+  let wishlistArray = await displayWishlistSlugs();
+  console.log(wishlistArray);
+  if (wishlistArray != null) {
+    for (let wishitem of wishlistArray) {
+      if (wishitem == gameSlug) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+//adding to cart
+document
+  .querySelector(".add-to-cartbutton-link")
+  .addEventListener("click", async () => {
+    const gameSlug = localStorage.getItem("gameSlug-info");
+    if (localStorage.getItem("userId") == null) {
+      window.location.href = "../../pages/login_page/login.html";
+    } else {
+      console.log("heheh");
+      if (
+        (await checkIfBought()) == false &&
+        (await checkIfInCart()) == false
+      ) {
+        addToCart(gameSlug);
+        document.querySelector(".add-to-cartbutton-link").innerHTML = "IN CART";
+      }
+    }
+  });
+
+//adding to wishlist
+document
+  .querySelector(".add-to-wishbutton-link")
+  .addEventListener("click", async () => {
+    console.log("click");
+    const gameSlug = localStorage.getItem("gameSlug-info");
+    if (localStorage.getItem("userId") == null) {
+      window.location.href = "../../pages/login_page/login.html";
+    } else {
+      if (
+        (await checkIfBought()) == false &&
+        (await checkIfInWishList()) == false
+      ) {
+        addToWishlist(gameSlug);
+        document.querySelector(".add-to-wishbutton-link").innerHTML =
+          "IN WISHLIST";
+      }
+    }
+  });
+
+//buy game
+document
+  .querySelector(".buy-button-link")
+  .addEventListener("click", async () => {
+    if (localStorage.getItem("userId") == null) {
+      window.location.href = "../../pages/login_page/login.html";
+    } else {
+      if ((await checkIfBought()) == false) {
+        window.location.href = "../../pages/checkout_pages/buy_now.html";
+      }
+    }
+  });
 
 window.onload = displayPage;

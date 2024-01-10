@@ -11,7 +11,6 @@ import {
   setDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -70,7 +69,6 @@ function signup() {
         // Call the function to create user data in Firestore
         createUserData(email, firstName, lastName, displayName);
         window.alert("Success! Account created");
-        window.location.href = "../../pages/login_page/login_password.html";
       })
       .catch((error) => {
         console.log(error);
@@ -105,6 +103,7 @@ function createUserData(email, firstName, lastName, displayName) {
   setDoc(userDocRef, userData)
     .then(() => {
       console.log("User data created successfully");
+      window.location.href = "../../pages/login_page/login_password.html";
     })
     .catch((error) => {
       console.error("Error creating user data:", error);

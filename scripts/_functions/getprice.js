@@ -16,7 +16,11 @@ const getPrice = async (gameName) => {
     // Check if any game matches the search query
     if (!gamesData || gamesData.length === 0) {
       console.error(`No results found for the game: ${gameName}`);
-      return null;
+      return {
+        salePrice: 0,
+        retailPrice: 0,
+        calculatedDiscount: 0,
+      };
     }
 
     // Get the deal ID of the first result
