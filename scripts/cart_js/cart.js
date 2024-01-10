@@ -183,6 +183,9 @@ const displayCartInDOM = (cartItems) => {
 const fetchFirestoreData = async () => {
   try {
     const userId = localStorage.getItem("userId");
+    if (!userId) {
+      window.location.href = "../../pages/login_page/login.html";
+    }
     dbref = doc(database, "UsersData", userId);
     const docSnapshot = await getDoc(dbref);
 
@@ -348,7 +351,6 @@ document.querySelector(".cart-container").addEventListener("click", (event) => {
   }
 });
 
-
 // await addToCart("grand-theft-auto-v");
 
 // const cartGameImage = document.getElementById("cartGameImage");
@@ -488,3 +490,7 @@ function setupHoverable() {
 setupHoverable();
 
 // await addToCart("diablo-iv");
+
+document.querySelector(".checkout-button").addEventListener("click", () => {
+  window.location.href = "../../pages/checkout_pages/cart_checkout.html";
+});

@@ -48,6 +48,7 @@ const topNewsTemplate = (newsItem1, newsItem2) => {
           </div>
         </div>
       </div>
+      <hr>
 `;
 };
 //News appeared as rows

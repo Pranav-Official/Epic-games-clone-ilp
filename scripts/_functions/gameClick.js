@@ -1,4 +1,5 @@
 import { addToWishlist, wishlistItemCount } from "./wishlist_functions.js";
+import { checkIfBought } from "./transaction_function.js";
 
 //fuction to handle click to game info
 const handleGameCardClick = (event) => {
@@ -17,9 +18,23 @@ const handleGameCardClick = (event) => {
 const handleAddToWishListClick = async (event) => {
   // Log the value
   event.stopPropagation();
+  const userId = localStorage.getItem("userId");
+  if (!userId) {
+    window.location.href = "../../pages/login_page/login.html";
+  }
   console.log("Click to add to wishlist");
   const nearestGameCard = event.target.closest(".game-card");
   const gameSlug = nearestGameCard.getAttribute("data-slug");
+  const isBought = await checkIfBought(gameSlug);
+  if (isBought == true) {
+    document.querySelector(".wishlist-message h3").innerHTML =
+      "You have already bought this game";
+    document.querySelector(".wishlist-message").classList.add("active");
+    setTimeout(() => {
+      document.querySelector(".wishlist-message").classList.remove("active");
+    }, 2500);
+    return;
+  }
   const result = await addToWishlist(gameSlug);
   // console.log(result);
   if (result == false) {
@@ -28,14 +43,14 @@ const handleAddToWishListClick = async (event) => {
     document.querySelector(".wishlist-message").classList.add("active");
     setTimeout(() => {
       document.querySelector(".wishlist-message").classList.remove("active");
-    }, 3000);
+    }, 2500);
   } else if (result == true) {
     document.querySelector(".wishlist-message h3").innerHTML =
       "This game has been added in your wishlist";
     document.querySelector(".wishlist-message").classList.add("active");
     setTimeout(() => {
       document.querySelector(".wishlist-message").classList.remove("active");
-    }, 3000);
+    }, 2500);
   }
 
   // Add additional logic as needed

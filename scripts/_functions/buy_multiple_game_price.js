@@ -142,6 +142,8 @@ const fetchAndDisplayCartItems = async () => {
 
 const placeOrderButton = async () => {
   await addtoTransactionInFirebaseBulk(globalCartItems);
+  window.location.href =
+    "../../pages/purchase_complete_page/purchase_page_complete.html";
 };
 
 document
