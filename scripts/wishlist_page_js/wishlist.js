@@ -122,6 +122,15 @@ const displayWishlist = (games) => {
       console.log(dataSlug);
       await removeWishlistInFirebase(dataSlug);
       window.location.reload();
+      // const removeMessageContainer = document.getElementById(
+      //   "remove-message-container"
+      // );
+      // const removeMessage = document.getElementById("remove-message");
+      // removeMessage.textContent = `${games.title} is removed from your wishlist`;
+      // const toast = new bootstrap.Toast(removeMessageContainer);
+      // setTimeout(() => {
+      //   toast.show();
+      // }, 10000);
     });
 
     const addToCartButton = wishlistDiv.querySelector("#add2cart");

@@ -62,16 +62,14 @@ export const removeWishlistInFirebase = async (dataSlug) => {
     if (docSnapshot.exists()) {
       const userData = docSnapshot.data();
       let wishlistItems = userData.Wishlist;
-      // console.log(tempWishlistArray);
       tempWishlistArray = [...wishlistItems];
     }
     updatedWishlistArray = tempWishlistArray.filter(
       (singlegame) => singlegame.slug != dataSlug
     );
     await updateDoc(dbref, { Wishlist: updatedWishlistArray });
-    // window.location.reload();
   } catch (error) {
-    console.log("error removeing");
+    console.log("error in removing");
   }
 };
 //add to wishlist
@@ -113,7 +111,6 @@ export const addToWishlist = async (gameSlug) => {
   const result = await updateWishlistInFirebase(obj);
   return result;
 };
-
 
 //count wishlist items
 

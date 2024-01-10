@@ -1,11 +1,25 @@
-import { NEWS_API_KEY } from "../../environment.js";
-const url =
-  "https://newsapi.org/v2/everything?" +
-  "q=Games&" +
-  "apiKey=4bdcb41ba60e45ae98fac6b55ae85c2c";
+import { newsUrl } from "../../environment.js";
 
-const req = new Request(url);
-const apiUrl = `https://newsapi.org/v2/everything?q=Games&apiKey=${NEWS_API_KEY}`;
+//news data fetch
+const req = new Request(newsUrl);
+const apiUrl = newsUrl;
+
+async function fetchData(apiUrl) {
+  try {
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data.articles;
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return [];
+  }
+}
 
 //Top news
 const topNewsTemplate = (newsItem1, newsItem2) => {
@@ -93,22 +107,6 @@ const timeAgo = (dateString) => {
     return `${seconds}SEC AGO`;
   }
 };
-async function fetchData(apiUrl) {
-  try {
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    console.log(data);
-    return data.articles;
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-    return [];
-  }
-}
 
 //to display news from specific number
 const displayNews = (newsData, start) => {
