@@ -37,7 +37,7 @@ ul {
   background: linear-gradient(180deg, #252525 0, #565656);
 }
 
-.home-page-wrapper {
+/* .home-page-wrapper {
   padding: 0 0 100px;
   margin: 0;
   font-size: 1rem;
@@ -106,14 +106,6 @@ ul {
     font-size: 40px;
     line-height: 60px;
   }
-}
-
-h1 {
-  display: block;
-  margin-block-start: 0.67em;
-  margin-block-end: 0.67em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
 }
 
 .server-status-wrapper {
@@ -234,7 +226,7 @@ h1 {
   bottom: 0;
   margin: auto 0;
   color: #141414;
-}
+} */
 
 @media screen and (min-width: 768px) {
   .category-sticky-bar .category-sticky-bar__container {
